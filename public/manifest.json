@@ -1,12 +1,12 @@
 
 {
-  "name": "CargoConnect - Pakistan Cargo Services",
-  "short_name": "CargoConnect",
+  "name": "Cargo to Pakistan - Fast Shipping Services",
+  "short_name": "Cargo to Pakistan",
   "description": "Fast and reliable cargo services to Pakistan",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#0A3D67",
+  "theme_color": "#37b05d",
   "icons": [
     {
       "src": "/icons/icon-72x72.png",

@@ -35,8 +35,8 @@ const Header = () => {
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
-          <div className="text-cargo-blue font-bold text-2xl">
-            Cargo<span className="text-cargo-orange">Connect</span>
+          <div className="text-[#37b05d] font-bold text-2xl">
+            Cargo <span className="text-black">to Pakistan</span>
           </div>
         </Link>
         
@@ -48,14 +48,14 @@ const Header = () => {
               to={link.path}
               className={`font-medium tap-target px-2 py-1 transition-colors ${
                 location.pathname === link.path
-                  ? "text-cargo-orange"
-                  : "text-cargo-blue hover:text-cargo-orange"
+                  ? "text-[#37b05d]"
+                  : "text-black hover:text-[#37b05d]"
               }`}
             >
               {link.title}
             </Link>
           ))}
-          <Button className="bg-cargo-orange hover:bg-orange-600">
+          <Button className="bg-[#37b05d] hover:bg-[#2c8a49]">
             Get Quote
           </Button>
         </nav>
@@ -72,8 +72,8 @@ const Header = () => {
             <SheetContent side="right" className="w-[80vw] sm:w-[350px]">
               <div className="flex flex-col h-full">
                 <div className="flex justify-between items-center mb-6">
-                  <div className="text-cargo-blue font-bold text-xl">
-                    Cargo<span className="text-cargo-orange">Connect</span>
+                  <div className="text-[#37b05d] font-bold text-xl">
+                    Cargo <span className="text-black">to Pakistan</span>
                   </div>
                   <SheetTrigger asChild>
                     <Button variant="ghost" size="icon" className="tap-target">
@@ -90,8 +90,8 @@ const Header = () => {
                       to={link.path}
                       className={`font-medium tap-target p-2 transition-colors ${
                         location.pathname === link.path
-                          ? "bg-cargo-lightBlue text-cargo-blue rounded-md"
-                          : "text-cargo-blue hover:bg-cargo-lightBlue hover:rounded-md"
+                          ? "bg-[#e6f7ed] text-[#37b05d] rounded-md"
+                          : "text-black hover:bg-[#e6f7ed] hover:rounded-md"
                       }`}
                     >
                       {link.title}
@@ -100,15 +100,15 @@ const Header = () => {
                 </nav>
                 
                 <div className="mt-auto space-y-4">
-                  <div className="flex items-center gap-2 text-cargo-blue">
+                  <div className="flex items-center gap-2 text-black">
                     <Phone className="h-4 w-4" />
                     <span>+92 300 1234567</span>
                   </div>
-                  <div className="flex items-center gap-2 text-cargo-blue">
+                  <div className="flex items-center gap-2 text-black">
                     <Mail className="h-4 w-4" />
                     <span>info@cargoconnect.pk</span>
                   </div>
-                  <Button className="w-full bg-cargo-orange hover:bg-orange-600">
+                  <Button className="w-full bg-[#37b05d] hover:bg-[#2c8a49]">
                     Get Quote
                   </Button>
                 </div>
