@@ -40,12 +40,12 @@ const TestimonialCard = ({
         <div className="flex items-center mt-auto">
           <Avatar className="h-10 w-10 mr-3">
             <AvatarImage src={imageUrl} alt={name} />
-            <AvatarFallback className="bg-cargo-blue text-white">
+            <AvatarFallback className="bg-cargo-medium text-white">
               {name.split(' ').map(n => n[0]).join('')}
             </AvatarFallback>
           </Avatar>
           <div>
-            <h4 className="font-medium text-cargo-blue">{name}</h4>
+            <h4 className="font-medium text-cargo-dark">{name}</h4>
             {position && <p className="text-sm text-gray-500">{position}</p>}
           </div>
         </div>

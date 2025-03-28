@@ -14,79 +14,91 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 142 69% 45%;
-    --primary-foreground: 0 0% 100%;
+    /* New green color palette */
+    --primary: 120 8% 85%; /* #DAD7CD - lightest green */
+    --primary-light: 82 13% 70%; /* #A3B18A - light green */
+    --primary-medium: 111 20% 45%; /* #588157 - medium green */
+    --primary-dark: 120 30% 36%; /* #3A5A40 - dark green */
+    --primary-darkest: 126 25% 24%; /* #344E41 - darkest green */
+    
+    --primary-foreground: 0 0% 0%;
 
     --secondary: 0 0% 0%;
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 40% 96.1%;
+    --muted: 82 13% 95%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 142 69% 45%;
+    --accent: 82 13% 70%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 53% 45%;
+    --border: 120 8% 85%;
+    --input: 120 8% 85%;
+    --ring: 111 20% 45%;
 
     --radius: 0.5rem;
 
-    --sidebar-background: 0 0% 98%;
+    --sidebar-background: 120 8% 95%;
     --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 142 53% 45%;
+    --sidebar-primary: 111 20% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 95.9%;
+    --sidebar-accent: 120 8% 95%;
     --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 142 53% 45%;
+    --sidebar-border: 120 8% 90%;
+    --sidebar-ring: 111 20% 45%;
 
-    /* Define missing colors */
+    /* Define other cargo colors */
+    --cargo-lightest: 120 8% 85%; /* #DAD7CD */
+    --cargo-light: 82 13% 70%; /* #A3B18A */
+    --cargo-medium: 111 20% 45%; /* #588157 */
+    --cargo-dark: 120 30% 36%; /* #3A5A40 */
+    --cargo-darkest: 126 25% 24%; /* #344E41 */
+    
     --cargo-blue: 205 100% 35%;
     --cargo-orange: 30 100% 55%;
     --cargo-lightBlue: 205 100% 95%;
   }
 
   .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 95%;
+    --background: 126 25% 24%; /* darkest green as background */
+    --foreground: 120 8% 95%; /* light shade for text */
 
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
+    --card: 126 25% 24%;
+    --card-foreground: 120 8% 95%;
 
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
+    --popover: 126 25% 24%;
+    --popover-foreground: 120 8% 95%;
 
-    --primary: 142 53% 45%;
+    --primary: 111 20% 45%; /* medium green as primary */
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 120 8% 85%; /* lightest green as secondary */
+    --secondary-foreground: 126 25% 24%;
 
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
+    --muted: 120 30% 30%;
+    --muted-foreground: 120 8% 80%;
 
-    --accent: 142 53% 45%;
-    --accent-foreground: 0 0% 100%;
+    --accent: 82 13% 70%; /* light green as accent */
+    --accent-foreground: 126 25% 24%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 142 53% 45%;
+    --border: 120 30% 30%;
+    --input: 120 30% 30%;
+    --ring: 111 20% 45%;
 
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 142 53% 45%;
+    --sidebar-background: 126 25% 24%;
+    --sidebar-foreground: 120 8% 95%;
+    --sidebar-primary: 111 20% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 142 53% 45%;
+    --sidebar-accent: 120 30% 30%;
+    --sidebar-accent-foreground: 120 8% 95%;
+    --sidebar-border: 120 30% 28%;
+    --sidebar-ring: 111 20% 45%;
   }
 }
 
@@ -111,15 +123,15 @@
   }
   
   .btn-primary {
-    @apply bg-cargo-green text-white hover:bg-[#2c8a49] transition-colors;
+    @apply bg-cargo-medium text-white hover:bg-cargo-dark transition-colors;
   }
   
   .btn-secondary {
-    @apply bg-black text-white hover:bg-gray-800 transition-colors;
+    @apply bg-cargo-darkest text-white hover:bg-cargo-dark transition-colors;
   }
   
   .btn-accent {
-    @apply bg-cargo-green text-white hover:bg-[#2c8a49] transition-colors;
+    @apply bg-cargo-medium text-white hover:bg-cargo-dark transition-colors;
   }
   
   .card-hover {
@@ -135,7 +147,7 @@
   }
 
   .section-title {
-    @apply text-3xl font-bold text-cargo-blue mb-3;
+    @apply text-3xl font-bold text-cargo-dark mb-3;
   }
   
   .section-description {
