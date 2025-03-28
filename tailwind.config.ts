@@ -70,6 +70,9 @@ export default {
 					white: '#ffffff',
 					gray: '#F1F5F9',
 					lightGreen: '#e6f7ed',
+					blue: '#0A3D67',
+					orange: '#F59E0B',
+					lightBlue: '#E1F0FF',
 				}
 			},
 			borderRadius: {

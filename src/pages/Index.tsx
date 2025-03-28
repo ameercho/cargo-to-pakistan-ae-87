@@ -5,10 +5,11 @@ import QuoteForm from "@/components/QuoteForm";
 import ServiceCard from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import ServiceAreas from "@/components/ServiceAreas";
+import DoorToDoorService from "@/components/DoorToDoorService";
 import ExitPopup from "@/components/ExitPopup";
 import FloatingButton from "@/components/FloatingButton";
 import { Link } from "react-router-dom";
-import { ArrowRight, Ship, Plane, Truck, Package, ShieldCheck, Clock } from "lucide-react";
+import { ArrowRight, Ship, Plane, Truck, Package, ShieldCheck, Clock, Phone, MessageCircle } from "lucide-react";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -16,6 +17,14 @@ const Index = () => {
   useEffect(() => {
     setIsLoaded(true);
   }, []);
+
+  const handleCall = () => {
+    window.location.href = "tel:+971501234567";
+  };
+
+  const handleWhatsApp = () => {
+    window.open("https://wa.me/971501234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
+  };
 
   const services = [
     {
@@ -98,6 +107,23 @@ const Index = () => {
                   Track Shipment
                 </Button>
               </div>
+              
+              {/* Call and WhatsApp buttons */}
+              <div className="flex flex-wrap gap-4 pt-4">
+                <Button 
+                  onClick={handleCall} 
+                  className="bg-white text-cargo-green hover:bg-gray-100 tap-target flex items-center gap-2"
+                >
+                  <Phone className="h-4 w-4" /> Call Us
+                </Button>
+                <Button 
+                  onClick={handleWhatsApp} 
+                  className="bg-green-600 hover:bg-green-700 text-white tap-target flex items-center gap-2"
+                >
+                  <MessageCircle className="h-4 w-4" /> WhatsApp
+                </Button>
+              </div>
+              
               <div className="pt-4">
                 <div className="flex flex-wrap gap-3">
                   <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Air Freight</div>
@@ -117,8 +143,8 @@ const Index = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-cargo-blue mb-3">Our Services</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
+            <h2 className="section-title">Our Services</h2>
+            <p className="section-description">
               Comprehensive cargo solutions tailored to your specific needs for shipping to Pakistan.
             </p>
           </div>
@@ -147,6 +173,9 @@ const Index = () => {
 
       {/* Service Areas */}
       <ServiceAreas />
+
+      {/* Door to Door Service Section */}
+      <DoorToDoorService />
 
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">

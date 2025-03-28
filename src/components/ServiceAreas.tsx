@@ -8,9 +8,9 @@ interface LocationProps {
 }
 
 const LocationItem = ({ city, country, isHighlighted = false }: LocationProps) => (
-  <div className={`p-3 rounded-lg flex items-center ${
+  <div className={`location-card ${
     isHighlighted ? "bg-cargo-lightBlue text-cargo-blue" : "bg-white hover:bg-gray-50"
-  } shadow-sm transition-colors`}>
+  }`}>
     <MapPin className={`h-5 w-5 mr-2 ${isHighlighted ? "text-cargo-blue" : "text-cargo-orange"}`} />
     <div>
       <p className="font-medium">{city}</p>
@@ -21,14 +21,14 @@ const LocationItem = ({ city, country, isHighlighted = false }: LocationProps) =
 
 const ServiceAreas = () => {
   const originLocations = [
-    { city: "London", country: "United Kingdom" },
-    { city: "Manchester", country: "United Kingdom" },
-    { city: "Birmingham", country: "United Kingdom" },
-    { city: "New York", country: "United States" },
-    { city: "Los Angeles", country: "United States" },
-    { city: "Toronto", country: "Canada" },
-    { city: "Dubai", country: "UAE" },
-    { city: "Sydney", country: "Australia" },
+    { city: "Dubai", country: "UAE", isHighlighted: true },
+    { city: "Abu Dhabi", country: "UAE", isHighlighted: true },
+    { city: "Sharjah", country: "UAE" },
+    { city: "Ajman", country: "UAE" },
+    { city: "Ras Al Khaimah", country: "UAE" },
+    { city: "Fujairah", country: "UAE" },
+    { city: "Umm Al Quwain", country: "UAE" },
+    { city: "Al Ain", country: "UAE" },
   ];
 
   const destinationLocations = [
@@ -46,9 +46,9 @@ const ServiceAreas = () => {
     <div className="py-12 bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold text-cargo-blue mb-3">Our Service Areas</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We provide cargo services from major cities worldwide to all major destinations in Pakistan.
+          <h2 className="section-title">Our Service Areas</h2>
+          <p className="section-description">
+            We provide cargo services from major cities in the UAE to all major destinations in Pakistan.
           </p>
         </div>
 
@@ -66,6 +66,7 @@ const ServiceAreas = () => {
                   key={`origin-${index}`}
                   city={location.city}
                   country={location.country}
+                  isHighlighted={location.isHighlighted}
                 />
               ))}
             </div>

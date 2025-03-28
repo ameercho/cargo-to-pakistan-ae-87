@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 142 53% 45%;
+    --primary: 142 69% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 0%;
@@ -23,7 +23,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 142 53% 45%;
+    --accent: 142 69% 45%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
@@ -43,35 +43,40 @@
     --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 142 53% 45%;
+
+    /* Define missing colors */
+    --cargo-blue: 205 100% 35%;
+    --cargo-orange: 30 100% 55%;
+    --cargo-lightBlue: 205 100% 95%;
   }
 
   .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
+    --background: 0 0% 10%;
+    --foreground: 0 0% 95%;
 
-    --card: 0 0% 0%;
-    --card-foreground: 0 0% 100%;
+    --card: 0 0% 10%;
+    --card-foreground: 0 0% 95%;
 
-    --popover: 0 0% 0%;
-    --popover-foreground: 0 0% 100%;
+    --popover: 0 0% 10%;
+    --popover-foreground: 0 0% 95%;
 
-    --primary: 142 53% 35%;
+    --primary: 142 53% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 100%;
     --secondary-foreground: 0 0% 0%;
 
-    --muted: 0 0% 15%;
+    --muted: 0 0% 20%;
     --muted-foreground: 0 0% 65%;
 
-    --accent: 142 53% 35%;
+    --accent: 142 53% 45%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 0 0% 15%;
-    --input: 0 0% 15%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
     --ring: 142 53% 45%;
 
     --sidebar-background: 0 0% 10%;
@@ -96,7 +101,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-black;
+    @apply font-bold text-black dark:text-white;
   }
 }
 
@@ -127,5 +132,17 @@
   
   .tap-target {
     @apply min-h-[44px] min-w-[44px]; /* Thumb-friendly tap targets */
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-cargo-blue mb-3;
+  }
+  
+  .section-description {
+    @apply text-gray-600 max-w-2xl mx-auto;
+  }
+
+  .location-card {
+    @apply p-3 rounded-lg flex items-center shadow-sm transition-colors;
   }
 }
