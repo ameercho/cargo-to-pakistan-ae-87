@@ -28,7 +28,7 @@ const DoorToDoorService = () => {
   ];
 
   return (
-    <section className="py-16 bg-cargo-lightest bg-opacity-30">
+    <section className="py-16 bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="section-title">Door to Door Service</h2>
@@ -42,10 +42,10 @@ const DoorToDoorService = () => {
             <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden card-hover">
               <div className="p-6">
                 <div className="flex items-center mb-4">
-                  <div className="bg-cargo-light bg-opacity-30 rounded-full p-3 mr-4">
-                    <Truck className="h-6 w-6 text-cargo-medium" />
+                  <div className="bg-cargo-lightGreen rounded-full p-3 mr-4">
+                    <Truck className="h-6 w-6 text-cargo-green" />
                   </div>
-                  <h3 className="text-xl font-semibold text-cargo-darkest">
+                  <h3 className="text-xl font-semibold">
                     Cargo to Pakistan from {service.from}
                   </h3>
                 </div>
@@ -59,7 +59,7 @@ const DoorToDoorService = () => {
                 </div>
                 
                 <div className="flex items-start mb-4">
-                  <MapPin className="h-5 w-5 text-cargo-dark mt-1 mr-2 flex-shrink-0" />
+                  <MapPin className="h-5 w-5 text-cargo-blue mt-1 mr-2 flex-shrink-0" />
                   <div>
                     <p className="font-medium">To: All major cities in Pakistan</p>
                     <p className="text-sm text-gray-500">Delivery to recipient's doorstep</p>
@@ -69,11 +69,11 @@ const DoorToDoorService = () => {
                 <p className="mb-6 text-gray-600">{service.description}</p>
                 
                 <div className="flex flex-wrap gap-3">
-                  <Button className="bg-cargo-medium hover:bg-cargo-dark text-white tap-target">
+                  <Button className="bg-cargo-green hover:bg-green-700 text-white tap-target">
                     Get a Quote
                   </Button>
                   <Link to="/services">
-                    <Button variant="outline" className="border-cargo-medium text-cargo-dark hover:bg-cargo-lightest tap-target">
+                    <Button variant="outline" className="tap-target">
                       Learn More
                     </Button>
                   </Link>

@@ -63,22 +63,16 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// Custom cargo theme colors based on the new green palette
+				// Custom cargo theme colors
 				cargo: {
-					lightest: '#DAD7CD',
-					light: '#A3B18A',
-					medium: '#588157',
-					dark: '#3A5A40',
-					darkest: '#344E41',
+					green: '#37b05d',
 					black: '#000000',
 					white: '#ffffff',
 					gray: '#F1F5F9',
-					lightGreen: '#E6F4E1',
+					lightGreen: '#e6f7ed',
 					blue: '#0A3D67',
 					orange: '#F59E0B',
 					lightBlue: '#E1F0FF',
-					// Maintain previous color references to avoid breaking changes
-					green: '#588157',
 				}
 			},
 			borderRadius: {

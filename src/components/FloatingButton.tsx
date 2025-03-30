@@ -40,7 +40,7 @@ const FloatingButton = () => {
       {isOpen && (
         <div className="absolute bottom-16 right-0 bg-white p-4 rounded-lg shadow-lg w-64 animate-fade-in mb-2">
           <div className="flex justify-between items-center mb-2">
-            <h4 className="font-medium text-cargo-dark">Need Help?</h4>
+            <h4 className="font-medium text-cargo-blue">Need Help?</h4>
             <Button 
               variant="ghost" 
               size="icon" 
@@ -54,7 +54,7 @@ const FloatingButton = () => {
             Chat with our team for instant quotes and assistance.
           </p>
           <Button 
-            className="w-full bg-cargo-medium hover:bg-cargo-dark"
+            className="w-full bg-green-600 hover:bg-green-700"
             onClick={handleWhatsAppClick}
           >
             <MessageCircle className="mr-2 h-4 w-4" /> Start Chat
@@ -64,8 +64,8 @@ const FloatingButton = () => {
       
       <Button
         size="lg"
-        className={`rounded-full w-14 h-14 bg-cargo-medium hover:bg-cargo-dark shadow-lg tap-target ${
-          isOpen ? "bg-cargo-dark" : "animate-pulse-light"
+        className={`rounded-full w-14 h-14 bg-green-600 hover:bg-green-700 shadow-lg tap-target ${
+          isOpen ? "bg-green-700" : "animate-pulse-light"
         }`}
         onClick={() => setIsOpen(!isOpen)}
       >

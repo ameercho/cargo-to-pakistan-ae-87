@@ -70,7 +70,7 @@ const ExitPopup = () => {
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[425px]">
         <DialogHeader>
-          <DialogTitle className="text-cargo-dark text-xl">
+          <DialogTitle className="text-cargo-blue text-xl">
             Wait! Don't Miss Out!
           </DialogTitle>
           <DialogDescription>
@@ -80,10 +80,10 @@ const ExitPopup = () => {
 
         {isSubscribed ? (
           <div className="py-6 flex flex-col items-center text-center">
-            <div className="rounded-full bg-cargo-light bg-opacity-30 p-3 mb-4">
-              <Check className="h-6 w-6 text-cargo-medium" />
+            <div className="rounded-full bg-green-100 p-3 mb-4">
+              <Check className="h-6 w-6 text-green-600" />
             </div>
-            <h3 className="text-lg font-medium text-cargo-darkest mb-1">Thank You!</h3>
+            <h3 className="text-lg font-medium text-gray-900 mb-1">Thank You!</h3>
             <p className="text-gray-500">
               Your discount code has been sent to your email.
             </p>
@@ -92,10 +92,10 @@ const ExitPopup = () => {
           <form onSubmit={handleSubscribe}>
             <div className="flex flex-col gap-4 py-4">
               <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-cargo-medium flex items-center justify-center text-white">
+                <div className="h-10 w-10 rounded-full bg-cargo-orange flex items-center justify-center text-white">
                   10%
                 </div>
-                <div className="font-medium text-cargo-darkest">Special Discount</div>
+                <div className="font-medium">Special Discount</div>
               </div>
               <Input
                 type="email"
@@ -103,20 +103,20 @@ const ExitPopup = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="tap-target border-cargo-light focus:border-cargo-medium"
+                className="tap-target"
               />
             </div>
             <DialogFooter>
               <Button 
                 variant="outline" 
                 onClick={handleClose}
-                className="tap-target border-cargo-light text-cargo-dark"
+                className="tap-target"
               >
                 No Thanks
               </Button>
               <Button 
                 type="submit" 
-                className="bg-cargo-medium hover:bg-cargo-dark tap-target"
+                className="bg-cargo-orange hover:bg-orange-600 tap-target"
               >
                 Get My Discount
               </Button>
