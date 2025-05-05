@@ -8,6 +8,7 @@ import ServiceAreas from "@/components/ServiceAreas";
 import DoorToDoorService from "@/components/DoorToDoorService";
 import ExitPopup from "@/components/ExitPopup";
 import FloatingButton from "@/components/FloatingButton";
+import PakistanCargoServices from "@/components/PakistanCargoServices";
 import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Plane, Truck, Package, ShieldCheck, Clock, Phone, MessageCircle } from "lucide-react";
 
@@ -40,7 +41,7 @@ const Index = () => {
       iconColor: "text-cargo-green",
     },
     {
-      title: "Road Transport",
+      title: "Full Container",
       description: "Efficient ground transportation services for your cargo within Pakistan.",
       icon: Truck,
       iconColor: "text-cargo-orange",
@@ -52,13 +53,13 @@ const Index = () => {
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Insurance",
-      description: "Comprehensive insurance coverage for your valuable shipments.",
+      title: "Full Container",
+      description: "Comprehensive coverage for your valuable shipments against loss or damage.",
       icon: ShieldCheck,
       iconColor: "text-cargo-green",
     },
     {
-      title: "Express Delivery",
+      title: "Courier Service",
       description: "Expedited shipping options for urgent cargo deliveries.",
       icon: Clock,
       iconColor: "text-cargo-orange",
@@ -69,7 +70,7 @@ const Index = () => {
     {
       name: "Ahmed Khan",
       position: "Business Owner",
-      testimonial: "CargoConnect made shipping to Pakistan incredibly easy. Their rates are competitive and service is excellent!",
+      testimonial: "Cargo to Pakistan made shipping to Pakistan incredibly easy. Their rates are competitive and service is excellent!",
       rating: 5,
     },
     {
@@ -81,7 +82,7 @@ const Index = () => {
     {
       name: "Muhammad Ali",
       position: "Importer",
-      testimonial: "We've been using CargoConnect for our business shipments for over 2 years. Their service is consistent and reliable.",
+      testimonial: "We've been using Cargo to Pakistan for our business shipments for over 2 years. Their service is consistent and reliable.",
       rating: 5,
     },
   ];
@@ -99,14 +100,6 @@ const Index = () => {
               <p className="text-lg text-gray-100">
                 Fast, secure, and affordable shipping solutions for personal and business cargo.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <Button className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" size="lg">
-                  Our Services
-                </Button>
-                <Button variant="outline" className="bg-transparent text-white border-white hover:bg-white/10 tap-target" size="lg">
-                  Track Shipment
-                </Button>
-              </div>
               
               {/* Call and WhatsApp buttons */}
               <div className="flex flex-wrap gap-4 pt-4">
@@ -128,7 +121,7 @@ const Index = () => {
                 <div className="flex flex-wrap gap-3">
                   <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Air Freight</div>
                   <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Sea Freight</div>
-                  <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Road Transport</div>
+                  <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Full Container</div>
                 </div>
               </div>
             </div>
@@ -174,8 +167,11 @@ const Index = () => {
       {/* Service Areas */}
       <ServiceAreas />
 
-      {/* Door to Door Service Section */}
+      {/* Door to Door Service Section - renamed to "Cargo to Pakistan from UAE" */}
       <DoorToDoorService />
+      
+      {/* Pakistan Cargo Services Section */}
+      <PakistanCargoServices />
 
       {/* Why Choose Us Section */}
       <section className="py-16 bg-white">
@@ -241,7 +237,7 @@ const Index = () => {
                   </li>
                 ))}
               </ul>
-              <Button className="bg-cargo-green hover:bg-green-700 tap-target">
+              <Button className="bg-cargo-green hover:bg-[#176a3e] tap-target">
                 Learn More About Us
               </Button>
             </div>

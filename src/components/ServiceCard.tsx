@@ -25,6 +25,8 @@ const ServiceCard = ({
         <div className={cn("rounded-full w-12 h-12 flex items-center justify-center mb-4", 
           iconColor === "text-cargo-green" ? "bg-cargo-lightGreen" : 
           iconColor === "text-cargo-black" ? "bg-gray-100" :
+          iconColor === "text-cargo-blue" ? "bg-cargo-lightBlue" :
+          iconColor === "text-cargo-orange" ? "bg-orange-100" :
           "bg-gray-100"
         )}>
           <Icon className={cn("h-6 w-6", iconColor)} />

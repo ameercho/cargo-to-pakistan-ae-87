@@ -1,5 +1,5 @@
 
-import { Truck, Package, MapPin } from "lucide-react";
+import { Truck, MapPin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ const DoorToDoorService = () => {
     <section className="py-16 bg-white">
       <div className="container-custom">
         <div className="text-center mb-12">
-          <h2 className="section-title">Door to Door Service</h2>
+          <h2 className="section-title">Cargo to Pakistan from UAE</h2>
           <p className="section-description">
             We provide convenient door-to-door cargo services from all major cities in the UAE to destinations throughout Pakistan.
           </p>
@@ -69,7 +69,7 @@ const DoorToDoorService = () => {
                 <p className="mb-6 text-gray-600">{service.description}</p>
                 
                 <div className="flex flex-wrap gap-3">
-                  <Button className="bg-cargo-green hover:bg-green-700 text-white tap-target">
+                  <Button className="bg-cargo-green hover:bg-[#176a3e] text-white tap-target">
                     Get a Quote
                   </Button>
                   <Link to="/services">

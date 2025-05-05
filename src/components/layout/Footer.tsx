@@ -9,7 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Cargo<span className="text-cargo-orange">Connect</span></h3>
+            <h3 className="text-xl font-bold text-white">Cargo<span className="text-cargo-orange">to Pakistan</span></h3>
             <p className="text-gray-300">
               Your trusted partner for all cargo shipment services to Pakistan. We provide reliable, efficient, and cost-effective solutions.
             </p>
@@ -45,6 +45,9 @@ const Footer = () => {
               <li>
                 <Link to="/faq" className="text-gray-300 hover:text-white transition-colors">FAQ</Link>
               </li>
+              <li>
+                <Link to="/service-areas" className="text-gray-300 hover:text-white transition-colors">Our Service Areas</Link>
+              </li>
             </ul>
           </div>
 
@@ -54,9 +57,12 @@ const Footer = () => {
             <ul className="space-y-2">
               <li className="text-gray-300">Air Freight</li>
               <li className="text-gray-300">Sea Freight</li>
-              <li className="text-gray-300">Road Transport</li>
+              <li className="text-gray-300">Full Container</li>
               <li className="text-gray-300">Warehouse Solutions</li>
               <li className="text-gray-300">Customs Clearance</li>
+              <li>
+                <Link to="/service-areas" className="text-gray-300 hover:text-white transition-colors">Service Areas</Link>
+              </li>
             </ul>
           </div>
 
@@ -74,7 +80,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-cargo-orange flex-shrink-0" />
-                <p className="text-gray-300">info@cargoconnect.pk</p>
+                <p className="text-gray-300">info@cargotopakistan.ae</p>
               </div>
             </div>
           </div>
@@ -83,7 +89,7 @@ const Footer = () => {
         <div className="mt-12 pt-4 border-t border-blue-800">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} CargoConnect. All rights reserved.
+              © {new Date().getFullYear()} Cargo to Pakistan. All rights reserved.
             </p>
             <div className="flex space-x-4 mt-4 md:mt-0">
               <Link to="/privacy" className="text-gray-400 text-sm hover:text-white transition-colors">

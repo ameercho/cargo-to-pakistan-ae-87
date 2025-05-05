@@ -65,11 +65,11 @@ export default {
 				},
 				// Custom cargo theme colors
 				cargo: {
-					green: '#37b05d',
+					green: '#1e7c4a',
 					black: '#000000',
 					white: '#ffffff',
 					gray: '#F1F5F9',
-					lightGreen: '#e6f7ed',
+					lightGreen: '#e8f5ee',
 					blue: '#0A3D67',
 					orange: '#F59E0B',
 					lightBlue: '#E1F0FF',

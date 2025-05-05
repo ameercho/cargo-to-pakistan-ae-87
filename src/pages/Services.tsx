@@ -20,8 +20,8 @@ const Services = () => {
       iconColor: "text-cargo-green",
     },
     {
-      title: "Road Transport",
-      description: "Efficient ground transportation services for your cargo within Pakistan.",
+      title: "Full Container",
+      description: "Efficient transportation services for your full container shipments to Pakistan.",
       icon: Truck,
       iconColor: "text-cargo-orange",
     },
@@ -35,14 +35,14 @@ const Services = () => {
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Insurance",
-      description: "Comprehensive insurance coverage for your valuable shipments against loss or damage.",
+      title: "Full Container",
+      description: "Complete container shipping solutions for your cargo to Pakistan.",
       icon: ShieldCheck,
       iconColor: "text-cargo-green",
     },
     {
-      title: "Express Delivery",
-      description: "Expedited shipping options for urgent cargo deliveries to Pakistan.",
+      title: "Courier Service",
+      description: "Fast courier delivery options for urgent cargo and packages to Pakistan.",
       icon: Clock,
       iconColor: "text-cargo-orange",
     },
@@ -165,7 +165,7 @@ const Services = () => {
                   <td className="px-6 py-4 text-center">Household goods, bulk items</td>
                 </tr>
                 <tr>
-                  <td className="px-6 py-4 font-medium">Road Transport</td>
+                  <td className="px-6 py-4 font-medium">Full Container</td>
                   <td className="px-6 py-4 text-center">Medium (varies)</td>
                   <td className="px-6 py-4 text-center">Medium</td>
                   <td className="px-6 py-4 text-center">Flexible</td>

@@ -14,7 +14,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 0%;
 
-    --primary: 142 69% 45%;
+    --primary: 150 54% 39%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 0%;
@@ -23,7 +23,7 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 142 69% 45%;
+    --accent: 150 54% 39%;
     --accent-foreground: 0 0% 0%;
 
     --destructive: 0 84.2% 60.2%;
@@ -31,23 +31,28 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 53% 45%;
+    --ring: 150 54% 39%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 142 53% 45%;
+    --sidebar-primary: 150 54% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 95.9%;
     --sidebar-accent-foreground: 0 0% 0%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 142 53% 45%;
+    --sidebar-ring: 150 54% 39%;
 
-    /* Define missing colors */
-    --cargo-blue: 205 100% 35%;
-    --cargo-orange: 30 100% 55%;
-    --cargo-lightBlue: 205 100% 95%;
+    /* Define cargo theme colors */
+    --cargo-green: #1e7c4a;
+    --cargo-lightGreen: #e8f5ee;
+    --cargo-black: #000000;
+    --cargo-white: #ffffff;
+    --cargo-gray: #F1F5F9;
+    --cargo-blue: #0A3D67;
+    --cargo-lightBlue: #E1F0FF;
+    --cargo-orange: #F59E0B;
   }
 
   .dark {
@@ -111,7 +116,7 @@
   }
   
   .btn-primary {
-    @apply bg-cargo-green text-white hover:bg-[#2c8a49] transition-colors;
+    @apply bg-cargo-green text-white hover:bg-[#176a3e] transition-colors;
   }
   
   .btn-secondary {
@@ -119,7 +124,7 @@
   }
   
   .btn-accent {
-    @apply bg-cargo-green text-white hover:bg-[#2c8a49] transition-colors;
+    @apply bg-cargo-green text-white hover:bg-[#176a3e] transition-colors;
   }
   
   .card-hover {
