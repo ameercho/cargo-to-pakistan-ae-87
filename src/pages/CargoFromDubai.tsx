@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { MapPin, Truck, Phone, ArrowRight, MessageCircle, Ship, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingButton from "@/components/FloatingButton";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const CargoFromDubai = () => {
   const handleCall = () => {

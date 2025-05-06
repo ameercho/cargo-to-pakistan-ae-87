@@ -15,35 +15,37 @@ import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import CargoFromDubai from "./pages/CargoFromDubai";
 import CargoToKarachi from "./pages/CargoToKarachi";
-import { Helmet } from "react-helmet";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <Helmet defaultTitle="Cargo to Pakistan | Professional Shipping Services from UAE" titleTemplate="%s | CargoToPakistan.ae" />
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/services" element={<Services />} />
-            <Route path="/service-areas" element={<ServiceAreas />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/faq" element={<FAQ />} />
-            <Route path="/cargo-from-dubai" element={<CargoFromDubai />} />
-            <Route path="/cargo-to-karachi" element={<CargoToKarachi />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </TooltipProvider>
+    <HelmetProvider>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <Helmet defaultTitle="Cargo to Pakistan | Professional Shipping Services from UAE" titleTemplate="%s | CargoToPakistan.ae" />
+        <div className="flex flex-col min-h-screen">
+          <Header />
+          <main className="flex-grow">
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/service-areas" element={<ServiceAreas />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/faq" element={<FAQ />} />
+              <Route path="/cargo-from-dubai" element={<CargoFromDubai />} />
+              <Route path="/cargo-to-karachi" element={<CargoToKarachi />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </TooltipProvider>
+    </HelmetProvider>
   </QueryClientProvider>
 );
 
