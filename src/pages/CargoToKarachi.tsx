@@ -1,9 +1,15 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
-import { MapPin, Truck, Phone, ArrowRight, MessageCircle, Ship, Plane, Package } from "lucide-react";
+import { MapPin, Truck, Package, Ship, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingButton from "@/components/FloatingButton";
 import { Helmet } from "react-helmet-async";
+import HeroBanner from "@/components/cargo/HeroBanner";
+import ServiceFeatures from "@/components/cargo/ServiceFeatures";
+import LocationCoverage from "@/components/cargo/LocationCoverage";
+import ServiceOptions from "@/components/cargo/ServiceOptions";
+import CTASection from "@/components/cargo/CTASection";
 
 const CargoToKarachi = () => {
   const handleCall = () => {
@@ -12,6 +18,33 @@ const CargoToKarachi = () => {
 
   const handleWhatsApp = () => {
     window.open("https://wa.me/971501234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20Karachi,%20Pakistan.", "_blank");
+  };
+
+  const serviceFeatures = [
+    "Door-to-door delivery to all areas in Karachi",
+    "Air freight (2-5 days) and sea freight (25-40 days) options",
+    "Free pickup from any location in the UAE",
+    "Secure packaging and handling services",
+    "Real-time shipment tracking",
+    "Customs clearance assistance at Karachi port and airport"
+  ];
+
+  const karachiAreas = [
+    "DHA", "Clifton", "Gulshan-e-Iqbal", "North Nazimabad", 
+    "PECHS", "Saddar", "Gulistan-e-Johar", "Malir"
+  ];
+
+  const shippingOptions = {
+    air: [
+      "Express delivery within 2-5 business days",
+      "Ideal for urgent or important shipments",
+      "Arrives at Jinnah International Airport, Karachi"
+    ],
+    sea: [
+      "Cost-effective shipping in 25-40 days",
+      "Ideal for large shipments and household goods",
+      "Arrives at Karachi Port (KPT)"
+    ]
   };
 
   return (
@@ -24,32 +57,12 @@ const CargoToKarachi = () => {
       </Helmet>
       
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
-        <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Pakistan Cargo to Karachi</h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Reliable cargo shipping services from UAE to Karachi with door-to-door delivery
-            </p>
-            <div className="flex flex-wrap gap-4 justify-center">
-              <Button 
-                onClick={handleCall}
-                className="bg-white text-cargo-green hover:bg-gray-100 flex items-center gap-2 tap-target"
-                size="lg"
-              >
-                <Phone className="h-4 w-4" /> Call Now
-              </Button>
-              <Button 
-                onClick={handleWhatsApp}
-                className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 tap-target"
-                size="lg"
-              >
-                <MessageCircle className="h-4 w-4" /> WhatsApp
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroBanner 
+        title="Pakistan Cargo to Karachi" 
+        description="Reliable cargo shipping services from UAE to Karachi with door-to-door delivery"
+        handleCall={handleCall}
+        handleWhatsApp={handleWhatsApp}
+      />
 
       {/* Main Content */}
       <section className="py-16 bg-white">
@@ -64,47 +77,10 @@ const CargoToKarachi = () => {
                 Karachi, with its bustling port and position as Pakistan's commercial center, is one of our most served destinations. Our extensive network enables us to deliver to all areas within Karachi, including DHA, Clifton, Gulshan-e-Iqbal, North Nazimabad, and many more localities.
               </p>
               
-              <div className="bg-gray-50 p-6 rounded-lg mb-8">
-                <h3 className="text-xl font-bold text-cargo-blue mb-4">Our Karachi Cargo Services Include:</h3>
-                <ul className="space-y-3">
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Door-to-door delivery to all areas in Karachi</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Air freight (2-5 days) and sea freight (25-40 days) options</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Free pickup from any location in the UAE</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Secure packaging and handling services</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Real-time shipment tracking</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Customs clearance assistance at Karachi port and airport</span>
-                  </li>
-                </ul>
-              </div>
+              <ServiceFeatures 
+                title="Our Karachi Cargo Services Include:" 
+                features={serviceFeatures} 
+              />
               
               <div className="flex gap-4 flex-wrap">
                 <Button className="bg-cargo-green hover:bg-[#176a3e] text-white tap-target">
@@ -161,116 +137,18 @@ const CargoToKarachi = () => {
                 </div>
               </div>
               
-              <div className="bg-gray-50 p-6 rounded-lg">
-                <h3 className="text-xl font-bold text-cargo-blue mb-4">Areas We Serve in Karachi</h3>
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="p-3 bg-white rounded shadow-sm">DHA</div>
-                  <div className="p-3 bg-white rounded shadow-sm">Clifton</div>
-                  <div className="p-3 bg-white rounded shadow-sm">Gulshan-e-Iqbal</div>
-                  <div className="p-3 bg-white rounded shadow-sm">North Nazimabad</div>
-                  <div className="p-3 bg-white rounded shadow-sm">PECHS</div>
-                  <div className="p-3 bg-white rounded shadow-sm">Saddar</div>
-                  <div className="p-3 bg-white rounded shadow-sm">Gulistan-e-Johar</div>
-                  <div className="p-3 bg-white rounded shadow-sm">Malir</div>
-                </div>
-                <p className="text-center mt-4 text-gray-600 text-sm">
-                  ...and all other areas in Karachi
-                </p>
-              </div>
+              <LocationCoverage title="Areas We Serve in Karachi" locations={karachiAreas} />
             </div>
           </div>
         </div>
       </section>
 
       {/* Shipping Options */}
-      <section className="py-16 bg-gray-50">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="section-title">Shipping Options to Karachi</h2>
-            <p className="section-description">
-              Choose the shipping method that best suits your needs and budget
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-              <div className="p-6">
-                <div className="flex items-center mb-6">
-                  <div className="bg-cargo-lightBlue rounded-full p-3 mr-4">
-                    <Plane className="h-6 w-6 text-cargo-blue" />
-                  </div>
-                  <h3 className="text-xl font-semibold">
-                    Air Freight to Karachi
-                  </h3>
-                </div>
-                
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightBlue rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-blue" />
-                    </div>
-                    <span>Express delivery within 2-5 business days</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightBlue rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-blue" />
-                    </div>
-                    <span>Ideal for urgent or important shipments</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightBlue rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-blue" />
-                    </div>
-                    <span>Arrives at Jinnah International Airport, Karachi</span>
-                  </li>
-                </ul>
-                
-                <Button className="bg-cargo-blue hover:bg-blue-800 w-full tap-target">
-                  Get Air Freight Quote
-                </Button>
-              </div>
-            </div>
-            
-            <div className="bg-white rounded-lg shadow-md overflow-hidden card-hover">
-              <div className="p-6">
-                <div className="flex items-center mb-6">
-                  <div className="bg-cargo-lightGreen rounded-full p-3 mr-4">
-                    <Ship className="h-6 w-6 text-cargo-green" />
-                  </div>
-                  <h3 className="text-xl font-semibold">
-                    Sea Freight to Karachi
-                  </h3>
-                </div>
-                
-                <ul className="space-y-3 mb-6">
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Cost-effective shipping in 25-40 days</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Ideal for large shipments and household goods</span>
-                  </li>
-                  <li className="flex items-start">
-                    <div className="bg-cargo-lightGreen rounded-full p-1 mr-2 mt-1">
-                      <ArrowRight className="h-4 w-4 text-cargo-green" />
-                    </div>
-                    <span>Arrives at Karachi Port (KPT)</span>
-                  </li>
-                </ul>
-                
-                <Button className="bg-cargo-green hover:bg-[#176a3e] w-full tap-target">
-                  Get Sea Freight Quote
-                </Button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceOptions 
+        title="Shipping Options to Karachi" 
+        description="Choose the shipping method that best suits your needs and budget"
+        options={shippingOptions}
+      />
       
       {/* What You Can Ship Section */}
       <section className="py-16 bg-white">
@@ -317,31 +195,10 @@ const CargoToKarachi = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-12 bg-cargo-green text-white">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Ship Your Cargo to Karachi Today</h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Contact us now for competitive rates and professional cargo services to Karachi, Pakistan.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Button 
-              className="bg-white text-cargo-green hover:bg-gray-100 tap-target" 
-              size="lg"
-            >
-              Get a Free Quote
-            </Button>
-            <Link to="/contact">
-              <Button 
-                variant="outline" 
-                className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
-                size="lg"
-              >
-                Contact Us
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+      <CTASection 
+        title="Ship Your Cargo to Karachi Today" 
+        description="Contact us now for competitive rates and professional cargo services to Karachi, Pakistan."
+      />
 
       <FloatingButton />
     </div>
