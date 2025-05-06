@@ -6,7 +6,7 @@ const ServicesCallToAction = () => {
   return (
     <section className="py-12 bg-cargo-green text-white">
       <div className="container-custom text-center">
-        <h2 className="text-3xl font-bold mb-4">Ready to Ship Your Cargo?</h2>
+        <h2 className="text-3xl font-bold mb-4 text-white">Ready to Ship Your Cargo?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
           Contact us today to discuss your shipping needs and get a customized quote.
         </p>

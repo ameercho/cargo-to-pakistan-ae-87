@@ -7,7 +7,7 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
 const toAbsolute = (p) => path.resolve(__dirname, p);
 
 // Set your domain here
-const DOMAIN = 'https://cargoconnect.pk';
+const DOMAIN = 'https://www.cargotopakistan.ae';
 const LAST_MODIFIED = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 
 // Get all routes from pages directory
@@ -18,6 +18,18 @@ const routes = fs
     return name === 'index' ? '/' : `/${name}`;
   })
   .filter(route => route !== '/*'); // Filter out any catch-all routes
+
+// Add dynamic routes based on our UAE cities and Pakistan cities
+const uaeCities = ['dubai', 'abu-dhabi', 'sharjah', 'ajman'];
+const pakistanCities = ['karachi', 'islamabad', 'lahore', 'peshawar'];
+
+uaeCities.forEach(city => {
+  routes.push(`/cargo-from-${city}`);
+});
+
+pakistanCities.forEach(city => {
+  routes.push(`/cargo-to-${city}`);
+});
 
 // Generate sitemap XML content
 const generateSitemapXML = () => {
