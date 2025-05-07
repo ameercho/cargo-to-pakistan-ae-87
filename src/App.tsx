@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -14,9 +15,7 @@ import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import CargoFromDubai from "./pages/CargoFromDubai";
 import CargoToKarachi from "./pages/CargoToKarachi";
-// Fix import of react-helmet-async to work with CommonJS module
-import pkg from 'react-helmet-async';
-const { Helmet, HelmetProvider } = pkg;
+import { HelmetProvider } from 'react-helmet-async';
 
 const queryClient = new QueryClient();
 
@@ -26,7 +25,6 @@ const App = () => (
       <TooltipProvider>
         <Toaster />
         <Sonner />
-        <Helmet defaultTitle="Cargo to Pakistan | Professional Shipping Services from UAE" titleTemplate="%s | CargoToPakistan.ae" />
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">
