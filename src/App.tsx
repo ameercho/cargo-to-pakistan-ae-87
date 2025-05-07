@@ -15,7 +15,9 @@ import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import CargoFromDubai from "./pages/CargoFromDubai";
 import CargoToKarachi from "./pages/CargoToKarachi";
-import { Helmet, HelmetProvider } from "react-helmet-async";
+// Fix import of react-helmet-async to work with CommonJS module
+import pkg from 'react-helmet-async';
+const { Helmet, HelmetProvider } = pkg;
 
 const queryClient = new QueryClient();
 
