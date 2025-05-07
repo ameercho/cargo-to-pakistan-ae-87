@@ -15,8 +15,7 @@ import FAQ from "./pages/FAQ";
 import NotFound from "./pages/NotFound";
 import CargoFromDubai from "./pages/CargoFromDubai";
 import CargoToKarachi from "./pages/CargoToKarachi";
-import pkg from 'react-helmet-async';
-const { HelmetProvider } = pkg;
+import { HelmetProvider } from "react-helmet-async";
 
 const queryClient = new QueryClient();
 
