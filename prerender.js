@@ -22,7 +22,7 @@ const routesToPrerender = fs
   
   for (const url of routesToPrerender) {
     try {
-      // Get the HTML and route validity from the render function (now async)
+      // Get the HTML and route validity from the render function
       const { html, isValidRoute } = await render(url)
       
       if (!isValidRoute) {
