@@ -2,8 +2,7 @@
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from 'react-router-dom/server.js';
 import App from './App';
-import pkg from 'react-helmet-async';
-const { HelmetProvider } = pkg;
+import { HelmetProvider } from 'react-helmet-async';
 
 export function render(url: string) {
   const helmetContext = {};
