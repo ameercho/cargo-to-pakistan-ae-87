@@ -1,20 +1,9 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
+import { StaticRouterProvider, createStaticHandler, createStaticRouter } from 'react-router-dom/server';
 import App from './App';
 import { routes } from './routes';
-
-// Helper to check if a route exists in our route configuration
-const routeExists = (path: string): boolean => {
-  // Remove trailing slash for comparison (except for root path)
-  const normalizedPath = path === '/' ? path : path.replace(/\/$/, '');
-  
-  // Check if the path exists in our defined routes
-  return routes.some(route => {
-    if (route.path === '*') return false; // Skip catch-all routes
-    return route.path === normalizedPath || route.path + '/' === path;
-  });
-};
+import { routeExists } from './utils/route-utils';
 
 export async function render(url: string) {
   // Create a static handler for the routes
@@ -41,6 +30,6 @@ export async function render(url: string) {
   return {
     html,
     // This flag helps the prerender script know if this is a valid route or 404
-    isValidRoute: routeExists(url)
+    isValidRoute: routeExists(url, routes)
   };
 }
