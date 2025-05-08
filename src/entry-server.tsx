@@ -1,6 +1,6 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
+import { StaticRouter } from 'react-router-dom/server';
 import App from './App';
 import { routes } from './routes';
 import { routeExists } from './utils/route-utils';

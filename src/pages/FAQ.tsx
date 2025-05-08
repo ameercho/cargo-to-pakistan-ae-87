@@ -100,10 +100,10 @@ const FAQ = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-blue text-white">
+      <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Frequently Asked Questions</h1>
             <p className="text-xl text-gray-100 mb-8">
               Find answers to common questions about our cargo services to Pakistan
             </p>
