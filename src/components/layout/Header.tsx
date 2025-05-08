@@ -15,7 +15,7 @@ const Header = () => {
     { title: "About", path: "/about" },
     { title: "Contact", path: "/contact" },
     { title: "FAQ", path: "/faq" },
-    // Service Areas link removed as requested
+    { title: "Our Service Areas", path: "/service-areas" },
   ];
 
   return (
@@ -94,7 +94,7 @@ const Header = () => {
                   </div>
                   <div className="flex items-center gap-2 text-black">
                     <Mail className="h-4 w-4" />
-                    <span>info@www.cargotopakistan.ae</span>
+                    <span>info@cargotopakistan.ae</span>
                   </div>
                   <Button className="w-full bg-cargo-green hover:bg-[#176a3e]">
                     Get Quote
