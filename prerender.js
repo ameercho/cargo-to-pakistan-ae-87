@@ -22,8 +22,8 @@ const routesToPrerender = fs
   
   for (const url of routesToPrerender) {
     try {
-      // Get the HTML and route validity from the render function
-      const { html, isValidRoute } = render(url)
+      // Get the HTML and route validity from the render function (now async)
+      const { html, isValidRoute } = await render(url)
       
       if (!isValidRoute) {
         console.warn(`⚠️ Route ${url} doesn't match any defined route - skipping prerender`)

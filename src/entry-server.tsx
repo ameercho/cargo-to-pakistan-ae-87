@@ -1,6 +1,6 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom';
+import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
 import App from './App';
 import { routes } from './routes';
 
@@ -16,12 +16,25 @@ const routeExists = (path: string): boolean => {
   });
 };
 
-export function render(url: string) {
+export async function render(url: string) {
+  // Create a static handler for the routes
+  const { query, dataRoutes } = createStaticHandler(routes);
+  
+  // Create a request object from the URL
+  const request = new Request(url);
+  
+  // Query the routes to get the route matches and context
+  const context = await query(request);
+  
+  // Create a static router with the routes and context
+  const router = createStaticRouter(dataRoutes, context);
+  
   // Render the app to HTML
   const html = ReactDOMServer.renderToString(
-    <StaticRouter location={url}>
-      <App />
-    </StaticRouter>
+    <StaticRouterProvider
+      router={router}
+      context={context}
+    />
   );
   
   // Return the rendered HTML along with metadata about the route

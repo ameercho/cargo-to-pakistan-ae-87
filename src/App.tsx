@@ -4,11 +4,18 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { useRoutes } from "react-router-dom";
-import Header from "./components/layout/Header";
-import Footer from "./components/layout/Footer";
+import Layout from "./components/layout/Layout";
 import { routes } from "./routes";
 
-const queryClient = new QueryClient();
+// Create a new query client instance
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 60 * 1000, // 1 minute
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 const App = () => {
   // Use the routes configuration to render routes
@@ -17,15 +24,14 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        {/* Toast notifications */}
         <Toaster />
         <Sonner />
-        <div className="flex flex-col min-h-screen">
-          <Header />
-          <main className="flex-grow">
-            {routeElements}
-          </main>
-          <Footer />
-        </div>
+        
+        {/* Main application layout */}
+        <Layout>
+          {routeElements}
+        </Layout>
       </TooltipProvider>
     </QueryClientProvider>
   );
