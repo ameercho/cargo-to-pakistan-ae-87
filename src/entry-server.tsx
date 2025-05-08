@@ -1,6 +1,7 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
+// Import directly from the base package to avoid TypeScript errors
+import { StaticRouter } from 'react-router-dom/dist/server';
 import App from './App';
 import { routes } from './routes';
 import { routeExists } from './utils/route-utils';
