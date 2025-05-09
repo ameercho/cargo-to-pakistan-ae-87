@@ -1,6 +1,6 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
+import { RouterProvider, createMemoryRouter } from 'react-router-dom';
 import App from './App';
 import { routes } from './routes';
 import { routeExists } from './utils/route-utils';
@@ -9,15 +9,14 @@ export async function render(url: string) {
   // Since TypeScript is having issues with the server module imports,
   // we'll use a simpler approach for SSR
   
-  // Create a static router for server-side rendering
-  const router = createStaticRouter(routes, { 
-    basename: "",
-    location: url
+  // Create a memory router for server-side rendering
+  const router = createMemoryRouter(routes, {
+    initialEntries: [url],
   });
   
-  // Render the app to HTML using the standard StaticRouterProvider for compatibility
+  // Render the app to HTML using RouterProvider
   const html = ReactDOMServer.renderToString(
-    <StaticRouterProvider router={router} context={{}} />
+    <RouterProvider router={router} />
   );
   
   // Return the rendered HTML along with metadata about the route
