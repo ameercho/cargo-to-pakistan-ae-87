@@ -1,18 +1,22 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { RouterProvider, createMemoryRouter } from 'react-router-dom';
+import { createStaticRouter, StaticRouterProvider } from 'react-router-dom/server';
 import { routes } from './routes';
 import { routeExists } from './utils/route-utils';
 
 export async function render(url: string) {
-  // Create a memory router for server-side rendering
-  const router = createMemoryRouter(routes, {
-    initialEntries: [url],
+  // Create a static router for server-side rendering
+  const router = createStaticRouter(routes, {
+    basename: "",
+    location: url
   });
   
-  // Render the app to HTML using RouterProvider
+  // Render the app to HTML using StaticRouterProvider
   const html = ReactDOMServer.renderToString(
-    <RouterProvider router={router} />
+    <StaticRouterProvider
+      router={router}
+      context={{}}
+    />
   );
   
   // Return the rendered HTML along with metadata about the route

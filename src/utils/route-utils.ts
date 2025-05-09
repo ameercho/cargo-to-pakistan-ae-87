@@ -1,19 +1,41 @@
 
-import { RouteObject } from "react-router-dom";
+import { type RouteObject } from 'react-router-dom';
 
 /**
- * Checks if a route exists in the provided route configuration
- * @param path The path to check
- * @param routes Array of route objects
- * @returns boolean indicating if the route exists
+ * Check if a given path corresponds to a valid route in the application
  */
-export const routeExists = (path: string, routes: RouteObject[]): boolean => {
-  // Remove trailing slash for comparison (except for root path)
-  const normalizedPath = path === '/' ? path : path.replace(/\/$/, '');
+export function routeExists(path: string, routes: RouteObject[]): boolean {
+  // Clean the path for comparison
+  const cleanPath = path.endsWith('/') && path !== '/' 
+    ? path.slice(0, -1) 
+    : path;
   
-  // Check if the path exists in our defined routes
-  return routes.some(route => {
-    if (route.path === '*') return false; // Skip catch-all routes
-    return route.path === normalizedPath || route.path + '/' === path;
+  // Handle root path
+  if (cleanPath === '/') {
+    return true;
+  }
+
+  // Find the main app route
+  const appRoute = routes.find(route => route.path === '/');
+  
+  if (!appRoute || !('children' in appRoute) || !appRoute.children) {
+    return false;
+  }
+  
+  // Check if the path matches any of the routes
+  const childRoute = appRoute.children.find(route => {
+    if (route.path === undefined) {
+      return false;
+    }
+    
+    // Handle index route
+    if (route.index) {
+      return cleanPath === '/';
+    }
+    
+    // Compare route paths
+    return cleanPath === `/${route.path}`;
   });
-};
+  
+  return !!childRoute;
+}
