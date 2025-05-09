@@ -3,9 +3,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useRoutes } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import { routes } from "./routes";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes";
 
 // Create a new query client instance
 const queryClient = new QueryClient({
@@ -18,9 +17,6 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Use the routes configuration to render routes
-  const routeElements = useRoutes(routes);
-  
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -28,10 +24,8 @@ const App = () => {
         <Toaster />
         <Sonner />
         
-        {/* Main application layout */}
-        <Layout>
-          {routeElements}
-        </Layout>
+        {/* Main application routing */}
+        <RouterProvider router={router} />
       </TooltipProvider>
     </QueryClientProvider>
   );

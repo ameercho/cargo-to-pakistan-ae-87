@@ -1,5 +1,5 @@
+
 import { createBrowserRouter } from "react-router-dom";
-import App from "./App";
 import Index from "./pages/Index";
 import Services from "./pages/Services";
 import About from "./pages/About";
@@ -11,12 +11,13 @@ import DubaiToPakistan from "./pages/DubaiToPakistan";
 import AbuDhabiToPakistan from "./pages/AbuDhabiToPakistan";
 import SharjahToPakistan from "./pages/SharjahToPakistan";
 import AjmanToPakistan from "./pages/AjmanToPakistan";
+import Layout from "./components/layout/Layout";
 
 // Define routes with uniquely named pages
 export const routes = [
   {
     path: "/",
-    element: <App />,
+    element: <Layout />,
     children: [
       {
         index: true,
