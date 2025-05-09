@@ -12,12 +12,13 @@ import AbuDhabiToPakistan from "./pages/AbuDhabiToPakistan";
 import SharjahToPakistan from "./pages/SharjahToPakistan";
 import AjmanToPakistan from "./pages/AjmanToPakistan";
 import Layout from "./components/layout/Layout";
+import { Outlet } from "react-router-dom";
 
 // Define routes with uniquely named pages
 export const routes = [
   {
     path: "/",
-    element: <Layout />,
+    element: <Layout><Outlet /></Layout>,
     children: [
       {
         index: true,
