@@ -8,10 +8,10 @@ const About = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-blue text-white">
+      <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4">About CargoConnect</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">About CargoConnect</h1>
             <p className="text-xl text-gray-100 mb-6">
               Your trusted partner for cargo services to Pakistan
             </p>
@@ -163,16 +163,16 @@ const About = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 bg-cargo-orange text-white">
+      <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4">Ready to Experience Our Service?</h2>
+          <h2 className="text-3xl font-bold mb-4 text-white">Ready to Experience Our Service?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join thousands of satisfied customers who trust us with their cargo to Pakistan.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
             <Link to="/contact">
               <Button 
-                className="bg-white text-cargo-orange hover:bg-gray-100 tap-target" 
+                className="bg-white text-cargo-green hover:bg-gray-100 tap-target" 
                 size="lg"
               >
                 Contact Us
