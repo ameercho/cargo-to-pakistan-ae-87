@@ -1,6 +1,6 @@
 
 import ReactDOMServer from 'react-dom/server';
-import { StaticRouter } from 'react-router-dom/server';
+import { createStaticHandler, createStaticRouter, StaticRouterProvider } from '@remix-run/router';
 import { routes } from './routes';
 import { routeExists } from './utils/route-utils';
 import { createElement } from 'react';
@@ -11,12 +11,20 @@ export async function render(url: string) {
   // Create a context object for the router
   const context = {};
   
-  // Render the app to HTML using StaticRouter
+  // Create a static handler and router for server-side rendering
+  const { query } = createStaticHandler(routes);
+  const remixRequest = new Request(url);
+  const staticContext = await query(remixRequest);
+  const router = createStaticRouter(routes, staticContext);
+  
+  // Render the app to HTML using StaticRouterProvider
   const html = ReactDOMServer.renderToString(
     createElement(
-      StaticRouter,
-      { location: url },
-      createElement(Layout, null, createElement(Outlet))
+      StaticRouterProvider,
+      { 
+        router,
+        context: staticContext,
+      }
     )
   );
   
