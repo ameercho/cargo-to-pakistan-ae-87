@@ -45,6 +45,9 @@ const Footer = () => {
               <li>
                 <Link to="/faq" className="text-gray-300 hover:text-white transition-colors">FAQ</Link>
               </li>
+              <li>
+                <Link to="/service-areas" className="text-gray-300 hover:text-white transition-colors">Our Service Areas</Link>
+              </li>
             </ul>
           </div>
 
@@ -77,7 +80,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="h-5 w-5 text-cargo-orange flex-shrink-0" />
-                <p className="text-gray-300">info@www.cargotopakistan.ae</p>
+                <p className="text-gray-300">info@cargotopakistan.ae</p>
               </div>
             </div>
           </div>

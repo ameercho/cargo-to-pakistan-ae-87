@@ -29,10 +29,10 @@ const ServiceAreas = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
+      <section className="py-12 bg-cargo-blue text-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Our Service Areas</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4">Our Service Areas</h1>
             <p className="text-xl text-gray-100 mb-8">
               Comprehensive shipping coverage from the UAE to destinations throughout Pakistan
             </p>
@@ -176,7 +176,7 @@ const ServiceAreas = () => {
       {/* CTA Section */}
       <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold mb-4 text-white">Ready to Ship to Pakistan?</h2>
+          <h2 className="text-3xl font-bold mb-4">Ready to Ship to Pakistan?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Contact us today for a free quote and experience our reliable cargo services.
           </p>

@@ -9,25 +9,21 @@ const DoorToDoorService = () => {
       from: "Dubai",
       to: "Pakistan",
       description: "Fast and reliable door-to-door cargo services from Dubai to all major cities in Pakistan.",
-      link: "/dubai-to-pakistan"
     },
     {
       from: "Abu Dhabi",
       to: "Pakistan",
       description: "Convenient door-to-door shipping solutions from Abu Dhabi to Pakistan with tracking.",
-      link: "/abu-dhabi-to-pakistan"
     },
     {
       from: "Sharjah",
       to: "Pakistan",
       description: "Efficient cargo transportation services from Sharjah to Pakistan with customized solutions.",
-      link: "/sharjah-to-pakistan"
     },
     {
       from: "Ajman",
       to: "Pakistan",
       description: "Trusted door-to-door delivery from Ajman to cities across Pakistan at competitive rates.",
-      link: "/ajman-to-pakistan"
     }
   ];
 
@@ -76,7 +72,7 @@ const DoorToDoorService = () => {
                   <Button className="bg-cargo-green hover:bg-[#176a3e] text-white tap-target">
                     Get a Quote
                   </Button>
-                  <Link to={service.link}>
+                  <Link to="/services">
                     <Button variant="outline" className="tap-target">
                       Learn More
                     </Button>
