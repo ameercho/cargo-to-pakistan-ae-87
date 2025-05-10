@@ -1,33 +1,18 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { MapPin, Ship, Plane, Phone, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import FloatingButton from "@/components/FloatingButton";
-
 const ServiceAreas = () => {
-  const uaeLocations = [
-    "Dubai", "Abu Dhabi", "Sharjah", "Ajman", 
-    "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"
-  ];
-  
-  const pakistanLocations = [
-    "Karachi", "Lahore", "Islamabad", "Peshawar", 
-    "Quetta", "Faisalabad", "Multan", "Sialkot",
-    "Rawalpindi", "Gujranwala", "Hyderabad", "Bahawalpur",
-    "Sargodha", "Sukkur", "Larkana", "Sheikhupura"
-  ];
-
+  const uaeLocations = ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Ras Al Khaimah", "Fujairah", "Umm Al Quwain", "Al Ain"];
+  const pakistanLocations = ["Karachi", "Lahore", "Islamabad", "Peshawar", "Quetta", "Faisalabad", "Multan", "Sialkot", "Rawalpindi", "Gujranwala", "Hyderabad", "Bahawalpur", "Sargodha", "Sukkur", "Larkana", "Sheikhupura"];
   const handleCall = () => {
     window.location.href = "tel:+971501234567";
   };
-
   const handleWhatsApp = () => {
     window.open("https://wa.me/971501234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20Pakistan.", "_blank");
   };
-
-  return (
-    <div className="pt-20">
+  return <div className="pt-20">
       {/* Hero Section */}
       <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom">
@@ -37,16 +22,10 @@ const ServiceAreas = () => {
               Comprehensive shipping coverage from the UAE to destinations throughout Pakistan
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Button 
-                onClick={handleCall}
-                className="bg-white text-cargo-green hover:bg-gray-100 flex items-center gap-2 tap-target"
-              >
+              <Button onClick={handleCall} className="bg-white text-cargo-green hover:bg-gray-100 flex items-center gap-2 tap-target">
                 <Phone className="h-4 w-4" /> Contact Us
               </Button>
-              <Button 
-                onClick={handleWhatsApp}
-                className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 tap-target"
-              >
+              <Button onClick={handleWhatsApp} className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 tap-target">
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </Button>
             </div>
@@ -65,8 +44,7 @@ const ServiceAreas = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {uaeLocations.map((location, index) => (
-              <div key={index} className="bg-white shadow-md rounded-lg p-6 card-hover">
+            {uaeLocations.map((location, index) => <div key={index} className="bg-white shadow-md rounded-lg p-6 card-hover">
                 <div className="flex items-center mb-4">
                   <div className="bg-cargo-lightGreen rounded-full p-3 mr-4">
                     <MapPin className="h-5 w-5 text-cargo-green" />
@@ -87,8 +65,7 @@ const ServiceAreas = () => {
                     <Ship className="h-4 w-4 text-cargo-green mr-2" /> Sea Freight
                   </div>
                 </div>
-              </div>
-            ))}
+              </div>)}
           </div>
         </div>
       </section>
@@ -104,15 +81,13 @@ const ServiceAreas = () => {
           </div>
           
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            {pakistanLocations.map((location, index) => (
-              <Link to={`/services`} key={index} className="block">
+            {pakistanLocations.map((location, index) => <Link to={`/services`} key={index} className="block">
                 <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center card-hover">
                   <MapPin className="h-5 w-5 text-cargo-orange mx-auto mb-2" />
                   <h3 className="font-medium">{location}</h3>
                   <p className="text-xs text-gray-500 mt-1">Pakistan</p>
                 </div>
-              </Link>
-            ))}
+              </Link>)}
           </div>
           
           <div className="mt-10 p-6 bg-cargo-lightBlue rounded-lg">
@@ -161,7 +136,7 @@ const ServiceAreas = () => {
             <div className="p-6 bg-white shadow rounded-lg">
               <Ship className="h-10 w-10 text-cargo-green mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Sea Freight Routes</h3>
-              <p className="text-gray-600">UAE to Pakistan in 25-40 days</p>
+              <p className="text-gray-600">UAE to Pakistan in 40-90days</p>
             </div>
             
             <div className="p-6 bg-white shadow rounded-lg">
@@ -181,18 +156,11 @@ const ServiceAreas = () => {
             Contact us today for a free quote and experience our reliable cargo services.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Button 
-              className="bg-white text-cargo-green hover:bg-gray-100 tap-target" 
-              size="lg"
-            >
+            <Button className="bg-white text-cargo-green hover:bg-gray-100 tap-target" size="lg">
               Get a Free Quote
             </Button>
             <Link to="/contact">
-              <Button 
-                variant="outline" 
-                className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
-                size="lg"
-              >
+              <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 tap-target" size="lg">
                 Contact Us
               </Button>
             </Link>
@@ -201,8 +169,6 @@ const ServiceAreas = () => {
       </section>
 
       <FloatingButton />
-    </div>
-  );
+    </div>;
 };
-
 export default ServiceAreas;
