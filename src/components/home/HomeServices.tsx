@@ -11,36 +11,42 @@ const HomeServices = () => {
       description: "Cost-effective ocean shipping solutions for larger cargo shipments.",
       icon: Ship,
       iconColor: "text-cargo-green",
+      link: "/services/sea-freight"
     },
     {
       title: "Full Container",
       description: "Efficient ground transportation services for your cargo within Pakistan.",
       icon: Truck,
       iconColor: "text-cargo-orange",
+      link: "/services/full-container"
     },
     {
       title: "Packaging",
       description: "Professional packaging services to ensure your items arrive safely.",
       icon: Package,
       iconColor: "text-cargo-blue",
+      link: "/services/packaging"
     },
     {
-      title: "Full Container",
+      title: "Insurance",
       description: "Comprehensive coverage for your valuable shipments against loss or damage.",
       icon: ShieldCheck,
       iconColor: "text-cargo-green",
+      link: "/services/insurance"
     },
     {
       title: "Courier Service",
       description: "Expedited shipping options for urgent cargo deliveries.",
       icon: Clock,
       iconColor: "text-cargo-orange",
+      link: "/services/courier-service"
     },
     {
       title: "Air Freight",
       description: "Fast and reliable air cargo services for time-sensitive shipments to Pakistan.",
       icon: Plane,
       iconColor: "text-cargo-blue",
+      link: "/services/air-freight"
     },
   ];
 
@@ -56,13 +62,14 @@ const HomeServices = () => {
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <ServiceCard
-              key={index}
-              title={service.title}
-              description={service.description}
-              icon={service.icon}
-              iconColor={service.iconColor}
-            />
+            <Link key={index} to={service.link}>
+              <ServiceCard
+                title={service.title}
+                description={service.description}
+                icon={service.icon}
+                iconColor={service.iconColor}
+              />
+            </Link>
           ))}
         </div>
         

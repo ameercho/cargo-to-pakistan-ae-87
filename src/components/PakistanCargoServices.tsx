@@ -9,22 +9,22 @@ const PakistanCargoServices = () => {
     {
       city: "Karachi",
       description: "Fast and reliable cargo shipping services to Karachi from all major UAE cities. Door-to-door delivery with tracking.",
-      link: "/karachi-cargo"
+      link: "/pakistan-cargo-to-karachi"
     },
     {
       city: "Lahore",
       description: "Efficient cargo transportation to Lahore with customs clearance assistance and secure handling of your shipments.",
-      link: "/lahore-cargo"
+      link: "/pakistan-cargo-to-lahore"
     },
     {
       city: "Islamabad",
       description: "Professional cargo services to Islamabad with flexible options for personal and commercial shipments.",
-      link: "/islamabad-cargo"
+      link: "/pakistan-cargo-to-islamabad"
     },
     {
       city: "Peshawar",
       description: "Dependable cargo delivery to Peshawar with competitive rates and door-to-door service options.",
-      link: "/peshawar-cargo"
+      link: "/pakistan-cargo-to-peshawar"
     }
   ];
 

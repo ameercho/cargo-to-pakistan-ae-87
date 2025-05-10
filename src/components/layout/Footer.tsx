@@ -50,11 +50,24 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white">Services</h3>
             <ul className="space-y-2">
-              <li className="text-gray-300">Sea Freight</li>
-              <li className="text-gray-300">Full Container</li>
-              <li className="text-gray-300">Warehouse Solutions</li>
-              <li className="text-gray-300">Customs Clearance</li>
-              <li className="text-gray-300">Air Freight</li>
+              <li>
+                <Link to="/services/sea-freight" className="text-gray-300 hover:text-white transition-colors">Sea Freight</Link>
+              </li>
+              <li>
+                <Link to="/services/full-container" className="text-gray-300 hover:text-white transition-colors">Full Container</Link>
+              </li>
+              <li>
+                <Link to="/services/packaging" className="text-gray-300 hover:text-white transition-colors">Packaging Solutions</Link>
+              </li>
+              <li>
+                <Link to="/services/insurance" className="text-gray-300 hover:text-white transition-colors">Cargo Insurance</Link>
+              </li>
+              <li>
+                <Link to="/services/courier-service" className="text-gray-300 hover:text-white transition-colors">Courier Service</Link>
+              </li>
+              <li>
+                <Link to="/services/air-freight" className="text-gray-300 hover:text-white transition-colors">Air Freight</Link>
+              </li>
               <li>
                 <Link to="/service-areas" className="text-gray-300 hover:text-white transition-colors">Service Areas</Link>
               </li>
@@ -66,16 +79,16 @@ const Footer = () => {
             <h3 className="text-xl font-bold text-white">Pakistan Cities</h3>
             <ul className="space-y-2">
               <li>
-                <Link to="/karachi-cargo" className="text-gray-300 hover:text-white transition-colors">Karachi</Link>
+                <Link to="/pakistan-cargo-to-karachi" className="text-gray-300 hover:text-white transition-colors">Karachi</Link>
               </li>
               <li>
-                <Link to="/lahore-cargo" className="text-gray-300 hover:text-white transition-colors">Lahore</Link>
+                <Link to="/pakistan-cargo-to-lahore" className="text-gray-300 hover:text-white transition-colors">Lahore</Link>
               </li>
               <li>
-                <Link to="/islamabad-cargo" className="text-gray-300 hover:text-white transition-colors">Islamabad</Link>
+                <Link to="/pakistan-cargo-to-islamabad" className="text-gray-300 hover:text-white transition-colors">Islamabad</Link>
               </li>
               <li>
-                <Link to="/peshawar-cargo" className="text-gray-300 hover:text-white transition-colors">Peshawar</Link>
+                <Link to="/pakistan-cargo-to-peshawar" className="text-gray-300 hover:text-white transition-colors">Peshawar</Link>
               </li>
             </ul>
             

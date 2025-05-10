@@ -15,6 +15,20 @@ import KarachiCargo from "./pages/KarachiCargo";
 import LahoreCargo from "./pages/LahoreCargo";
 import IslamabadCargo from "./pages/IslamabadCargo";
 import PeshawarCargo from "./pages/PeshawarCargo";
+import SeaFreight from "./pages/services/SeaFreight";
+import FullContainer from "./pages/services/FullContainer";
+import Packaging from "./pages/services/Packaging";
+import CourierService from "./pages/services/CourierService";
+import AirFreight from "./pages/services/AirFreight";
+import Insurance from "./pages/services/Insurance";
+import DubaiArea from "./pages/areas/DubaiArea";
+import AbuDhabiArea from "./pages/areas/AbuDhabiArea";
+import SharjahArea from "./pages/areas/SharjahArea";
+import AjmanArea from "./pages/areas/AjmanArea";
+import RasAlKhaimahArea from "./pages/areas/RasAlKhaimahArea";
+import FujairahArea from "./pages/areas/FujairahArea";
+import UmmAlQuwainArea from "./pages/areas/UmmAlQuwainArea";
+import AlAinArea from "./pages/areas/AlAinArea";
 import Layout from "./components/layout/Layout";
 import { Outlet } from "react-router-dom";
 
@@ -64,6 +78,86 @@ export const routes = [
         path: "ajman-to-pakistan",
         element: <AjmanToPakistan />,
       },
+      // New URLs for cargo pages
+      {
+        path: "pakistan-cargo-to-karachi",
+        element: <KarachiCargo />,
+      },
+      {
+        path: "pakistan-cargo-to-lahore",
+        element: <LahoreCargo />,
+      },
+      {
+        path: "pakistan-cargo-to-islamabad",
+        element: <IslamabadCargo />,
+      },
+      {
+        path: "pakistan-cargo-to-peshawar",
+        element: <PeshawarCargo />,
+      },
+      // Service pages
+      {
+        path: "services/sea-freight",
+        element: <SeaFreight />,
+      },
+      {
+        path: "services/full-container",
+        element: <FullContainer />,
+      },
+      {
+        path: "services/packaging",
+        element: <Packaging />,
+      },
+      {
+        path: "services/insurance",
+        element: <Insurance />,
+      },
+      {
+        path: "services/courier-service",
+        element: <CourierService />,
+      },
+      {
+        path: "services/air-freight",
+        element: <AirFreight />,
+      },
+      // UAE Area pages
+      {
+        path: "areas/dubai",
+        element: <DubaiArea />,
+      },
+      {
+        path: "areas/abu-dhabi",
+        element: <AbuDhabiArea />,
+      },
+      {
+        path: "areas/sharjah",
+        element: <SharjahArea />,
+      },
+      {
+        path: "areas/ajman",
+        element: <AjmanArea />,
+      },
+      {
+        path: "areas/ras-al-khaimah",
+        element: <RasAlKhaimahArea />,
+      },
+      {
+        path: "areas/fujairah",
+        element: <FujairahArea />,
+      },
+      {
+        path: "areas/umm-al-quwain",
+        element: <UmmAlQuwainArea />,
+      },
+      {
+        path: "areas/al-ain",
+        element: <AlAinArea />,
+      },
+      {
+        path: "*",
+        element: <NotFound />,
+      },
+      // Add old routes with redirects for SEO purposes
       {
         path: "karachi-cargo",
         element: <KarachiCargo />,
@@ -79,10 +173,6 @@ export const routes = [
       {
         path: "peshawar-cargo",
         element: <PeshawarCargo />,
-      },
-      {
-        path: "*",
-        element: <NotFound />,
       },
     ],
   },
