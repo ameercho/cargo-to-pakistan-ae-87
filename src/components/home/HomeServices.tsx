@@ -1,5 +1,5 @@
 
-import { ArrowRight, Ship, Plane, Truck, Package, ShieldCheck, Clock } from "lucide-react";
+import { ArrowRight, Ship, Truck, Package, ShieldCheck, Clock, Plane } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
 import { Link } from "react-router-dom";
