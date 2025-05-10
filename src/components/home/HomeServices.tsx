@@ -1,17 +1,11 @@
 
-import { ArrowRight, Plane, Ship, Truck, Package, ShieldCheck, Clock } from "lucide-react";
+import { ArrowRight, Ship, Plane, Truck, Package, ShieldCheck, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
 import { Link } from "react-router-dom";
 
 const HomeServices = () => {
   const services = [
-    {
-      title: "Air Freight",
-      description: "Fast and reliable air cargo services for time-sensitive shipments to Pakistan.",
-      icon: Plane,
-      iconColor: "text-cargo-blue",
-    },
     {
       title: "Sea Freight",
       description: "Cost-effective ocean shipping solutions for larger cargo shipments.",
@@ -41,6 +35,12 @@ const HomeServices = () => {
       description: "Expedited shipping options for urgent cargo deliveries.",
       icon: Clock,
       iconColor: "text-cargo-orange",
+    },
+    {
+      title: "Air Freight",
+      description: "Fast and reliable air cargo services for time-sensitive shipments to Pakistan.",
+      icon: Plane,
+      iconColor: "text-cargo-blue",
     },
   ];
 

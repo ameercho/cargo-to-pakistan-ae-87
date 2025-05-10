@@ -11,6 +11,10 @@ import DubaiToPakistan from "./pages/DubaiToPakistan";
 import AbuDhabiToPakistan from "./pages/AbuDhabiToPakistan";
 import SharjahToPakistan from "./pages/SharjahToPakistan";
 import AjmanToPakistan from "./pages/AjmanToPakistan";
+import KarachiCargo from "./pages/KarachiCargo";
+import LahoreCargo from "./pages/LahoreCargo";
+import IslamabadCargo from "./pages/IslamabadCargo";
+import PeshawarCargo from "./pages/PeshawarCargo";
 import Layout from "./components/layout/Layout";
 import { Outlet } from "react-router-dom";
 
@@ -59,6 +63,22 @@ export const routes = [
       {
         path: "ajman-to-pakistan",
         element: <AjmanToPakistan />,
+      },
+      {
+        path: "karachi-cargo",
+        element: <KarachiCargo />,
+      },
+      {
+        path: "lahore-cargo",
+        element: <LahoreCargo />,
+      },
+      {
+        path: "islamabad-cargo",
+        element: <IslamabadCargo />,
+      },
+      {
+        path: "peshawar-cargo",
+        element: <PeshawarCargo />,
       },
       {
         path: "*",

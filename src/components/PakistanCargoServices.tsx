@@ -8,19 +8,23 @@ const PakistanCargoServices = () => {
   const destinations = [
     {
       city: "Karachi",
-      description: "Fast and reliable cargo shipping services to Karachi from all major UAE cities. Door-to-door delivery with tracking."
+      description: "Fast and reliable cargo shipping services to Karachi from all major UAE cities. Door-to-door delivery with tracking.",
+      link: "/karachi-cargo"
     },
     {
       city: "Lahore",
-      description: "Efficient cargo transportation to Lahore with customs clearance assistance and secure handling of your shipments."
+      description: "Efficient cargo transportation to Lahore with customs clearance assistance and secure handling of your shipments.",
+      link: "/lahore-cargo"
     },
     {
       city: "Islamabad",
-      description: "Professional cargo services to Islamabad with flexible options for personal and commercial shipments."
+      description: "Professional cargo services to Islamabad with flexible options for personal and commercial shipments.",
+      link: "/islamabad-cargo"
     },
     {
       city: "Peshawar",
-      description: "Dependable cargo delivery to Peshawar with competitive rates and door-to-door service options."
+      description: "Dependable cargo delivery to Peshawar with competitive rates and door-to-door service options.",
+      link: "/peshawar-cargo"
     }
   ];
 
@@ -50,12 +54,11 @@ const PakistanCargoServices = () => {
                 <p className="mb-6 text-gray-600">{destination.description}</p>
                 
                 <div className="flex justify-between items-center">
-                  <Button variant="outline" className="text-cargo-blue hover:bg-cargo-lightBlue border-cargo-blue tap-target">
-                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                  <p className="text-sm text-gray-500">
-                    Delivery within 4-7 days
-                  </p>
+                  <Link to={destination.link}>
+                    <Button variant="outline" className="text-cargo-blue hover:bg-cargo-lightBlue border-cargo-blue tap-target">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Facebook, Instagram, Twitter, Mail, Phone, MapPin } from "lucide-react";
 const Footer = () => {
@@ -49,32 +50,46 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold text-white">Services</h3>
             <ul className="space-y-2">
-              <li className="text-gray-300">Air Freight</li>
               <li className="text-gray-300">Sea Freight</li>
               <li className="text-gray-300">Full Container</li>
               <li className="text-gray-300">Warehouse Solutions</li>
               <li className="text-gray-300">Customs Clearance</li>
+              <li className="text-gray-300">Air Freight</li>
               <li>
                 <Link to="/service-areas" className="text-gray-300 hover:text-white transition-colors">Service Areas</Link>
               </li>
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* City Links */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold text-white">Contact Us</h3>
-            <div className="space-y-3">
-              <div className="flex items-start space-x-3">
-                <MapPin className="h-5 w-5 text-cargo-orange mt-1 flex-shrink-0" />
-                <p className="text-gray-300">123 Shipping Ave, Logistics Square, Karachi, Pakistan</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Phone className="h-5 w-5 text-cargo-orange flex-shrink-0" />
-                <p className="text-gray-300">+92 300 1234567</p>
-              </div>
-              <div className="flex items-center space-x-3">
-                <Mail className="h-5 w-5 text-cargo-orange flex-shrink-0" />
-                <p className="text-gray-300">info@cargotopakistan.ae</p>
+            <h3 className="text-xl font-bold text-white">Pakistan Cities</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link to="/karachi-cargo" className="text-gray-300 hover:text-white transition-colors">Karachi</Link>
+              </li>
+              <li>
+                <Link to="/lahore-cargo" className="text-gray-300 hover:text-white transition-colors">Lahore</Link>
+              </li>
+              <li>
+                <Link to="/islamabad-cargo" className="text-gray-300 hover:text-white transition-colors">Islamabad</Link>
+              </li>
+              <li>
+                <Link to="/peshawar-cargo" className="text-gray-300 hover:text-white transition-colors">Peshawar</Link>
+              </li>
+            </ul>
+            
+            <div className="pt-4">
+              <h3 className="text-xl font-bold text-white">Contact Us</h3>
+              <div className="space-y-3 mt-3">
+                <div className="flex items-center space-x-3">
+                  <Phone className="h-5 w-5 text-cargo-orange flex-shrink-0" />
+                  <p className="text-gray-300">+92 300 1234567</p>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <Mail className="h-5 w-5 text-cargo-orange flex-shrink-0" />
+                  <p className="text-gray-300">info@cargotopakistan.ae</p>
+                </div>
               </div>
             </div>
           </div>

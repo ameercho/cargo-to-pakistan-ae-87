@@ -31,4 +31,28 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
+  <url>
+    <loc>https://cargoconnect.pk/karachi-cargo</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/lahore-cargo</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/islamabad-cargo</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/peshawar-cargo</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
 </urlset>
