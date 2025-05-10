@@ -1,3 +1,4 @@
+
 import { createBrowserRouter } from "react-router-dom";
 import { mainRoutes } from "./mainRoutes";
 import { serviceRoutes } from "./serviceRoutes";
@@ -33,7 +34,7 @@ export function getElement(path: string) {
   
   // If it's the root path, find the index route
   if (path === "/") {
-    const indexRoute = appRoute.children.find((route) => route.index);
+    const indexRoute = appRoute.children.find((route) => 'index' in route && route.index === true);
     return indexRoute ? indexRoute.element : null;
   }
   
