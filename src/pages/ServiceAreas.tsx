@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { MapPin, Ship, Plane, Phone, MessageCircle } from "lucide-react";
@@ -130,13 +131,13 @@ const ServiceAreas = () => {
             <div className="p-6 bg-white shadow rounded-lg">
               <Plane className="h-10 w-10 text-cargo-blue mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Air Freight Routes</h3>
-              <p className="text-gray-600">UAE to Pakistan in 2-5 days</p>
+              <p className="text-gray-600">UAE to Pakistan</p>
             </div>
             
             <div className="p-6 bg-white shadow rounded-lg">
               <Ship className="h-10 w-10 text-cargo-green mx-auto mb-4" />
               <h3 className="text-lg font-semibold mb-2">Sea Freight Routes</h3>
-              <p className="text-gray-600">UAE to Pakistan in 40-90days</p>
+              <p className="text-gray-600">UAE to Pakistan</p>
             </div>
             
             <div className="p-6 bg-white shadow rounded-lg">
