@@ -22,6 +22,11 @@ export function routeExists(path: string, routes: RouteObject[]): boolean {
     return false;
   }
   
+  // For wildcard/catch-all routes (* routes)
+  if (appRoute.children.some(route => route.path === '*')) {
+    return true;
+  }
+  
   // Check if the path matches any of the routes
   const childRoute = appRoute.children.find(route => {
     if (route.path === undefined) {
@@ -33,8 +38,17 @@ export function routeExists(path: string, routes: RouteObject[]): boolean {
       return cleanPath === '/';
     }
     
-    // Compare route paths
-    return cleanPath === `/${route.path}`;
+    // For exact matches
+    if (cleanPath === `/${route.path}`) {
+      return true;
+    }
+    
+    // For nested routes (checking if it's a prefix)
+    if (route.path.includes('/') && cleanPath.startsWith(`/${route.path}`)) {
+      return true;
+    }
+    
+    return false;
   });
   
   return !!childRoute;
