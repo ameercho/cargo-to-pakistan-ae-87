@@ -9,13 +9,11 @@ import {
   DialogFooter,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
-import { Check } from "lucide-react";
+import { Check, Phone } from "lucide-react";
 
 const ExitPopup = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [email, setEmail] = useState("");
   const [isSubscribed, setIsSubscribed] = useState(false);
   const [hasTriggered, setHasTriggered] = useState(false);
   const { toast } = useToast();
@@ -41,23 +39,22 @@ const ExitPopup = () => {
     };
   }, [hasTriggered]);
 
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleCall = () => {
+    // Record that the user interacted with the call button
+    sessionStorage.setItem("hasSeenExitPopup", "true");
     
-    // Simulate API call
+    // Show toast notification
+    toast({
+      title: "Making a call",
+      description: "Redirecting you to make a call to our support.",
+    });
+    
+    // Attempt to make a phone call or copy number
+    window.location.href = "tel:+971504948135";
+    
+    // Close dialog after interaction
     setTimeout(() => {
-      setIsSubscribed(true);
-      sessionStorage.setItem("hasSeenExitPopup", "true");
-      
-      toast({
-        title: "Subscribed Successfully!",
-        description: "Thank you for subscribing to our newsletter.",
-      });
-      
-      // Close dialog after success message
-      setTimeout(() => {
-        setIsOpen(false);
-      }, 2000);
+      setIsOpen(false);
     }, 1000);
   };
 
@@ -85,26 +82,21 @@ const ExitPopup = () => {
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-1">Thank You!</h3>
             <p className="text-gray-500">
-              Your discount code has been sent to your email.
+              Our team will assist you with your discount.
             </p>
           </div>
         ) : (
-          <form onSubmit={handleSubscribe}>
+          <div>
             <div className="flex flex-col gap-4 py-4">
               <div className="flex items-center gap-3">
                 <div className="h-10 w-10 rounded-full bg-cargo-orange flex items-center justify-center text-white">
-                  10%
+                  40%
                 </div>
                 <div className="font-medium">Special Discount</div>
               </div>
-              <Input
-                type="email"
-                placeholder="your-email@example.com"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="tap-target"
-              />
+              <p className="text-gray-600">
+                Contact us now to claim your exclusive discount for moving back to Pakistan!
+              </p>
             </div>
             <DialogFooter>
               <Button 
@@ -115,13 +107,14 @@ const ExitPopup = () => {
                 No Thanks
               </Button>
               <Button 
-                type="submit" 
-                className="bg-cargo-orange hover:bg-orange-600 tap-target"
+                onClick={handleCall} 
+                className="bg-cargo-orange hover:bg-orange-600 tap-target flex items-center gap-2"
               >
-                Get My Discount
+                <Phone size={16} />
+                Call us using +971504948135
               </Button>
             </DialogFooter>
-          </form>
+          </div>
         )}
       </DialogContent>
     </Dialog>
