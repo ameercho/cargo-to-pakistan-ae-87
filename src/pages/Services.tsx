@@ -1,7 +1,6 @@
 
 import ServicesHero from "@/components/services/ServicesHero";
 import MainServices from "@/components/services/MainServices";
-import ServiceComparison from "@/components/services/ServiceComparison";
 import AdditionalServices from "@/components/services/AdditionalServices";
 import ServicesCallToAction from "@/components/services/ServicesCallToAction";
 import FloatingButton from "@/components/FloatingButton";
@@ -14,9 +13,6 @@ const Services = () => {
 
       {/* Main Services */}
       <MainServices />
-
-      {/* Service Comparison */}
-      <ServiceComparison />
 
       {/* Additional Services */}
       <AdditionalServices />

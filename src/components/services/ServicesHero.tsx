@@ -2,6 +2,10 @@
 import { Button } from "@/components/ui/button";
 
 const ServicesHero = () => {
+  const handleCall = () => {
+    window.location.href = "tel:+971504948135";
+  };
+
   return (
     <section className="py-12 bg-cargo-green text-white">
       <div className="container-custom">
@@ -11,10 +15,11 @@ const ServicesHero = () => {
             Comprehensive shipping solutions for your cargo to Pakistan
           </p>
           <Button 
+            onClick={handleCall}
             className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" 
             size="lg"
           >
-            Get a Free Quote
+            Call
           </Button>
         </div>
       </div>

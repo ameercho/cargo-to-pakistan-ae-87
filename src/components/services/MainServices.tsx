@@ -1,13 +1,13 @@
 
 import ServiceCard from "@/components/ServiceCard";
-import { Ship, Plane, Truck } from "lucide-react";
+import { Ship, Home, Truck } from "lucide-react";
 
 const MainServices = () => {
   const mainServices = [
     {
-      title: "Air Freight",
-      description: "Fast and reliable air cargo services for time-sensitive shipments to Pakistan.",
-      icon: Plane,
+      title: "Moving Home",
+      description: "Complete home moving services for relocating to Pakistan.",
+      icon: Home,
       iconColor: "text-cargo-blue",
     },
     {

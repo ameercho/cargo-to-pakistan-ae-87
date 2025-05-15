@@ -3,6 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
 const ServicesCallToAction = () => {
+  const handleCall = () => {
+    window.location.href = "tel:+971504948135";
+  };
+
   return (
     <section className="py-12 bg-cargo-green text-white">
       <div className="container-custom text-center">
@@ -20,11 +24,12 @@ const ServicesCallToAction = () => {
             </Button>
           </Link>
           <Button 
+            onClick={handleCall}
             variant="outline" 
             className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
             size="lg"
           >
-            Get a Quote
+            Call
           </Button>
         </div>
       </div>

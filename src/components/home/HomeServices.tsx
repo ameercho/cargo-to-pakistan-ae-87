@@ -1,5 +1,5 @@
 
-import { ArrowRight, Ship, Truck, Package, ShieldCheck, Clock, Plane } from "lucide-react";
+import { ArrowRight, Ship, Truck, Package, ShieldCheck, Clock, Home } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ServiceCard from "@/components/ServiceCard";
 import { Link } from "react-router-dom";
@@ -42,9 +42,9 @@ const HomeServices = () => {
       link: "/services/courier-service"
     },
     {
-      title: "Air Freight",
-      description: "Fast and reliable air cargo services for time-sensitive shipments to Pakistan.",
-      icon: Plane,
+      title: "Moving Home",
+      description: "Complete home moving services for relocating to Pakistan.",
+      icon: Home,
       iconColor: "text-cargo-blue",
       link: "/services/air-freight"
     },

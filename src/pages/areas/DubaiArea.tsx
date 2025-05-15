@@ -1,9 +1,8 @@
-
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Plane, Ship, Truck, Phone, MessageCircle } from "lucide-react";
+import { ArrowRight, MapPin, Home, Ship, Truck, Phone, MessageCircle } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
 
 const DubaiArea = () => {
@@ -27,19 +26,19 @@ const DubaiArea = () => {
       link: "/services/full-container"
     },
     {
-      title: "Air Freight from Dubai",
-      description: "Fast and reliable air cargo services from Dubai to Pakistan.",
-      icon: Plane,
+      title: "Moving Home from Dubai",
+      description: "Complete home moving services from Dubai to Pakistan.",
+      icon: Home,
       link: "/services/air-freight"
     }
   ];
 
   const handleCall = () => {
-    window.location.href = "tel:+971501234567";
+    window.location.href = "tel:+971504948135";
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/971501234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20from%20Dubai%20to%20Pakistan.", "_blank");
+    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20from%20Dubai%20to%20Pakistan.", "_blank");
   };
 
   return (

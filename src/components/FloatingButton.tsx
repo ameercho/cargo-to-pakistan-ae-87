@@ -27,8 +27,8 @@ const FloatingButton = () => {
   }, [lastScrollY]);
 
   const handleWhatsAppClick = () => {
-    // WhatsApp API link - replace with your actual number
-    window.open("https://wa.me/923001234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
+    // WhatsApp API link with updated number
+    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
   };
 
   return (

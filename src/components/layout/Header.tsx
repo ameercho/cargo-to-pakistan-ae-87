@@ -17,6 +17,10 @@ const Header = () => {
     { title: "FAQ", path: "/faq" },
   ];
 
+  const handleCall = () => {
+    window.location.href = "tel:+971504948135";
+  };
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2">
       <div className="container-custom flex items-center justify-between">
@@ -42,8 +46,11 @@ const Header = () => {
               {link.title}
             </Link>
           ))}
-          <Button className="bg-cargo-green hover:bg-[#176a3e]">
-            Get Quote
+          <Button 
+            className="bg-cargo-green hover:bg-[#176a3e]"
+            onClick={handleCall}
+          >
+            Call
           </Button>
         </nav>
         
@@ -89,14 +96,17 @@ const Header = () => {
                 <div className="mt-auto space-y-4">
                   <div className="flex items-center gap-2 text-black">
                     <Phone className="h-4 w-4" />
-                    <span>+92 300 1234567</span>
+                    <span>+971504948135</span>
                   </div>
                   <div className="flex items-center gap-2 text-black">
                     <Mail className="h-4 w-4" />
                     <span>info@cargotopakistan.ae</span>
                   </div>
-                  <Button className="w-full bg-cargo-green hover:bg-[#176a3e]">
-                    Get Quote
+                  <Button 
+                    className="w-full bg-cargo-green hover:bg-[#176a3e]"
+                    onClick={handleCall}
+                  >
+                    Call
                   </Button>
                 </div>
               </div>

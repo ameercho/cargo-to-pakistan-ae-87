@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -89,17 +88,17 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+92 300 1234567", "+92 21 12345678"],
+      details: ["+971504948135"],
     },
     {
       icon: Mail,
       title: "Email",
-      details: ["info@cargoconnect.pk", "support@cargoconnect.pk"],
+      details: ["info@cargotopakistan.ae"],
     },
     {
       icon: MapPin,
       title: "Address",
-      details: ["123 Shipping Avenue", "Logistics Square, Karachi, Pakistan"],
+      details: ["Jebel Ali Industrial, Dubai, UAE"],
     },
     {
       icon: Clock,
@@ -160,7 +159,10 @@ const Contact = () => {
                 <p className="text-gray-600 mb-4">
                   Need immediate assistance? Our customer support team is available through live chat during business hours.
                 </p>
-                <Button className="bg-cargo-green hover:bg-green-700 tap-target">
+                <Button 
+                  className="bg-cargo-green hover:bg-green-700 tap-target"
+                  onClick={() => window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank")}
+                >
                   Start Chat
                 </Button>
               </div>

@@ -5,11 +5,11 @@ import { MessageCircle, Phone } from "lucide-react";
 
 const HeroSection = () => {
   const handleCall = () => {
-    window.location.href = "tel:+971501234567";
+    window.location.href = "tel:+971504948135";
   };
 
   const handleWhatsApp = () => {
-    window.open("https://wa.me/971501234567?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
+    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
   };
 
   return (
@@ -42,7 +42,7 @@ const HeroSection = () => {
             
             <div className="pt-4">
               <div className="flex flex-wrap gap-3">
-                <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Air Freight</div>
+                <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Moving Home</div>
                 <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Sea Freight</div>
                 <div className="bg-white/10 py-2 px-4 rounded-full text-sm">Full Container</div>
               </div>
