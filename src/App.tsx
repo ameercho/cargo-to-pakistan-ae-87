@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { router } from "./routes";
+import * as React from "react";
 
 // Create a new query client instance
 const queryClient = new QueryClient({
@@ -19,18 +20,20 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        <TooltipProvider>
-          {/* Toast notifications */}
-          <Toaster />
-          <Sonner />
-          
-          {/* Main application routing */}
-          <RouterProvider router={router} />
-        </TooltipProvider>
-      </QueryClientProvider>
-    </HelmetProvider>
+    <React.StrictMode>
+      <HelmetProvider>
+        <QueryClientProvider client={queryClient}>
+          <TooltipProvider>
+            {/* Toast notifications */}
+            <Toaster />
+            <Sonner />
+            
+            {/* Main application routing */}
+            <RouterProvider router={router} />
+          </TooltipProvider>
+        </QueryClientProvider>
+      </HelmetProvider>
+    </React.StrictMode>
   );
 };
 
