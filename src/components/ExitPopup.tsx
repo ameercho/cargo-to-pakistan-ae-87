@@ -74,7 +74,7 @@ const ExitPopup = () => {
             Wait! Don't Miss Out!
           </DialogTitle>
           <DialogDescription>
-            Get 10% off your first shipment when you subscribe to our newsletter.
+            Get upto 40% off discount if you are moving back to Pakistan after staying 2 years in UAE.
           </DialogDescription>
         </DialogHeader>
 
