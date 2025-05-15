@@ -1,28 +1,31 @@
-
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Phone, Mail } from "lucide-react";
-
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
-  
-  const navLinks = [
-    { title: "Home", path: "/" },
-    { title: "Services", path: "/services" },
-    { title: "About", path: "/about" },
-    { title: "Contact", path: "/contact" },
-    { title: "FAQ", path: "/faq" },
-  ];
-
+  const navLinks = [{
+    title: "Home",
+    path: "/"
+  }, {
+    title: "Services",
+    path: "/services"
+  }, {
+    title: "About",
+    path: "/about"
+  }, {
+    title: "Contact",
+    path: "/contact"
+  }, {
+    title: "FAQ",
+    path: "/faq"
+  }];
   const handleCall = () => {
     window.location.href = "tel:+971504948135";
   };
-
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2">
+  return <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2">
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
@@ -33,25 +36,10 @@ const Header = () => {
         
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={`font-medium tap-target px-2 py-1 transition-colors ${
-                location.pathname === link.path
-                  ? "text-cargo-green"
-                  : "text-black hover:text-cargo-green"
-              }`}
-            >
+          {navLinks.map(link => <Link key={link.path} to={link.path} className={`font-medium tap-target px-2 py-1 transition-colors ${location.pathname === link.path ? "text-cargo-green" : "text-black hover:text-cargo-green"}`}>
               {link.title}
-            </Link>
-          ))}
-          <Button 
-            className="bg-cargo-green hover:bg-[#176a3e]"
-            onClick={handleCall}
-          >
-            Call
-          </Button>
+            </Link>)}
+          <Button className="bg-cargo-green hover:bg-[#176a3e]" onClick={handleCall}>Call Us</Button>
         </nav>
         
         {/* Mobile Navigation */}
@@ -78,19 +66,9 @@ const Header = () => {
                 </div>
                 
                 <nav className="flex flex-col space-y-4">
-                  {navLinks.map((link) => (
-                    <Link
-                      key={link.path}
-                      to={link.path}
-                      className={`font-medium tap-target p-2 transition-colors ${
-                        location.pathname === link.path
-                          ? "bg-cargo-lightGreen text-cargo-green rounded-md"
-                          : "text-black hover:bg-cargo-lightGreen hover:rounded-md"
-                      }`}
-                    >
+                  {navLinks.map(link => <Link key={link.path} to={link.path} className={`font-medium tap-target p-2 transition-colors ${location.pathname === link.path ? "bg-cargo-lightGreen text-cargo-green rounded-md" : "text-black hover:bg-cargo-lightGreen hover:rounded-md"}`}>
                       {link.title}
-                    </Link>
-                  ))}
+                    </Link>)}
                 </nav>
                 
                 <div className="mt-auto space-y-4">
@@ -102,10 +80,7 @@ const Header = () => {
                     <Mail className="h-4 w-4" />
                     <span>info@cargotopakistan.ae</span>
                   </div>
-                  <Button 
-                    className="w-full bg-cargo-green hover:bg-[#176a3e]"
-                    onClick={handleCall}
-                  >
+                  <Button className="w-full bg-cargo-green hover:bg-[#176a3e]" onClick={handleCall}>
                     Call
                   </Button>
                 </div>
@@ -114,8 +89,6 @@ const Header = () => {
           </Sheet>
         </div>
       </div>
-    </header>
-  );
+    </header>;
 };
-
 export default Header;
