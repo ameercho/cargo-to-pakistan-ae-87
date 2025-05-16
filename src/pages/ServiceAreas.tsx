@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -18,24 +17,24 @@ const ServiceAreas = () => {
     { city: "Al Ain", country: "UAE", path: "/areas/al-ain" }
   ];
   
-  // Pakistan destination cities with their corresponding route paths
+  // Pakistan destination cities with their corresponding route paths - now ALL with paths
   const pakistanLocations = [
     { city: "Karachi", country: "Pakistan", path: "/pakistan-cargo-to-karachi" },
     { city: "Lahore", country: "Pakistan", path: "/pakistan-cargo-to-lahore" },
     { city: "Islamabad", country: "Pakistan", path: "/pakistan-cargo-to-islamabad" },
     { city: "Peshawar", country: "Pakistan", path: "/pakistan-cargo-to-peshawar" },
-    { city: "Quetta", country: "Pakistan", path: null },
-    { city: "Faisalabad", country: "Pakistan", path: null },
-    { city: "Multan", country: "Pakistan", path: null },
-    { city: "Sialkot", country: "Pakistan", path: null },
-    { city: "Rawalpindi", country: "Pakistan", path: null },
-    { city: "Gujranwala", country: "Pakistan", path: null },
-    { city: "Hyderabad", country: "Pakistan", path: null },
-    { city: "Bahawalpur", country: "Pakistan", path: null },
-    { city: "Sargodha", country: "Pakistan", path: null },
-    { city: "Sukkur", country: "Pakistan", path: null },
-    { city: "Larkana", country: "Pakistan", path: null },
-    { city: "Sheikhupura", country: "Pakistan", path: null }
+    { city: "Quetta", country: "Pakistan", path: "/pakistan-cargo-to-quetta" },
+    { city: "Faisalabad", country: "Pakistan", path: "/pakistan-cargo-to-faisalabad" },
+    { city: "Multan", country: "Pakistan", path: "/pakistan-cargo-to-multan" },
+    { city: "Sialkot", country: "Pakistan", path: "/pakistan-cargo-to-sialkot" },
+    { city: "Rawalpindi", country: "Pakistan", path: "/pakistan-cargo-to-rawalpindi" },
+    { city: "Gujranwala", country: "Pakistan", path: "/pakistan-cargo-to-gujranwala" },
+    { city: "Hyderabad", country: "Pakistan", path: "/pakistan-cargo-to-hyderabad" },
+    { city: "Bahawalpur", country: "Pakistan", path: "/pakistan-cargo-to-bahawalpur" },
+    { city: "Sargodha", country: "Pakistan", path: "/pakistan-cargo-to-sargoda" },
+    { city: "Sukkur", country: "Pakistan", path: "/pakistan-cargo-to-sukkur" },
+    { city: "Larkana", country: "Pakistan", path: "/pakistan-cargo-to-larkana" },
+    { city: "Sheikhupura", country: "Pakistan", path: "/pakistan-cargo-to-sheikhupura" }
   ];
 
   const handleCall = () => {
@@ -135,21 +134,13 @@ const ServiceAreas = () => {
           
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
             {pakistanLocations.map((location, index) => (
-              location.path ? (
-                <Link to={location.path} key={index} className="block">
-                  <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center card-hover">
-                    <MapPin className="h-5 w-5 text-cargo-orange mx-auto mb-2" />
-                    <h3 className="font-medium">{location.city}</h3>
-                    <p className="text-xs text-gray-500 mt-1">{location.country}</p>
-                  </div>
-                </Link>
-              ) : (
-                <div key={index} className="bg-white p-4 rounded-lg shadow-sm text-center">
+              <Link to={location.path} key={index} className="block">
+                <div className="bg-white p-4 rounded-lg shadow-sm hover:shadow-md transition-all text-center card-hover">
                   <MapPin className="h-5 w-5 text-cargo-orange mx-auto mb-2" />
                   <h3 className="font-medium">{location.city}</h3>
                   <p className="text-xs text-gray-500 mt-1">{location.country}</p>
                 </div>
-              )
+              </Link>
             ))}
           </div>
           

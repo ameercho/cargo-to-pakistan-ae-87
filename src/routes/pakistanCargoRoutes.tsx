@@ -7,6 +7,18 @@ import KarachiCargo from "@/pages/KarachiCargo";
 import LahoreCargo from "@/pages/LahoreCargo";
 import IslamabadCargo from "@/pages/IslamabadCargo";
 import PeshawarCargo from "@/pages/PeshawarCargo";
+import QuettaCargo from "@/pages/QuettaCargo";
+import FaisalabadCargo from "@/pages/FaisalabadCargo";
+import MultanCargo from "@/pages/MultanCargo";
+import SialkotCargo from "@/pages/SialkotCargo";
+import RawalpindiCargo from "@/pages/RawalpindiCargo";
+import GujranwalaCargo from "@/pages/GujranwalaCargo";
+import HyderabadCargo from "@/pages/HyderabadCargo";
+import BahawalpurCargo from "@/pages/BahawalpurCargo";
+import SargodaCargo from "@/pages/SargodaCargo";
+import SukkurCargo from "@/pages/SukkurCargo";
+import LarkanaCargo from "@/pages/LarkanaCargo";
+import SheikhupuraCargo from "@/pages/SheikhupuraCargo";
 
 export const pakistanCargoRoutes = [
   // UAE to Pakistan routes
@@ -26,7 +38,7 @@ export const pakistanCargoRoutes = [
     path: "ajman-to-pakistan",
     element: <AjmanToPakistan />,
   },
-  // New URLs for Pakistan cargo pages
+  // Pakistan cargo pages
   {
     path: "pakistan-cargo-to-karachi",
     element: <KarachiCargo />,
@@ -42,6 +54,54 @@ export const pakistanCargoRoutes = [
   {
     path: "pakistan-cargo-to-peshawar",
     element: <PeshawarCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-quetta",
+    element: <QuettaCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-faisalabad",
+    element: <FaisalabadCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-multan",
+    element: <MultanCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-sialkot",
+    element: <SialkotCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-rawalpindi",
+    element: <RawalpindiCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-gujranwala",
+    element: <GujranwalaCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-hyderabad",
+    element: <HyderabadCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-bahawalpur",
+    element: <BahawalpurCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-sargoda",
+    element: <SargodaCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-sukkur",
+    element: <SukkurCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-larkana",
+    element: <LarkanaCargo />,
+  },
+  {
+    path: "pakistan-cargo-to-sheikhupura",
+    element: <SheikhupuraCargo />,
   },
   // Add old routes with redirects for SEO purposes
   {

@@ -31,7 +31,13 @@
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
-  <!-- Updated Pakistan City Pages -->
+  <url>
+    <loc>https://cargoconnect.pk/service-areas</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <!-- Pakistan City Pages -->
   <url>
     <loc>https://cargoconnect.pk/pakistan-cargo-to-karachi</loc>
     <lastmod>2023-09-01</lastmod>
@@ -55,6 +61,79 @@
     <lastmod>2023-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <!-- New Pakistan City Pages -->
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-quetta</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-faisalabad</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-multan</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-sialkot</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-rawalpindi</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-gujranwala</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-hyderabad</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-bahawalpur</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-sargoda</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-sukkur</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-larkana</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/pakistan-cargo-to-sheikhupura</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
   </url>
   <!-- Service Pages -->
   <url>
@@ -141,5 +220,30 @@
     <lastmod>2023-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <!-- Country Routes -->
+  <url>
+    <loc>https://cargoconnect.pk/dubai-to-pakistan</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/abu-dhabi-to-pakistan</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/sharjah-to-pakistan</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://cargoconnect.pk/ajman-to-pakistan</loc>
+    <lastmod>2023-09-01</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>
