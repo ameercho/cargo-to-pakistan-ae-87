@@ -5,108 +5,19 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
-
-    --primary: 150 54% 39%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 0%;
-    --secondary-foreground: 0 0% 100%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 150 54% 39%;
-    --accent-foreground: 0 0% 0%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 150 54% 39%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 150 54% 39%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 95.9%;
-    --sidebar-accent-foreground: 0 0% 0%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 150 54% 39%;
-
-    /* Define cargo theme colors */
-    --cargo-green: #1e7c4a;
-    --cargo-lightGreen: #e8f5ee;
-    --cargo-black: #000000;
-    --cargo-white: #ffffff;
-    --cargo-gray: #F1F5F9;
-    --cargo-blue: #0A3D67;
-    --cargo-lightBlue: #E1F0FF;
-    --cargo-orange: #F59E0B;
-  }
-
-  .dark {
-    --background: 0 0% 10%;
-    --foreground: 0 0% 95%;
-
-    --card: 0 0% 10%;
-    --card-foreground: 0 0% 95%;
-
-    --popover: 0 0% 10%;
-    --popover-foreground: 0 0% 95%;
-
-    --primary: 142 53% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 0 0% 100%;
-    --secondary-foreground: 0 0% 0%;
-
-    --muted: 0 0% 20%;
-    --muted-foreground: 0 0% 65%;
-
-    --accent: 142 53% 45%;
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 142 53% 45%;
-
-    --sidebar-background: 0 0% 10%;
-    --sidebar-foreground: 0 0% 95%;
-    --sidebar-primary: 142 53% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 15%;
-    --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 0 0% 15%;
-    --sidebar-ring: 142 53% 45%;
+    --cargo-green: #1e8a50;
+    --cargo-blue: #0052cc;
+    --cargo-orange: #ff6b35;
+    --cargo-lightGreen: #e6f4ed;
+    --cargo-lightBlue: #e6f0ff;
+    --cargo-lightOrange: #ffede6;
+    --cargo-gray: #f5f5f7;
   }
 }
 
 @layer base {
-  * {
-    @apply border-border;
-  }
-
   body {
-    @apply bg-background text-foreground;
-    font-feature-settings: "rlig" 1, "calt" 1;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold text-black dark:text-white;
+    @apply text-gray-800 antialiased;
   }
 }
 
@@ -115,39 +26,19 @@
     @apply container mx-auto px-4 sm:px-6 lg:px-8;
   }
   
-  .btn-primary {
-    @apply bg-cargo-green text-white hover:bg-[#176a3e] transition-colors;
-  }
-  
-  .btn-secondary {
-    @apply bg-black text-white hover:bg-gray-800 transition-colors;
-  }
-  
-  .btn-accent {
-    @apply bg-cargo-green text-white hover:bg-[#176a3e] transition-colors;
-  }
-  
-  .card-hover {
-    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
-  }
-  
-  .green-zone {
-    @apply mb-16 sm:mb-0; /* Ensure content is in the "green zone" for mobile */
-  }
-  
-  .tap-target {
-    @apply min-h-[44px] min-w-[44px]; /* Thumb-friendly tap targets */
-  }
-
   .section-title {
-    @apply text-3xl font-bold text-cargo-blue mb-3;
+    @apply text-3xl font-bold text-gray-900 mb-4;
   }
   
   .section-description {
-    @apply text-gray-600 max-w-2xl mx-auto;
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
   }
-
-  .location-card {
-    @apply p-3 rounded-lg flex items-center shadow-sm transition-colors;
+  
+  .tap-target {
+    @apply active:scale-95 transform transition-transform duration-75;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
   }
 }
