@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
@@ -14,11 +15,7 @@ interface DestinationInfo {
 }
 
 interface PakistanCargoDestinationPageProps {
-  destination: {
-    city: string;
-    description: string;
-    areas: string[];
-  };
+  destination: DestinationInfo;
 }
 
 const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> = ({ destination }) => {
@@ -201,7 +198,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
                 </div>
                 
                 <Button 
-                  className="w-full bg-cargo-blue hover:bg-blue-800 shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
+                  className="w-full bg-cargo-blue hover:bg-blue-800 text-white shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-4 w-4" />
@@ -211,7 +208,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
                 <div className="mt-4">
                   <Button 
                     variant="outline" 
-                    className="w-full border-cargo-blue text-cargo-blue hover:bg-cargo-lightBlue/50"
+                    className="w-full border-cargo-blue text-white bg-cargo-blue hover:bg-blue-700"
                     onClick={handleWhatsApp}
                   >
                     <MessageCircle className="mr-2 h-4 w-4" />
@@ -267,7 +264,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
           
           <div className="flex justify-center mt-10">
             <Link to="/services">
-              <Button className="bg-cargo-blue hover:bg-blue-800 shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5">
+              <Button className="bg-cargo-blue hover:bg-blue-800 text-white shadow-md transition-all hover:shadow-lg transform hover:-translate-y-0.5">
                 View All Services <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
