@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +6,11 @@ import { ArrowRight, Home, Clock, Package, MapPin, FileCheck, ShieldCheck } from
 import CallToAction from "@/components/home/CallToAction";
 
 const AirFreight = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const benefits = [
     { title: "Professional Service", description: "Expert packing and moving services", icon: Clock },
     { title: "Door to Door", description: "Complete home relocation services", icon: Home },

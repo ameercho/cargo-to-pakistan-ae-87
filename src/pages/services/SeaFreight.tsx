@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +6,11 @@ import { ArrowRight, Ship, Anchor, Package, Clock, ShieldCheck, FileCheck } from
 import CallToAction from "@/components/home/CallToAction";
 
 const SeaFreight = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const benefits = [
     { title: "Cost-Effective", description: "Ideal for large shipments at budget-friendly rates", icon: Anchor },
     { title: "Large Capacity", description: "Perfect for bulky items and high-volume cargo", icon: Package },

@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +6,11 @@ import { ArrowRight, Truck, Package, ShieldCheck, CheckSquare, FileCheck, Wareho
 import CallToAction from "@/components/home/CallToAction";
 
 const FullContainer = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const benefits = [
     { title: "Exclusive Use", description: "Your goods are the only cargo in the container", icon: CheckSquare },
     { title: "Enhanced Security", description: "Reduced handling means lower risk of damage", icon: ShieldCheck },

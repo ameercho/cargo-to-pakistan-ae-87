@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -15,10 +14,19 @@ interface DestinationInfo {
 }
 
 interface PakistanCargoDestinationPageProps {
-  destination: DestinationInfo;
+  destination: {
+    city: string;
+    description: string;
+    areas: string[];
+  };
 }
 
 const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> = ({ destination }) => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const services = [
     {
       title: "Sea Freight",
@@ -49,12 +57,14 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
   };
   
   return (
-    <div className="min-h-screen pt-20">
+    <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Cargo Services to {destination.city} | Fast & Reliable Shipping</title>
-        <meta name="description" content={`Professional cargo shipping services from UAE to ${destination.city}, Pakistan. Door-to-door delivery with secure handling and tracking.`} />
-        <meta name="keywords" content={`${destination.city.toLowerCase()} cargo, pakistan cargo, uae to ${destination.city.toLowerCase()} shipping, door to door ${destination.city.toLowerCase()}`} />
+        <title>{`Cargo Services to ${destination.city}, Pakistan | Reliable Shipping`}</title>
+        <meta 
+          name="description" 
+          content={`Professional cargo services to ${destination.city}, Pakistan. Door-to-door delivery with reliable tracking.`} 
+        />
         <link rel="canonical" href={`https://cargoconnect.pk/pakistan-cargo-to-${destination.city.toLowerCase()}`} />
       </Helmet>
 

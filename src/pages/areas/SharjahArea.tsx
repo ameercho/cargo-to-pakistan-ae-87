@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +6,11 @@ import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
 
 const SharjahArea = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const locations = [
     "Al Nahda", "Al Qasimia", "Al Majaz", "Al Khan", "Al Taawun",
     "Al Yarmook", "Al Ghuwair", "Abu Shagara", "Al Nabba", "Muwaileh"
