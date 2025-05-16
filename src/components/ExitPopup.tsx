@@ -65,19 +65,22 @@ const ExitPopup = () => {
 
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
-      <DialogContent className="sm:max-w-[425px]">
-        <DialogHeader>
-          <DialogTitle className="text-cargo-blue text-xl">
+      <DialogContent className="sm:max-w-[425px] border-cargo-green border-2 shadow-lg animate-fade-in">
+        <DialogHeader className="border-b pb-3">
+          <DialogTitle className="text-cargo-blue text-xl flex items-center gap-2">
+            <div className="h-6 w-6 rounded-full bg-cargo-green flex items-center justify-center text-white text-xs">
+              40%
+            </div>
             Wait! Don't Miss Out!
           </DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-gray-700">
             Get upto 40% off discount if you are moving back to Pakistan after staying 2 years in UAE.
           </DialogDescription>
         </DialogHeader>
 
         {isSubscribed ? (
           <div className="py-6 flex flex-col items-center text-center">
-            <div className="rounded-full bg-green-100 p-3 mb-4">
+            <div className="rounded-full bg-green-100 p-3 mb-4 animate-pulse-light">
               <Check className="h-6 w-6 text-green-600" />
             </div>
             <h3 className="text-lg font-medium text-gray-900 mb-1">Thank You!</h3>
@@ -87,30 +90,30 @@ const ExitPopup = () => {
           </div>
         ) : (
           <div>
-            <div className="flex flex-col gap-4 py-4">
-              <div className="flex items-center gap-3">
-                <div className="h-10 w-10 rounded-full bg-cargo-orange flex items-center justify-center text-white">
+            <div className="flex flex-col gap-4 py-4 animate-fade-in">
+              <div className="flex items-center gap-3 bg-cargo-lightGreen p-3 rounded-lg">
+                <div className="h-12 w-12 rounded-full bg-cargo-orange flex items-center justify-center text-white text-lg font-bold shadow-md">
                   40%
                 </div>
-                <div className="font-medium">Special Discount</div>
+                <div className="font-medium text-cargo-blue">Special Moving Discount</div>
               </div>
-              <p className="text-gray-600">
+              <p className="text-gray-600 bg-cargo-gray p-3 rounded-md border-l-4 border-cargo-green">
                 Contact us now to claim your exclusive discount for moving back to Pakistan!
               </p>
             </div>
-            <DialogFooter>
+            <DialogFooter className="gap-3 pt-3 border-t">
               <Button 
                 variant="outline" 
                 onClick={handleClose}
-                className="tap-target"
+                className="tap-target hover:bg-gray-100 transition-all"
               >
                 No Thanks
               </Button>
               <Button 
                 onClick={handleCall} 
-                className="bg-cargo-orange hover:bg-orange-600 tap-target flex items-center gap-2"
+                className="bg-cargo-orange hover:bg-orange-600 tap-target flex items-center gap-2 shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5"
               >
-                <Phone size={16} />
+                <Phone size={16} strokeWidth={2.5} />
                 Call us using +971504948135
               </Button>
             </DialogFooter>
