@@ -12,13 +12,13 @@ const CallToAction = () => {
           Contact us today for a free quote and experience our reliable cargo services.
         </p>
         <div className="flex flex-wrap gap-4 justify-center">
-          <Link to="/contact">
-            <Button className="bg-white text-cargo-green hover:bg-gray-100 tap-target" size="lg">
+          <Link to="/contact" className="w-auto">
+            <Button className="bg-white text-cargo-green hover:bg-gray-100 tap-target w-full" size="lg">
               Get a Free Quote
             </Button>
           </Link>
-          <Link to="/contact">
-            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 tap-target" size="lg">
+          <Link to="/contact" className="w-auto">
+            <Button variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 tap-target w-full" size="lg">
               Contact Us
             </Button>
           </Link>

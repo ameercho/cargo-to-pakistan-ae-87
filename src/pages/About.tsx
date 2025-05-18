@@ -131,21 +131,23 @@ const About = () => {
             Join thousands of satisfied customers who trust us with their cargo to Pakistan.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/contact">
+            <Link to="/contact" className="w-auto">
               <Button 
-                className="bg-white text-cargo-green hover:bg-gray-100 tap-target" 
+                className="bg-white text-cargo-green hover:bg-gray-100 tap-target w-full" 
                 size="lg"
               >
                 Contact Us
               </Button>
             </Link>
-            <Button 
-              variant="outline" 
-              className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
-              size="lg"
-            >
-              Our Services <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
+            <Link to="/services" className="w-auto">
+              <Button 
+                variant="outline" 
+                className="bg-transparent border-white text-white hover:bg-white/10 tap-target w-full" 
+                size="lg"
+              >
+                Our Services <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
