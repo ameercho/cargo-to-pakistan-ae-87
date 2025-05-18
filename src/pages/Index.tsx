@@ -4,7 +4,6 @@ import HeroSection from "@/components/home/HeroSection";
 import HomeServices from "@/components/home/HomeServices";
 import ServiceAreas from "@/components/ServiceAreas";
 import DoorToDoorService from "@/components/DoorToDoorService";
-import ExitPopup from "@/components/ExitPopup";
 import FloatingButton from "@/components/FloatingButton";
 import PakistanCargoServices from "@/components/PakistanCargoServices";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -45,7 +44,7 @@ const Index = () => {
       <CallToAction />
 
       {/* Components */}
-      <ExitPopup />
+      {/* ExitPopup removed */}
       <FloatingButton />
     </div>
   );

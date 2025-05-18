@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -13,32 +13,13 @@ import { useToast } from "@/components/ui/use-toast";
 import { Check, Phone } from "lucide-react";
 
 const ExitPopup = () => {
+  // Disable the popup completely by setting isOpen to false and never changing it
   const [isOpen, setIsOpen] = useState(false);
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
   const { toast } = useToast();
 
-  // Handle exit intent
-  useEffect(() => {
-    const handleExitIntent = (e: MouseEvent) => {
-      // Only trigger once and when mouse leaves the top of the page
-      if (!hasTriggered && e.clientY <= 20) {
-        setIsOpen(true);
-        setHasTriggered(true);
-      }
-    };
-
-    // Check if user has already seen the popup
-    const hasSeenPopup = sessionStorage.getItem("hasSeenExitPopup");
-    if (hasSeenPopup !== "true") {
-      document.addEventListener("mouseleave", handleExitIntent);
-    }
-
-    return () => {
-      document.removeEventListener("mouseleave", handleExitIntent);
-    };
-  }, [hasTriggered]);
-
+  // Not attaching event listeners anymore
+  
   const handleCall = () => {
     // Record that the user interacted with the call button
     sessionStorage.setItem("hasSeenExitPopup", "true");
@@ -63,6 +44,10 @@ const ExitPopup = () => {
     sessionStorage.setItem("hasSeenExitPopup", "true");
   };
 
+  // Return null instead of rendering the Dialog
+  return null;
+  
+  /* Commented out original return
   return (
     <Dialog open={isOpen} onOpenChange={setIsOpen}>
       <DialogContent className="sm:max-w-[425px] border-cargo-green border-2 shadow-lg animate-fade-in">
@@ -122,6 +107,7 @@ const ExitPopup = () => {
       </DialogContent>
     </Dialog>
   );
+  */
 };
 
 export default ExitPopup;
