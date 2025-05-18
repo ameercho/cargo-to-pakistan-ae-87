@@ -7,6 +7,7 @@ import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { router } from "./routes";
 import * as React from "react";
+import { ThemeProvider } from "next-themes";
 
 // Create a new query client instance
 const queryClient = new QueryClient({
@@ -20,16 +21,22 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <HelmetProvider>
-      <QueryClientProvider client={queryClient}>
-        {/* Toast notifications */}
-        <Toaster />
-        <Sonner />
-        
-        {/* Main application routing */}
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </HelmetProvider>
+    <React.StrictMode>
+      <HelmetProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+              {/* Toast notifications */}
+              <Toaster />
+              <Sonner />
+              
+              {/* Main application routing */}
+              <RouterProvider router={router} />
+            </TooltipProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </HelmetProvider>
+    </React.StrictMode>
   );
 };
 

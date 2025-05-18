@@ -1,10 +1,13 @@
+
 import { useTheme } from "next-themes"
 import { Toaster as Sonner } from "sonner"
+import * as React from "react"
 
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  const { theme = "system" } = useTheme()
+  // Add fallback for theme to prevent errors if ThemeProvider is not available
+  const { theme = "system" } = useTheme ? useTheme() : { theme: "system" }
 
   return (
     <Sonner

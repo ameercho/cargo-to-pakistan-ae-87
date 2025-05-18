@@ -154,6 +154,7 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
+  // Make sure React is available when using useState
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
