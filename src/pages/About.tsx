@@ -11,7 +11,7 @@ const About = () => {
       <section className="py-12 bg-cargo-green text-white">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">About CargoConnect</h1>
+            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">About Cargo to Pakistan</h1>
             <p className="text-xl text-gray-100 mb-6">
               Your trusted partner for cargo services to Pakistan
             </p>
@@ -31,7 +31,7 @@ const About = () => {
             <div>
               <h2 className="text-3xl font-bold text-cargo-blue mb-4">Our Story</h2>
               <p className="text-gray-600 mb-6">
-                CargoConnect was founded in 2015 with a clear mission: to provide reliable, efficient, and affordable cargo services to Pakistan. What started as a small operation has grown into a trusted name in the shipping industry.
+                Cargo to Pakistan was founded in 2015 with a clear mission: to provide reliable, efficient, and affordable cargo services to Pakistan. What started as a small operation has grown into a trusted name in the shipping industry.
               </p>
               <p className="text-gray-600 mb-6">
                 Our founders identified a gap in the market for quality cargo services to Pakistan, especially for individuals and small businesses who needed reliable shipping options without the complexity and high costs typically associated with international shipping.
@@ -119,45 +119,6 @@ const About = () => {
               <div className="text-4xl font-bold text-cargo-blue mb-2">8+</div>
               <div className="text-gray-600">Years of Experience</div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Team */}
-      <section className="py-16 bg-white">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-cargo-blue mb-3">Our Leadership Team</h2>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              Meet the experienced professionals behind CargoConnect.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Mohammed Khan",
-                position: "Founder & CEO",
-                bio: "With over 15 years in logistics, Mohammed founded CargoConnect to provide reliable shipping services to Pakistan.",
-              },
-              {
-                name: "Sarah Ahmed",
-                position: "Operations Director",
-                bio: "Sarah oversees all operational aspects, ensuring smooth and efficient cargo processing and delivery.",
-              },
-              {
-                name: "James Wilson",
-                position: "Customer Relations Manager",
-                bio: "James leads our customer service team, focusing on providing exceptional support to all our clients.",
-              },
-            ].map((member, index) => (
-              <div key={index} className="bg-white p-6 rounded-lg shadow-sm">
-                <div className="bg-gray-200 w-24 h-24 rounded-full mx-auto mb-4"></div>
-                <h3 className="text-xl font-bold text-cargo-blue text-center mb-1">{member.name}</h3>
-                <p className="text-cargo-green text-center mb-4">{member.position}</p>
-                <p className="text-gray-600 text-center">{member.bio}</p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
