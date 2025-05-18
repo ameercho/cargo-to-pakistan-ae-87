@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
@@ -17,7 +18,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white">
       <Helmet>
         <title>{`Cargo Services from ${location.city} to Pakistan | Reliable Shipping`}</title>
         <meta 
@@ -45,7 +46,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="page-section-lg">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             <div>
@@ -87,7 +88,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
               </div>
             </div>
             <div>
-              <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="bg-gray-50 p-6 rounded-lg shadow-sm">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4">
                   Get a Quote
                 </h3>
@@ -146,7 +147,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
       </section>
 
       {/* Additional Information Section */}
-      <section className="py-12 bg-gray-50">
+      <section className="page-section bg-gray-50">
         <div className="container-custom">
           <h2 className="text-2xl font-bold text-cargo-blue mb-4">
             {`Shipping from ${location.city} to Pakistan Made Easy`}

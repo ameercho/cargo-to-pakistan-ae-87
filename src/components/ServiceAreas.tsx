@@ -43,7 +43,7 @@ const ServiceAreas = () => {
   ];
 
   return (
-    <div className="py-12 bg-gray-50">
+    <div className="page-section bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-10">
           <h2 className="section-title">Our Service Areas</h2>

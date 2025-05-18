@@ -29,7 +29,7 @@ const PakistanCargoServices = () => {
   ];
 
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="page-section bg-gray-50">
       <div className="container-custom">
         <div className="text-center mb-12">
           <h2 className="section-title">Pakistan Cargo Services</h2>
