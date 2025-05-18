@@ -20,20 +20,16 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <React.StrictMode>
-      <HelmetProvider>
-        <QueryClientProvider client={queryClient}>
-          <TooltipProvider>
-            {/* Toast notifications */}
-            <Toaster />
-            <Sonner />
-            
-            {/* Main application routing */}
-            <RouterProvider router={router} />
-          </TooltipProvider>
-        </QueryClientProvider>
-      </HelmetProvider>
-    </React.StrictMode>
+    <HelmetProvider>
+      <QueryClientProvider client={queryClient}>
+        {/* Toast notifications */}
+        <Toaster />
+        <Sonner />
+        
+        {/* Main application routing */}
+        <RouterProvider router={router} />
+      </QueryClientProvider>
+    </HelmetProvider>
   );
 };
 
