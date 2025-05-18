@@ -127,7 +127,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Phone</FormLabel>
                   <FormControl>
-                    <Input placeholder="+92 300 1234567" {...field} className="tap-target" />
+                    <Input placeholder="+971 50 1234 567" {...field} className="tap-target" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

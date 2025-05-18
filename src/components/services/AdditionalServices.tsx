@@ -36,7 +36,7 @@ const AdditionalServices = () => {
     },
     {
       title: "Tracking Services",
-      description: "Real-time tracking of your shipments from origin to destination.",
+      description: "Tracking of your shipments from origin to destination.",
       icon: Map,
       iconColor: "text-cargo-orange",
     },
