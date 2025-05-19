@@ -30,8 +30,12 @@ const App = () => {
               <RouterProvider router={router} />
               
               {/* Toast notifications - moved after RouterProvider to ensure React context is available */}
-              <Toaster />
-              <Sonner />
+              {typeof React.useContext === 'function' && (
+                <>
+                  <Toaster />
+                  <Sonner />
+                </>
+              )}
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>

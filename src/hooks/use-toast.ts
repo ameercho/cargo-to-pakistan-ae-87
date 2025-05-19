@@ -154,8 +154,15 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  // Only use React hooks when in a component context
-  const isClient = typeof window !== 'undefined'
+  // Only execute hooks when in a component context
+  if (typeof React.useState !== 'function') {
+    return {
+      toasts: memoryState.toasts,
+      toast,
+      dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+    }
+  }
+
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
@@ -166,7 +173,7 @@ function useToast() {
         listeners.splice(index, 1)
       }
     }
-  }, [state])
+  }, [])
 
   return {
     ...state,
