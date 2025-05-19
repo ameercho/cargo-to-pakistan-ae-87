@@ -6,12 +6,24 @@ import * as React from "react"
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // We can safely use hooks here now as this component will only be rendered client-side
-  const { theme = "system" } = useTheme();
+  // Default theme if useTheme hook is not available
+  let themeValue = "system";
+  
+  // Safely try to use the useTheme hook
+  try {
+    // The component now should only render on the client side
+    // where hooks are available, but we'll add another safety check
+    if (typeof React.useContext === 'function') {
+      const { theme = "system" } = useTheme();
+      themeValue = theme;
+    }
+  } catch (e) {
+    console.warn("Could not access theme context:", e);
+  }
 
   return (
     <Sonner
-      theme={theme as ToasterProps["theme"]}
+      theme={themeValue as ToasterProps["theme"]}
       className="toaster group"
       toastOptions={{
         classNames: {

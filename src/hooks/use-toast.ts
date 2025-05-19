@@ -1,3 +1,4 @@
+
 import * as React from "react"
 
 import type {
@@ -153,11 +154,11 @@ function toast({ ...props }: Toast) {
 }
 
 // Safely detect if we're in a browser environment
-const isBrowser = typeof window !== 'undefined'
+const isBrowser = typeof window !== 'undefined' && window.document !== undefined
 
 function useToast() {
-  // Skip hooks when not in browser or during SSR
-  if (!isBrowser) {
+  // For SSR or environments where useState isn't available, return a fallback
+  if (!isBrowser || typeof React.useState !== 'function') {
     return {
       toast,
       dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
@@ -168,7 +169,10 @@ function useToast() {
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {
+    // Register state listener
     listeners.push(setState)
+    
+    // Cleanup on unmount
     return () => {
       const index = listeners.indexOf(setState)
       if (index > -1) {

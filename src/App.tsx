@@ -19,14 +19,6 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
-  // Use state to control when toasts are rendered
-  const [mounted, setMounted] = React.useState(false);
-
-  // Only show toasts after component mounts (client-side)
-  React.useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <React.StrictMode>
       <HelmetProvider>
@@ -36,8 +28,8 @@ const App = () => {
               {/* Main application routing */}
               <RouterProvider router={router} />
               
-              {/* Toast notifications - only render after mounting */}
-              {mounted && <ClientToasts />}
+              {/* Toast notifications - client-side only component with internal mounting check */}
+              <ClientToasts />
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>

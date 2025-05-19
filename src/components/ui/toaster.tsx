@@ -11,6 +11,7 @@ import {
 import * as React from "react"
 
 export function Toaster() {
+  // The useToast hook now has SSR safety built-in
   const { toasts } = useToast()
 
   return (
