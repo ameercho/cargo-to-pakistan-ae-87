@@ -6,8 +6,17 @@ import * as React from "react"
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Add fallback for theme to prevent errors if ThemeProvider is not available
-  const { theme = "system" } = useTheme ? useTheme() : { theme: "system" }
+  // Use a safe approach to get the theme to prevent errors
+  let theme = "system"
+  try {
+    const themeContext = useTheme()
+    if (themeContext?.theme) {
+      theme = themeContext.theme
+    }
+  } catch (error) {
+    console.error("Theme provider not available:", error)
+    // Default theme is already set
+  }
 
   return (
     <Sonner

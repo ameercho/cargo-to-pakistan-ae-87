@@ -154,7 +154,8 @@ function toast({ ...props }: Toast) {
 }
 
 function useToast() {
-  // Make sure React is available when using useState
+  // Only use React hooks when in a component context
+  const isClient = typeof window !== 'undefined'
   const [state, setState] = React.useState<State>(memoryState)
 
   React.useEffect(() => {

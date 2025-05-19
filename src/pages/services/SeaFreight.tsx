@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
@@ -29,8 +30,8 @@ const SeaFreight = () => {
         <link rel="canonical" href="https://cargoconnect.pk/services/sea-freight" />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
+      {/* Hero Section - Updated with hero-gradient class */}
+      <section className="py-12 hero-gradient">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Sea Freight Services to Pakistan</h1>

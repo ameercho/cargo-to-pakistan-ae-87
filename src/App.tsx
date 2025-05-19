@@ -26,12 +26,12 @@ const App = () => {
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <QueryClientProvider client={queryClient}>
             <TooltipProvider>
-              {/* Toast notifications */}
-              <Toaster />
-              <Sonner />
-              
               {/* Main application routing */}
               <RouterProvider router={router} />
+              
+              {/* Toast notifications - moved after RouterProvider to ensure React context is available */}
+              <Toaster />
+              <Sonner />
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>
