@@ -15,22 +15,19 @@ const Toaster = ({ ...props }: ToasterProps) => {
   React.useEffect(() => {
     setMounted(true);
     
-    // Only try to use theme hooks when mounted
-    if (mounted) {
-      try {
-        // Safely access useTheme
-        const themeContext = useTheme();
-        if (themeContext && themeContext.resolvedTheme) {
-          setTheme(themeContext.resolvedTheme as ToasterProps["theme"]);
-        }
-      } catch (error) {
-        // Silently fail if theme context isn't available
-        console.warn("Theme context not available:", error);
+    // Safely try to use the theme hook (only on client)
+    try {
+      const { resolvedTheme } = useTheme();
+      if (resolvedTheme) {
+        setTheme(resolvedTheme as ToasterProps["theme"]);
       }
+    } catch (error) {
+      // Silently fail if theme context isn't available
+      console.warn("Theme context not available:", error);
     }
     
     return () => setMounted(false);
-  }, [mounted]);
+  }, []);
 
   // Don't render anything until mounted
   if (!mounted) {

@@ -1,7 +1,7 @@
 
-// Re-export from the toast module
+// Only export toast functions from the module
 import { useToast } from "./toast/use-toast";
 import { toast } from "./toast/toast-utils";
 
-// Only export if we're in a browser environment
+// Export the functions
 export { useToast, toast };

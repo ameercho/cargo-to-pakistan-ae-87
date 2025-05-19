@@ -19,10 +19,11 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  // Track if component is mounted for client-side only features
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setIsMounted(true);
+    setMounted(true);
   }, []);
 
   return (
