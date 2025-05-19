@@ -6,21 +6,8 @@ import * as React from "react"
 type ToasterProps = React.ComponentProps<typeof Sonner>
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Use a more robust approach to get the theme
-  let theme = "system";
-  
-  // Only try to use useTheme if React.useContext is available
-  if (typeof React.useContext === 'function') {
-    try {
-      const themeContext = useTheme();
-      if (themeContext?.theme) {
-        theme = themeContext.theme;
-      }
-    } catch (error) {
-      console.error("Theme context not available:", error);
-      // Default theme is already set
-    }
-  }
+  // We can safely use hooks here now as this component will only be rendered client-side
+  const { theme = "system" } = useTheme();
 
   return (
     <Sonner

@@ -1,6 +1,4 @@
 
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
@@ -8,6 +6,7 @@ import { HelmetProvider } from 'react-helmet-async';
 import { router } from "./routes";
 import * as React from "react";
 import { ThemeProvider } from "next-themes";
+import { ClientToasts } from "@/components/ui/client-toasts";
 
 // Create a new query client instance
 const queryClient = new QueryClient({
@@ -20,6 +19,14 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  // Use state to control when toasts are rendered
+  const [mounted, setMounted] = React.useState(false);
+
+  // Only show toasts after component mounts (client-side)
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <React.StrictMode>
       <HelmetProvider>
@@ -29,13 +36,8 @@ const App = () => {
               {/* Main application routing */}
               <RouterProvider router={router} />
               
-              {/* Toast notifications - moved after RouterProvider to ensure React context is available */}
-              {typeof React.useContext === 'function' && (
-                <>
-                  <Toaster />
-                  <Sonner />
-                </>
-              )}
+              {/* Toast notifications - only render after mounting */}
+              {mounted && <ClientToasts />}
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>

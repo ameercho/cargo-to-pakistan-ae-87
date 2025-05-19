@@ -1,4 +1,3 @@
-
 import * as React from "react"
 
 import type {
@@ -111,8 +110,8 @@ const reducer = (state: State, action: Action): State => {
   }
 }
 
+// Create listeners and memory state outside of React components
 const listeners: Array<(state: State) => void> = []
-
 let memoryState: State = { toasts: [] }
 
 function dispatch(action: Action) {
@@ -153,13 +152,16 @@ function toast({ ...props }: Toast) {
   }
 }
 
+// Safely detect if we're in a browser environment
+const isBrowser = typeof window !== 'undefined'
+
 function useToast() {
-  // Only execute hooks when in a component context
-  if (typeof React.useState !== 'function') {
+  // Skip hooks when not in browser or during SSR
+  if (!isBrowser) {
     return {
-      toasts: memoryState.toasts,
       toast,
       dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+      toasts: memoryState.toasts,
     }
   }
 
@@ -173,7 +175,7 @@ function useToast() {
         listeners.splice(index, 1)
       }
     }
-  }, [])
+  }, [state])
 
   return {
     ...state,
