@@ -22,13 +22,12 @@ export function Toaster() {
     return () => setMounted(false);
   }, []);
   
-  // Render nothing during SSR
-  if (typeof window === 'undefined' || !mounted) {
+  // Only try to use the hook when mounted (client-side only)
+  const { toasts } = mounted ? useToast() : { toasts: [] };
+
+  if (!mounted) {
     return null;
   }
-  
-  // Only try to use the hook when mounted (client-side only)
-  const { toasts } = useToast();
 
   return (
     <ToastProvider>

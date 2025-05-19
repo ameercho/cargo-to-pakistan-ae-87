@@ -19,6 +19,12 @@ const queryClient = new QueryClient({
 });
 
 const App = () => {
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <React.StrictMode>
       <HelmetProvider>
@@ -28,11 +34,8 @@ const App = () => {
               {/* Main application routing */}
               <RouterProvider router={router} />
               
-              {/* 
-                Toast notifications - conditionally rendered on client-side only
-                The internal mounting check in ClientToasts handles this
-              */}
-              <ClientToasts />
+              {/* Only render ClientToasts when we're on the client side */}
+              {isMounted && <ClientToasts />}
             </TooltipProvider>
           </QueryClientProvider>
         </ThemeProvider>

@@ -47,9 +47,8 @@ export function canUseDOM(): boolean {
       typeof window !== "undefined" &&
       window.document &&
       window.document.createElement &&
-      typeof React !== 'undefined' &&
-      React !== null &&
-      typeof React.useState === 'function'
+      typeof React !== "undefined" &&
+      React !== null
     );
   } catch (e) {
     return false;

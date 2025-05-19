@@ -15,8 +15,8 @@ const Toaster = ({ ...props }: ToasterProps) => {
   React.useEffect(() => {
     setMounted(true);
     
-    // Only try to use theme hooks when we're sure we're on the client
-    if (typeof window !== 'undefined') {
+    // Only try to use theme hooks when mounted
+    if (mounted) {
       try {
         // Safely access useTheme
         const themeContext = useTheme();
@@ -30,10 +30,10 @@ const Toaster = ({ ...props }: ToasterProps) => {
     }
     
     return () => setMounted(false);
-  }, []);
+  }, [mounted]);
 
-  // Render nothing during SSR
-  if (typeof window === 'undefined' || !mounted) {
+  // Don't render anything until mounted
+  if (!mounted) {
     return null;
   }
 
