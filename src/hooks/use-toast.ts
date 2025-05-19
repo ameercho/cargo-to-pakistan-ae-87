@@ -1,6 +1,5 @@
 
 import * as React from "react"
-
 import type {
   ToastActionElement,
   ToastProps,
@@ -153,55 +152,61 @@ function toast({ ...props }: Toast) {
   }
 }
 
-// Safely detect if we're in a browser environment
-const isBrowser = typeof window !== 'undefined' && window.document !== undefined
-
 function useToast() {
-  // For SSR or environments where useState isn't available, return a fallback
-  if (!isBrowser || typeof React.useState !== 'function') {
+  // This is the key safety check - ensure we're in a browser environment with React available
+  const canUseDOM = !!(
+    typeof window !== "undefined" &&
+    window.document &&
+    window.document.createElement &&
+    typeof React.useState === 'function'
+  );
+
+  // If not in browser or React context, return default state
+  if (!canUseDOM) {
     return {
       toast,
       dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
       toasts: memoryState.toasts,
-    }
+    };
   }
 
-  const [state, setState] = React.useState<State>(memoryState)
+  // Safe to use React hooks now
+  const [state, setState] = React.useState<State>(memoryState);
 
   React.useEffect(() => {
-    // Register state listener
-    listeners.push(setState)
+    // Add listener
+    listeners.push(setState);
     
-    // Cleanup on unmount
+    // Clean up
     return () => {
-      const index = listeners.indexOf(setState)
+      const index = listeners.indexOf(setState);
       if (index > -1) {
-        listeners.splice(index, 1)
+        listeners.splice(index, 1);
       }
-    }
-  }, [state])
+    };
+  }, [state]);
 
   return {
     ...state,
     toast,
     dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
-  }
+  };
 }
 
 function addToRemoveQueue(toastId: string) {
   if (toastTimeouts.has(toastId)) {
-    return
+    return;
   }
 
   const timeout = setTimeout(() => {
-    toastTimeouts.delete(toastId)
+    toastTimeouts.delete(toastId);
     dispatch({
       type: actionTypes.REMOVE_TOAST,
       toastId,
-    })
-  }, TOAST_REMOVE_DELAY)
+    });
+  }, TOAST_REMOVE_DELAY);
 
-  toastTimeouts.set(toastId, timeout)
+  toastTimeouts.set(toastId, timeout);
 }
 
-export { useToast, toast }
+export { useToast, toast };

@@ -1,18 +1,25 @@
 
+"use client";
+
 import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 
 // This component only renders on the client side where React hooks are available
 export function ClientToasts() {
-  // Safety check for browser environment
-  const [isMounted, setIsMounted] = React.useState(false);
+  // Use a ref to track if the component is mounted
+  const [mounted, setMounted] = React.useState(false);
   
+  // Only render on client-side
   React.useEffect(() => {
-    setIsMounted(true);
+    setMounted(true);
+    return () => {
+      setMounted(false);
+    };
   }, []);
   
-  if (!isMounted) {
+  // Return null during SSR and first render
+  if (!mounted) {
     return null;
   }
   

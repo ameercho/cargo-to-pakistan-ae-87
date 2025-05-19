@@ -28,7 +28,10 @@ const App = () => {
               {/* Main application routing */}
               <RouterProvider router={router} />
               
-              {/* Toast notifications - client-side only component with internal mounting check */}
+              {/* 
+                Toast notifications - conditionally rendered on client-side only
+                The internal mounting check in ClientToasts handles this
+              */}
               <ClientToasts />
             </TooltipProvider>
           </QueryClientProvider>

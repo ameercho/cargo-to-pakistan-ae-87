@@ -1,5 +1,7 @@
 
-import { useToast } from "@/hooks/use-toast"
+"use client";
+
+import { useToast } from "@/hooks/use-toast";
 import {
   Toast,
   ToastClose,
@@ -7,12 +9,23 @@ import {
   ToastProvider,
   ToastTitle,
   ToastViewport,
-} from "@/components/ui/toast"
-import * as React from "react"
+} from "@/components/ui/toast";
+import * as React from "react";
 
 export function Toaster() {
-  // The useToast hook now has SSR safety built-in
-  const { toasts } = useToast()
+  // Safety check - only run in browser
+  const [mounted, setMounted] = React.useState(false);
+  const toastData = useToast();
+  
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+  
+  if (!mounted) {
+    return null;
+  }
+  
+  const { toasts } = toastData;
 
   return (
     <ToastProvider>

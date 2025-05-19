@@ -1,29 +1,31 @@
 
-import { useTheme } from "next-themes"
-import { Toaster as Sonner } from "sonner"
-import * as React from "react"
+"use client";
 
-type ToasterProps = React.ComponentProps<typeof Sonner>
+import { useTheme } from "next-themes";
+import { Toaster as Sonner } from "sonner";
+import * as React from "react";
+
+type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Default theme if useTheme hook is not available
-  let themeValue = "system";
+  // Default to system theme
+  const [theme, setTheme] = React.useState<ToasterProps["theme"]>("system");
   
-  // Safely try to use the useTheme hook
-  try {
-    // The component now should only render on the client side
-    // where hooks are available, but we'll add another safety check
-    if (typeof React.useContext === 'function') {
-      const { theme = "system" } = useTheme();
-      themeValue = theme;
+  // Once mounted, get theme from context
+  React.useEffect(() => {
+    try {
+      const { theme: currentTheme } = useTheme();
+      if (currentTheme) {
+        setTheme(currentTheme as ToasterProps["theme"]);
+      }
+    } catch (error) {
+      console.warn("Theme context not available:", error);
     }
-  } catch (e) {
-    console.warn("Could not access theme context:", e);
-  }
+  }, []);
 
   return (
     <Sonner
-      theme={themeValue as ToasterProps["theme"]}
+      theme={theme}
       className="toaster group"
       toastOptions={{
         classNames: {
@@ -38,7 +40,7 @@ const Toaster = ({ ...props }: ToasterProps) => {
       }}
       {...props}
     />
-  )
-}
+  );
+};
 
-export { Toaster }
+export { Toaster };
