@@ -23,7 +23,7 @@ const App = () => {
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
-    setMounted(true);
+    setIsMounted(true);
   }, []);
 
   return (
