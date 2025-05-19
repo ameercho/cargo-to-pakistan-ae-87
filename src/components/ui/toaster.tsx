@@ -13,19 +13,20 @@ import {
 import * as React from "react";
 
 export function Toaster() {
-  // Safety check - only run in browser
   const [mounted, setMounted] = React.useState(false);
-  const toastData = useToast();
   
+  // Only run on client-side
   React.useEffect(() => {
     setMounted(true);
   }, []);
   
+  // If not mounted yet (during SSR or first render), return null
   if (!mounted) {
     return null;
   }
   
-  const { toasts } = toastData;
+  // Only try to use the hook when mounted (client-side only)
+  const { toasts } = useToast();
 
   return (
     <ToastProvider>

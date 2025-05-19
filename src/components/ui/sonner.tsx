@@ -8,20 +8,26 @@ import * as React from "react";
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
 const Toaster = ({ ...props }: ToasterProps) => {
-  // Default to system theme
+  const [mounted, setMounted] = React.useState(false);
   const [theme, setTheme] = React.useState<ToasterProps["theme"]>("system");
   
-  // Once mounted, get theme from context
+  // Only run on client-side
   React.useEffect(() => {
+    setMounted(true);
+    
     try {
-      const { theme: currentTheme } = useTheme();
-      if (currentTheme) {
-        setTheme(currentTheme as ToasterProps["theme"]);
+      const { resolvedTheme } = useTheme();
+      if (resolvedTheme) {
+        setTheme(resolvedTheme as ToasterProps["theme"]);
       }
     } catch (error) {
+      // Silently fail if theme context isn't available
       console.warn("Theme context not available:", error);
     }
   }, []);
+
+  // Don't render anything during SSR or first client render
+  if (!mounted) return null;
 
   return (
     <Sonner

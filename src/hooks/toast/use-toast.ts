@@ -6,8 +6,11 @@ import { actionTypes } from "./toast-types";
 import { canUseDOM } from "./toast-utils";
 
 export function useToast() {
-  // This is the key safety check - ensure we're in a browser environment with React available
-  if (!canUseDOM()) {
+  // More robust check for React availability
+  const isClient = canUseDOM();
+
+  // Early return with non-hook implementation for SSR
+  if (!isClient) {
     return {
       toast,
       dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
@@ -15,14 +18,12 @@ export function useToast() {
     };
   }
 
-  // Safe to use React hooks now
+  // Only use React hooks on the client side
   const [state, setState] = React.useState(memoryState);
 
   React.useEffect(() => {
-    // Add listener
     listeners.push(setState);
     
-    // Clean up
     return () => {
       const index = listeners.indexOf(setState);
       if (index > -1) {
