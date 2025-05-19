@@ -15,19 +15,27 @@ const Toaster = ({ ...props }: ToasterProps) => {
   React.useEffect(() => {
     setMounted(true);
     
-    try {
-      const { resolvedTheme } = useTheme();
-      if (resolvedTheme) {
-        setTheme(resolvedTheme as ToasterProps["theme"]);
+    // Only try to use theme hooks when we're sure we're on the client
+    if (typeof window !== 'undefined') {
+      try {
+        // Safely access useTheme
+        const themeContext = useTheme();
+        if (themeContext && themeContext.resolvedTheme) {
+          setTheme(themeContext.resolvedTheme as ToasterProps["theme"]);
+        }
+      } catch (error) {
+        // Silently fail if theme context isn't available
+        console.warn("Theme context not available:", error);
       }
-    } catch (error) {
-      // Silently fail if theme context isn't available
-      console.warn("Theme context not available:", error);
     }
+    
+    return () => setMounted(false);
   }, []);
 
-  // Don't render anything during SSR or first client render
-  if (!mounted) return null;
+  // Render nothing during SSR
+  if (typeof window === 'undefined' || !mounted) {
+    return null;
+  }
 
   return (
     <Sonner

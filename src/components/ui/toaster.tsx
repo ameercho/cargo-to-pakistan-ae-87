@@ -13,15 +13,17 @@ import {
 import * as React from "react";
 
 export function Toaster() {
+  // Track if component is mounted on client
   const [mounted, setMounted] = React.useState(false);
   
   // Only run on client-side
   React.useEffect(() => {
     setMounted(true);
+    return () => setMounted(false);
   }, []);
   
-  // If not mounted yet (during SSR or first render), return null
-  if (!mounted) {
+  // Render nothing during SSR
+  if (typeof window === 'undefined' || !mounted) {
     return null;
   }
   

@@ -5,17 +5,20 @@ import { dispatch, listeners, memoryState } from "./toast-reducer";
 import { actionTypes } from "./toast-types";
 import { canUseDOM } from "./toast-utils";
 
+// Create a non-hook version for SSR
+const createNonReactImplementation = () => ({
+  toast,
+  dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+  toasts: memoryState.toasts,
+});
+
 export function useToast() {
-  // More robust check for React availability
+  // Enhanced check for React availability in browser environment
   const isClient = canUseDOM();
 
-  // Early return with non-hook implementation for SSR
+  // Early return with non-hook implementation for SSR or if React is not available
   if (!isClient) {
-    return {
-      toast,
-      dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
-      toasts: memoryState.toasts,
-    };
+    return createNonReactImplementation();
   }
 
   // Only use React hooks on the client side

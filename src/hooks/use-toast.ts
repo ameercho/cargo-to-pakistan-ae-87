@@ -3,4 +3,5 @@
 import { useToast } from "./toast/use-toast";
 import { toast } from "./toast/toast-utils";
 
+// Simplified export
 export { useToast, toast };
