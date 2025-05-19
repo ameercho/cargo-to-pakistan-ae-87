@@ -28,8 +28,8 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
         <link rel="canonical" href={`https://cargoconnect.pk/${location.city.toLowerCase()}-to-pakistan`} />
       </Helmet>
 
-      {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
+      {/* Hero Section - Updated with hero-gradient class */}
+      <section className="py-12 hero-gradient">
         <div className="container-custom">
           <div className="max-w-3xl mx-auto">
             <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">
