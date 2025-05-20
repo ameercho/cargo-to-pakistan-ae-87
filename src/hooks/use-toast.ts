@@ -2,22 +2,23 @@
 // Only export toast functions from the module
 import { useToast } from "./toast/use-toast";
 import { toast } from "./toast/toast-utils";
+import type { ToastProps } from "@/components/ui/toast";
 
 // Check if we're in a browser environment before exporting
 const isBrowser = typeof window !== 'undefined';
 
 // If we're in SSR, provide a simple implementation
 const ssrToast = {
-  toast: (...args: any[]) => {
+  toast: (props: ToastProps) => {
     if (isBrowser) {
-      return toast(...args);
+      return toast(props);
     }
     return { id: "0", dismiss: () => {}, update: () => {} };
   },
   useToast: () => ({
-    toast: (...args: any[]) => {
+    toast: (props: ToastProps) => {
       if (isBrowser) {
-        return toast(...args);
+        return toast(props);
       }
       return { id: "0", dismiss: () => {}, update: () => {} };
     },
