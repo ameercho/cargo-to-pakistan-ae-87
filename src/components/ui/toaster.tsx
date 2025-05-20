@@ -1,7 +1,6 @@
 
 "use client";
 
-import { useToast } from "@/hooks/use-toast";
 import {
   Toast,
   ToastClose,
@@ -12,6 +11,7 @@ import {
 } from "@/components/ui/toast";
 import * as React from "react";
 
+// Only import useToast directly in a client component
 export function Toaster() {
   // Track if component is mounted on client
   const [mounted, setMounted] = React.useState(false);
@@ -22,12 +22,14 @@ export function Toaster() {
     return () => setMounted(false);
   }, []);
   
-  // Return empty during SSR
+  // Return empty during SSR or before mounting
   if (!mounted) {
     return null;
   }
   
-  // Only use the hook when we're certain we're on client-side
+  // Dynamic import to ensure it only runs on client
+  // Using require instead of import for client-side only execution
+  const { useToast } = require("@/hooks/use-toast");
   const { toasts } = useToast();
 
   return (

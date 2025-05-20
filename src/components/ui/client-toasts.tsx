@@ -17,24 +17,37 @@ export function ClientToasts() {
   
   // Load components on client-side only
   React.useEffect(() => {
+    let isMounted = true;
+    
     const loadComponents = async () => {
       try {
-        // Import toasters dynamically on the client side
-        const toasterModule = await import("@/components/ui/toaster");
-        const sonnerModule = await import("@/components/ui/sonner");
+        if (!isMounted) return;
         
-        setToasterComponents({
-          Toaster: toasterModule.Toaster,
-          SonnerToaster: sonnerModule.Toaster,
-        });
-        setMounted(true);
+        // Import toasters dynamically on the client side
+        // Use a more direct import approach to avoid issues
+        const toasterModule = await import("../ui/toaster");
+        const sonnerModule = await import("../ui/sonner");
+        
+        if (isMounted) {
+          setToasterComponents({
+            Toaster: toasterModule.Toaster,
+            SonnerToaster: sonnerModule.Toaster,
+          });
+          setMounted(true);
+        }
       } catch (error) {
         console.error("Failed to load toast components:", error);
       }
     };
     
-    loadComponents();
-    return () => setMounted(false);
+    // Only run this effect on the client
+    if (typeof window !== "undefined") {
+      loadComponents();
+    }
+    
+    return () => {
+      isMounted = false;
+    };
   }, []);
   
   // Only render when mounted on client and components are loaded

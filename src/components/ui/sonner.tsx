@@ -1,9 +1,8 @@
 
 "use client";
 
-import { useTheme } from "next-themes";
-import { Toaster as Sonner } from "sonner";
 import * as React from "react";
+import { Toaster as Sonner } from "sonner";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
@@ -16,18 +15,27 @@ const Toaster = ({ ...props }: ToasterProps) => {
     setMounted(true);
     
     // Safely try to use the theme hook (only on client)
-    try {
-      const { resolvedTheme } = useTheme();
-      if (resolvedTheme) {
-        setTheme(resolvedTheme as ToasterProps["theme"]);
+    const getTheme = () => {
+      try {
+        // We need to dynamically require this to avoid SSR issues
+        const { useTheme } = require("next-themes");
+        const { resolvedTheme } = useTheme();
+        if (resolvedTheme) {
+          setTheme(resolvedTheme as ToasterProps["theme"]);
+        }
+      } catch (error) {
+        // Silently fail if theme context isn't available
+        console.warn("Theme context not available:", error);
       }
-    } catch (error) {
-      // Silently fail if theme context isn't available
-      console.warn("Theme context not available:", error);
+    };
+    
+    // Only attempt to get the theme when mounted
+    if (mounted) {
+      getTheme();
     }
     
     return () => setMounted(false);
-  }, []);
+  }, [mounted]);
 
   // Don't render anything until mounted
   if (!mounted) {
