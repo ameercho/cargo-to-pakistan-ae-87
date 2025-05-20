@@ -40,19 +40,11 @@ export function toast({ ...props }: Toast) {
   };
 }
 
-// Enhanced utility to safely check if we're in a browser environment where React is available
+// Enhanced utility to safely check if we're in a browser environment
 export function canUseDOM(): boolean {
   return !!(
     typeof window !== "undefined" &&
     window.document &&
     window.document.createElement
   );
-}
-
-// Check if React is available in the current environment
-export function canUseReact(): boolean {
-  return canUseDOM() && 
-    typeof React !== "undefined" && 
-    typeof React.useState === "function" &&
-    typeof React.useEffect === "function";
 }

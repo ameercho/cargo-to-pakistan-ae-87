@@ -1,11 +1,12 @@
 
 // Only export toast functions from the module
-import { useToast } from "./toast/use-toast";
 import { toast } from "./toast/toast-utils";
 import type { ToastProps } from "@/components/ui/toast";
 
-// Check if we're in a browser environment before exporting
-const isBrowser = typeof window !== 'undefined';
+// Enhanced check for browser environment
+const isBrowser = typeof window !== 'undefined' && 
+                 typeof document !== 'undefined' && 
+                 document.createElement !== undefined;
 
 // If we're in SSR, provide a simple implementation
 const ssrToast = {
@@ -27,9 +28,21 @@ const ssrToast = {
   })
 };
 
-// Export the functions - use real implementations in browser, SSR-safe versions in Node
-export const { useToast: useToastExport, toast: toastExport } = isBrowser 
-  ? { useToast, toast } 
-  : ssrToast;
+// Safe import of useToast for browser environments only
+let useToastImport;
 
-export { useToastExport as useToast, toastExport as toast };
+if (isBrowser) {
+  // Only attempt to import in browser environment
+  try {
+    useToastImport = require('./toast/use-toast').useToast;
+  } catch (e) {
+    console.error("Failed to import useToast:", e);
+    useToastImport = ssrToast.useToast;
+  }
+} else {
+  useToastImport = ssrToast.useToast;
+}
+
+// Export the functions - use real implementations in browser, SSR-safe versions in Node
+export const useToast = isBrowser ? useToastImport : ssrToast.useToast;
+export { toast };

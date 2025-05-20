@@ -14,27 +14,27 @@ const Toaster = ({ ...props }: ToasterProps) => {
   React.useEffect(() => {
     setMounted(true);
     
-    // Safely try to use the theme hook (only on client)
+    // Safely determine theme on client only
     try {
-      // We'll use dynamic import instead of require
-      import("next-themes").then((module) => {
-        const { useTheme } = module;
-        const { resolvedTheme } = useTheme();
-        if (resolvedTheme) {
-          setTheme(resolvedTheme as ToasterProps["theme"]);
-        }
-      }).catch((err) => {
-        console.warn("Theme context not available:", err);
-      });
+      if (typeof window !== 'undefined') {
+        import("next-themes").then((module) => {
+          const { useTheme } = module;
+          // Only access the theme if we're in a component
+          const themeContext = document.documentElement.getAttribute('data-theme') || 
+                               document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+          setTheme(themeContext as ToasterProps["theme"]);
+        }).catch(() => {
+          // Silently fall back to system theme
+        });
+      }
     } catch (error) {
-      // Silently fail if theme context isn't available
-      console.warn("Theme context not available:", error);
+      // Silently fall back to system theme
     }
     
     return () => setMounted(false);
   }, []);
 
-  // Don't render anything until mounted
+  // Don't render until mounted on client
   if (!mounted) {
     return null;
   }

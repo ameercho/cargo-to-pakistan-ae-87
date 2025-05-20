@@ -3,7 +3,15 @@ import * as React from "react";
 import { toast } from "./toast-utils";
 import { dispatch, listeners, memoryState } from "./toast-reducer";
 import { actionTypes } from "./toast-types";
-import { canUseDOM } from "./toast-utils";
+
+// Check if we can use DOM APIs
+const canUseDOM = () => {
+  return !!(
+    typeof window !== "undefined" &&
+    window.document &&
+    window.document.createElement
+  );
+};
 
 // Create a non-hook version for SSR
 const createNonReactImplementation = () => ({
@@ -15,37 +23,38 @@ const createNonReactImplementation = () => ({
 export function useToast() {
   // Enhanced check for React availability in browser environment
   const isClient = canUseDOM();
-  const [isClientMounted, setIsClientMounted] = React.useState(false);
   
-  // Use useEffect to confirm we're on the client
-  React.useEffect(() => {
-    setIsClientMounted(true);
-  }, []);
-
-  // If we're not in a client environment or not yet mounted, return the non-React implementation
-  if (!isClient || !isClientMounted) {
+  // Early return for non-browser environments
+  if (!isClient) {
     return createNonReactImplementation();
   }
 
   // Only use React hooks on the client side
-  const [state, setState] = React.useState(memoryState);
-
-  React.useEffect(() => {
-    listeners.push(setState);
+  // We need to wrap this in a try/catch because some environments
+  // might throw when using React hooks outside of a React component
+  try {
+    const [state, setState] = React.useState(memoryState);
     
-    return () => {
-      const index = listeners.indexOf(setState);
-      if (index > -1) {
-        listeners.splice(index, 1);
-      }
-    };
-  }, [state]);
+    React.useEffect(() => {
+      listeners.push(setState);
+      
+      return () => {
+        const index = listeners.indexOf(setState);
+        if (index > -1) {
+          listeners.splice(index, 1);
+        }
+      };
+    }, [state]);
 
-  return {
-    ...state,
-    toast,
-    dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
-  };
+    return {
+      ...state,
+      toast,
+      dismiss: (toastId?: string) => dispatch({ type: actionTypes.DISMISS_TOAST, toastId }),
+    };
+  } catch (e) {
+    // If hooks fail, return the non-React implementation
+    return createNonReactImplementation();
+  }
 }
 
 // Re-export toast for convenience
