@@ -3,6 +3,7 @@
 
 import * as React from "react";
 import { Toaster as Sonner } from "sonner";
+import { canUseDOM } from "@/hooks/toast/toast-utils";
 
 type ToasterProps = React.ComponentProps<typeof Sonner>;
 
@@ -15,20 +16,14 @@ const Toaster = ({ ...props }: ToasterProps) => {
     setMounted(true);
     
     // Safely determine theme on client only
-    try {
-      if (typeof window !== 'undefined') {
-        import("next-themes").then((module) => {
-          const { useTheme } = module;
-          // Only access the theme if we're in a component
-          const themeContext = document.documentElement.getAttribute('data-theme') || 
-                               document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-          setTheme(themeContext as ToasterProps["theme"]);
-        }).catch(() => {
-          // Silently fall back to system theme
-        });
+    if (canUseDOM()) {
+      try {
+        const themeContext = document.documentElement.getAttribute('data-theme') || 
+                             document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+        setTheme(themeContext as ToasterProps["theme"]);
+      } catch (error) {
+        // Silently fall back to system theme
       }
-    } catch (error) {
-      // Silently fall back to system theme
     }
     
     return () => setMounted(false);

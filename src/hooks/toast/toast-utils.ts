@@ -48,3 +48,10 @@ export function canUseDOM(): boolean {
     window.document.createElement
   );
 }
+
+// Safe client-only execution helper
+export function executeOnClient(callback: () => void): void {
+  if (canUseDOM()) {
+    callback();
+  }
+}

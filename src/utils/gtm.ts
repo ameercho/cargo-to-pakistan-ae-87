@@ -39,3 +39,48 @@ export const trackEvent = (category: string, action: string, label?: string, val
     eventValue: value
   });
 };
+
+// E-commerce tracking
+export const trackProductView = (product: {
+  id: string,
+  name: string,
+  price?: number,
+  category?: string
+}): void => {
+  pushToDataLayer({
+    event: 'productView',
+    ecommerce: {
+      detail: {
+        products: [product]
+      }
+    }
+  });
+};
+
+// Form submission tracking
+export const trackFormSubmit = (formId: string, formName: string): void => {
+  pushToDataLayer({
+    event: 'formSubmit',
+    formId,
+    formName
+  });
+};
+
+// User interaction tracking
+export const trackUserInteraction = (interactionType: string, elementId?: string): void => {
+  pushToDataLayer({
+    event: 'userInteraction',
+    interactionType,
+    elementId
+  });
+};
+
+// Custom timing events
+export const trackTiming = (category: string, variable: string, time: number): void => {
+  pushToDataLayer({
+    event: 'timing',
+    timingCategory: category,
+    timingVar: variable,
+    timingValue: time
+  });
+};

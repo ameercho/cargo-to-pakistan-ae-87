@@ -3,28 +3,26 @@
 
 import * as React from "react";
 import { Toaster } from "@/components/ui/toaster";
-import { Toaster as SonnerToaster } from "@/components/ui/sonner";
+import { canUseDOM } from "@/hooks/toast/toast-utils";
 
-// This component strictly only renders on the client side
+/**
+ * ClientToasts ensures toast functionality only runs on the client side
+ */
 export function ClientToasts() {
-  // Use state to track if component is mounted
   const [mounted, setMounted] = React.useState(false);
   
-  // Load components on client-side only
+  // Only mount component on the client
   React.useEffect(() => {
     setMounted(true);
-    return () => setMounted(false);
+    return () => {
+      setMounted(false);
+    };
   }, []);
   
-  // Only render when mounted on client
-  if (!mounted) {
+  // Don't render anything on the server
+  if (!mounted || !canUseDOM()) {
     return null;
   }
-  
-  return (
-    <>
-      <Toaster />
-      <SonnerToaster />
-    </>
-  );
+
+  return <Toaster />;
 }

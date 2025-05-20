@@ -11,21 +11,22 @@ import {
 } from "@/components/ui/toast";
 import * as React from "react";
 import { useToast } from "@/hooks/use-toast";
+import { canUseDOM } from "@/hooks/toast/toast-utils";
 
 export function Toaster() {
   // Track if component is mounted on client
   const [mounted, setMounted] = React.useState(false);
-  const [toastState, setToastState] = React.useState({ toasts: [] });
+  const [toasts, setToasts] = React.useState<any[]>([]);
   
   // Only run on client-side
   React.useEffect(() => {
     setMounted(true);
     
     // Get toasts from context after mounting
-    if (typeof window !== 'undefined') {
+    if (canUseDOM()) {
       try {
-        const { toasts } = useToast();
-        setToastState({ toasts });
+        const { toasts: contextToasts } = useToast();
+        setToasts(contextToasts || []);
       } catch (error) {
         console.error("Failed to get toasts:", error);
       }
@@ -41,7 +42,7 @@ export function Toaster() {
   
   return (
     <ToastProvider>
-      {toastState.toasts.map(function ({ id, title, description, action, ...props }) {
+      {toasts.map(function ({ id, title, description, action, ...props }) {
         return (
           <Toast key={id} {...props}>
             <div className="grid gap-1">
