@@ -15,9 +15,15 @@ const createNonReactImplementation = () => ({
 export function useToast() {
   // Enhanced check for React availability in browser environment
   const isClient = canUseDOM();
+  const [isClientMounted, setIsClientMounted] = React.useState(false);
+  
+  // Use useEffect to confirm we're on the client
+  React.useEffect(() => {
+    setIsClientMounted(true);
+  }, []);
 
-  // Early return with non-hook implementation for SSR or if React is not available
-  if (!isClient) {
+  // If we're not in a client environment or not yet mounted, return the non-React implementation
+  if (!isClient || !isClientMounted) {
     return createNonReactImplementation();
   }
 

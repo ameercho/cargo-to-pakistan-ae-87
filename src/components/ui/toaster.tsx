@@ -10,8 +10,8 @@ import {
   ToastViewport,
 } from "@/components/ui/toast";
 import * as React from "react";
+import { useToast } from "@/hooks/use-toast";
 
-// Only import useToast directly in a client component
 export function Toaster() {
   // Track if component is mounted on client
   const [mounted, setMounted] = React.useState(false);
@@ -27,9 +27,7 @@ export function Toaster() {
     return null;
   }
   
-  // Dynamic import to ensure it only runs on client
-  // Using require instead of import for client-side only execution
-  const { useToast } = require("@/hooks/use-toast");
+  // Get toasts from context after mounting
   const { toasts } = useToast();
 
   return (

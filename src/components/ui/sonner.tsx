@@ -15,27 +15,24 @@ const Toaster = ({ ...props }: ToasterProps) => {
     setMounted(true);
     
     // Safely try to use the theme hook (only on client)
-    const getTheme = () => {
-      try {
-        // We need to dynamically require this to avoid SSR issues
-        const { useTheme } = require("next-themes");
+    try {
+      // We'll use dynamic import instead of require
+      import("next-themes").then((module) => {
+        const { useTheme } = module;
         const { resolvedTheme } = useTheme();
         if (resolvedTheme) {
           setTheme(resolvedTheme as ToasterProps["theme"]);
         }
-      } catch (error) {
-        // Silently fail if theme context isn't available
-        console.warn("Theme context not available:", error);
-      }
-    };
-    
-    // Only attempt to get the theme when mounted
-    if (mounted) {
-      getTheme();
+      }).catch((err) => {
+        console.warn("Theme context not available:", err);
+      });
+    } catch (error) {
+      // Silently fail if theme context isn't available
+      console.warn("Theme context not available:", error);
     }
     
     return () => setMounted(false);
-  }, [mounted]);
+  }, []);
 
   // Don't render anything until mounted
   if (!mounted) {
