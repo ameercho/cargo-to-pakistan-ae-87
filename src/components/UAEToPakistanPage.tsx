@@ -1,6 +1,6 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
+import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
           name="description" 
           content={`Professional cargo services from ${location.city} to Pakistan. Door-to-door delivery with reliable tracking.`} 
         />
-        <link rel="canonical" href={`https://cargoconnect.pk/${location.city.toLowerCase()}-to-pakistan`} />
+        <link rel="canonical" href={`https://cargotopakistan.ae/${location.city.toLowerCase()}-to-pakistan`} />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}

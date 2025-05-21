@@ -62,7 +62,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
           name="description" 
           content={`Professional cargo services to ${destination.city}, Pakistan. Door-to-door delivery with reliable tracking.`} 
         />
-        <link rel="canonical" href={`https://cargoconnect.pk/pakistan-cargo-to-${destination.city.toLowerCase()}`} />
+        <link rel="canonical" href={`https://cargotopakistan.ae/pakistan-cargo-to-${destination.city.toLowerCase()}`} />
       </Helmet>
 
       {/* Hero Section */}
