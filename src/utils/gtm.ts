@@ -2,6 +2,7 @@
 // Define the window interface with dataLayer
 interface Window {
   dataLayer: any[];
+  gtag: (...args: any[]) => void;
 }
 
 // Initialize dataLayer if it doesn't exist yet
@@ -19,8 +20,20 @@ export const pushToDataLayer = (data: any): void => {
   }
 };
 
+// GA4 specific function
+export const gtag = (...args: any[]): void => {
+  if (typeof window !== 'undefined' && (window as any).gtag) {
+    (window as any).gtag(...args);
+  } else if (typeof window !== 'undefined') {
+    // Queue gtag calls if gtag isn't loaded yet
+    (window as any).dataLayer = (window as any).dataLayer || [];
+    (window as any).dataLayer.push(args);
+  }
+};
+
 // Common event types
 export const trackPageView = (pagePath: string, pageTitle: string): void => {
+  // GTM style tracking
   pushToDataLayer({
     event: 'pageview',
     page: {
@@ -28,15 +41,29 @@ export const trackPageView = (pagePath: string, pageTitle: string): void => {
       title: pageTitle
     }
   });
+  
+  // GA4 style tracking
+  gtag('config', 'G-1MWDW076VK', {
+    page_path: pagePath,
+    page_title: pageTitle
+  });
 };
 
 export const trackEvent = (category: string, action: string, label?: string, value?: number): void => {
+  // GTM style tracking
   pushToDataLayer({
     event: 'customEvent',
     eventCategory: category,
     eventAction: action,
     eventLabel: label,
     eventValue: value
+  });
+  
+  // GA4 style tracking
+  gtag('event', action, {
+    event_category: category,
+    event_label: label,
+    value: value
   });
 };
 
