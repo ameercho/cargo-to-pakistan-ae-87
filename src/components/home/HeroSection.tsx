@@ -2,13 +2,16 @@
 import { Button } from "@/components/ui/button";
 import QuoteForm from "@/components/QuoteForm";
 import { MessageCircle, Phone } from "lucide-react";
+import { trackEvent } from "@/services/analytics";
 
 const HeroSection = () => {
   const handleCall = () => {
+    trackEvent('Contact', 'Call', 'Hero Section');
     window.location.href = "tel:+971504948135";
   };
 
   const handleWhatsApp = () => {
+    trackEvent('Contact', 'WhatsApp', 'Hero Section');
     window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
   };
 
@@ -29,12 +32,14 @@ const HeroSection = () => {
               <Button 
                 onClick={handleCall} 
                 className="bg-white text-cargo-green hover:bg-gray-100 tap-target flex items-center gap-2"
+                aria-label="Call our customer service"
               >
                 <Phone className="h-4 w-4" /> Call Us
               </Button>
               <Button 
                 onClick={handleWhatsApp} 
                 className="bg-green-600 hover:bg-green-700 text-white tap-target flex items-center gap-2"
+                aria-label="Contact us on WhatsApp"
               >
                 <MessageCircle className="h-4 w-4" /> WhatsApp
               </Button>

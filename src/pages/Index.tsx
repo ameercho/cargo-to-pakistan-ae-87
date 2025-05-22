@@ -14,7 +14,12 @@ const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    setIsLoaded(true);
+    // Add a small delay for smoother transition
+    const timer = setTimeout(() => {
+      setIsLoaded(true);
+    }, 100);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -28,7 +33,7 @@ const Index = () => {
       {/* Service Areas */}
       <ServiceAreas />
 
-      {/* Door to Door Service Section - renamed to "Cargo to Pakistan from UAE" */}
+      {/* Door to Door Service Section */}
       <DoorToDoorService />
       
       {/* Pakistan Cargo Services Section */}
@@ -43,8 +48,7 @@ const Index = () => {
       {/* Call to Action */}
       <CallToAction />
 
-      {/* Components */}
-      {/* ExitPopup removed */}
+      {/* Floating Button Component */}
       <FloatingButton />
     </div>
   );

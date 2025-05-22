@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
-import { trackPageView, trackTiming, gtag } from "@/utils/gtm";
+import { trackPageView, trackTiming } from "@/services/analytics";
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -16,7 +16,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     const startTime = performance.now();
     
-    // Send pageview to both GTM and GA4
+    // Send pageview to analytics
     trackPageView(
       location.pathname + location.search,
       document.title

@@ -23,22 +23,23 @@ const routes = [
 
 export const router = createBrowserRouter(routes);
 
-// Simple function for checking if a route exists
+// Improved element lookup function with better performance
 export function getElement(path: string) {
-  // Find the app route
-  const appRoute = routes.find((route) => route.path === "/");
-  
-  if (!appRoute || !appRoute.children) {
-    return null;
-  }
-  
-  // If it's the root path, find the index route
+  // For root path, find the index route
   if (path === "/") {
-    const indexRoute = appRoute.children.find((route) => 'index' in route && route.index === true);
-    return indexRoute ? indexRoute.element : null;
+    return mainRoutes.find(route => 'index' in route && route.index)?.element || null;
   }
   
-  // Otherwise find the matching route
-  const route = appRoute.children.find((route) => route.path === path.slice(1));
-  return route ? route.element : null;
+  // Remove leading slash for path matching
+  const normalizedPath = path.startsWith('/') ? path.slice(1) : path;
+  
+  // Check each route collection
+  const allRouteCollections = [mainRoutes, serviceRoutes, areaRoutes, pakistanCargoRoutes];
+  
+  for (const collection of allRouteCollections) {
+    const route = collection.find(r => r.path === normalizedPath);
+    if (route) return route.element;
+  }
+  
+  return null;
 }

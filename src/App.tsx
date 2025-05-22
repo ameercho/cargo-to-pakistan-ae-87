@@ -7,13 +7,19 @@ import { router } from "./routes";
 import * as React from "react";
 import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
+import { initializeAnalytics } from "@/services/analytics";
 
-// Create a new query client instance
+// Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       staleTime: 60 * 1000, // 1 minute
       refetchOnWindowFocus: false,
+      retry: 1,
+      // Add error handler for failed queries
+      onError: (error) => {
+        console.error('Query error:', error);
+      }
     },
   },
 });
@@ -23,6 +29,8 @@ const App = () => {
   const [isMounted, setIsMounted] = React.useState(false);
 
   React.useEffect(() => {
+    // Initialize analytics when the app mounts
+    initializeAnalytics();
     setIsMounted(true);
   }, []);
 
