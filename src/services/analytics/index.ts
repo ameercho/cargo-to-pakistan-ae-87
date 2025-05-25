@@ -2,12 +2,20 @@
 // Analytics service to centralize all tracking functionality
 import { initDataLayer, pushToDataLayer } from './dataLayer';
 
-// GA4 measurement ID
+// GA4 measurement ID - corrected
 const GA4_MEASUREMENT_ID = 'G-K5V7CJ0G5P';
 
 // Initialize analytics services
 export const initializeAnalytics = (): void => {
   initDataLayer();
+  
+  // Ensure gtag is available globally
+  if (typeof window !== 'undefined') {
+    (window as any).gtag = (window as any).gtag || function(){
+      (window as any).dataLayer = (window as any).dataLayer || [];
+      (window as any).dataLayer.push(arguments);
+    };
+  }
 };
 
 // Track page views

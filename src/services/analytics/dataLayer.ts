@@ -9,6 +9,13 @@ interface Window {
 export const initDataLayer = (): void => {
   if (typeof window !== 'undefined') {
     (window as any).dataLayer = (window as any).dataLayer || [];
+    
+    // Ensure gtag function is available
+    if (!(window as any).gtag) {
+      (window as any).gtag = function() {
+        (window as any).dataLayer.push(arguments);
+      };
+    }
   }
 };
 
