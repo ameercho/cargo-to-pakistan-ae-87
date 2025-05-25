@@ -16,22 +16,26 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   useEffect(() => {
     const startTime = performance.now();
     
-    // Send pageview to analytics
-    trackPageView(
-      location.pathname + location.search,
-      document.title
-    );
-    
-    // Measure page load performance
-    const loadTime = performance.now() - startTime;
-    trackTiming('Page Navigation', 'Load Time', Math.round(loadTime));
+    try {
+      // Send pageview to analytics
+      trackPageView(
+        location.pathname + location.search,
+        document.title
+      );
+      
+      // Measure page load performance
+      const loadTime = performance.now() - startTime;
+      trackTiming('Page Navigation', 'Load Time', Math.round(loadTime));
+    } catch (error) {
+      console.error('Analytics tracking error:', error);
+    }
     
     // Scroll to top on navigation
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [location]);
   
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-background">
       <Header />
       <main className="flex-grow">
         {children}
