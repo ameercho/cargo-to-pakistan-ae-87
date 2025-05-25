@@ -88,19 +88,23 @@ const QuoteForm = () => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-cargo-blue mb-6">Get a Free Quote</h2>
+    <div className="w-full max-w-md mx-auto bg-white rounded-xl shadow-lg border border-gray-100 p-8">
+      <h2 className="text-2xl font-bold text-cargo-blue mb-6 text-center">Get a Free Quote</h2>
       
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
           <FormField
             control={form.control}
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Name</FormLabel>
+                <FormLabel className="text-gray-700 font-medium">Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} className="tap-target" />
+                  <Input 
+                    placeholder="John Doe" 
+                    {...field} 
+                    className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -113,9 +117,13 @@ const QuoteForm = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="you@example.com" {...field} className="tap-target" />
+                    <Input 
+                      placeholder="you@example.com" 
+                      {...field} 
+                      className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -127,9 +135,13 @@ const QuoteForm = () => {
               name="phone"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Phone</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Phone</FormLabel>
                   <FormControl>
-                    <Input placeholder="+92 300 1234567" {...field} className="tap-target" />
+                    <Input 
+                      placeholder="+92 300 1234567" 
+                      {...field} 
+                      className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -143,9 +155,13 @@ const QuoteForm = () => {
               name="fromLocation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>From Location</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">From Location</FormLabel>
                   <FormControl>
-                    <Input placeholder="City, Country" {...field} className="tap-target" />
+                    <Input 
+                      placeholder="City, Country" 
+                      {...field} 
+                      className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -157,9 +173,13 @@ const QuoteForm = () => {
               name="toLocation"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>To Location</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">To Location</FormLabel>
                   <FormControl>
-                    <Input defaultValue="Pakistan" {...field} className="tap-target" />
+                    <Input 
+                      defaultValue="Pakistan" 
+                      {...field} 
+                      className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -173,18 +193,18 @@ const QuoteForm = () => {
               name="serviceType"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Service Type</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Service Type</FormLabel>
                   <Select onValueChange={field.onChange} defaultValue={field.value}>
                     <FormControl>
-                      <SelectTrigger className="tap-target">
+                      <SelectTrigger className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                     </FormControl>
-                    <SelectContent>
-                      <SelectItem value="air">Air Freight</SelectItem>
-                      <SelectItem value="sea">Sea Freight</SelectItem>
-                      <SelectItem value="road">Road Transport</SelectItem>
-                      <SelectItem value="express">Express Delivery</SelectItem>
+                    <SelectContent className="bg-white border-gray-200 shadow-lg">
+                      <SelectItem value="air" className="hover:bg-gray-50">Air Freight</SelectItem>
+                      <SelectItem value="sea" className="hover:bg-gray-50">Sea Freight</SelectItem>
+                      <SelectItem value="road" className="hover:bg-gray-50">Road Transport</SelectItem>
+                      <SelectItem value="express" className="hover:bg-gray-50">Express Delivery</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
@@ -197,9 +217,14 @@ const QuoteForm = () => {
               name="weight"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Approx. Weight (kg)</FormLabel>
+                  <FormLabel className="text-gray-700 font-medium">Approx. Weight (kg)</FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="Enter weight" {...field} className="tap-target" />
+                    <Input 
+                      type="text" 
+                      placeholder="Enter weight" 
+                      {...field} 
+                      className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 h-11 text-gray-900 placeholder:text-gray-500" 
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -212,15 +237,15 @@ const QuoteForm = () => {
             name="description"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Additional Details (Optional)</FormLabel>
+                <FormLabel className="text-gray-700 font-medium">Additional Details (Optional)</FormLabel>
                 <FormControl>
                   <Textarea 
                     placeholder="Tell us more about your shipment..." 
-                    className="resize-none tap-target" 
+                    className="bg-white border-gray-200 focus:border-cargo-blue focus:ring-cargo-blue/20 resize-none min-h-[100px] text-gray-900 placeholder:text-gray-500" 
                     {...field} 
                   />
                 </FormControl>
-                <FormDescription>
+                <FormDescription className="text-gray-500 text-sm">
                   Include any specific requirements or questions.
                 </FormDescription>
                 <FormMessage />
@@ -230,7 +255,7 @@ const QuoteForm = () => {
           
           <Button 
             type="submit" 
-            className="w-full bg-cargo-orange hover:bg-orange-600 tap-target" 
+            className="w-full bg-cargo-orange hover:bg-orange-600 h-12 text-white font-medium rounded-lg shadow-md transition-all duration-200 hover:shadow-lg" 
             disabled={isSubmitting}
           >
             {isSubmitting ? (
