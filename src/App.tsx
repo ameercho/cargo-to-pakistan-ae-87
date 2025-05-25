@@ -16,10 +16,6 @@ const queryClient = new QueryClient({
       staleTime: 60 * 1000, // 1 minute
       refetchOnWindowFocus: false,
       retry: 1,
-      // Add error handler for failed queries
-      onError: (error) => {
-        console.error('Query error:', error);
-      }
     },
   },
 });
