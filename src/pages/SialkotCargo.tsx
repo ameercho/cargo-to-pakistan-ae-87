@@ -1,11 +1,12 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const SialkotCargo = () => {
-  // Use our scroll-to-top hook
-  useScrollToTop();
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   
   const sialkotInfo = {
     city: "Sialkot",

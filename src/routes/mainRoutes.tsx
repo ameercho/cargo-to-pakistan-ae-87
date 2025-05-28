@@ -1,47 +1,36 @@
 
-import { lazy, Suspense } from "react";
-import { LoadingPage } from "@/components/ui/loading";
+import Index from "@/pages/Index";
+import Services from "@/pages/Services";
+import About from "@/pages/About";
+import Contact from "@/pages/Contact";
+import FAQ from "@/pages/FAQ";
+import ServiceAreas from "@/pages/ServiceAreas";
 import NotFound from "@/pages/NotFound";
-
-// Lazy load components
-const Index = lazy(() => import("@/pages/Index"));
-const Services = lazy(() => import("@/pages/Services"));
-const About = lazy(() => import("@/pages/About"));
-const Contact = lazy(() => import("@/pages/Contact"));
-const FAQ = lazy(() => import("@/pages/FAQ"));
-const ServiceAreas = lazy(() => import("@/pages/ServiceAreas"));
-
-// Wrapper component for lazy loading
-const LazyWrapper = ({ children }: { children: React.ReactNode }) => (
-  <Suspense fallback={<LoadingPage />}>
-    {children}
-  </Suspense>
-);
 
 export const mainRoutes = [
   {
     index: true,
-    element: <LazyWrapper><Index /></LazyWrapper>,
+    element: <Index />,
   },
   {
     path: "services",
-    element: <LazyWrapper><Services /></LazyWrapper>,
+    element: <Services />,
   },
   {
     path: "about",
-    element: <LazyWrapper><About /></LazyWrapper>,
+    element: <About />,
   },
   {
     path: "contact",
-    element: <LazyWrapper><Contact /></LazyWrapper>,
+    element: <Contact />,
   },
   {
     path: "faq",
-    element: <LazyWrapper><FAQ /></LazyWrapper>,
+    element: <FAQ />,
   },
   {
     path: "service-areas",
-    element: <LazyWrapper><ServiceAreas /></LazyWrapper>,
+    element: <ServiceAreas />,
   },
   {
     path: "*",

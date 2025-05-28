@@ -5,16 +5,8 @@ import { initDataLayer, pushToDataLayer } from './dataLayer';
 // GA4 measurement ID - corrected
 const GA4_MEASUREMENT_ID = 'G-K5V7CJ0G5P';
 
-// Track if analytics has been initialized
-let isInitialized = false;
-
 // Initialize analytics services
 export const initializeAnalytics = (): void => {
-  if (isInitialized) {
-    console.log('Analytics already initialized');
-    return;
-  }
-
   initDataLayer();
   
   // Ensure gtag is available globally
@@ -24,18 +16,10 @@ export const initializeAnalytics = (): void => {
       (window as any).dataLayer.push(arguments);
     };
   }
-
-  isInitialized = true;
-  console.log('Analytics initialized successfully');
 };
 
 // Track page views
 export const trackPageView = (pagePath: string, pageTitle: string): void => {
-  if (!isInitialized) {
-    console.warn('Analytics not initialized, skipping page view tracking');
-    return;
-  }
-
   // GTM style tracking
   pushToDataLayer({
     event: 'pageview',
@@ -61,11 +45,6 @@ export const trackEvent = (
   label?: string, 
   value?: number
 ): void => {
-  if (!isInitialized) {
-    console.warn('Analytics not initialized, skipping event tracking');
-    return;
-  }
-
   // GTM style tracking
   pushToDataLayer({
     event: 'customEvent',
@@ -92,11 +71,6 @@ export const trackFormSubmit = (formId: string, formName: string): void => {
 
 // Performance tracking
 export const trackTiming = (category: string, variable: string, time: number): void => {
-  if (!isInitialized) {
-    console.warn('Analytics not initialized, skipping timing tracking');
-    return;
-  }
-
   pushToDataLayer({
     event: 'timing',
     timingCategory: category,

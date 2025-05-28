@@ -1,8 +1,6 @@
 import { Button } from "@/components/ui/button";
-
 const CallToAction = () => {
-  return (
-    <section className="py-12 bg-cargo-green text-white">
+  return <section className="py-12 bg-cargo-green text-white">
       <div className="container-custom text-center">
         <h2 className="text-3xl font-bold mb-4 text-neutral-50">Ready to Ship to Pakistan?</h2>
         <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -17,8 +15,6 @@ const CallToAction = () => {
           </Button>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default CallToAction;

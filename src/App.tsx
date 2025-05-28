@@ -8,7 +8,6 @@ import * as React from "react";
 import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
 import { initializeAnalytics } from "@/services/analytics";
-import ErrorBoundary from "@/components/ErrorBoundary";
 
 // Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
@@ -33,21 +32,19 @@ const App = () => {
 
   return (
     <React.StrictMode>
-      <ErrorBoundary>
-        <HelmetProvider>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <QueryClientProvider client={queryClient}>
-              <TooltipProvider>
-                {/* Main application routing */}
-                <RouterProvider router={router} />
-                
-                {/* Only render ClientToasts when we're on the client side */}
-                {isMounted && <ClientToasts />}
-              </TooltipProvider>
-            </QueryClientProvider>
-          </ThemeProvider>
-        </HelmetProvider>
-      </ErrorBoundary>
+      <HelmetProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <QueryClientProvider client={queryClient}>
+            <TooltipProvider>
+              {/* Main application routing */}
+              <RouterProvider router={router} />
+              
+              {/* Only render ClientToasts when we're on the client side */}
+              {isMounted && <ClientToasts />}
+            </TooltipProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </HelmetProvider>
     </React.StrictMode>
   );
 };
