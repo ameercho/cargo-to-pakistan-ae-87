@@ -1,38 +1,18 @@
 
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import { trackPageView, trackTiming } from "@/services/analytics";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
+import { usePageTracking } from "@/hooks/useAnalytics";
 
 type LayoutProps = {
   children: React.ReactNode;
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const location = useLocation();
-  
-  // Track page views when the route changes
-  useEffect(() => {
-    const startTime = performance.now();
-    
-    try {
-      // Send pageview to analytics
-      trackPageView(
-        location.pathname + location.search,
-        document.title
-      );
-      
-      // Measure page load performance
-      const loadTime = performance.now() - startTime;
-      trackTiming('Page Navigation', 'Load Time', Math.round(loadTime));
-    } catch (error) {
-      console.error('Analytics tracking error:', error);
-    }
-    
-    // Scroll to top on navigation
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [location]);
+  // Use centralized hooks for common functionality
+  useScrollToTop();
+  usePageTracking();
   
   return (
     <div className="flex flex-col min-h-screen bg-background">

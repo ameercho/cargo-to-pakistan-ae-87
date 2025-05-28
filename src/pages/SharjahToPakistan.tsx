@@ -1,12 +1,11 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import UAEToPakistanPage from "@/components/UAEToPakistanPage";
+import { useScrollToTop } from "@/hooks/useScrollToTop";
 
 const SharjahToPakistan = () => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // Use our scroll-to-top hook
+  useScrollToTop();
   
   const sharjahInfo = {
     city: "Sharjah",
