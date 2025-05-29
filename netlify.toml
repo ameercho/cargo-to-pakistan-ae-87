@@ -1,6 +1,12 @@
 
 # Netlify configuration file
 
+[build]
+  # Build command for Vite React project
+  command = "npm run build"
+  # Output directory for Vite builds
+  publish = "dist"
+
 # This redirect rule tells Netlify to serve the index.html for any route
 # This is necessary for single-page applications with client-side routing
 [[redirects]]
