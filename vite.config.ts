@@ -35,7 +35,6 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui/react-accordion',
             '@radix-ui/react-alert-dialog',
             '@radix-ui/react-avatar',
-            '@radix-ui/react-button',
             '@radix-ui/react-card',
             '@radix-ui/react-dialog',
             '@radix-ui/react-dropdown-menu',
@@ -44,7 +43,8 @@ export default defineConfig(({ mode }) => ({
             '@radix-ui/react-separator',
             '@radix-ui/react-tabs',
             '@radix-ui/react-toast',
-            '@radix-ui/react-tooltip'
+            '@radix-ui/react-tooltip',
+            '@radix-ui/react-slot'
           ],
           // Utility libraries
           'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
