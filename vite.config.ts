@@ -4,15 +4,18 @@ import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
 
-// Import sitemap generator
-import { generateSitemap } from "./scripts/generate-sitemap.js";
-
 // Custom plugin to generate sitemap during build
 const sitemapPlugin = () => {
   return {
     name: 'sitemap-generator',
-    buildStart() {
-      generateSitemap();
+    async buildStart() {
+      try {
+        // Dynamic import to avoid TypeScript issues
+        const { generateSitemap } = await import('./scripts/generate-sitemap.js');
+        generateSitemap();
+      } catch (error) {
+        console.warn('Could not generate sitemap:', error);
+      }
     }
   };
 };
