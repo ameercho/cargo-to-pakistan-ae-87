@@ -11,8 +11,10 @@ const sitemapPlugin = () => {
     async buildStart() {
       try {
         // Dynamic import to avoid TypeScript issues
-        const { generateSitemap } = await import('./scripts/generate-sitemap.js');
-        generateSitemap();
+        const sitemapModule = await import('./scripts/generate-sitemap.js') as any;
+        if (sitemapModule && typeof sitemapModule.generateSitemap === 'function') {
+          sitemapModule.generateSitemap();
+        }
       } catch (error) {
         console.warn('Could not generate sitemap:', error);
       }
