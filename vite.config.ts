@@ -1,3 +1,4 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -30,12 +31,11 @@ export default defineConfig(({ mode }) => ({
           'react-vendor': ['react', 'react-dom'],
           // React Router in separate chunk
           'router': ['react-router-dom', '@remix-run/router'],
-          // UI components in separate chunk
+          // UI components in separate chunk - only include packages that actually exist
           'ui-vendor': [
             '@radix-ui/react-accordion',
             '@radix-ui/react-alert-dialog',
             '@radix-ui/react-avatar',
-            '@radix-ui/react-card',
             '@radix-ui/react-dialog',
             '@radix-ui/react-dropdown-menu',
             '@radix-ui/react-label',
