@@ -57,8 +57,7 @@ export default defineConfig(({ mode }) => ({
             'react-helmet-async',
             'next-themes',
             'sonner',
-            'date-fns',
-            'framer-motion'
+            'date-fns'
           ]
         }
       }
