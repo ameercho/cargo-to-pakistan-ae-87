@@ -1,4 +1,6 @@
 
+import { isProductionDomain } from '@/utils/environment';
+
 // Define the window interface with dataLayer
 interface Window {
   dataLayer: any[];
@@ -13,17 +15,26 @@ export const initDataLayer = (): void => {
     // Ensure gtag function is available
     if (!(window as any).gtag) {
       (window as any).gtag = function() {
-        (window as any).dataLayer.push(arguments);
+        if (isProductionDomain()) {
+          (window as any).dataLayer.push(arguments);
+        } else {
+          console.log('Development gtag call:', arguments);
+        }
       };
     }
   }
 };
 
-// Push events to dataLayer
+// Push events to dataLayer (only on production)
 export const pushToDataLayer = (data: any): void => {
   if (typeof window !== 'undefined') {
     (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push(data);
+    
+    if (isProductionDomain()) {
+      (window as any).dataLayer.push(data);
+    } else {
+      console.log('Development dataLayer push:', data);
+    }
   }
 };
 
@@ -34,6 +45,10 @@ export const gtag = (...args: any[]): void => {
   } else if (typeof window !== 'undefined') {
     // Queue gtag calls if gtag isn't loaded yet
     (window as any).dataLayer = (window as any).dataLayer || [];
-    (window as any).dataLayer.push(args);
+    if (isProductionDomain()) {
+      (window as any).dataLayer.push(args);
+    } else {
+      console.log('Development gtag queue:', args);
+    }
   }
 };

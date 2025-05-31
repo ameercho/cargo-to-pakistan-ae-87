@@ -1,25 +1,41 @@
 
 // Analytics service to centralize all tracking functionality
 import { initDataLayer, pushToDataLayer } from './dataLayer';
+import { isProductionDomain } from '@/utils/environment';
+import { loadGTM, loadGA4 } from './scriptLoader';
 
 // GA4 measurement ID - corrected
 const GA4_MEASUREMENT_ID = 'G-K5V7CJ0G5P';
 
-// Initialize analytics services
+// Initialize analytics services only on production domain
 export const initializeAnalytics = (): void => {
+  // Always initialize dataLayer for consistent behavior
   initDataLayer();
   
-  // Ensure gtag is available globally
-  if (typeof window !== 'undefined') {
-    (window as any).gtag = (window as any).gtag || function(){
-      (window as any).dataLayer = (window as any).dataLayer || [];
-      (window as any).dataLayer.push(arguments);
-    };
+  // Only load analytics scripts on production domain
+  if (isProductionDomain()) {
+    console.log('Production domain detected, loading analytics scripts');
+    loadGTM();
+    loadGA4();
+  } else {
+    console.log('Development domain detected, skipping analytics scripts');
+    // Ensure gtag is available globally for development (no-op function)
+    if (typeof window !== 'undefined') {
+      (window as any).gtag = (window as any).gtag || function(){
+        console.log('Development gtag call:', arguments);
+      };
+    }
   }
 };
 
 // Track page views
 export const trackPageView = (pagePath: string, pageTitle: string): void => {
+  // Only track on production domain
+  if (!isProductionDomain()) {
+    console.log('Development: Page view tracked locally', { pagePath, pageTitle });
+    return;
+  }
+  
   // GTM style tracking
   pushToDataLayer({
     event: 'pageview',
@@ -45,6 +61,12 @@ export const trackEvent = (
   label?: string, 
   value?: number
 ): void => {
+  // Only track on production domain
+  if (!isProductionDomain()) {
+    console.log('Development: Event tracked locally', { category, action, label, value });
+    return;
+  }
+  
   // GTM style tracking
   pushToDataLayer({
     event: 'customEvent',
@@ -71,6 +93,12 @@ export const trackFormSubmit = (formId: string, formName: string): void => {
 
 // Performance tracking
 export const trackTiming = (category: string, variable: string, time: number): void => {
+  // Only track on production domain
+  if (!isProductionDomain()) {
+    console.log('Development: Timing tracked locally', { category, variable, time });
+    return;
+  }
+  
   pushToDataLayer({
     event: 'timing',
     timingCategory: category,
