@@ -1,26 +1,7 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-
-// Custom plugin to generate sitemap during build
-const sitemapPlugin = () => {
-  return {
-    name: 'sitemap-generator',
-    async buildStart() {
-      try {
-        // Dynamic import to avoid TypeScript issues
-        const sitemapModule = await import('./scripts/generate-sitemap.js') as any;
-        if (sitemapModule && typeof sitemapModule.generateSitemap === 'function') {
-          sitemapModule.generateSitemap();
-        }
-      } catch (error) {
-        console.warn('Could not generate sitemap:', error);
-      }
-    }
-  };
-};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
@@ -32,7 +13,6 @@ export default defineConfig(({ mode }) => ({
     react(),
     mode === 'development' &&
     componentTagger(),
-    sitemapPlugin(),
   ].filter(Boolean),
   resolve: {
     alias: {
