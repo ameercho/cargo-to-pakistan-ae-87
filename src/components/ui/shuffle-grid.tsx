@@ -84,67 +84,67 @@ const shuffle = (array: (typeof squareData)[0][]) => {
 const squareData = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // shipping containers
+    src: "https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // shipping containers
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1586953208448-b95a79798f07?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // delivery truck
+    src: "https://images.unsplash.com/photo-1712159208614-45b35e53b0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pallet Jack
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // cargo ship
+    src: "https://images.unsplash.com/photo-1601172449745-ec49ac55ae13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Fedex plane
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // airplane cargo
+    src: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Container yard
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // warehouse
+    src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Cargo Ship
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // forklift
+    src: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // wrehouse isle
   },
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1544149858-8934872967ee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // delivery boxes
+    src: "https://images.unsplash.com/photo-1556011308-d6aedab5ed8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // DHL Pickup
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // logistics center
+    src: "https://images.unsplash.com/photo-1659353741484-314fb43eabb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // box delivery
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1601034913836-a1f43cc99ca8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // port crane
+    src: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // scania truck
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // container port
+    src: "https://images.unsplash.com/photo-1603798994946-5ea9dbacf20e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // UAE Flag
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1582560475093-ba66accbc424?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // delivery van
+    src: "https://images.unsplash.com/photo-1667592441284-b590021411e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Dubai musium
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // package handling
+    src: "https://images.unsplash.com/photo-1512971064777-efe44a486ae0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Sheikh zayd mosque
   },
   {
     id: 13,
-    src: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // cargo ship at sea
+    src: "https://images.unsplash.com/photo-1588445740470-9e3b18e64ed3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pakistani Truck
   },
   {
     id: 14,
-    src: "https://images.unsplash.com/photo-1534398409709-fe7d5ac632c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // shipping port
+    src: "https://images.unsplash.com/photo-1633100291356-19e4e0dcb98f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pickup truck
   },
   {
     id: 15,
-    src: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // air freight
+    src: "https://images.unsplash.com/photo-1601912552080-0fb89fd08042?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Fork lift
   },
   {
     id: 16,
-    src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // warehouse operations
+    src: "https://images.unsplash.com/photo-1689942010216-dc412bb1e7a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // warehouse operations
   },
 ];
 
