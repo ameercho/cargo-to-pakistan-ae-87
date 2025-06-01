@@ -30,7 +30,7 @@ const AirFreight = () => {
         <title>Moving Home Services from UAE to Pakistan | Complete Home Relocation</title>
         <meta name="description" content="Professional home moving services from UAE to Pakistan. Complete door-to-door home relocation solutions with careful handling of all your belongings." />
         <meta name="keywords" content="home moving, house relocation, UAE to Pakistan moving, home shifting, furniture moving" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/moving-home" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/moving-home" />
       </Helmet>
 
       {/* Hero Section */}

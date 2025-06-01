@@ -24,7 +24,7 @@ const AlAinArea = () => {
         <title>Cargo Services in Al Ain | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Al Ain to Pakistan. Serving all areas including Al Muwaiji, Hili, Al Jimi and more." />
         <meta name="keywords" content="al ain cargo, pakistan shipping, al ain to pakistan, cargo services al ain" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/al-ain" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/al-ain" />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}
@@ -143,7 +143,7 @@ const AlAinArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">alain@cargoconnect.pk</p>
+                      <p className="text-gray-600">alain@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

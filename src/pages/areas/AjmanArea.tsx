@@ -24,7 +24,7 @@ const AjmanArea = () => {
         <title>Cargo Services in Ajman | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Ajman to Pakistan. Serving all areas including Al Nuaimiya, Al Jurf, Al Rashidiya and more." />
         <meta name="keywords" content="ajman cargo, pakistan shipping, ajman to pakistan, cargo services ajman" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/ajman" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/ajman" />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}
@@ -143,7 +143,7 @@ const AjmanArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">ajman@cargoconnect.pk</p>
+                      <p className="text-gray-600">ajman@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

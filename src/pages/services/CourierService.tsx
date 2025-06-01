@@ -41,7 +41,7 @@ const CourierService = () => {
         <title>Courier Services | Fast & Reliable Delivery to Pakistan</title>
         <meta name="description" content="Express courier services from UAE to Pakistan. Door-to-door delivery with tracking and guaranteed delivery times." />
         <meta name="keywords" content="courier service, pakistan courier, uae to pakistan courier, express delivery" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/courier-service" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/courier-service" />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}

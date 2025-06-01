@@ -23,7 +23,7 @@ const FujairahArea = () => {
         <title>Cargo Services in Fujairah | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Fujairah to Pakistan. Serving all areas including Fujairah City, Dibba, Al Faseel and more." />
         <meta name="keywords" content="fujairah cargo, pakistan shipping, fujairah to pakistan, cargo services fujairah" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/fujairah" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/fujairah" />
       </Helmet>
 
       {/* Hero Section */}
@@ -142,7 +142,7 @@ const FujairahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">fujairah@cargoconnect.pk</p>
+                      <p className="text-gray-600">fujairah@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

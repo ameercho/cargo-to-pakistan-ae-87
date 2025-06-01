@@ -24,7 +24,7 @@ const SharjahArea = () => {
         <title>Cargo Services in Sharjah | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Sharjah to Pakistan. Serving all areas including Al Nahda, Al Majaz, Al Khan and more." />
         <meta name="keywords" content="sharjah cargo, pakistan shipping, sharjah to pakistan, cargo services sharjah" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/sharjah" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/sharjah" />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}
@@ -143,7 +143,7 @@ const SharjahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">sharjah@cargoconnect.pk</p>
+                      <p className="text-gray-600">sharjah@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

@@ -48,7 +48,7 @@ const DubaiArea = () => {
         <title>Cargo Services from Dubai to Pakistan | Reliable Shipping Solutions</title>
         <meta name="description" content="Professional cargo shipping services from Dubai to Pakistan. Door-to-door pickup from all Dubai neighborhoods with reliable delivery to major Pakistani cities." />
         <meta name="keywords" content="Dubai cargo to Pakistan, Dubai Pakistan shipping, cargo Dubai, freight forwarding Dubai, Dubai to Karachi cargo" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/dubai" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/dubai" />
       </Helmet>
 
       {/* Hero Section */}

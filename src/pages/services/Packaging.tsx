@@ -45,7 +45,7 @@ const Packaging = () => {
         <title>Professional Packaging Services for UAE to Pakistan Cargo | Secure Shipping</title>
         <meta name="description" content="Expert packaging solutions for all types of cargo shipping from UAE to Pakistan. Custom packing services to ensure your items arrive safely and securely." />
         <meta name="keywords" content="cargo packaging, shipping packing services, fragile item packaging, UAE to Pakistan, secure shipping" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/packaging" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/packaging" />
       </Helmet>
 
       {/* Hero Section */}

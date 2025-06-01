@@ -33,7 +33,7 @@ const FullContainer = () => {
         <title>Full Container Load Services from UAE to Pakistan | FCL Shipping</title>
         <meta name="description" content="Dedicated full container load services from UAE to Pakistan. Secure and efficient FCL shipping solutions with door-to-door delivery." />
         <meta name="keywords" content="full container load, FCL shipping, UAE to Pakistan, container cargo, sea freight, dedicated container" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/full-container" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/full-container" />
       </Helmet>
 
       {/* Hero Section */}

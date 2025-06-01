@@ -27,7 +27,7 @@ const SeaFreight = () => {
         <title>Sea Freight Services from UAE to Pakistan | Cost-Effective Shipping</title>
         <meta name="description" content="Professional sea freight services from UAE to Pakistan with cost-effective rates for large cargo shipments. Reliable and secure ocean shipping solutions." />
         <meta name="keywords" content="sea freight, ocean shipping, UAE to Pakistan cargo, cost-effective shipping, bulk cargo" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/sea-freight" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/sea-freight" />
       </Helmet>
 
       {/* Hero Section - Updated with hero-gradient class */}

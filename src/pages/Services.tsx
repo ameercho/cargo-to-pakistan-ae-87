@@ -24,8 +24,8 @@ const Services = () => {
     "description": "Comprehensive cargo shipping services from UAE to Pakistan including sea freight, air freight, courier services, and full container loads.",
     "provider": {
       "@type": "Organization",
-      "name": "Cargo Connect",
-      "url": "https://cargoconnect.pk",
+      "name": "Cargo to Pakistan",
+      "url": "https://cargotopakistan.ae",
       "address": {
         "@type": "PostalAddress",
         "addressCountry": "AE",
@@ -91,13 +91,13 @@ const Services = () => {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://cargoconnect.pk/"
+        "item": "https://cargotopakistan.ae/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://cargoconnect.pk/services"
+        "item": "https://cargotopakistan.ae/services"
       }
     ]
   };
@@ -109,12 +109,12 @@ const Services = () => {
         <title>Cargo Services from UAE to Pakistan | Sea Freight, Air Freight & More</title>
         <meta name="description" content="Comprehensive cargo shipping services from UAE to Pakistan. Sea freight, air freight, courier services, packaging, and full container loads with door-to-door delivery." />
         <meta name="keywords" content="cargo services, UAE to Pakistan shipping, sea freight, air freight, courier service, full container load, packaging services" />
-        <link rel="canonical" href="https://cargoconnect.pk/services" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services" />
         
         {/* Open Graph */}
         <meta property="og:title" content="Cargo Services from UAE to Pakistan | Cargo Connect" />
         <meta property="og:description" content="Comprehensive cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery." />
-        <meta property="og:url" content="https://cargoconnect.pk/services" />
+        <meta property="og:url" content="https://cargotopakistan.ae/services" />
         <meta property="og:type" content="website" />
         
         {/* Schema markup */}

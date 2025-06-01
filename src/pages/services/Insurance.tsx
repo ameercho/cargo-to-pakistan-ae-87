@@ -40,7 +40,7 @@ const Insurance = () => {
         <title>Cargo Insurance | Protect Your Shipments to Pakistan</title>
         <meta name="description" content="Comprehensive cargo insurance services for shipments from UAE to Pakistan. Protect your valuable items during transportation with our reliable coverage." />
         <meta name="keywords" content="cargo insurance, shipment protection, pakistan cargo insurance, shipping insurance" />
-        <link rel="canonical" href="https://cargoconnect.pk/services/insurance" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/insurance" />
       </Helmet>
 
       {/* Hero Section */}

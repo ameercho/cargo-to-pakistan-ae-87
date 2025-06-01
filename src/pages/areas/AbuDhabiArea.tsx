@@ -23,7 +23,7 @@ const AbuDhabiArea = () => {
         <title>Cargo Services in Abu Dhabi | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Abu Dhabi to Pakistan. Serving all areas including Al Reem Island, Khalifa City, Mussafah and more." />
         <meta name="keywords" content="abu dhabi cargo, pakistan shipping, abu dhabi to pakistan, cargo services abu dhabi" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/abu-dhabi" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/abu-dhabi" />
       </Helmet>
 
       {/* Hero Section */}
@@ -142,7 +142,7 @@ const AbuDhabiArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">abudhabi@cargoconnect.pk</p>
+                      <p className="text-gray-600">abudhabi@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

@@ -23,7 +23,7 @@ const RasAlKhaimahArea = () => {
         <title>Cargo Services in Ras Al Khaimah | Shipping to Pakistan</title>
         <meta name="description" content="Professional cargo services from Ras Al Khaimah to Pakistan. Serving all areas including Al Hamra, Al Nakheel, Al Dhait and more." />
         <meta name="keywords" content="ras al khaimah cargo, pakistan shipping, rak to pakistan, cargo services rak" />
-        <link rel="canonical" href="https://cargoconnect.pk/areas/ras-al-khaimah" />
+        <link rel="canonical" href="https://cargotopakistan.ae/areas/ras-al-khaimah" />
       </Helmet>
 
       {/* Hero Section */}
@@ -142,7 +142,7 @@ const RasAlKhaimahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">rak@cargoconnect.pk</p>
+                      <p className="text-gray-600">rak@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>
