@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -7,6 +7,11 @@ import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
 
 const UmmAlQuwainArea = () => {
+  // Scroll to top when component mounts
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const locations = [
     "Umm Al Quwain City", "Al Salamah", "Al Raas", "Falaj Al Mualla", "Al Rafa",
     "Al Riqqah", "Al Maidan", "Al Khor", "Dreamland", "UAQ Marina"
@@ -23,19 +28,25 @@ const UmmAlQuwainArea = () => {
       </Helmet>
 
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
-        <div className="container-custom">
+      <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30 z-0"></div>
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Cargo Services in Umm Al Quwain</h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Reliable cargo shipping from Umm Al Quwain to Pakistan with door-to-door service
-            </p>
-            <Button 
-              className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" 
-              size="lg"
-            >
-              Get a Quote
-            </Button>
+            <div className="flex flex-col items-start space-y-6">
+              <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
+                Cargo Services to Pakistan
+              </span>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">Cargo Services in Umm Al Quwain</h1>
+              <p className="text-xl text-gray-100 mb-8 max-w-2xl">
+                Reliable cargo shipping from Umm Al Quwain to Pakistan with door-to-door service
+              </p>
+              <Button 
+                className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
+                size="lg"
+              >
+                Get a Quote
+              </Button>
+            </div>
           </div>
         </div>
       </section>

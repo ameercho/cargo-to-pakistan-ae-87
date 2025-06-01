@@ -27,20 +27,26 @@ const AlAinArea = () => {
         <link rel="canonical" href="https://cargotopakistan.ae/areas/al-ain" />
       </Helmet>
 
-      {/* Hero Section - Updated with hero-gradient class */}
-      <section className="py-12 hero-gradient">
-        <div className="container-custom">
+      {/* Hero Section */}
+      <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-black/30 z-0"></div>
+        <div className="container-custom relative z-10">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Cargo Services in Al Ain</h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Reliable cargo shipping from Al Ain to Pakistan with door-to-door service
-            </p>
-            <Button 
-              className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" 
-              size="lg"
-            >
-              Get a Quote
-            </Button>
+            <div className="flex flex-col items-start space-y-6">
+              <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
+                Cargo Services to Pakistan
+              </span>
+              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">Cargo Services in Al Ain</h1>
+              <p className="text-xl text-gray-100 mb-8 max-w-2xl">
+                Reliable cargo shipping from Al Ain to Pakistan with door-to-door service
+              </p>
+              <Button 
+                className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
+                size="lg"
+              >
+                Get a Quote
+              </Button>
+            </div>
           </div>
         </div>
       </section>
