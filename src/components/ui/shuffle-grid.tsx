@@ -84,67 +84,83 @@ const shuffle = (array: (typeof squareData)[0][]) => {
 const squareData = [
   {
     id: 1,
-    src: "https://images.unsplash.com/photo-1493946740644-2d8a1f1a6aff?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // shipping containers
+    src: "/images/containers.webp",
+    alt: "Shipping containers at port"
   },
   {
     id: 2,
-    src: "https://images.unsplash.com/photo-1712159208614-45b35e53b0cc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pallet Jack
+    src: "/images/pallet-jack.webp",
+    alt: "Pallet jack for warehouse operations"
   },
   {
     id: 3,
-    src: "https://images.unsplash.com/photo-1601172449745-ec49ac55ae13?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Fedex plane
+    src: "/images/fedex-plane.webp",
+    alt: "FedEx cargo plane for air freight"
   },
   {
     id: 4,
-    src: "https://images.unsplash.com/photo-1494412651409-8963ce7935a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Container yard
+    src: "/images/container-port.webp",
+    alt: "Container yard at shipping port"
   },
   {
     id: 5,
-    src: "https://images.unsplash.com/photo-1578575437130-527eed3abbec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Cargo Ship
+    src: "/images/cargo-ship-vesal.webp",
+    alt: "Cargo ship vessel for sea freight"
   },
   {
     id: 6,
-    src: "https://images.unsplash.com/photo-1553413077-190dd305871c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // wrehouse isle
+    src: "/images/warehouse-racking.webp",
+    alt: "Warehouse storage racking system"
   },
   {
     id: 7,
-    src: "https://images.unsplash.com/photo-1556011308-d6aedab5ed8f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // DHL Pickup
+    src: "/images/dhl-van.webp",
+    alt: "DHL delivery van for courier services"
   },
   {
     id: 8,
-    src: "https://images.unsplash.com/photo-1659353741484-314fb43eabb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // box delivery
+    src: "/images/box-delivery.webp",
+    alt: "Package delivery service"
   },
   {
     id: 9,
-    src: "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // scania truck
+    src: "/images/scania-truck.webp",
+    alt: "Scania delivery truck"
   },
   {
     id: 10,
-    src: "https://images.unsplash.com/photo-1603798994946-5ea9dbacf20e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // UAE Flag
+    src: "/images/uae-flag.webp",
+    alt: "United Arab Emirates flag"
   },
   {
     id: 11,
-    src: "https://images.unsplash.com/photo-1667592441284-b590021411e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Dubai musium
+    src: "/images/dubai-perl.webp",
+    alt: "Dubai skyline and architecture"
   },
   {
     id: 12,
-    src: "https://images.unsplash.com/photo-1512971064777-efe44a486ae0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Sheikh zayd mosque
+    src: "/images/abu-dhabi-mosque.webp",
+    alt: "Sheikh Zayed Mosque in Abu Dhabi"
   },
   {
     id: 13,
-    src: "https://images.unsplash.com/photo-1588445740470-9e3b18e64ed3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pakistani Truck
+    src: "/images/pakistani-truck.webp",
+    alt: "Pakistani decorated truck"
   },
   {
     id: 14,
-    src: "https://images.unsplash.com/photo-1633100291356-19e4e0dcb98f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pakistan Flag
+    src: "/images/pakistani-flag.webp",
+    alt: "Pakistan flag"
   },
   {
     id: 15,
-    src: "https://images.unsplash.com/photo-1601912552080-0fb89fd08042?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Fork lift
+    src: "/images/fork-lift-loading.webp",
+    alt: "Forklift loading operations"
   },
   {
     id: 16,
-    src: "https://images.unsplash.com/photo-1689942010216-dc412bb1e7a9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // warehouse operations
+    src: "/images/warehouse.webp",
+    alt: "Warehouse operations and logistics"
   },
 ];
 
@@ -155,12 +171,14 @@ const generateSquares = () => {
       layout
       transition={{ duration: 1.5, type: "spring" }}
       className="w-full h-full rounded-md overflow-hidden bg-gray-200"
-      style={{
-        backgroundImage: `url(${sq.src})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
-    ></motion.div>
+    >
+      <img
+        src={sq.src}
+        alt={sq.alt}
+        loading="lazy"
+        className="w-full h-full object-cover"
+      />
+    </motion.div>
   ));
 };
 
