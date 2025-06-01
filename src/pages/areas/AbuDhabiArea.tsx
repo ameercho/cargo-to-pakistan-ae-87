@@ -122,9 +122,9 @@ const AbuDhabiArea = () => {
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 text-cargo-green mr-3 mt-1" />
                     <div>
-                      <h4 className="font-medium">Our Abu Dhabi Office</h4>
+                      <h4 className="font-medium">Our Abu Dhabi Service</h4>
                       <p className="text-gray-600 text-sm">
-                        Hamdan Street, Abu Dhabi<br />
+                        Mussafah, Abu Dhabi<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -134,7 +134,7 @@ const AbuDhabiArea = () => {
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Call Us</h4>
-                      <p className="text-gray-600">+971 2 123 4567</p>
+                      <p className="text-gray-600">+971504948135</p>
                     </div>
                   </div>
                   

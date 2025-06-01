@@ -123,7 +123,7 @@ const AjmanArea = () => {
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 text-cargo-green mr-3 mt-1" />
                     <div>
-                      <h4 className="font-medium">Our Ajman Office</h4>
+                      <h4 className="font-medium">Our Ajman Servcie</h4>
                       <p className="text-gray-600 text-sm">
                         Sheikh Khalifa Bin Zayed Street, Ajman<br />
                         United Arab Emirates
@@ -135,7 +135,7 @@ const AjmanArea = () => {
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Call Us</h4>
-                      <p className="text-gray-600">+971 6 987 6543</p>
+                      <p className="text-gray-600">+971504948135</p>
                     </div>
                   </div>
                   
