@@ -136,7 +136,7 @@ const squareData = [
   },
   {
     id: 14,
-    src: "https://images.unsplash.com/photo-1633100291356-19e4e0dcb98f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pickup truck
+    src: "https://images.unsplash.com/photo-1633100291356-19e4e0dcb98f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80", // Pakistan Flag
   },
   {
     id: 15,
