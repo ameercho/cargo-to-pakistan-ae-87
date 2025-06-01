@@ -11,7 +11,7 @@ const MainServices = () => {
       description: "Complete home moving services for relocating to Pakistan.",
       icon: Home,
       iconColor: "text-cargo-blue",
-      link: "/services/air-freight", // Air freight handles moving home services
+      link: "/services/moving-home",
     },
     {
       title: "Sea Freight",

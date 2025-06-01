@@ -1,4 +1,3 @@
-
 import { Helmet } from "react-helmet-async";
 import ServicesHero from "@/components/services/ServicesHero";
 import MainServices from "@/components/services/MainServices";
@@ -239,9 +238,9 @@ const Services = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/services/air-freight" className="flex items-center text-gray-700 hover:text-cargo-orange transition-colors">
+                  <Link to="/services/moving-home" className="flex items-center text-gray-700 hover:text-cargo-orange transition-colors">
                     <ArrowRight className="h-4 w-4 mr-2" />
-                    Air Freight
+                    Moving Home
                   </Link>
                 </li>
                 <li>

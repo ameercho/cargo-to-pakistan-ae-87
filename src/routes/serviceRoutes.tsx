@@ -29,7 +29,7 @@ export const serviceRoutes = [
     element: <CourierService />,
   },
   {
-    path: "services/air-freight",
+    path: "services/moving-home",
     element: <AirFreight />,
   },
 ];
