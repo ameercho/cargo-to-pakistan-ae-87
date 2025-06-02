@@ -1,8 +1,9 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Home, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Truck } from "lucide-react";
+import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Zap } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { 
@@ -14,7 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const AirFreight = () => {
+const AirFreightCargo = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,39 +23,39 @@ const AirFreight = () => {
   
   const services = [
     {
-      title: "Professional Packing",
-      description: "Expert packing and moving services for all household items.",
-      icon: Package,
+      title: "Express Air Cargo",
+      description: "Fast air freight delivery for urgent and time-sensitive shipments.",
+      icon: Zap,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Door to Door",
-      description: "Complete home relocation services from pickup to delivery.",
-      icon: Home,
+      title: "Standard Air Freight", 
+      description: "Cost-effective air cargo services with reliable delivery times.",
+      icon: Plane,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Secure Transport",
-      description: "Enhanced safety measures and careful handling for valuables.",
-      icon: ShieldCheck,
+      title: "Heavy Cargo",
+      description: "Specialized air freight handling for oversized and heavy shipments.",
+      icon: Package,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Professional Service", description: "Expert packing and moving services", icon: Clock },
-    { title: "Door to Door", description: "Complete home relocation services", icon: Home },
-    { title: "Careful Handling", description: "Special care for your belongings", icon: Clock },
-    { title: "Security", description: "Enhanced safety measures for valuables", icon: ShieldCheck },
-    { title: "Documentation Support", description: "Expert assistance with paperwork", icon: FileCheck },
+    { title: "Fast Delivery", description: "Quickest shipping option for urgent cargo", icon: Clock },
+    { title: "Global Network", description: "Extensive air freight network coverage", icon: Plane },
+    { title: "Time-Sensitive", description: "Perfect for urgent and perishable goods", icon: Zap },
+    { title: "Secure Transport", description: "Enhanced security protocols for air cargo", icon: ShieldCheck },
+    { title: "Track & Trace", description: "Real-time tracking throughout the journey", icon: FileCheck },
   ];
-
+  
   const handleCall = () => {
     window.location.href = "tel:+971504948135";
   };
-
+  
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20home%20moving%20services%20to%20Pakistan.`, "_blank");
+    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20air%20freight%20services%20to%20Pakistan.`, "_blank");
   };
 
   // Breadcrumb Schema
@@ -77,8 +78,8 @@ const AirFreight = () => {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Moving Home",
-        "item": "https://cargotopakistan.ae/services/moving-home"
+        "name": "Air Freight",
+        "item": "https://cargotopakistan.ae/services/air-freight"
       }
     ]
   };
@@ -87,10 +88,10 @@ const AirFreight = () => {
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Moving Home Services from UAE to Pakistan | Complete Home Relocation</title>
-        <meta name="description" content="Professional home moving services from UAE to Pakistan. Complete door-to-door home relocation solutions with careful handling of all your belongings." />
-        <meta name="keywords" content="home moving, house relocation, UAE to Pakistan moving, home shifting, furniture moving" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/moving-home" />
+        <title>Air Freight Services from UAE to Pakistan | Fast Air Cargo Shipping</title>
+        <meta name="description" content="Professional air freight services from UAE to Pakistan with fast delivery times for urgent cargo shipments. Reliable and secure air cargo solutions." />
+        <meta name="keywords" content="air freight, air cargo, UAE to Pakistan shipping, fast delivery, urgent cargo, express shipping" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/air-freight" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -103,13 +104,13 @@ const AirFreight = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Home Relocation Services
+                Air Cargo Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Moving Home Services to <span className="text-cargo-orange">Pakistan</span>
+                Air Freight Services to <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Professional home moving services for complete relocation from UAE to Pakistan with careful handling.
+                Fast and reliable air freight solutions for urgent cargo shipments from UAE to Pakistan with express delivery.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -153,7 +154,7 @@ const AirFreight = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Moving Home</BreadcrumbPage>
+                <BreadcrumbPage>Air Freight</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -167,57 +168,57 @@ const AirFreight = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Home className="mr-2 h-6 w-6 text-cargo-green" />
-                  Professional Home Moving Services from UAE to Pakistan
+                  <Plane className="mr-2 h-6 w-6 text-cargo-green" />
+                  Fast Air Freight Services from UAE to Pakistan
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our home moving services provide a complete relocation solution from UAE to Pakistan. We take care of packing, transportation, customs clearance, and delivery of all your household belongings to your new home in Pakistan.
+                    Our air freight services provide the fastest shipping solution for urgent cargo from the UAE to Pakistan. Perfect for time-sensitive shipments, perishable goods, and high-value items that require quick delivery and enhanced security.
                   </p>
                   
                   <p className="mb-4">
-                    We operate home moving services from all major UAE locations including Dubai, Abu Dhabi, and Sharjah, with connections to Pakistan's key cities including Karachi, Lahore, Islamabad, and beyond. Our comprehensive moving services are ideal for families, professionals, or anyone relocating to Pakistan.
+                    We handle air cargo from all major airports in the UAE including Dubai International Airport, Abu Dhabi International Airport, and Sharjah Airport, delivering to Pakistan's key airports in Karachi, Lahore, and Islamabad. Our comprehensive air freight services include express and standard options to suit different urgency levels and budgets.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                      <Home className="mr-2 h-5 w-5" />
-                      Why Choose Our Home Moving Services?
+                      <Plane className="mr-2 h-5 w-5" />
+                      Why Choose Our Air Freight Services?
                     </h3>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Package className="h-4 w-4 text-cargo-green" />
+                          <Clock className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Professional packing of all items</span>
+                        <span>Express & standard delivery options</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <Zap className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Fastest transit times available</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <ShieldCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Custom wooden crating</span>
-                      </li>
-                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
-                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Truck className="h-4 w-4 text-cargo-green" />
-                        </div>
-                        <span>Door-to-door delivery</span>
+                        <span>Enhanced security protocols</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Customs clearance assistance</span>
+                        <span>Real-time tracking & updates</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Home Moving Destinations in Pakistan</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Air Freight Destinations in Pakistan</h3>
                   
                   <p className="mb-4">
-                    Our home moving services deliver to all major cities in Pakistan with onward distribution to:
+                    Our air freight services connect to all major airports and cities in Pakistan including:
                   </p>
                   
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
@@ -247,13 +248,13 @@ const AirFreight = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Home className="mr-2 h-5 w-5" />
+                  <Plane className="mr-2 h-5 w-5" />
                   Request a Quick Quote
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us now for a free quote for home moving services!
+                    Contact us now for a free quote for air freight services!
                   </p>
                 </div>
                 
@@ -304,9 +305,9 @@ const AirFreight = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Home Moving Solutions</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Air Freight Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Explore our comprehensive home moving services designed for complete relocation.
+              Choose the air freight option that best suits your cargo requirements for fast delivery to Pakistan.
             </p>
           </div>
           
@@ -324,14 +325,14 @@ const AirFreight = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/packaging">
+              <Link to="/services/courier-service">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Express Courier <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services/insurance">
+              <Link to="/services/packaging">
                 <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                  Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
+                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -345,4 +346,4 @@ const AirFreight = () => {
   );
 };
 
-export default AirFreight;
+export default AirFreightCargo;

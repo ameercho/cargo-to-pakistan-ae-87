@@ -1,6 +1,6 @@
 
 import ServiceCard from "@/components/ServiceCard";
-import { Ship, Home, Truck } from "lucide-react";
+import { Ship, Home, Truck, Plane } from "lucide-react";
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 
@@ -21,6 +21,13 @@ const MainServices = () => {
       link: "/services/sea-freight",
     },
     {
+      title: "Air Freight",
+      description: "Fast air cargo services for urgent and time-sensitive shipments.",
+      icon: Plane,
+      iconColor: "text-cargo-orange",
+      link: "/services/air-freight",
+    },
+    {
       title: "Full Container",
       description: "Efficient transportation services for your full container shipments to Pakistan.",
       icon: Truck,
@@ -39,7 +46,7 @@ const MainServices = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {mainServices.map((service, index) => (
             <div key={index} className="group">
               <ServiceCard

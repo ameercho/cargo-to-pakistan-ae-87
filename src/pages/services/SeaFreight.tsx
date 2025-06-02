@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
@@ -6,6 +5,14 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Anchor, Package, Clock, ShieldCheck, FileCheck, Phone, MessageCircle, MapPin } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const SeaFreight = () => {
   // Scroll to top when component mounts
@@ -50,6 +57,32 @@ const SeaFreight = () => {
     window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20sea%20freight%20services%20to%20Pakistan.`, "_blank");
   };
 
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cargotopakistan.ae/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://cargotopakistan.ae/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Sea Freight",
+        "item": "https://cargotopakistan.ae/services/sea-freight"
+      }
+    ]
+  };
+
   return (
     <div className="min-h-screen">
       {/* SEO Metadata */}
@@ -58,6 +91,9 @@ const SeaFreight = () => {
         <meta name="description" content="Professional sea freight services from UAE to Pakistan with cost-effective rates for large cargo shipments. Reliable and secure ocean shipping solutions." />
         <meta name="keywords" content="sea freight, ocean shipping, UAE to Pakistan cargo, cost-effective shipping, bulk cargo" />
         <link rel="canonical" href="https://cargotopakistan.ae/services/sea-freight" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
@@ -96,6 +132,31 @@ const SeaFreight = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b">
+        <div className="container-custom">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/services">Services</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Sea Freight</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
       </section>
 
