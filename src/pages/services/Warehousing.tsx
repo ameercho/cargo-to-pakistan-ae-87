@@ -1,8 +1,9 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lock } from "lucide-react";
+import { ArrowRight, Warehouse, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Archive } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { 
@@ -14,7 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const Insurance = () => {
+const Warehousing = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,31 +23,31 @@ const Insurance = () => {
   
   const services = [
     {
-      title: "All Risk Coverage",
-      description: "Comprehensive insurance coverage against all types of cargo loss or damage.",
+      title: "Secure Storage",
+      description: "Climate-controlled warehouses with 24/7 security monitoring.",
       icon: ShieldCheck,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Specialized Cargo",
-      description: "Insurance solutions for valuable, fragile, and sensitive cargo items.",
-      icon: Shield,
+      title: "Inventory Management",
+      description: "Professional inventory tracking and management systems.",
+      icon: Archive,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Customized Plans",
-      description: "Tailored insurance plans to meet your specific cargo and shipping needs.",
-      icon: Package,
+      title: "Distribution Services",
+      description: "Efficient distribution and fulfillment from our warehouses.",
+      icon: Warehouse,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Comprehensive Coverage", description: "Protection against all types of cargo risks", icon: ShieldCheck },
-    { title: "Valuable Cargo", description: "Insurance for high-value and sensitive items", icon: Shield },
-    { title: "Fast Claims", description: "Quick and efficient claims processing", icon: Clock },
-    { title: "Global Coverage", description: "Worldwide insurance coverage", icon: MapPin },
-    { title: "Expert Support", description: "Dedicated support from insurance specialists", icon: FileCheck },
+    { title: "Secure Storage", description: "24/7 monitored warehouse facilities", icon: ShieldCheck },
+    { title: "Flexible Terms", description: "Short and long-term storage options", icon: Clock },
+    { title: "Inventory Tracking", description: "Real-time inventory management", icon: Package },
+    { title: "Strategic Locations", description: "Warehouses in key UAE locations", icon: MapPin },
+    { title: "Quality Assurance", description: "Regular quality checks and reporting", icon: FileCheck },
   ];
 
   const handleCall = () => {
@@ -54,7 +55,7 @@ const Insurance = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank");
+    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20warehousing%20services.`, "_blank");
   };
 
   // Breadcrumb Schema
@@ -77,8 +78,8 @@ const Insurance = () => {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Insurance",
-        "item": "https://cargotopakistan.ae/services/insurance"
+        "name": "Warehousing",
+        "item": "https://cargotopakistan.ae/services/warehousing"
       }
     ]
   };
@@ -87,10 +88,10 @@ const Insurance = () => {
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Cargo Insurance Services for Shipments to Pakistan | Comprehensive Coverage</title>
-        <meta name="description" content="Comprehensive cargo insurance coverage for shipments from UAE to Pakistan. Protect your valuable cargo with our insurance services." />
-        <meta name="keywords" content="cargo insurance, shipping insurance, UAE to Pakistan insurance, cargo protection, shipment coverage" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/insurance" />
+        <title>Warehousing Services in UAE | Secure Storage Solutions for Pakistan Cargo</title>
+        <meta name="description" content="Professional warehousing and storage services in UAE with secure facilities for cargo bound to Pakistan. Flexible storage solutions." />
+        <meta name="keywords" content="warehousing, storage services, UAE warehouse, cargo storage, inventory management" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/warehousing" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -103,19 +104,19 @@ const Insurance = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Insurance Services
+                Warehousing Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Cargo Insurance for <span className="text-cargo-orange">Pakistan</span>
+                Secure Warehousing in <span className="text-cargo-orange">UAE</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Comprehensive insurance coverage to protect your valuable cargo during shipment to Pakistan.
+                Professional warehousing and storage solutions in UAE with secure facilities for your cargo.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
                   className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
                   size="lg"
-                  onClick={() => window.location.href = "tel:+971504948135"}
+                  onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
@@ -124,7 +125,7 @@ const Insurance = () => {
                   variant="outline" 
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
-                  onClick={() => window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank")}
+                  onClick={handleWhatsApp}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
@@ -153,7 +154,7 @@ const Insurance = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Insurance</BreadcrumbPage>
+                <BreadcrumbPage>Warehousing</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -167,23 +168,23 @@ const Insurance = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Shield className="mr-2 h-6 w-6 text-cargo-green" />
-                  Comprehensive Cargo Insurance Services
+                  <Warehouse className="mr-2 h-6 w-6 text-cargo-green" />
+                  Professional Warehousing Services in UAE
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our cargo insurance services provide comprehensive coverage for your shipments from UAE to Pakistan. We protect your valuable cargo against loss, damage, or theft during transit, ensuring peace of mind and financial security.
+                    Our warehousing services provide secure, climate-controlled storage facilities across the UAE for cargo destined to Pakistan. Whether you need short-term storage during transit or long-term warehousing solutions, we offer flexible options to meet your requirements.
                   </p>
                   
                   <p className="mb-4">
-                    We offer a range of insurance options to suit different types of cargo and shipping requirements. Our experienced insurance specialists will help you choose the right coverage plan and provide expert support throughout the claims process.
+                    Our state-of-the-art warehouse facilities are strategically located in Dubai, Abu Dhabi, and Sharjah, providing convenient access to major ports and airports. We offer comprehensive inventory management, quality control, and distribution services to ensure your cargo is handled with the utmost care.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                      <Shield className="mr-2 h-5 w-5" />
-                      Why Choose Our Insurance Services?
+                      <Warehouse className="mr-2 h-5 w-5" />
+                      Why Choose Our Warehousing Services?
                     </h3>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
@@ -191,47 +192,47 @@ const Insurance = () => {
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <ShieldCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Comprehensive coverage options</span>
+                        <span>24/7 security monitoring</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Clock className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Fast and efficient claims processing</span>
+                        <span>Climate-controlled environment</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Package className="h-4 w-4 text-cargo-green" />
+                          <Archive className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Coverage for all types of cargo</span>
+                        <span>Advanced inventory management</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Expert support and guidance</span>
+                        <span>Regular quality inspections</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Insurance Coverage Options</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Warehouse Locations</h3>
                   
                   <p className="mb-4">
-                    We offer a range of insurance coverage options including:
+                    Our warehouse facilities are strategically located across the UAE:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> All Risk Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Dubai Warehouse
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Limited Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Abu Dhabi Facility
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Specialized Cargo Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Sharjah Storage
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Customized Insurance Plans
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Jebel Ali Complex
                     </div>
                   </div>
                 </div>
@@ -241,13 +242,13 @@ const Insurance = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Shield className="mr-2 h-5 w-5" />
-                  Request Insurance Quote
+                  <Warehouse className="mr-2 h-5 w-5" />
+                  Request Storage Quote
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us for a free cargo insurance quote!
+                    Contact us for warehousing rates and availability!
                   </p>
                 </div>
                 
@@ -298,9 +299,9 @@ const Insurance = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Comprehensive Insurance Solutions</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Warehousing Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Protect your valuable cargo with our comprehensive insurance coverage options.
+              Comprehensive storage and distribution services to support your cargo operations.
             </p>
           </div>
           
@@ -318,14 +319,14 @@ const Insurance = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/packaging">
+              <Link to="/services/sea-freight">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Sea Freight Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services/secure-handling">
+              <Link to="/services/packaging">
                 <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                  Secure Handling <ArrowRight className="ml-2 h-4 w-4" />
+                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -339,4 +340,4 @@ const Insurance = () => {
   );
 };
 
-export default Insurance;
+export default Warehousing;

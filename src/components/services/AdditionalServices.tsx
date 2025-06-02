@@ -31,14 +31,14 @@ const AdditionalServices = () => {
       description: "Secure storage facilities for your cargo before final delivery to Pakistan.",
       icon: Warehouse,
       iconColor: "text-cargo-blue",
-      link: "/contact", // Link to contact for warehousing inquiries
+      link: "/services/warehousing",
     },
     {
       title: "Customs Clearance",
       description: "Expert assistance with customs documentation and procedures for smooth import into Pakistan.",
       icon: FileText,
       iconColor: "text-cargo-green",
-      link: "/contact", // Link to contact for customs assistance
+      link: "/services/customs-clearance",
     },
     {
       title: "Tracking Services",
@@ -52,14 +52,14 @@ const AdditionalServices = () => {
       description: "Professional advice on the best shipping options for your specific cargo needs.",
       icon: Users,
       iconColor: "text-cargo-blue",
-      link: "/contact",
+      link: "/services/consulting",
     },
     {
       title: "Secure Handling",
       description: "Special handling for valuable, fragile, or sensitive items throughout the shipping process.",
       icon: Lock,
       iconColor: "text-cargo-green",
-      link: "/services/insurance",
+      link: "/services/secure-handling",
     },
     {
       title: "Return Services",

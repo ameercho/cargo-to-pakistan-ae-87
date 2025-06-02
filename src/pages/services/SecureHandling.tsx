@@ -1,8 +1,9 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lock } from "lucide-react";
+import { ArrowRight, Lock, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Shield } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { 
@@ -14,7 +15,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const Insurance = () => {
+const SecureHandling = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,31 +23,31 @@ const Insurance = () => {
   
   const services = [
     {
-      title: "All Risk Coverage",
-      description: "Comprehensive insurance coverage against all types of cargo loss or damage.",
-      icon: ShieldCheck,
+      title: "High-Value Cargo",
+      description: "Specialized handling for valuable and sensitive shipments.",
+      icon: Shield,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Specialized Cargo",
-      description: "Insurance solutions for valuable, fragile, and sensitive cargo items.",
-      icon: Shield,
+      title: "Fragile Items",
+      description: "Expert care for delicate and breakable cargo items.",
+      icon: Package,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Customized Plans",
-      description: "Tailored insurance plans to meet your specific cargo and shipping needs.",
-      icon: Package,
+      title: "Security Protocols",
+      description: "Enhanced security measures throughout the shipping process.",
+      icon: Lock,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Comprehensive Coverage", description: "Protection against all types of cargo risks", icon: ShieldCheck },
-    { title: "Valuable Cargo", description: "Insurance for high-value and sensitive items", icon: Shield },
-    { title: "Fast Claims", description: "Quick and efficient claims processing", icon: Clock },
-    { title: "Global Coverage", description: "Worldwide insurance coverage", icon: MapPin },
-    { title: "Expert Support", description: "Dedicated support from insurance specialists", icon: FileCheck },
+    { title: "Enhanced Security", description: "Advanced security protocols for valuable cargo", icon: Lock },
+    { title: "Careful Handling", description: "Special care for fragile and sensitive items", icon: Package },
+    { title: "Tracking & Monitoring", description: "Real-time monitoring throughout transit", icon: Clock },
+    { title: "Insurance Coverage", description: "Comprehensive insurance for high-value items", icon: ShieldCheck },
+    { title: "Chain of Custody", description: "Documented handling and transfer procedures", icon: FileCheck },
   ];
 
   const handleCall = () => {
@@ -54,7 +55,7 @@ const Insurance = () => {
   };
 
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank");
+    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20secure%20handling%20services.`, "_blank");
   };
 
   // Breadcrumb Schema
@@ -77,8 +78,8 @@ const Insurance = () => {
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Insurance",
-        "item": "https://cargotopakistan.ae/services/insurance"
+        "name": "Secure Handling",
+        "item": "https://cargotopakistan.ae/services/secure-handling"
       }
     ]
   };
@@ -87,10 +88,10 @@ const Insurance = () => {
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Cargo Insurance Services for Shipments to Pakistan | Comprehensive Coverage</title>
-        <meta name="description" content="Comprehensive cargo insurance coverage for shipments from UAE to Pakistan. Protect your valuable cargo with our insurance services." />
-        <meta name="keywords" content="cargo insurance, shipping insurance, UAE to Pakistan insurance, cargo protection, shipment coverage" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/insurance" />
+        <title>Secure Handling Services | High-Value Cargo Protection to Pakistan</title>
+        <meta name="description" content="Specialized secure handling services for valuable and fragile cargo shipments from UAE to Pakistan. Enhanced security and careful handling protocols." />
+        <meta name="keywords" content="secure handling, high-value cargo, fragile items, cargo security, special handling, UAE to Pakistan" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services/secure-handling" />
         <script type="application/ld+json">
           {JSON.stringify(breadcrumbSchema)}
         </script>
@@ -103,19 +104,19 @@ const Insurance = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Insurance Services
+                Secure Handling
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Cargo Insurance for <span className="text-cargo-orange">Pakistan</span>
+                Secure Handling to <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Comprehensive insurance coverage to protect your valuable cargo during shipment to Pakistan.
+                Specialized secure handling services for valuable, fragile, and sensitive cargo shipments to Pakistan.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
                   className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
                   size="lg"
-                  onClick={() => window.location.href = "tel:+971504948135"}
+                  onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
@@ -124,7 +125,7 @@ const Insurance = () => {
                   variant="outline" 
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
-                  onClick={() => window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank")}
+                  onClick={handleWhatsApp}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
@@ -153,7 +154,7 @@ const Insurance = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Insurance</BreadcrumbPage>
+                <BreadcrumbPage>Secure Handling</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -167,71 +168,71 @@ const Insurance = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Shield className="mr-2 h-6 w-6 text-cargo-green" />
-                  Comprehensive Cargo Insurance Services
+                  <Lock className="mr-2 h-6 w-6 text-cargo-green" />
+                  Specialized Secure Handling Services
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our cargo insurance services provide comprehensive coverage for your shipments from UAE to Pakistan. We protect your valuable cargo against loss, damage, or theft during transit, ensuring peace of mind and financial security.
+                    Our secure handling services provide enhanced protection and specialized care for valuable, fragile, and sensitive cargo shipments from UAE to Pakistan. We implement stringent security protocols and careful handling procedures to ensure your precious cargo arrives safely and securely.
                   </p>
                   
                   <p className="mb-4">
-                    We offer a range of insurance options to suit different types of cargo and shipping requirements. Our experienced insurance specialists will help you choose the right coverage plan and provide expert support throughout the claims process.
+                    Whether you're shipping high-value electronics, delicate artwork, important documents, or fragile items, our secure handling service offers peace of mind through enhanced security measures, specialized packaging, and dedicated handling procedures throughout the entire shipping process.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                      <Shield className="mr-2 h-5 w-5" />
-                      Why Choose Our Insurance Services?
+                      <Lock className="mr-2 h-5 w-5" />
+                      Why Choose Our Secure Handling Services?
                     </h3>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <ShieldCheck className="h-4 w-4 text-cargo-green" />
+                          <Shield className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Comprehensive coverage options</span>
-                      </li>
-                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
-                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Clock className="h-4 w-4 text-cargo-green" />
-                        </div>
-                        <span>Fast and efficient claims processing</span>
+                        <span>Enhanced security protocols</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Package className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Coverage for all types of cargo</span>
+                        <span>Specialized packaging solutions</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <Clock className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Real-time tracking & monitoring</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Expert support and guidance</span>
+                        <span>Documented chain of custody</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Insurance Coverage Options</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Types of Secure Cargo We Handle</h3>
                   
                   <p className="mb-4">
-                    We offer a range of insurance coverage options including:
+                    Our secure handling services are ideal for:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> All Risk Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> High-Value Electronics
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Limited Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Artwork & Antiques
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Specialized Cargo Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Important Documents
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Customized Insurance Plans
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Fragile Items
                     </div>
                   </div>
                 </div>
@@ -241,13 +242,13 @@ const Insurance = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Shield className="mr-2 h-5 w-5" />
-                  Request Insurance Quote
+                  <Lock className="mr-2 h-5 w-5" />
+                  Request Secure Service
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us for a free cargo insurance quote!
+                    Contact us for secure handling requirements!
                   </p>
                 </div>
                 
@@ -298,9 +299,9 @@ const Insurance = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Comprehensive Insurance Solutions</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Comprehensive Security Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Protect your valuable cargo with our comprehensive insurance coverage options.
+              Specialized secure handling services for your most valuable and sensitive cargo.
             </p>
           </div>
           
@@ -318,14 +319,14 @@ const Insurance = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/packaging">
+              <Link to="/services/insurance">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services/secure-handling">
+              <Link to="/services/packaging">
                 <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                  Secure Handling <ArrowRight className="ml-2 h-4 w-4" />
+                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -339,4 +340,4 @@ const Insurance = () => {
   );
 };
 
-export default Insurance;
+export default SecureHandling;

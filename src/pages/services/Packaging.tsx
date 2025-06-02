@@ -1,86 +1,99 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Package, ShieldCheck, Box, Scissors, Tag, Clipboard, Phone, MessageCircle, MapPin } from "lucide-react";
+import { ArrowRight, Package, Clock, Shield, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Box } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Packaging = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
+  
   const services = [
     {
-      title: "Fragile Items",
-      description: "Specialized packaging with extra cushioning for delicate items.",
-      icon: ShieldCheck,
+      title: "Professional Packing",
+      description: "Expert packing and moving services for all household items.",
+      icon: Package,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Furniture Packaging", 
-      description: "Custom crating and wrapping solutions for furniture.",
+      title: "Custom Crating",
+      description: "Custom-built wooden crates for fragile and valuable items.",
       icon: Box,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Electronics Packaging",
-      description: "Anti-static materials and moisture protection for electronics.",
-      icon: Package,
+      title: "Secure Wrapping",
+      description: "Protective wrapping and cushioning for safe transport.",
+      icon: Shield,
       iconColor: "text-cargo-green",
     },
   ];
 
-  const packagingTypes = [
-    { 
-      title: "Standard Packaging", 
-      description: "Basic packaging suitable for non-fragile items using quality cartons and protective materials." 
-    },
-    { 
-      title: "Fragile Item Packaging", 
-      description: "Specialized packaging with extra cushioning and protection for delicate or breakable items." 
-    },
-    { 
-      title: "Furniture Packaging", 
-      description: "Custom crating and wrapping solutions for furniture and household goods." 
-    },
-    { 
-      title: "Electronics Packaging", 
-      description: "Anti-static packaging materials and moisture protection for electronic devices." 
-    },
-    { 
-      title: "Commercial Goods", 
-      description: "Bulk packaging solutions for commercial and industrial products with proper labeling." 
-    }
+  const benefits = [
+    { title: "Expert Packing", description: "Professional packing of all items", icon: Clock },
+    { title: "Custom Crating", description: "Custom wooden crating for valuables", icon: Box },
+    { title: "Secure Wrapping", description: "Protective wrapping and cushioning", icon: ShieldCheck },
+    { title: "Fragile Handling", description: "Special care for fragile items", icon: Package },
+    { title: "Insurance Options", description: "Coverage for packed items", icon: FileCheck },
   ];
 
-  const benefits = [
-    { title: "Damage Prevention", description: "Superior protection against transit damage", icon: ShieldCheck },
-    { title: "Custom Solutions", description: "Tailored packaging for any item type", icon: Box },
-    { title: "Quality Materials", description: "Durable materials for maximum protection", icon: Package },
-    { title: "Professional Handling", description: "Experienced staff for proper packing", icon: Scissors },
-    { title: "Proper Labeling", description: "Clear and compliant shipping labels", icon: Tag },
-  ];
-  
   const handleCall = () => {
     window.location.href = "tel:+971504948135";
   };
-  
+
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20packaging%20services%20for%20shipping%20to%20Pakistan.`, "_blank");
+    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20packaging%20services%20for%20cargo%20to%20Pakistan.`, "_blank");
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cargotopakistan.ae/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://cargotopakistan.ae/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Packaging",
+        "item": "https://cargotopakistan.ae/services/packaging"
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Professional Packaging Services for UAE to Pakistan Cargo | Secure Shipping</title>
-        <meta name="description" content="Expert packaging solutions for all types of cargo shipping from UAE to Pakistan. Custom packing services to ensure your items arrive safely and securely." />
-        <meta name="keywords" content="cargo packaging, shipping packing services, fragile item packaging, UAE to Pakistan, secure shipping" />
+        <title>Professional Packaging Services for Cargo to Pakistan | Secure Packing Solutions</title>
+        <meta name="description" content="Expert packaging services for cargo shipments from UAE to Pakistan. Professional packing solutions to ensure safe delivery." />
+        <meta name="keywords" content="packaging services, cargo packing, UAE to Pakistan, secure packaging, professional packing" />
         <link rel="canonical" href="https://cargotopakistan.ae/services/packaging" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
@@ -90,13 +103,13 @@ const Packaging = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Professional Packaging Services
+                Packaging Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Expert Packaging <span className="text-cargo-orange">Solutions</span>
+                Professional Packaging for <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Professional packing solutions to ensure your items are protected during transit from UAE to Pakistan.
+                Expert packaging services to ensure your cargo arrives safely and securely in Pakistan.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -122,6 +135,31 @@ const Packaging = () => {
         </div>
       </section>
 
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b">
+        <div className="container-custom">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/services">Services</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Packaging</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="py-16">
         <div className="container-custom">
@@ -130,58 +168,70 @@ const Packaging = () => {
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
                   <Package className="mr-2 h-6 w-6 text-cargo-green" />
-                  Comprehensive Packaging Solutions
+                  Professional Packaging Services for Cargo to Pakistan
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our professional packaging services ensure that your shipments to Pakistan are properly protected throughout their journey. We use high-quality materials and proven techniques to safeguard your items against damage during handling, transportation, and storage.
+                    Our packaging services provide expert packing solutions for cargo shipments from UAE to Pakistan. We ensure your items are securely packed and protected for safe delivery.
                   </p>
                   
                   <p className="mb-4">
-                    Whether you're shipping household goods, delicate personal items, commercial merchandise, or industrial equipment, our packaging experts will provide the right solution for your specific needs. Our comprehensive packaging service includes material selection, custom boxing, protective wrapping, and proper labeling to ensure safe delivery.
+                    We offer a range of packaging options including professional packing, custom crating, and secure wrapping to suit different types of cargo. Our experienced packers use high-quality materials and proven techniques to safeguard your items during transit.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                       <Package className="mr-2 h-5 w-5" />
-                      Our Packaging Services
+                      Why Choose Our Packaging Services?
                     </h3>
                     
-                    <div className="space-y-4">
-                      {packagingTypes.map((service, index) => (
-                        <div key={index} className="bg-white p-4 rounded-lg shadow-sm">
-                          <h4 className="font-medium text-cargo-blue mb-2">{service.title}</h4>
-                          <p className="text-gray-600 text-sm">{service.description}</p>
+                    <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <Package className="h-4 w-4 text-cargo-green" />
                         </div>
-                      ))}
-                    </div>
+                        <span>Professional packing of all items</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <Box className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Custom wooden crating</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <ShieldCheck className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Secure wrapping and cushioning</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <Clock className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Fast and efficient service</span>
+                      </li>
+                    </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Destination Protection</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Packaging Options</h3>
                   
                   <p className="mb-4">
-                    Our packaging ensures your items arrive safely at any Pakistan destination:
+                    We offer a range of packaging options to suit your cargo needs:
                   </p>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                    <Link to="/pakistan-cargo-to-karachi" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Karachi
-                    </Link>
-                    <Link to="/pakistan-cargo-to-lahore" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Lahore
-                    </Link>
-                    <Link to="/pakistan-cargo-to-islamabad" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Islamabad
-                    </Link>
-                    <Link to="/pakistan-cargo-to-peshawar" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Peshawar
-                    </Link>
-                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Faisalabad
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
+                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Standard Packing
                     </div>
-                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Multan
+                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Custom Crating
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Bubble Wrapping
+                    </div>
+                    <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Palletizing
                     </div>
                   </div>
                 </div>
@@ -191,8 +241,8 @@ const Packaging = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Clipboard className="mr-2 h-5 w-5" />
-                  Request a Quick Quote
+                  <Package className="mr-2 h-5 w-5" />
+                  Request a Packaging Quote
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
@@ -248,9 +298,9 @@ const Packaging = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Packaging Specializations</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Packaging Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover our specialized packaging solutions for different types of cargo.
+              Expert packaging services to ensure your cargo arrives safely and securely in Pakistan.
             </p>
           </div>
           
@@ -268,14 +318,14 @@ const Packaging = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/sea-freight">
+              <Link to="/services/insurance">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Sea Freight Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services/insurance">
+              <Link to="/services/courier-service">
                 <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                  Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
+                  Express Courier <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>

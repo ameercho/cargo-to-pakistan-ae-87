@@ -1,11 +1,18 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Clock, Truck, Package, Phone, MessageCircle, MapPin, Zap, Shield } from "lucide-react";
+import { ArrowRight, Zap, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Send } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const CourierService = () => {
   // Scroll to top when component mounts
@@ -15,49 +22,78 @@ const CourierService = () => {
   
   const services = [
     {
-      title: "Express Delivery",
-      description: "Guaranteed delivery within shortest possible timeframe for urgent shipments.",
+      title: "Express Courier",
+      description: "Fast and reliable delivery for urgent documents and packages.",
       icon: Zap,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Door-to-Door",
-      description: "Complete pickup and delivery service from your location to the destination.",
-      icon: Truck,
+      title: "Standard Courier",
+      description: "Cost-effective courier services with reliable delivery times.",
+      icon: Send,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Secure Packaging",
-      description: "Professional packaging to ensure your items remain safe and intact during transit.",
-      icon: Shield,
+      title: "International Shipping",
+      description: "Global courier solutions for packages and documents to Pakistan.",
+      icon: Package,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Express Delivery", description: "Guaranteed delivery within shortest possible timeframe for urgent shipments", icon: Clock },
-    { title: "Door-to-Door", description: "Complete pickup and delivery service from your location to the destination", icon: Truck },
-    { title: "Secure Packaging", description: "Professional packaging to ensure your items remain safe and intact during transit", icon: Package },
-    { title: "Real-time Tracking", description: "Track your shipments in real-time with delivery confirmations", icon: MapPin },
-    { title: "Competitive Rates", description: "Affordable pricing for all your courier needs", icon: ArrowRight },
+    { title: "Fast Delivery", description: "Quick and efficient courier services", icon: Clock },
+    { title: "Real-Time Tracking", description: "Track your package every step of the way", icon: FileCheck },
+    { title: "Secure Handling", description: "Safe and secure handling of your items", icon: ShieldCheck },
+    { title: "Wide Coverage", description: "Extensive network for deliveries across Pakistan", icon: MapPin },
+    { title: "Reliable Service", description: "Trusted courier services you can depend on", icon: Zap },
   ];
-  
+
   const handleCall = () => {
     window.location.href = "tel:+971504948135";
   };
-  
+
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20express%20courier%20services%20to%20Pakistan.`, "_blank");
+    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20courier%20services%20to%20Pakistan.`, "_blank");
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://cargotopakistan.ae/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://cargotopakistan.ae/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Courier Service",
+        "item": "https://cargotopakistan.ae/services/courier-service"
+      }
+    ]
   };
 
   return (
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>Courier Services | Fast & Reliable Delivery to Pakistan</title>
-        <meta name="description" content="Express courier services from UAE to Pakistan. Door-to-door delivery with tracking and guaranteed delivery times." />
-        <meta name="keywords" content="courier service, pakistan courier, uae to pakistan courier, express delivery" />
+        <title>Express Courier Services from UAE to Pakistan | Fast Document & Package Delivery</title>
+        <meta name="description" content="Fast express courier services from UAE to Pakistan for urgent documents and packages with tracking and reliable delivery." />
+        <meta name="keywords" content="courier service, express delivery, UAE to Pakistan courier, fast delivery, document courier" />
         <link rel="canonical" href="https://cargotopakistan.ae/services/courier-service" />
+        <script type="application/ld+json">
+          {JSON.stringify(breadcrumbSchema)}
+        </script>
       </Helmet>
 
       {/* Hero Section */}
@@ -67,19 +103,19 @@ const CourierService = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Express Delivery Services
+                Courier Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Express Courier <span className="text-cargo-orange">Services</span>
+                Express Courier to <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Fast, reliable courier solutions for your time-sensitive deliveries to Pakistan with door-to-door service.
+                Fast and reliable courier services for urgent documents and packages from UAE to Pakistan.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
                   className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
                   size="lg"
-                  onClick={handleCall}
+                  onClick={() => window.location.href = "tel:+971504948135"}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
@@ -88,7 +124,7 @@ const CourierService = () => {
                   variant="outline" 
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
-                  onClick={handleWhatsApp}
+                  onClick={() => window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20courier%20services%20to%20Pakistan.`, "_blank")}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
@@ -99,6 +135,31 @@ const CourierService = () => {
         </div>
       </section>
 
+      {/* Breadcrumb Navigation */}
+      <section className="py-4 bg-gray-50 border-b">
+        <div className="container-custom">
+          <Breadcrumb>
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/">Home</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link to="/services">Services</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>Courier Service</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
       {/* Main Content */}
       <section className="py-16">
         <div className="container-custom">
@@ -106,23 +167,23 @@ const CourierService = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Clock className="mr-2 h-6 w-6 text-cargo-green" />
-                  Professional Courier Services
+                  <Zap className="mr-2 h-6 w-6 text-cargo-green" />
+                  Express Courier Services from UAE to Pakistan
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our courier service provides expedited shipping options for urgent and time-sensitive deliveries from UAE to Pakistan. When you need your items delivered quickly and securely, our express courier service is the ideal solution.
+                    Our express courier services provide the fastest and most reliable delivery options for urgent documents and packages from the UAE to Pakistan. We ensure your items arrive quickly and securely, with real-time tracking and proof of delivery.
                   </p>
                   
                   <p className="mb-4">
-                    We understand that some shipments can't wait. That's why our courier service is designed to get your packages to their destination in Pakistan as quickly as possible, with real-time tracking and proof of delivery.
+                    We handle courier shipments from all major cities in the UAE, including Dubai, Abu Dhabi, and Sharjah, delivering to key destinations in Pakistan such as Karachi, Lahore, and Islamabad. Our comprehensive courier services are ideal for time-sensitive documents, samples, and small packages.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                      <Clock className="mr-2 h-5 w-5" />
-                      Key Benefits of Our Courier Service
+                      <Zap className="mr-2 h-5 w-5" />
+                      Why Choose Our Courier Services?
                     </h3>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
@@ -130,33 +191,33 @@ const CourierService = () => {
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Clock className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Fast delivery timelines</span>
+                        <span>Fast and reliable delivery</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Truck className="h-4 w-4 text-cargo-green" />
+                          <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Door-to-door service</span>
+                        <span>Real-time tracking and updates</span>
+                      </li>
+                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
+                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
+                          <ShieldCheck className="h-4 w-4 text-cargo-green" />
+                        </div>
+                        <span>Secure handling of all items</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <MapPin className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Real-time tracking</span>
-                      </li>
-                      <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
-                        <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Package className="h-4 w-4 text-cargo-green" />
-                        </div>
-                        <span>Secure handling</span>
+                        <span>Wide coverage across Pakistan</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">We Deliver To All Major Cities in Pakistan</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Courier Destinations in Pakistan</h3>
                   
                   <p className="mb-4">
-                    Our courier service covers all major destinations in Pakistan including:
+                    Our courier services deliver to all major cities in Pakistan with onward distribution to:
                   </p>
                   
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
@@ -173,10 +234,10 @@ const CourierService = () => {
                       <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Peshawar
                     </Link>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Multan
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Faisalabad
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Faisalabad
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Multan
                     </div>
                   </div>
                 </div>
@@ -186,13 +247,13 @@ const CourierService = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Package className="mr-2 h-5 w-5" />
+                  <Zap className="mr-2 h-5 w-5" />
                   Request a Quick Quote
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us now for competitive rates on express courier services!
+                    Contact us now for a free quote for courier services!
                   </p>
                 </div>
                 
@@ -217,7 +278,7 @@ const CourierService = () => {
               </div>
               
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Service Features</h3>
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Key Benefits</h3>
                 
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
@@ -243,9 +304,9 @@ const CourierService = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Courier Service Features</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Courier Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Discover the advantages of our premier courier service for your time-sensitive deliveries.
+              Choose the courier service that best suits your needs for fast and reliable delivery to Pakistan.
             </p>
           </div>
           
@@ -263,9 +324,9 @@ const CourierService = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/sea-freight">
+              <Link to="/services/air-freight">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Sea Freight Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Air Freight Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/services/packaging">
