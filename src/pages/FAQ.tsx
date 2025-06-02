@@ -28,7 +28,7 @@ const FAQ = () => {
         },
         {
           question: "How long does shipping to Pakistan take?",
-          answer: "Shipping times vary based on the service you choose. Air freight typically takes 2-5 business days, while sea freight can take 25-40 days. Express services may deliver in as little as 1-3 days for urgent shipments."
+          answer: "Shipping times vary based on the service you choose. Air freight typically takes 3-15 business days, while sea freight can take 40-100 days . Express services may deliver in as little as 3-5 days for urgent shipments."
         },
       ]
     },
@@ -41,7 +41,7 @@ const FAQ = () => {
         },
         {
           question: "Do you offer insurance for shipments?",
-          answer: "Yes, we offer comprehensive insurance coverage for all shipments. The cost is typically a percentage of the declared value. We highly recommend insurance for valuable or fragile items."
+          answer: "Yes, we offer comprehensive insurance coverage for B2B shipments. The cost is typically a percentage of the declared value. We highly recommend insurance for valuable or fragile items."
         },
         {
           question: "How is shipping cost calculated?",
@@ -75,7 +75,7 @@ const FAQ = () => {
         },
         {
           question: "Are there any prohibited items I cannot ship to Pakistan?",
-          answer: "Yes, prohibited items include weapons, illegal drugs, pornography, alcohol, pork products, and certain electronic devices. Additionally, there are restrictions on shipping currency, jewelry, and certain medications."
+          answer: "Yes, prohibited items include smart devices, weapons, illegal drugs, pornography, alcohol, pork products, and certain electronic devices. Additionally, there are restrictions on shipping currency, jewelry, and certain medications."
         },
         {
           question: "Will I have to pay customs duties and taxes?",
