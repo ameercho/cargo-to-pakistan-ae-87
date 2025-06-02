@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
 import { trackEvent } from "@/services/analytics";
+
 export const ShuffleHero = () => {
   const handleCall = () => {
     trackEvent('Contact', 'Call', 'Hero Section');
@@ -20,9 +21,9 @@ export const ShuffleHero = () => {
         <span className="block mb-4 text-xs md:text-sm text-cargo-green font-medium uppercase tracking-wide">
           Reliable Cargo Services
         </span>
-        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Cargo to Pakistan</h1>
+        <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Professional Cargo Services from UAE to Pakistan</h1>
         <p className="text-base md:text-lg text-gray-600 my-4 md:my-6">
-          Professional cargo services from UAE to Pakistan. Door-to-door delivery, sea freight, air freight, and full container services with competitive rates.
+          Experience premium cargo shipping solutions from UAE to Pakistan with our comprehensive door-to-door delivery services. We specialize in sea freight, air freight, full container loads, and express courier services with competitive rates and reliable tracking. Our professional team ensures secure handling of your valuable shipments with customs clearance assistance and insurance coverage options.
         </p>
         
         {/* Call and WhatsApp buttons */}

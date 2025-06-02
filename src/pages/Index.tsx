@@ -9,6 +9,7 @@ import PakistanCargoServices from "@/components/PakistanCargoServices";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import HomeTestimonials from "@/components/home/HomeTestimonials";
 import CallToAction from "@/components/home/CallToAction";
+import ContentSection from "@/components/home/ContentSection";
 
 const Index = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +27,9 @@ const Index = () => {
     <div className={`transition-opacity duration-500 ${isLoaded ? "opacity-100" : "opacity-0"}`}>
       {/* Hero Section */}
       <HeroSection />
+
+      {/* Content Section */}
+      <ContentSection />
 
       {/* Services Section */}
       <HomeServices />
