@@ -80,86 +80,93 @@ const shuffle = (array: (typeof squareData)[0][]) => {
   return array;
 };
 
+// Get Cloudinary base URL - adjust cloud name as needed
+const getCloudinaryUrl = (filename: string) => {
+  // Replace 'your-cloud-name' with your actual Cloudinary cloud name
+  // The Netlify plugin should make this available, but we'll use a direct approach
+  return `/.netlify/images?url=/images/${filename}&w=400&h=300&fit=crop`;
+};
+
 // Shipping, logistics and courier themed images
 const squareData = [
   {
     id: 1,
-    src: "/images/containers.webp",
+    src: getCloudinaryUrl("containers.webp"),
     alt: "Shipping containers at port"
   },
   {
     id: 2,
-    src: "/images/pallet-jack.webp",
+    src: getCloudinaryUrl("pallet-jack.webp"),
     alt: "Pallet jack for warehouse operations"
   },
   {
     id: 3,
-    src: "/images/fedex-plane.webp",
+    src: getCloudinaryUrl("fedex-plane.webp"),
     alt: "FedEx cargo plane for air freight"
   },
   {
     id: 4,
-    src: "/images/container-port.webp",
+    src: getCloudinaryUrl("container-port.webp"),
     alt: "Container yard at shipping port"
   },
   {
     id: 5,
-    src: "/images/cargo-ship-vesal.webp",
+    src: getCloudinaryUrl("cargo-ship-vesal.webp"),
     alt: "Cargo ship vessel for sea freight"
   },
   {
     id: 6,
-    src: "/images/warehouse-racking.webp",
+    src: getCloudinaryUrl("warehouse-racking.webp"),
     alt: "Warehouse storage racking system"
   },
   {
     id: 7,
-    src: "/images/dhl-van.webp",
+    src: getCloudinaryUrl("dhl-van.webp"),
     alt: "DHL delivery van for courier services"
   },
   {
     id: 8,
-    src: "/images/box-delivery.webp",
+    src: getCloudinaryUrl("box-delivery.webp"),
     alt: "Package delivery service"
   },
   {
     id: 9,
-    src: "/images/scania-truck.webp",
+    src: getCloudinaryUrl("scania-truck.webp"),
     alt: "Scania delivery truck"
   },
   {
     id: 10,
-    src: "/images/uae-flag.webp",
+    src: getCloudinaryUrl("uae-flag.webp"),
     alt: "United Arab Emirates flag"
   },
   {
     id: 11,
-    src: "/images/dubai-perl.webp",
+    src: getCloudinaryUrl("dubai-perl.webp"),
     alt: "Dubai skyline and architecture"
   },
   {
     id: 12,
-    src: "/images/abu-dhabi-mosque.webp",
+    src: getCloudinaryUrl("abu-dhabi-mosque.webp"),
     alt: "Sheikh Zayed Mosque in Abu Dhabi"
   },
   {
     id: 13,
-    src: "/images/pakistani-truck.webp",
+    src: getCloudinaryUrl("pakistani-truck.webp"),
     alt: "Pakistani decorated truck"
   },
   {
     id: 14,
-    src: "/images/pakistani-flag.webp",
+    src: getCloudinaryUrl("pakistani-flag.webp"),
     alt: "Pakistan flag"
   },
   {
     id: 15,
-    src: "/images/fork-lift-loading.webp",
+    src: getCloudinaryUrl("fork-lift-loading.webp"),
     alt: "Forklift loading operations"
   },
   {
     id: 16,
-    src: "/images/warehouse.webp",
+    src: getCloudinaryUrl("warehouse.webp"),
     alt: "Warehouse operations and logistics"
   },
 ];
