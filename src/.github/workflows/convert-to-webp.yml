@@ -1,0 +1,40 @@
+name: Convert Images to WebP
+
+on:
+  push:
+    paths:
+      - 'public/images/**.png'
+      - 'public/images/**.jpg'
+      - 'public/images/**.jpeg'
+  workflow_dispatch:
+
+jobs:
+  convert-to-webp:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install WebP tools
+        run: sudo apt-get update && sudo apt-get install -y webp
+
+      - name: Convert images to WebP
+        run: |
+          find public/images -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) | while read img; do
+            filename=$(basename "$img")
+            name="${filename%.*}"
+            cwebp -q 85 "$img" -o "public/images/${name}.webp"
+          done
+
+      - name: Optional: Delete original images
+        run: |
+          find public/images -type f \( -iname '*.png' -o -iname '*.jpg' -o -iname '*.jpeg' \) -delete
+
+      - name: Commit and push changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add public/images/
+          git commit -m "Convert images to WebP via GitHub Actions" || echo "No changes to commit"
+          git push
