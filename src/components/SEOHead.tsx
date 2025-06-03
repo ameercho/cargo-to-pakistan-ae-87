@@ -26,11 +26,14 @@ const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
       <meta name="keywords" content={keywords} />
       <link rel="canonical" href={canonicalUrl} />
       
+      {/* Ensure pages are indexable */}
+      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      
       {/* Open Graph Tags */}
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage || "https://cargotopakistan.ae/opengraph-image.png"} />
+      <meta property="og:image" content={ogImage || "https://cargotopakistan.ae/images/cargo-services-default.jpg"} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:type" content="website" />
@@ -42,11 +45,13 @@ const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
       <meta name="twitter:site" content="@cargotopakistan" />
       <meta name="twitter:title" content={ogTitle || title} />
       <meta name="twitter:description" content={ogDescription || description} />
-      <meta name="twitter:image" content={ogImage || "https://cargotopakistan.ae/opengraph-image.png"} />
+      <meta name="twitter:image" content={ogImage || "https://cargotopakistan.ae/images/cargo-services-default.jpg"} />
       
       {/* Additional SEO Tags */}
       <meta name="author" content="Cargo to Pakistan" />
-      <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+      <meta httpEquiv="content-language" content="en-US" />
+      <meta name="geo.region" content="AE" />
+      <meta name="geo.placename" content="United Arab Emirates" />
       
       {/* Structured Data */}
       {structuredData && (
