@@ -5,8 +5,6 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
-  const isSSRBuild = process.env.npm_lifecycle_event === 'build:ssr';
-  
   return {
     server: {
       host: "::",
@@ -22,17 +20,7 @@ export default defineConfig(({ mode, command }) => {
         "@": path.resolve(__dirname, "./src"),
       },
     },
-    build: isSSRBuild ? {
-      // SSR build configuration
-      ssr: true,
-      outDir: 'dist/server',
-      rollupOptions: {
-        input: 'src/entry-server.tsx',
-        output: {
-          format: 'es'
-        }
-      }
-    } : {
+    build: {
       // Client build configuration
       outDir: 'dist',
       // Increase chunk size warning limit to reduce noise
@@ -83,6 +71,11 @@ export default defineConfig(({ mode, command }) => {
       cssMinify: true,
       // Use default esbuild minification instead of terser
       minify: true
+    },
+    // SSR configuration
+    ssr: {
+      // Don't externalize dependencies for SSR
+      noExternal: ['react', 'react-dom', 'react-router-dom']
     }
   };
 });

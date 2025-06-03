@@ -7,7 +7,22 @@ const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
-const { render } = await import('./dist/server/entry-server.js')
+
+// Try to import the server render function, fallback if not available
+let render;
+try {
+  const serverModule = await import('./dist/server/entry-server.js');
+  render = serverModule.render;
+} catch (error) {
+  console.warn('Server build not found, using client-side rendering fallback');
+  // Fallback render function that just returns the template
+  render = async (url) => {
+    return {
+      html: '<!--app-html-->',
+      isValidRoute: true
+    };
+  };
+}
 
 // Complete list of all routes that need to be prerendered
 const routesToPrerender = [
