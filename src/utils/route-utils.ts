@@ -1,55 +1,70 @@
 
-import { type RouteObject } from 'react-router-dom';
-
-/**
- * Check if a given path corresponds to a valid route in the application
- */
-export function routeExists(path: string, routes: RouteObject[]): boolean {
-  // Clean the path for comparison
-  const cleanPath = path.endsWith('/') && path !== '/' 
-    ? path.slice(0, -1) 
-    : path;
+// Route validation utility
+export function routeExists(pathname: string, routes: any[]): boolean {
+  // Normalize the path
+  const normalizedPath = pathname === '/' ? '/' : pathname.replace(/^\/+|\/+$/g, '');
   
-  // Handle root path
-  if (cleanPath === '/') {
-    return true;
-  }
-
-  // Find the main app route
-  const appRoute = routes.find(route => route.path === '/');
-  
-  if (!appRoute || !('children' in appRoute) || !appRoute.children) {
-    return false;
-  }
-  
-  // For wildcard/catch-all routes (* routes)
-  if (appRoute.children.some(route => route.path === '*')) {
+  // Check if it's the root route
+  if (normalizedPath === '/' || normalizedPath === '') {
     return true;
   }
   
-  // Check if the path matches any of the routes
-  const childRoute = appRoute.children.find(route => {
-    if (route.path === undefined) {
-      return false;
-    }
+  // Define all valid routes
+  const validRoutes = [
+    // Main pages
+    'services',
+    'about', 
+    'contact',
+    'service-areas',
+    'faq',
     
-    // Handle index route
-    if (route.index) {
-      return cleanPath === '/';
-    }
+    // Service pages
+    'services/sea-freight',
+    'services/air-freight', 
+    'services/full-container',
+    'services/packaging',
+    'services/insurance',
+    'services/courier-service',
+    'services/moving-home',
+    'services/warehousing',
+    'services/consulting',
+    'services/customs-clearance',
+    'services/secure-handling',
     
-    // For exact matches
-    if (cleanPath === `/${route.path}`) {
-      return true;
-    }
+    // UAE area pages
+    'areas/dubai',
+    'areas/abu-dhabi',
+    'areas/sharjah', 
+    'areas/ajman',
+    'areas/ras-al-khaimah',
+    'areas/fujairah',
+    'areas/umm-al-quwain',
+    'areas/al-ain',
     
-    // For nested routes (checking if it's a prefix)
-    if (route.path.includes('/') && cleanPath.startsWith(`/${route.path}`)) {
-      return true;
-    }
+    // UAE to Pakistan routes
+    'dubai-to-pakistan',
+    'abu-dhabi-to-pakistan',
+    'sharjah-to-pakistan',
+    'ajman-to-pakistan',
     
-    return false;
-  });
+    // Pakistan destination pages
+    'pakistan-cargo-to-karachi',
+    'pakistan-cargo-to-lahore',
+    'pakistan-cargo-to-islamabad',
+    'pakistan-cargo-to-peshawar',
+    'pakistan-cargo-to-quetta',
+    'pakistan-cargo-to-faisalabad',
+    'pakistan-cargo-to-multan',
+    'pakistan-cargo-to-sialkot',
+    'pakistan-cargo-to-rawalpindi',
+    'pakistan-cargo-to-gujranwala',
+    'pakistan-cargo-to-hyderabad',
+    'pakistan-cargo-to-bahawalpur',
+    'pakistan-cargo-to-sargoda',
+    'pakistan-cargo-to-sukkur',
+    'pakistan-cargo-to-larkana',
+    'pakistan-cargo-to-sheikhupura'
+  ];
   
-  return !!childRoute;
+  return validRoutes.includes(normalizedPath);
 }
