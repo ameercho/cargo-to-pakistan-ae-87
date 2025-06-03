@@ -1,9 +1,10 @@
 
+
 # Netlify configuration file
 
 [build]
   # Build command for Vite React project with prerendering
-  command = "npm run build && node prerender.js"
+  command = "npm run build && npm run build:ssr && node prerender.js"
   # Output directory for Vite builds
   publish = "dist"
 
@@ -81,3 +82,4 @@
   for = "/*.webp"
     [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
+
