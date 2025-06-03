@@ -1,181 +1,174 @@
 
-import SEOHead from "@/components/SEOHead";
+import React, { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import ServicesHeroSection from "@/components/services/ServicesHeroSection";
 import ServicesContent from "@/components/services/ServicesContent";
-import MainServices from "@/components/services/MainServices";
-import AdditionalServices from "@/components/services/AdditionalServices";
-import ServicesCallToAction from "@/components/services/ServicesCallToAction";
-import FloatingButton from "@/components/FloatingButton";
-import InternalLinksSection from "@/components/InternalLinksSection";
-import { 
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb";
 import { Link } from "react-router-dom";
-import { relatedServices, popularDestinations, uaeServiceAreas } from "@/utils/seo-utils";
+import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home } from "lucide-react";
+import CallToAction from "@/components/home/CallToAction";
 
 const Services = () => {
-  // SEO Data for Services page
-  const seoData = {
-    title: "Cargo Services from UAE to Pakistan | Sea Freight, Air Freight & More",
-    description: "Comprehensive cargo shipping services from UAE to Pakistan. Sea freight, air freight, courier services, packaging, and full container loads with door-to-door delivery.",
-    keywords: "cargo services, UAE to Pakistan shipping, sea freight, air freight, courier service, full container load, packaging services",
-    canonicalUrl: "https://cargotopakistan.ae/services",
-    ogTitle: "Cargo Services from UAE to Pakistan | Cargo Connect",
-    ogDescription: "Comprehensive cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.",
-    ogImage: "https://cargotopakistan.ae/images/services-overview.jpg",
-    h1: "Professional Cargo Services from UAE to Pakistan"
-  };
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
-  // Schema markup for Services page
-  const servicesSchema = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Cargo Connect Services",
-    "description": "Comprehensive cargo shipping services from UAE to Pakistan including sea freight, air freight, courier services, and full container loads.",
-    "provider": {
-      "@type": "Organization",
-      "name": "Cargo to Pakistan",
-      "url": "https://cargotopakistan.ae",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "AE",
-        "addressRegion": "Dubai"
-      }
+  const services = [
+    {
+      icon: Ship,
+      title: "Sea Freight",
+      description: "Cost-effective ocean shipping for large cargo volumes with reliable delivery schedules.",
+      href: "/services/sea-freight",
+      features: ["Full Container Load", "Less Container Load", "Door-to-Door Service"]
     },
-    "serviceType": "Cargo Shipping",
-    "areaServed": [
-      {
-        "@type": "Country",
-        "name": "Pakistan"
-      },
-      {
-        "@type": "Country", 
-        "name": "United Arab Emirates"
-      }
-    ],
-    "hasOfferingCatalog": {
-      "@type": "OfferingCatalog",
-      "name": "Cargo Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Sea Freight",
-            "description": "Cost-effective ocean shipping solutions for larger cargo shipments"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Air Freight",
-            "description": "Fast air cargo services for time-sensitive shipments"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Courier Service",
-            "description": "Express courier delivery options for urgent packages"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Full Container Load",
-            "description": "Dedicated container shipping solutions"
-          }
-        }
-      ]
+    {
+      icon: Plane,
+      title: "Air Freight",
+      description: "Fast air cargo shipping for urgent and time-sensitive shipments to Pakistan.",
+      href: "/services/air-freight",
+      features: ["Express Delivery", "Secure Handling", "Real-time Tracking"]
+    },
+    {
+      icon: Package,
+      title: "Full Container",
+      description: "Dedicated container solutions for large volume cargo with maximum security.",
+      href: "/services/full-container",
+      features: ["20ft & 40ft Containers", "FCL Services", "Competitive Rates"]
+    },
+    {
+      icon: Truck,
+      title: "Courier Service",
+      description: "Express delivery services for documents and small packages.",
+      href: "/services/courier-service",
+      features: ["Same Day Pickup", "Express Delivery", "Document Services"]
+    },
+    {
+      icon: Package,
+      title: "Professional Packaging",
+      description: "Expert packaging services using quality materials and techniques.",
+      href: "/services/packaging",
+      features: ["Custom Packaging", "Fragile Item Handling", "Export Packing"]
+    },
+    {
+      icon: Shield,
+      title: "Cargo Insurance",
+      description: "Comprehensive insurance coverage to protect your valuable shipments.",
+      href: "/services/insurance",
+      features: ["Full Coverage", "Competitive Rates", "Easy Claims Process"]
+    },
+    {
+      icon: Home,
+      title: "Moving Home",
+      description: "Complete household relocation services for families moving to Pakistan.",
+      href: "/services/moving-home",
+      features: ["Household Items", "Personal Effects", "Furniture Shipping"]
     }
-  };
+  ];
 
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
-      }
-    ]
-  };
+  const popularRoutes = [
+    { from: "Dubai", to: "Karachi", href: "/pakistan-cargo-to-karachi" },
+    { from: "Abu Dhabi", to: "Lahore", href: "/pakistan-cargo-to-lahore" },
+    { from: "Sharjah", to: "Islamabad", href: "/pakistan-cargo-to-islamabad" },
+    { from: "Ajman", to: "Peshawar", href: "/pakistan-cargo-to-peshawar" }
+  ];
 
   return (
-    <div className="pt-20">
-      {/* SEO Head */}
-      <SEOHead seoData={seoData} structuredData={[servicesSchema, breadcrumbSchema]} />
+    <div className="min-h-screen">
+      <Helmet>
+        <title>Cargo Services from UAE to Pakistan | Sea Freight, Air Freight & More</title>
+        <meta name="description" content="Comprehensive cargo shipping services from UAE to Pakistan. Sea freight, air freight, courier services, packaging, and full container loads with door-to-door delivery." />
+        <meta name="keywords" content="cargo services, UAE to Pakistan shipping, sea freight, air freight, courier service, full container load" />
+        <link rel="canonical" href="https://cargotopakistan.ae/services" />
+        
+        {/* Open Graph tags */}
+        <meta property="og:title" content="Cargo Services from UAE to Pakistan | Sea Freight, Air Freight & More" />
+        <meta property="og:description" content="Comprehensive cargo shipping services from UAE to Pakistan with professional handling and competitive rates." />
+        <meta property="og:url" content="https://cargotopakistan.ae/services" />
+        <meta property="og:image" content="https://cargotopakistan.ae/images/cargo-services.jpg" />
+      </Helmet>
 
-      {/* Breadcrumb Navigation */}
-      <section className="py-4 bg-gray-50 border-b">
+      <ServicesHeroSection title="Comprehensive Cargo Services to Pakistan" />
+      
+      {/* Services Grid */}
+      <section className="py-16 bg-gray-50">
         <div className="container-custom">
-          <Breadcrumb>
-            <BreadcrumbList>
-              <BreadcrumbItem>
-                <BreadcrumbLink asChild>
-                  <Link to="/">Home</Link>
-                </BreadcrumbLink>
-              </BreadcrumbItem>
-              <BreadcrumbSeparator />
-              <BreadcrumbItem>
-                <BreadcrumbPage>Services</BreadcrumbPage>
-              </BreadcrumbItem>
-            </BreadcrumbList>
-          </Breadcrumb>
+          <h2 className="text-3xl font-bold text-center text-cargo-blue mb-12">
+            Our Complete Range of Services
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => {
+              const IconComponent = service.icon;
+              return (
+                <div key={index} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
+                  <div className="flex items-center mb-4">
+                    <div className="bg-cargo-blue/10 p-3 rounded-lg mr-4">
+                      <IconComponent className="h-6 w-6 text-cargo-blue" />
+                    </div>
+                    <h3 className="text-xl font-semibold text-cargo-blue">{service.title}</h3>
+                  </div>
+                  
+                  <p className="text-gray-600 mb-4">{service.description}</p>
+                  
+                  <ul className="space-y-2 mb-6">
+                    {service.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center text-sm text-gray-600">
+                        <ArrowRight className="h-4 w-4 text-cargo-green mr-2" />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  <Link 
+                    to={service.href}
+                    className="inline-flex items-center text-cargo-blue hover:text-cargo-green transition-colors font-semibold"
+                  >
+                    Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
 
-      {/* Hero Section with H1 */}
-      <ServicesHeroSection title={seoData.h1} />
-
-      {/* Detailed Services Content */}
       <ServicesContent />
 
-      {/* Main Services */}
-      <MainServices />
+      {/* Popular Routes */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <h2 className="text-3xl font-bold text-center text-cargo-blue mb-12">
+            Popular Shipping Routes
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {popularRoutes.map((route, index) => (
+              <Link 
+                key={index}
+                to={route.href}
+                className="bg-gray-50 p-6 rounded-lg hover:bg-gray-100 transition-colors text-center"
+              >
+                <h3 className="font-semibold text-cargo-blue mb-2">
+                  {route.from} → {route.to}
+                </h3>
+                <p className="text-sm text-gray-600">
+                  Reliable cargo services from {route.from} to {route.to}
+                </p>
+              </Link>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <Link 
+              to="/service-areas"
+              className="inline-flex items-center text-cargo-blue hover:text-cargo-green transition-colors font-semibold"
+            >
+              View All Service Areas <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </div>
+        </div>
+      </section>
 
-      {/* Additional Services */}
-      <AdditionalServices />
-
-      {/* Internal Links - Related Services */}
-      <InternalLinksSection 
-        title="Our Complete Service Portfolio"
-        links={relatedServices}
-      />
-
-      {/* Internal Links - UAE Service Areas */}
-      <InternalLinksSection 
-        title="UAE Service Areas We Cover"
-        links={uaeServiceAreas}
-        className="bg-white"
-      />
-
-      {/* Internal Links - Pakistan Destinations */}
-      <InternalLinksSection 
-        title="Popular Pakistan Destinations"
-        links={popularDestinations}
-      />
-
-      {/* Call to Action */}
-      <ServicesCallToAction />
-
-      <FloatingButton />
+      <CallToAction />
     </div>
   );
 };

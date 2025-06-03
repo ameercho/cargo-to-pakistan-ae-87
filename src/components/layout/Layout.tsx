@@ -1,43 +1,42 @@
 
-import React, { useEffect } from "react";
+import Header from "@/components/layout/Header";
+import Navigation from "@/components/layout/Navigation";
+import Footer from "@/components/layout/Footer";
+import SEOHead from "@/components/SEOHead";
+import { generateSEOData } from "@/utils/seo-utils";
 import { useLocation } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
-import { trackPageView, trackTiming } from "@/services/analytics";
 
-type LayoutProps = {
+interface LayoutProps {
   children: React.ReactNode;
+  seoData?: any;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = ({ children, seoData }: LayoutProps) => {
   const location = useLocation();
   
-  // Track page views when the route changes
-  useEffect(() => {
-    const startTime = performance.now();
-    
-    // Send pageview to analytics
-    trackPageView(
-      location.pathname + location.search,
-      document.title
-    );
-    
-    // Measure page load performance
-    const loadTime = performance.now() - startTime;
-    trackTiming('Page Navigation', 'Load Time', Math.round(loadTime));
-    
-    // Scroll to top on navigation
-    window.scrollTo(0, 0);
-  }, [location]);
-  
+  // Generate SEO data based on current path if not provided
+  const defaultSeoData = {
+    title: "Cargo to Pakistan - Professional Shipping Services",
+    description: "Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.",
+    keywords: "cargo to pakistan, shipping services, uae pakistan cargo",
+    canonicalUrl: `https://cargotopakistan.ae${location.pathname}`,
+    h1: "Professional Cargo Services"
+  };
+
+  const finalSeoData = seoData || defaultSeoData;
+
   return (
-    <div className="flex flex-col min-h-screen bg-white">
-      <Header />
-      <main className="flex-grow">
-        {children}
-      </main>
-      <Footer />
-    </div>
+    <>
+      <SEOHead seoData={finalSeoData} />
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <Navigation />
+        <main className="flex-1">
+          {children}
+        </main>
+        <Footer />
+      </div>
+    </>
   );
 };
 
