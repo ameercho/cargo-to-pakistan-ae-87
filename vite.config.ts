@@ -1,7 +1,20 @@
+
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
+import { generateSitemap } from "./scripts/generate-sitemap.js";
+
+// Plugin to generate sitemap during build
+const sitemapPlugin = () => {
+  return {
+    name: 'sitemap-generator',
+    buildStart() {
+      // Generate sitemap at the start of build
+      generateSitemap();
+    }
+  };
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -14,6 +27,7 @@ export default defineConfig(({ mode, command }) => {
       react(),
       mode === 'development' &&
       componentTagger(),
+      sitemapPlugin(),
     ].filter(Boolean),
     resolve: {
       alias: {

@@ -2,7 +2,7 @@
 # Netlify configuration file
 
 [build]
-  # Build command for Vite React project with prerendering
+  # Build command for Vite React project with prerendering and sitemap generation
   command = "npm run build && node prerender.js"
   # Output directory for Vite builds
   publish = "dist"
@@ -81,3 +81,10 @@
   for = "/*.webp"
     [headers.values]
     Cache-Control = "public, max-age=86400, must-revalidate"
+
+# Cache sitemap for 1 hour to allow for updates
+[[headers]]
+  for = "/sitemap.xml"
+    [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/xml"

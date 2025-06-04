@@ -6,7 +6,7 @@ const baseUrl = 'https://cargotopakistan.ae';
 
 const routes = [
   { url: '/', priority: '1.0', changefreq: 'weekly' },
-  { url: '/services', priority: '0.8', changefreq: 'monthly' },
+  { url: '/services', priority: '0.9', changefreq: 'monthly' },
   { url: '/about', priority: '0.7', changefreq: 'monthly' },
   { url: '/contact', priority: '0.8', changefreq: 'monthly' },
   { url: '/faq', priority: '0.6', changefreq: 'monthly' },
@@ -31,12 +31,17 @@ const routes = [
   { url: '/pakistan-cargo-to-sheikhupura', priority: '0.7', changefreq: 'monthly' },
   
   // Service Pages
-  { url: '/services/sea-freight', priority: '0.7', changefreq: 'monthly' },
+  { url: '/services/sea-freight', priority: '0.8', changefreq: 'monthly' },
+  { url: '/services/air-freight', priority: '0.8', changefreq: 'monthly' },
   { url: '/services/full-container', priority: '0.7', changefreq: 'monthly' },
   { url: '/services/packaging', priority: '0.7', changefreq: 'monthly' },
   { url: '/services/insurance', priority: '0.7', changefreq: 'monthly' },
   { url: '/services/courier-service', priority: '0.7', changefreq: 'monthly' },
-  { url: '/services/air-freight', priority: '0.7', changefreq: 'monthly' },
+  { url: '/services/moving-home', priority: '0.7', changefreq: 'monthly' },
+  { url: '/services/warehousing', priority: '0.6', changefreq: 'monthly' },
+  { url: '/services/consulting', priority: '0.6', changefreq: 'monthly' },
+  { url: '/services/customs-clearance', priority: '0.6', changefreq: 'monthly' },
+  { url: '/services/secure-handling', priority: '0.6', changefreq: 'monthly' },
   
   // UAE Area Pages
   { url: '/areas/dubai', priority: '0.7', changefreq: 'monthly' },
@@ -78,7 +83,9 @@ ${routes.map(route => `  <url>
   }
   
   fs.writeFileSync(sitemapPath, sitemapXml);
-  console.log(`Sitemap generated at ${sitemapPath} with date ${currentDate}`);
+  console.log(`✅ Sitemap generated successfully at ${sitemapPath}`);
+  console.log(`📅 Updated with current date: ${currentDate}`);
+  console.log(`📊 Total URLs: ${routes.length}`);
 }
 
 // Allow running this script directly
