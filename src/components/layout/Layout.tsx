@@ -20,6 +20,12 @@ interface LayoutProps {
   seoData?: any;
 }
 
+interface BreadcrumbItem {
+  name: string;
+  path: string;
+  isLast?: boolean;
+}
+
 const Layout = ({ children, seoData }: LayoutProps) => {
   const location = useLocation();
   
@@ -38,9 +44,9 @@ const Layout = ({ children, seoData }: LayoutProps) => {
   const isHomepage = location.pathname === '/';
 
   // Generate breadcrumb items based on current path
-  const generateBreadcrumbs = () => {
+  const generateBreadcrumbs = (): BreadcrumbItem[] => {
     const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
-    const breadcrumbs = [{ name: 'Home', path: '/' }];
+    const breadcrumbs: BreadcrumbItem[] = [{ name: 'Home', path: '/' }];
 
     let currentPath = '';
     pathSegments.forEach((segment, index) => {
