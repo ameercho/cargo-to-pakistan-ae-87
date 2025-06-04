@@ -3,14 +3,14 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
 import { componentTagger } from "lovable-tagger";
-import { generateSitemap } from "./scripts/generate-sitemap.js";
 
 // Plugin to generate sitemap during build
 const sitemapPlugin = () => {
   return {
     name: 'sitemap-generator',
-    buildStart() {
-      // Generate sitemap at the start of build
+    async buildStart() {
+      // Dynamic import to avoid TypeScript declaration issues
+      const { generateSitemap } = await import('./scripts/generate-sitemap.js');
       generateSitemap();
     }
   };
