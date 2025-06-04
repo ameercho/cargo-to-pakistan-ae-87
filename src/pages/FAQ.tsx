@@ -1,3 +1,4 @@
+
 import {
   Accordion,
   AccordionContent,
@@ -7,12 +8,28 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import FloatingButton from "@/components/FloatingButton";
+import PageHeader from "@/components/layout/PageHeader";
 import { useState } from "react";
 import { Search, HelpCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const FAQ = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const location = useLocation();
+
+  // Generate breadcrumb items
+  const breadcrumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'FAQ', path: '/faq', isLast: true }
+  ];
   
   const faqCategories = [
     {
@@ -99,20 +116,49 @@ const FAQ = () => {
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
+      <PageHeader
+        title="Frequently Asked Questions"
+        subtitle="Find answers to common questions about our cargo services to Pakistan and get the information you need for your shipping requirements"
+        icon={<HelpCircle className="h-12 w-12" />}
+        badgeText="Expert Answers"
+        backgroundClass="bg-gradient-to-br from-cargo-green to-cargo-blue"
+        showButtons={false}
+      />
+
+      {/* Breadcrumb Section */}
+      <section className="py-4 bg-gray-50 border-b">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">Frequently Asked Questions</h1>
-            <p className="text-xl text-gray-100 mb-8">
-              Find answers to common questions about our cargo services to Pakistan
-            </p>
-            
-            <div className="relative max-w-xl mx-auto">
+          <Breadcrumb>
+            <BreadcrumbList>
+              {breadcrumbs.map((crumb, index) => (
+                <div key={index} className="flex items-center">
+                  <BreadcrumbItem>
+                    {!crumb.isLast ? (
+                      <BreadcrumbLink asChild>
+                        <Link to={crumb.path}>{crumb.name}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                    )}
+                  </BreadcrumbItem>
+                  {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+                </div>
+              ))}
+            </BreadcrumbList>
+          </Breadcrumb>
+        </div>
+      </section>
+
+      {/* Search Section */}
+      <section className="py-8 bg-white">
+        <div className="container-custom">
+          <div className="max-w-xl mx-auto">
+            <div className="relative">
               <Search className="absolute left-3 top-3 h-5 w-5 text-gray-400" />
               <Input
                 type="text"
                 placeholder="Search for answers..."
-                className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-gray-300 tap-target"
+                className="pl-10 tap-target"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
               />

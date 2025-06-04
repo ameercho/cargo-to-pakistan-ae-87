@@ -1,26 +1,59 @@
 
 import { Button } from "@/components/ui/button";
 import FloatingButton from "@/components/FloatingButton";
-import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle, Users, Award, ShieldCheck, Map } from "lucide-react";
+import PageHeader from "@/components/layout/PageHeader";
+import { Link, useLocation } from "react-router-dom";
+import { ArrowRight, CheckCircle, Users, Award, ShieldCheck, Map, Info } from "lucide-react";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const About = () => {
+  const location = useLocation();
+
+  // Generate breadcrumb items
+  const breadcrumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'About', path: '/about', isLast: true }
+  ];
+
   return (
     <div className="pt-20">
       {/* Hero Section */}
-      <section className="py-12 bg-cargo-green text-white">
+      <PageHeader
+        title="About Cargo to Pakistan"
+        subtitle="Your trusted partner for reliable and professional cargo services from UAE to Pakistan with years of experience and thousands of satisfied customers"
+        icon={<Info className="h-12 w-12" />}
+        badgeText="Trusted Since 2015"
+        backgroundClass="bg-gradient-to-br from-cargo-green to-cargo-blue"
+      />
+
+      {/* Breadcrumb Section */}
+      <section className="py-4 bg-gray-50 border-b">
         <div className="container-custom">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-3xl md:text-4xl font-bold mb-4 text-white">About Cargo to Pakistan</h1>
-            <p className="text-xl text-gray-100 mb-6">
-              Your trusted partner for cargo services to Pakistan
-            </p>
-            <div className="flex justify-center space-x-3">
-              <div className="bg-white/20 px-4 py-2 rounded">Est. 2015</div>
-              <div className="bg-white/20 px-4 py-2 rounded">5000+ Shipments</div>
-              <div className="bg-white/20 px-4 py-2 rounded">100% Reliable</div>
-            </div>
-          </div>
+          <Breadcrumb>
+            <BreadcrumbList>
+              {breadcrumbs.map((crumb, index) => (
+                <div key={index} className="flex items-center">
+                  <BreadcrumbItem>
+                    {!crumb.isLast ? (
+                      <BreadcrumbLink asChild>
+                        <Link to={crumb.path}>{crumb.name}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                    )}
+                  </BreadcrumbItem>
+                  {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+                </div>
+              ))}
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
       </section>
 
