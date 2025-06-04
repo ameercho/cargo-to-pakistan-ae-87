@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -8,6 +8,7 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const isHomepage = location.pathname === '/';
   
   const navLinks = [{
     title: "Home",
@@ -31,7 +32,7 @@ const Header = () => {
   };
   
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2">
+    <header className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2 ${isHomepage ? '' : 'mb-16'}`}>
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center">
