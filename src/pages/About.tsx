@@ -23,7 +23,7 @@ const About = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <PageHeader
         title="About Cargo to Pakistan"

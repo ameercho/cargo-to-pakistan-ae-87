@@ -25,7 +25,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <PageHeader
         title="Contact Cargo to Pakistan"

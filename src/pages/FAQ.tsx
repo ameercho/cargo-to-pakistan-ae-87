@@ -114,7 +114,7 @@ const FAQ = () => {
     : faqCategories;
 
   return (
-    <div className="pt-20">
+    <div>
       {/* Hero Section */}
       <PageHeader
         title="Frequently Asked Questions"

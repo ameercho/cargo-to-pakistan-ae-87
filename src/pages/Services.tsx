@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import ServicesHeroSection from "@/components/services/ServicesHeroSection";
@@ -6,11 +5,25 @@ import ServicesContent from "@/components/services/ServicesContent";
 import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
+import { 
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 const Services = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // Generate breadcrumb items
+  const breadcrumbs = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services', isLast: true }
+  ];
 
   const services = [
     {
@@ -130,6 +143,30 @@ const Services = () => {
             Professional shipping solutions including sea freight, air freight, courier services, 
             and complete logistics support for all your cargo needs from UAE to Pakistan.
           </p>
+        </div>
+      </section>
+
+      {/* Breadcrumb Section */}
+      <section className="py-4 bg-gray-50 border-b">
+        <div className="container-custom">
+          <Breadcrumb>
+            <BreadcrumbList>
+              {breadcrumbs.map((crumb, index) => (
+                <div key={index} className="flex items-center">
+                  <BreadcrumbItem>
+                    {!crumb.isLast ? (
+                      <BreadcrumbLink asChild>
+                        <Link to={crumb.path}>{crumb.name}</Link>
+                      </BreadcrumbLink>
+                    ) : (
+                      <BreadcrumbPage>{crumb.name}</BreadcrumbPage>
+                    )}
+                  </BreadcrumbItem>
+                  {index < breadcrumbs.length - 1 && <BreadcrumbSeparator />}
+                </div>
+              ))}
+            </BreadcrumbList>
+          </Breadcrumb>
         </div>
       </section>
       
