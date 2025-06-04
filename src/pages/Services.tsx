@@ -1,9 +1,10 @@
+
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
-import ServicesHeroSection from "@/components/services/ServicesHeroSection";
 import ServicesContent from "@/components/services/ServicesContent";
+import PageHeader from "@/components/layout/PageHeader";
 import { Link } from "react-router-dom";
-import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home } from "lucide-react";
+import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home, Settings } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
 import { 
   Breadcrumb,
@@ -133,18 +134,14 @@ const Services = () => {
         </script>
       </Helmet>
 
-      {/* Hero Section with H1 */}
-      <section className="py-16 bg-gradient-to-br from-cargo-blue to-cargo-green text-white">
-        <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Comprehensive Cargo Services from UAE to Pakistan
-          </h1>
-          <p className="text-xl text-gray-100 max-w-3xl mx-auto">
-            Professional shipping solutions including sea freight, air freight, courier services, 
-            and complete logistics support for all your cargo needs from UAE to Pakistan.
-          </p>
-        </div>
-      </section>
+      {/* Hero Section */}
+      <PageHeader
+        title="Comprehensive Cargo Services from UAE to Pakistan"
+        subtitle="Professional shipping solutions including sea freight, air freight, courier services, and complete logistics support for all your cargo needs from UAE to Pakistan with competitive rates and reliable delivery"
+        icon={<Settings className="h-12 w-12" />}
+        badgeText="Professional Services"
+        backgroundClass="bg-gradient-to-br from-cargo-green to-cargo-blue"
+      />
 
       {/* Breadcrumb Section */}
       <section className="py-4 bg-gray-50 border-b">
