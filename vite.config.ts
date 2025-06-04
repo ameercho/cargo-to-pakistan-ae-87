@@ -10,7 +10,7 @@ const sitemapPlugin = () => {
     name: 'sitemap-generator',
     async buildStart() {
       // Dynamic import to avoid TypeScript declaration issues
-      const { generateSitemap } = await import('./scripts/generate-sitemap.js');
+      const { generateSitemap } = await import('./scripts/generate-sitemap.js' as any);
       generateSitemap();
     }
   };
