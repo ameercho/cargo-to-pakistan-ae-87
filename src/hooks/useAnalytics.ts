@@ -1,6 +1,13 @@
 
 import { useCallback } from 'react';
 
+// Extend Window interface to include dataLayer
+declare global {
+  interface Window {
+    dataLayer: any[];
+  }
+}
+
 interface AnalyticsEvent {
   event: string;
   category?: string;

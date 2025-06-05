@@ -1,7 +1,7 @@
 
-import { createBrowserRouter, lazy, Suspense } from "react-router-dom";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import { lazy, Suspense } from "react";
 import Layout from "@/components/layout/Layout";
-import { Outlet } from "react-router-dom";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 
 // Lazy load route components for better performance
