@@ -1,14 +1,9 @@
 
-export interface SEOData {
-  title: string;
-  description: string;
-  keywords: string;
-  canonicalUrl: string;
-  ogTitle?: string;
-  ogDescription?: string;
-  ogImage?: string;
-  h1: string;
-}
+import { SEOData } from "@/types";
+import { getCanonicalUrl } from "./url-utils";
+import { SEO_DEFAULTS, COMPANY_INFO } from "@/constants";
+
+export { getCanonicalUrl, shouldIncludeInSitemap } from "./url-utils";
 
 export const generateSEOData = {
   // Service area pages
@@ -16,10 +11,10 @@ export const generateSEOData = {
     title: `Cargo to Pakistan from ${areaName} | Fast & Reliable Shipping`,
     description: `Professional cargo shipping services from ${areaName} to Pakistan. Fast, reliable & affordable rates with door-to-door delivery options. Get free quote today!`,
     keywords: `${areaName.toLowerCase()} cargo, pakistan shipping, ${areaName.toLowerCase()} to pakistan, cargo services ${areaName.toLowerCase()}`,
-    canonicalUrl: `https://cargotopakistan.ae/areas/${areaSlug}`,
+    canonicalUrl: `${COMPANY_INFO.website}/areas/${areaSlug}`,
     ogTitle: `Cargo to Pakistan from ${areaName} | Fast & Reliable Shipping`,
     ogDescription: `Professional cargo shipping services from ${areaName} to Pakistan with guaranteed delivery and competitive rates. Get a free quote today!`,
-    ogImage: `https://cargotopakistan.ae/images/${areaSlug}-cargo-services.jpg`,
+    ogImage: `${COMPANY_INFO.website}/images/${areaSlug}-cargo-services.jpg`,
     h1: `Professional Cargo Services from ${areaName} to Pakistan`
   }),
 
@@ -28,10 +23,10 @@ export const generateSEOData = {
     title: `${serviceName} to Pakistan | Professional Shipping Services`,
     description: `${serviceName} from UAE to Pakistan. Expert handling, competitive rates & timely delivery. Contact us for professional shipping solutions!`,
     keywords: `${serviceName.toLowerCase()}, uae to pakistan ${serviceName.toLowerCase()}, cargo ${serviceName.toLowerCase()}`,
-    canonicalUrl: `https://cargotopakistan.ae/services/${serviceSlug}`,
+    canonicalUrl: `${COMPANY_INFO.website}/services/${serviceSlug}`,
     ogTitle: `${serviceName} to Pakistan | Professional Shipping Services`,
     ogDescription: `Expert ${serviceName.toLowerCase()} services from UAE to Pakistan with professional handling and competitive rates.`,
-    ogImage: `https://cargotopakistan.ae/images/${serviceSlug}-service.jpg`,
+    ogImage: `${COMPANY_INFO.website}/images/${serviceSlug}-service.jpg`,
     h1: `${serviceName} Shipping from UAE to Pakistan`
   }),
 
@@ -40,10 +35,10 @@ export const generateSEOData = {
     title: `Cargo to ${cityName} Pakistan | Professional Shipping Services`,
     description: `Reliable cargo shipping from UAE to ${cityName}, Pakistan. Professional handling, competitive rates & door-to-door delivery. Get quote today!`,
     keywords: `cargo to ${cityName.toLowerCase()}, uae to ${cityName.toLowerCase()}, ${cityName.toLowerCase()} shipping`,
-    canonicalUrl: `https://cargotopakistan.ae/pakistan-cargo-to-${citySlug}`,
+    canonicalUrl: `${COMPANY_INFO.website}/pakistan-cargo-to-${citySlug}`,
     ogTitle: `Cargo to ${cityName} Pakistan | Professional Shipping Services`,
     ogDescription: `Professional cargo shipping services from UAE to ${cityName}, Pakistan with guaranteed delivery and competitive rates.`,
-    ogImage: `https://cargotopakistan.ae/images/${citySlug}-cargo.jpg`,
+    ogImage: `${COMPANY_INFO.website}/images/${citySlug}-cargo.jpg`,
     h1: `Professional Cargo Services to ${cityName}, Pakistan`
   }),
 
@@ -52,10 +47,10 @@ export const generateSEOData = {
     title: `${originCity} to Pakistan Cargo | Door-to-Door Delivery Service`,
     description: `Comprehensive cargo service from ${originCity} to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.`,
     keywords: `${originCity.toLowerCase()} to pakistan, cargo from ${originCity.toLowerCase()}, ${originCity.toLowerCase()} pakistan shipping`,
-    canonicalUrl: `https://cargotopakistan.ae/${originSlug}-to-pakistan`,
+    canonicalUrl: `${COMPANY_INFO.website}/${originSlug}-to-pakistan`,
     ogTitle: `${originCity} to Pakistan Cargo | Door-to-Door Delivery Service`,
     ogDescription: `Professional cargo services from ${originCity} to Pakistan with door-to-door delivery and competitive rates.`,
-    ogImage: `https://cargotopakistan.ae/images/${originSlug}-to-pakistan.jpg`,
+    ogImage: `${COMPANY_INFO.website}/images/${originSlug}-to-pakistan.jpg`,
     h1: `${originCity} to Pakistan Cargo Services`
   }),
 
@@ -64,10 +59,10 @@ export const generateSEOData = {
     title,
     description,
     keywords,
-    canonicalUrl: `https://cargotopakistan.ae${path}`,
+    canonicalUrl: getCanonicalUrl(path),
     ogTitle: title,
     ogDescription: description,
-    ogImage: `https://cargotopakistan.ae/images/cargo-services-default.jpg`,
+    ogImage: SEO_DEFAULTS.defaultImage,
     h1
   })
 };
@@ -99,18 +94,3 @@ export const uaeServiceAreas = [
   { name: "Ras Al Khaimah", url: "/areas/ras-al-khaimah", description: "Northern emirate gateway" },
   { name: "Fujairah", url: "/areas/fujairah", description: "Only east coast emirate" }
 ];
-
-// Utility function to generate canonical URL from pathname
-export const getCanonicalUrl = (pathname: string): string => {
-  // Remove trailing slash if present (except for root)
-  const cleanPath = pathname === '/' ? pathname : pathname.replace(/\/$/, '');
-  return `https://cargotopakistan.ae${cleanPath}`;
-};
-
-// Validate if a route should be included in sitemap (self-referencing canonical)
-export const shouldIncludeInSitemap = (route: { url: string }): boolean => {
-  // Only include routes that have self-referencing canonical URLs
-  const canonicalUrl = getCanonicalUrl(route.url);
-  const expectedCanonical = `https://cargotopakistan.ae${route.url}`;
-  return canonicalUrl === expectedCanonical;
-};

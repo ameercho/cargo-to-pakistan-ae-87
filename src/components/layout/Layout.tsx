@@ -3,30 +3,22 @@ import Header from "@/components/layout/Header";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/SEOHead";
-import { getCanonicalUrl } from "@/utils/seo-utils";
-import { useLocation } from "react-router-dom";
+import ErrorBoundary from "@/components/common/ErrorBoundary";
+import { SEOData } from "@/types";
+import { useSEO } from "@/hooks/useSEO";
 
 interface LayoutProps {
   children: React.ReactNode;
-  seoData?: any;
+  seoData?: SEOData;
 }
 
 const Layout = ({ children, seoData }: LayoutProps) => {
-  const location = useLocation();
-  
-  // Generate SEO data based on current path if not provided
-  const defaultSeoData = {
-    title: "Cargo to Pakistan - Professional Shipping Services",
-    description: "Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.",
-    keywords: "cargo to pakistan, shipping services, uae pakistan cargo",
-    canonicalUrl: getCanonicalUrl(location.pathname),
-    h1: "Professional Cargo Services"
-  };
-
-  const finalSeoData = seoData || defaultSeoData;
+  // Use the provided SEO data or generate default
+  const defaultSEO = useSEO();
+  const finalSeoData = seoData || defaultSEO;
 
   return (
-    <>
+    <ErrorBoundary>
       <SEOHead seoData={finalSeoData} />
       <div className="min-h-screen flex flex-col">
         <Header />
@@ -37,7 +29,7 @@ const Layout = ({ children, seoData }: LayoutProps) => {
         </main>
         <Footer />
       </div>
-    </>
+    </ErrorBoundary>
   );
 };
 

@@ -4,31 +4,18 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Phone, Mail } from "lucide-react";
+import { NAVIGATION_LINKS, COMPANY_INFO, CONTACT_INFO } from "@/constants";
+import { useAnalytics } from "@/hooks/useAnalytics";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const isHomepage = location.pathname === '/';
-  
-  const navLinks = [{
-    title: "Home",
-    path: "/"
-  }, {
-    title: "Services",
-    path: "/services"
-  }, {
-    title: "About",
-    path: "/about"
-  }, {
-    title: "Contact",
-    path: "/contact"
-  }, {
-    title: "FAQ",
-    path: "/faq"
-  }];
+  const { trackPhoneCall } = useAnalytics();
   
   const handleCall = () => {
-    window.location.href = "tel:+971504948135";
+    trackPhoneCall();
+    window.location.href = `tel:${CONTACT_INFO.phone}`;
   };
   
   return (
@@ -45,19 +32,19 @@ const Header = () => {
         
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-6">
-          {navLinks.map(link => (
+          {NAVIGATION_LINKS.main.map(link => (
             <Link 
-              key={link.path} 
-              to={link.path} 
+              key={link.href} 
+              to={link.href} 
               className={`font-medium tap-target px-2 py-1 transition-colors relative overflow-hidden group ${
-                location.pathname === link.path 
+                location.pathname === link.href 
                   ? "text-cargo-green after:scale-x-100" 
                   : "text-black hover:text-cargo-green"
               }`}
             >
-              {link.title}
+              {link.name}
               <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-cargo-green transform ${
-                location.pathname === link.path 
+                location.pathname === link.href 
                   ? "scale-x-100" 
                   : "scale-x-0 group-hover:scale-x-100"
               } transition-transform duration-300 origin-left`}></span>
@@ -96,17 +83,17 @@ const Header = () => {
                 </div>
                 
                 <nav className="flex flex-col space-y-1">
-                  {navLinks.map(link => (
+                  {NAVIGATION_LINKS.main.map(link => (
                     <Link 
-                      key={link.path} 
-                      to={link.path} 
+                      key={link.href} 
+                      to={link.href} 
                       className={`font-medium tap-target p-3 transition-all duration-200 ${
-                        location.pathname === link.path 
+                        location.pathname === link.href 
                           ? "bg-cargo-lightGreen text-cargo-green rounded-md border-l-4 border-cargo-green" 
                           : "text-black hover:bg-cargo-lightGreen hover:rounded-md"
                       }`}
                     >
-                      {link.title}
+                      {link.name}
                     </Link>
                   ))}
                 </nav>
@@ -116,13 +103,13 @@ const Header = () => {
                     <div className="bg-cargo-lightGreen p-2 rounded-full">
                       <Phone className="h-4 w-4 text-cargo-green" />
                     </div>
-                    <span>+971504948135</span>
+                    <span>{CONTACT_INFO.phone}</span>
                   </div>
                   <div className="flex items-center gap-2 text-black p-2 hover:bg-cargo-gray rounded-md transition-colors">
                     <div className="bg-cargo-lightGreen p-2 rounded-full">
                       <Mail className="h-4 w-4 text-cargo-green" />
                     </div>
-                    <span>info@cargotopakistan.ae</span>
+                    <span>{CONTACT_INFO.email}</span>
                   </div>
                   <Button 
                     className="w-full bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg flex items-center gap-2 justify-center" 

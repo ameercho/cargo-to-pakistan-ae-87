@@ -1,6 +1,7 @@
 
 import { Helmet } from "react-helmet-async";
-import { SEOData } from "@/utils/seo-utils";
+import { SEOData } from "@/types";
+import { SEO_DEFAULTS, COMPANY_INFO } from "@/constants";
 
 interface SEOHeadProps {
   seoData: SEOData;
@@ -35,25 +36,25 @@ const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
       <meta property="og:title" content={ogTitle || title} />
       <meta property="og:description" content={ogDescription || description} />
       <meta property="og:url" content={canonicalUrl} />
-      <meta property="og:image" content={ogImage || "https://cargotopakistan.ae/images/cargo-services-default.jpg"} />
+      <meta property="og:image" content={ogImage || SEO_DEFAULTS.defaultImage} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="Cargo to Pakistan" />
-      <meta property="og:locale" content="en_US" />
+      <meta property="og:site_name" content={COMPANY_INFO.name} />
+      <meta property="og:locale" content={SEO_DEFAULTS.locale} />
       
       {/* Twitter Card Tags */}
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:site" content="@cargotopakistan" />
+      <meta name="twitter:site" content={SEO_DEFAULTS.twitterHandle} />
       <meta name="twitter:title" content={ogTitle || title} />
       <meta name="twitter:description" content={ogDescription || description} />
-      <meta name="twitter:image" content={ogImage || "https://cargotopakistan.ae/images/cargo-services-default.jpg"} />
+      <meta name="twitter:image" content={ogImage || SEO_DEFAULTS.defaultImage} />
       
       {/* Additional SEO Tags */}
-      <meta name="author" content="Cargo to Pakistan" />
+      <meta name="author" content={COMPANY_INFO.name} />
       <meta httpEquiv="content-language" content="en-US" />
-      <meta name="geo.region" content="AE" />
-      <meta name="geo.placename" content="United Arab Emirates" />
+      <meta name="geo.region" content={SEO_DEFAULTS.region} />
+      <meta name="geo.placename" content={SEO_DEFAULTS.placeName} />
       
       {/* Structured Data */}
       {structuredData && (
