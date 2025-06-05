@@ -1,22 +1,16 @@
 
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Phone, Mail } from "lucide-react";
-import { NAVIGATION_LINKS, COMPANY_INFO, CONTACT_INFO } from "@/constants";
-import { useAnalytics } from "@/hooks/useAnalytics";
+import { NAVIGATION_LINKS, CONTACT_INFO } from "@/constants";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useNavigation } from "@/hooks/useNavigation";
 
 const Header = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const { location } = useNavigation();
+  const { makeCall } = usePhoneCall();
   const isHomepage = location.pathname === '/';
-  const { trackPhoneCall } = useAnalytics();
-  
-  const handleCall = () => {
-    trackPhoneCall();
-    window.location.href = `tel:${CONTACT_INFO.phone}`;
-  };
   
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-2 ${isHomepage ? '' : 'mb-16'}`}>
@@ -52,7 +46,7 @@ const Header = () => {
           ))}
           <Button 
             className="bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-1" 
-            onClick={handleCall}
+            onClick={makeCall}
           >
             <Phone size={16} />
             Call Us
@@ -113,7 +107,7 @@ const Header = () => {
                   </div>
                   <Button 
                     className="w-full bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg flex items-center gap-2 justify-center" 
-                    onClick={handleCall}
+                    onClick={makeCall}
                   >
                     <Phone size={16} />
                     Call Now

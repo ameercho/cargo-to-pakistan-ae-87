@@ -5,7 +5,6 @@ import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/SEOHead";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { SEOData } from "@/types";
-import { useSEO } from "@/hooks/useSEO";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -13,13 +12,9 @@ interface LayoutProps {
 }
 
 const Layout = ({ children, seoData }: LayoutProps) => {
-  // Use the provided SEO data or generate default
-  const defaultSEO = useSEO();
-  const finalSeoData = seoData || defaultSEO;
-
   return (
     <ErrorBoundary>
-      <SEOHead seoData={finalSeoData} />
+      {seoData && <SEOHead seoData={seoData} />}
       <div className="min-h-screen flex flex-col">
         <Header />
         <Navigation />

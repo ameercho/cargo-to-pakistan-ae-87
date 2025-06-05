@@ -1,5 +1,5 @@
 
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
   DropdownMenu,
@@ -8,28 +8,20 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
-import { NAVIGATION_LINKS, CONTACT_INFO } from "@/constants";
+import { NAVIGATION_LINKS } from "@/constants";
+import { useNavigation } from "@/hooks/useNavigation";
+import { usePhoneCall } from "@/hooks/usePhoneCall";
 
 const DesktopNavigation = () => {
-  const location = useLocation();
-
-  const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname.startsWith(path);
-  };
-
-  const handleCall = () => {
-    window.location.href = `tel:${CONTACT_INFO.phone}`;
-  };
+  const { isActive } = useNavigation();
+  const { makeCall } = usePhoneCall();
 
   return (
     <div className="hidden lg:flex items-center space-x-6">
       <Link 
         to="/" 
         className={`text-gray-700 hover:text-cargo-blue transition-colors ${
-          location.pathname === '/' ? 'text-cargo-blue font-semibold' : ''
+          isActive('/') ? 'text-cargo-blue font-semibold' : ''
         }`}
       >
         Home
@@ -93,7 +85,7 @@ const DesktopNavigation = () => {
       <Link 
         to="/about" 
         className={`text-gray-700 hover:text-cargo-blue transition-colors ${
-          location.pathname === '/about' ? 'text-cargo-blue font-semibold' : ''
+          isActive('/about') ? 'text-cargo-blue font-semibold' : ''
         }`}
       >
         About
@@ -102,7 +94,7 @@ const DesktopNavigation = () => {
       <Link 
         to="/faq" 
         className={`text-gray-700 hover:text-cargo-blue transition-colors ${
-          location.pathname === '/faq' ? 'text-cargo-blue font-semibold' : ''
+          isActive('/faq') ? 'text-cargo-blue font-semibold' : ''
         }`}
       >
         FAQ
@@ -111,7 +103,7 @@ const DesktopNavigation = () => {
       <Link 
         to="/contact" 
         className={`text-gray-700 hover:text-cargo-blue transition-colors ${
-          location.pathname === '/contact' ? 'text-cargo-blue font-semibold' : ''
+          isActive('/contact') ? 'text-cargo-blue font-semibold' : ''
         }`}
       >
         Contact

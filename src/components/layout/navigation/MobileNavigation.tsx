@@ -1,31 +1,18 @@
 
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
-import { NAVIGATION_LINKS, CONTACT_INFO } from "@/constants";
+import { NAVIGATION_LINKS } from "@/constants";
+import { useNavigation } from "@/hooks/useNavigation";
 
 const MobileNavigation = () => {
-  const location = useLocation();
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
-    }
-    return location.pathname.startsWith(path);
-  };
-
-  // Close mobile menu when route changes
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
+  const { isMobileMenuOpen, toggleMobileMenu, isActive } = useNavigation();
 
   return (
     <>
       {/* Mobile Menu Button */}
       <button
-        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        onClick={toggleMobileMenu}
         className="lg:hidden p-2"
       >
         <Menu className="h-6 w-6" />
@@ -38,7 +25,7 @@ const MobileNavigation = () => {
             <Link 
               to="/" 
               className={`text-gray-700 hover:text-cargo-blue ${
-                location.pathname === '/' ? 'text-cargo-blue font-semibold' : ''
+                isActive('/') ? 'text-cargo-blue font-semibold' : ''
               }`}
             >
               Home
@@ -62,7 +49,7 @@ const MobileNavigation = () => {
             <Link 
               to="/about" 
               className={`text-gray-700 hover:text-cargo-blue ${
-                location.pathname === '/about' ? 'text-cargo-blue font-semibold' : ''
+                isActive('/about') ? 'text-cargo-blue font-semibold' : ''
               }`}
             >
               About
@@ -70,7 +57,7 @@ const MobileNavigation = () => {
             <Link 
               to="/faq" 
               className={`text-gray-700 hover:text-cargo-blue ${
-                location.pathname === '/faq' ? 'text-cargo-blue font-semibold' : ''
+                isActive('/faq') ? 'text-cargo-blue font-semibold' : ''
               }`}
             >
               FAQ
@@ -78,7 +65,7 @@ const MobileNavigation = () => {
             <Link 
               to="/contact" 
               className={`text-gray-700 hover:text-cargo-blue ${
-                location.pathname === '/contact' ? 'text-cargo-blue font-semibold' : ''
+                isActive('/contact') ? 'text-cargo-blue font-semibold' : ''
               }`}
             >
               Contact
