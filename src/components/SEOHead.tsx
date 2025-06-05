@@ -24,6 +24,8 @@ const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
       <title>{title}</title>
       <meta name="description" content={description} />
       <meta name="keywords" content={keywords} />
+      
+      {/* Self-referencing canonical URL - this is crucial for SEO */}
       <link rel="canonical" href={canonicalUrl} />
       
       {/* Ensure pages are indexable */}

@@ -57,6 +57,18 @@ export const generateSEOData = {
     ogDescription: `Professional cargo services from ${originCity} to Pakistan with door-to-door delivery and competitive rates.`,
     ogImage: `https://cargotopakistan.ae/images/${originSlug}-to-pakistan.jpg`,
     h1: `${originCity} to Pakistan Cargo Services`
+  }),
+
+  // Generic page generator for consistent canonical URLs
+  genericPage: (path: string, title: string, description: string, keywords: string, h1: string): SEOData => ({
+    title,
+    description,
+    keywords,
+    canonicalUrl: `https://cargotopakistan.ae${path}`,
+    ogTitle: title,
+    ogDescription: description,
+    ogImage: `https://cargotopakistan.ae/images/cargo-services-default.jpg`,
+    h1
   })
 };
 
@@ -87,3 +99,18 @@ export const uaeServiceAreas = [
   { name: "Ras Al Khaimah", url: "/areas/ras-al-khaimah", description: "Northern emirate gateway" },
   { name: "Fujairah", url: "/areas/fujairah", description: "Only east coast emirate" }
 ];
+
+// Utility function to generate canonical URL from pathname
+export const getCanonicalUrl = (pathname: string): string => {
+  // Remove trailing slash if present (except for root)
+  const cleanPath = pathname === '/' ? pathname : pathname.replace(/\/$/, '');
+  return `https://cargotopakistan.ae${cleanPath}`;
+};
+
+// Validate if a route should be included in sitemap (self-referencing canonical)
+export const shouldIncludeInSitemap = (route: { url: string }): boolean => {
+  // Only include routes that have self-referencing canonical URLs
+  const canonicalUrl = getCanonicalUrl(route.url);
+  const expectedCanonical = `https://cargotopakistan.ae${route.url}`;
+  return canonicalUrl === expectedCanonical;
+};

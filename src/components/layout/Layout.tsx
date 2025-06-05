@@ -3,7 +3,7 @@ import Header from "@/components/layout/Header";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
 import SEOHead from "@/components/SEOHead";
-import { generateSEOData } from "@/utils/seo-utils";
+import { getCanonicalUrl } from "@/utils/seo-utils";
 import { useLocation } from "react-router-dom";
 
 interface LayoutProps {
@@ -19,7 +19,7 @@ const Layout = ({ children, seoData }: LayoutProps) => {
     title: "Cargo to Pakistan - Professional Shipping Services",
     description: "Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.",
     keywords: "cargo to pakistan, shipping services, uae pakistan cargo",
-    canonicalUrl: `https://cargotopakistan.ae${location.pathname}`,
+    canonicalUrl: getCanonicalUrl(location.pathname),
     h1: "Professional Cargo Services"
   };
 
