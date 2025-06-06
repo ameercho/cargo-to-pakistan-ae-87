@@ -17,12 +17,9 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-            Professional Cargo Services from UAE to Pakistan
-          </h1>
           <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">
-            Reliable, secure, and affordable cargo shipping from Dubai, Abu Dhabi, Sharjah to all major cities in Pakistan. 
-            Door-to-door delivery with professional handling.
+            Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. 
+            Reliable Pakistan cargo services with secure handling and competitive rates.
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -59,16 +56,16 @@ const HeroSection = () => {
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Sea Freight</div>
-              <div className="text-gray-300">Cost-effective</div>
+              <div className="font-semibold">Sea Cargo UAE</div>
+              <div className="text-gray-300">Cost-effective bulk</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Air Freight</div>
+              <div className="font-semibold">Air Cargo UAE</div>
               <div className="text-gray-300">Fast delivery</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <div className="font-semibold">Full Container</div>
-              <div className="text-gray-300">Large cargo</div>
+              <div className="text-gray-300">Large shipments</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
               <div className="font-semibold">Door-to-Door</div>
