@@ -57,7 +57,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
     <div className="min-h-screen">
       {/* SEO Metadata */}
       <Helmet>
-        <title>{`Cargo Services to ${destination.city}, Pakistan | Reliable Shipping`}</title>
+        <title>{`Cargo Services to ${destination.city}, Pakistan | Cargo to Pakistan`}</title>
         <meta 
           name="description" 
           content={`Professional cargo services to ${destination.city}, Pakistan. Door-to-door delivery with reliable tracking.`} 
