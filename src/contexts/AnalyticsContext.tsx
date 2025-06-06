@@ -1,6 +1,11 @@
 
 import React, { createContext, useContext, ReactNode } from 'react';
-import { analyticsService } from '@/services/analytics';
+import { 
+  trackPhoneCall as trackPhoneCallService,
+  trackQuoteRequest as trackQuoteRequestService,
+  trackServiceView as trackServiceViewService,
+  trackPageView as trackPageViewService
+} from '@/services/analytics';
 
 interface AnalyticsContextType {
   trackPhoneCall: (source?: string) => void;
@@ -13,10 +18,10 @@ const AnalyticsContext = createContext<AnalyticsContextType | undefined>(undefin
 
 export const AnalyticsProvider = ({ children }: { children: ReactNode }) => {
   const value: AnalyticsContextType = {
-    trackPhoneCall: (source) => analyticsService.trackPhoneCall(source),
-    trackQuoteRequest: (service, source) => analyticsService.trackQuoteRequest(service, source),
-    trackServiceView: (serviceName) => analyticsService.trackServiceView(serviceName),
-    trackPageView: (page, title) => analyticsService.trackPageView(page, title),
+    trackPhoneCall: trackPhoneCallService,
+    trackQuoteRequest: trackQuoteRequestService,
+    trackServiceView: trackServiceViewService,
+    trackPageView: trackPageViewService,
   };
 
   return (

@@ -4,9 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/constants";
 import { useNavigation } from "@/hooks/useNavigation";
+import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 const MobileNavigation = () => {
-  const { isMobileMenuOpen, toggleMobileMenu, isActive } = useNavigation();
+  const { isActive } = useNavigation();
+  const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
 
   return (
     <>

@@ -1,5 +1,16 @@
 
-// Analytics service without React hooks
+// Analytics service - simplified and consolidated
+export { 
+  initializeAnalytics,
+  trackPageView,
+  trackEvent,
+  trackPhoneCall,
+  trackQuoteRequest,
+  trackServiceView,
+  trackFormSubmit
+} from './analytics';
+
+// Legacy AnalyticsService class for backward compatibility
 export class AnalyticsService {
   private static instance: AnalyticsService;
   
@@ -11,56 +22,28 @@ export class AnalyticsService {
   }
 
   trackPhoneCall(source: string = 'unknown') {
-    // Use the analytics functions directly instead of hooks
-    if (typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'phone_call',
-        eventCategory: 'conversion',
-        eventAction: 'phone_call',
-        eventLabel: source
-      });
-    }
-    console.log(`Phone call tracked from: ${source}`);
+    import('./analytics').then(({ trackPhoneCall }) => {
+      trackPhoneCall(source);
+    });
   }
 
   trackQuoteRequest(service?: string, source: string = 'unknown') {
-    if (typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'quote_request',
-        eventCategory: 'conversion',
-        eventAction: 'quote_request',
-        eventLabel: service || 'general'
-      });
-    }
-    console.log(`Quote request tracked - Service: ${service}, Source: ${source}`);
+    import('./analytics').then(({ trackQuoteRequest }) => {
+      trackQuoteRequest(service, source);
+    });
   }
 
   trackServiceView(serviceName: string) {
-    if (typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'service_view',
-        eventCategory: 'engagement',
-        eventAction: 'service_view',
-        eventLabel: serviceName
-      });
-    }
-    console.log(`Service view tracked: ${serviceName}`);
+    import('./analytics').then(({ trackServiceView }) => {
+      trackServiceView(serviceName);
+    });
   }
 
   trackPageView(page: string, title?: string) {
-    if (typeof window !== 'undefined' && window.dataLayer) {
-      window.dataLayer.push({
-        event: 'page_view',
-        eventCategory: 'engagement',
-        eventAction: 'page_view',
-        eventLabel: page
-      });
-    }
-    console.log(`Page view tracked: ${page}`);
+    import('./analytics').then(({ trackPageView }) => {
+      trackPageView(page, title || document.title);
+    });
   }
 }
 
 export const analyticsService = AnalyticsService.getInstance();
-
-// Export the functions that existing code expects
-export { initializeAnalytics, trackEvent, trackPageView } from './analytics/index';
