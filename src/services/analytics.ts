@@ -1,6 +1,5 @@
 
-import { useAnalytics } from '@/hooks/useAnalytics';
-
+// Analytics service without React hooks
 export class AnalyticsService {
   private static instance: AnalyticsService;
   
@@ -12,26 +11,51 @@ export class AnalyticsService {
   }
 
   trackPhoneCall(source: string = 'unknown') {
-    const analytics = useAnalytics();
-    analytics.trackPhoneCall();
+    // Use the analytics functions directly instead of hooks
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'phone_call',
+        eventCategory: 'conversion',
+        eventAction: 'phone_call',
+        eventLabel: source
+      });
+    }
     console.log(`Phone call tracked from: ${source}`);
   }
 
   trackQuoteRequest(service?: string, source: string = 'unknown') {
-    const analytics = useAnalytics();
-    analytics.trackQuoteRequest(service);
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'quote_request',
+        eventCategory: 'conversion',
+        eventAction: 'quote_request',
+        eventLabel: service || 'general'
+      });
+    }
     console.log(`Quote request tracked - Service: ${service}, Source: ${source}`);
   }
 
   trackServiceView(serviceName: string) {
-    const analytics = useAnalytics();
-    analytics.trackServiceView(serviceName);
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'service_view',
+        eventCategory: 'engagement',
+        eventAction: 'service_view',
+        eventLabel: serviceName
+      });
+    }
     console.log(`Service view tracked: ${serviceName}`);
   }
 
   trackPageView(page: string, title?: string) {
-    const analytics = useAnalytics();
-    analytics.trackPageView(page, title);
+    if (typeof window !== 'undefined' && window.dataLayer) {
+      window.dataLayer.push({
+        event: 'page_view',
+        eventCategory: 'engagement',
+        eventAction: 'page_view',
+        eventLabel: page
+      });
+    }
     console.log(`Page view tracked: ${page}`);
   }
 }

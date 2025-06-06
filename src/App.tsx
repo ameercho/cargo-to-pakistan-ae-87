@@ -7,6 +7,7 @@ import { router } from "./routes/index";
 import * as React from "react";
 import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
+import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
 import { initializeAnalytics } from "@/services/analytics";
 
 // Create a new query client instance with optimized settings
@@ -35,13 +36,15 @@ const App = () => {
       <HelmetProvider>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <QueryClientProvider client={queryClient}>
-            <TooltipProvider>
-              {/* Main application routing */}
-              <RouterProvider router={router} />
-              
-              {/* Only render ClientToasts when we're on the client side */}
-              {isMounted && <ClientToasts />}
-            </TooltipProvider>
+            <AnalyticsProvider>
+              <TooltipProvider>
+                {/* Main application routing */}
+                <RouterProvider router={router} />
+                
+                {/* Only render ClientToasts when we're on the client side */}
+                {isMounted && <ClientToasts />}
+              </TooltipProvider>
+            </AnalyticsProvider>
           </QueryClientProvider>
         </ThemeProvider>
       </HelmetProvider>

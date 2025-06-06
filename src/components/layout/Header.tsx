@@ -46,7 +46,7 @@ const Header = () => {
           ))}
           <Button 
             className="bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-1" 
-            onClick={makeCall}
+            onClick={() => makeCall('header')}
           >
             <Phone size={16} />
             Call Us
@@ -107,7 +107,7 @@ const Header = () => {
                   </div>
                   <Button 
                     className="w-full bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg flex items-center gap-2 justify-center" 
-                    onClick={makeCall}
+                    onClick={() => makeCall('mobile_menu')}
                   >
                     <Phone size={16} />
                     Call Now
