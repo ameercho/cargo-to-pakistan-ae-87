@@ -37,3 +37,6 @@ export class AnalyticsService {
 }
 
 export const analyticsService = AnalyticsService.getInstance();
+
+// Export the functions that existing code expects
+export { initializeAnalytics, trackEvent, trackPageView } from './analytics/index';
