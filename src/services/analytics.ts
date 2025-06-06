@@ -8,7 +8,7 @@ export {
   trackQuoteRequest,
   trackServiceView,
   trackFormSubmit
-} from './analytics';
+} from './analytics/index';
 
 // Legacy AnalyticsService class for backward compatibility
 export class AnalyticsService {
@@ -22,25 +22,25 @@ export class AnalyticsService {
   }
 
   trackPhoneCall(source: string = 'unknown') {
-    import('./analytics').then(({ trackPhoneCall }) => {
+    import('./analytics/index').then(({ trackPhoneCall }) => {
       trackPhoneCall(source);
     });
   }
 
   trackQuoteRequest(service?: string, source: string = 'unknown') {
-    import('./analytics').then(({ trackQuoteRequest }) => {
+    import('./analytics/index').then(({ trackQuoteRequest }) => {
       trackQuoteRequest(service, source);
     });
   }
 
   trackServiceView(serviceName: string) {
-    import('./analytics').then(({ trackServiceView }) => {
+    import('./analytics/index').then(({ trackServiceView }) => {
       trackServiceView(serviceName);
     });
   }
 
   trackPageView(page: string, title?: string) {
-    import('./analytics').then(({ trackPageView }) => {
+    import('./analytics/index').then(({ trackPageView }) => {
       trackPageView(page, title || document.title);
     });
   }
