@@ -1,23 +1,16 @@
-
 import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
 import SEOHead from "@/components/SEOHead";
+import { useSEO } from "@/hooks/useSEO";
+import { generateStructuredData } from "@/utils/dubai-seo-utils";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
 const Index = () => {
-  const seoData = {
-    title: "Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Pakistan Cargo Services",
-    description: "Your trusted Pakistan cargo expert. We offer fast, secure, & affordable cargo to Pakistan from Dubai, Abu Dhabi, Sharjah, Ajman, & across the UAE. Get a free quote for reliable Pakistan cargo services",
-    keywords: "cargo to pakistan, pakistan cargo, pakistan cargo dubai, door to door cargo to pakistan, air cargo to pakistan from uae, sea cargo to pakistan from uae, parcel delivery to pakistan from dubai, cargo services uae to pakistan",
-    canonicalUrl: "https://cargotopakistan.ae/",
-    ogTitle: "Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Pakistan Cargo Services",
-    ogDescription: "Your trusted Pakistan cargo expert. We offer fast, secure, & affordable cargo to Pakistan from Dubai, Abu Dhabi, Sharjah, Ajman, & across the UAE. Get a free quote today!",
-    ogImage: "https://cargotopakistan.ae/images/homepage-og.jpg",
-    h1: "Cargo to Pakistan from Dubai, Abu Dhabi & All UAE | Fast & Secure Services"
-  };
+  // Use Dubai-optimized SEO hook
+  const seoData = useSEO({ pageType: 'homepage' });
 
   const popularDestinations = [
     { name: "Karachi", href: "/pakistan-cargo-to-karachi", desc: "Pakistan's largest port city and commercial hub" },
@@ -26,23 +19,75 @@ const Index = () => {
     { name: "Peshawar", href: "/pakistan-cargo-to-peshawar", desc: "Historic northwestern gateway city" }
   ];
 
-  // Structured data for SEO
+  // Enhanced structured data for Dubai local business
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "FreightCompany",
+    "@type": "MovingCompany",
     "name": "Cargo to Pakistan",
     "url": "https://cargotopakistan.ae",
-    "description": "Professional cargo shipping services from UAE to Pakistan with door-to-door delivery",
-    "serviceArea": {
-      "@type": "Place",
-      "name": "United Arab Emirates to Pakistan"
+    "description": "Dubai's leading cargo shipping service to Pakistan with door-to-door delivery",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "AE",
+      "addressRegion": "Dubai",
+      "addressLocality": "Dubai"
+    },
+    "geo": {
+      "@type": "GeoCoordinates", 
+      "latitude": "25.2048",
+      "longitude": "55.2708"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "telephone": "+971-50-494-8135",
-      "contactType": "customer service"
+      "contactType": "customer service",
+      "availableLanguage": ["English", "Urdu", "Arabic"]
     },
-    "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Pakistan"]
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Dubai",
+        "containedIn": "United Arab Emirates"
+      },
+      {
+        "@type": "Country", 
+        "name": "Pakistan"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Dubai Pakistan Cargo Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Air Cargo Dubai to Pakistan",
+            "description": "Fast air freight from Dubai to all Pakistan cities"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service", 
+            "name": "Sea Freight Dubai to Pakistan",
+            "description": "Cost-effective sea cargo from Dubai ports"
+          }
+        }
+      ]
+    },
+    "review": {
+      "@type": "Review",
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": "4.8",
+        "bestRating": "5"
+      },
+      "author": {
+        "@type": "Organization",
+        "name": "Dubai Customer Reviews"
+      }
+    }
   };
 
   return (
@@ -51,36 +96,36 @@ const Index = () => {
       
       <HeroSection />
       
-      {/* Main Content Section with Enhanced SEO Structure */}
+      {/* Main Content Section with Enhanced Dubai SEO Structure */}
       <section className="py-16 bg-white">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-cargo-blue mb-8 text-center">
-              Cargo to Pakistan from Dubai, Abu Dhabi & All UAE | Fast & Secure Services
+              {seoData.h1}
             </h1>
             
             <div className="prose max-w-none text-lg text-gray-700 mb-12">
               <p className="mb-6">
-                Welcome to the UAE's leading Pakistan cargo services. We provide professional, 
-                secure, and affordable cargo to Pakistan from all major UAE cities including Dubai, 
-                Abu Dhabi, Sharjah, and Ajman. Our comprehensive Pakistan cargo solutions ensure safe and 
+                Welcome to Dubai's most trusted cargo service to Pakistan. We provide professional, 
+                secure, and affordable cargo shipping from Dubai to Pakistan, serving Business Bay, Deira, 
+                Bur Dubai, and all major Dubai areas. Our comprehensive Pakistan cargo solutions ensure safe and 
                 timely delivery to every corner of Pakistan, whether you're shipping personal belongings, 
-                commercial goods, or household items through our reliable Pakistan cargo services.
+                commercial goods, or household items from Dubai's business districts.
               </p>
               
               <p className="mb-6">
-                Our extensive Pakistan cargo range includes sea cargo to Pakistan from UAE for cost-effective bulk shipments, 
-                air cargo to Pakistan from UAE for urgent deliveries, full container loads for large volume cargo, 
-                and express parcel delivery to Pakistan from Dubai for documents and small packages. With years 
-                of experience in UAE to Pakistan logistics, we understand the unique requirements of cross-border shipping 
-                and provide trusted Pakistan cargo services across all Emirates.
+                Our extensive Dubai cargo services include express air cargo to Pakistan for urgent deliveries, 
+                cost-effective sea cargo from Dubai ports for bulk shipments, full container loads for large volume cargo, 
+                and express courier service for documents and small packages. With years 
+                of experience in Dubai to Pakistan logistics, we understand the unique requirements of expatriate 
+                communities and businesses in Dubai, providing trusted cargo services across all Emirates.
               </p>
               
               <p className="mb-6">
-                From specialized Pakistan cargo Dubai services to comprehensive shipping solutions from Abu Dhabi, Sharjah, 
-                and Ajman, we offer complete door-to-door cargo to Pakistan with professional packing, customs 
-                clearance assistance, real-time tracking, and comprehensive insurance options for complete 
-                peace of mind throughout your Pakistan cargo shipping experience.
+                From specialized cargo services in Business Bay and Downtown Dubai to comprehensive shipping solutions from 
+                Dubai Marina and Jumeirah, we offer complete door-to-door cargo to Pakistan with professional packing, 
+                Dubai customs clearance assistance, real-time tracking, and comprehensive insurance options for complete 
+                peace of mind throughout your Dubai Pakistan cargo shipping experience.
               </p>
             </div>
             

@@ -4,11 +4,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Pakistan Cargo Services</title>
-    <meta name="description" content="Your trusted Pakistan cargo expert. We offer fast, secure, & affordable cargo to Pakistan from Dubai, Abu Dhabi, Sharjah, Ajman, & across the UAE. Get a free quote for reliable Pakistan cargo services" />
-    <meta name="keywords" content="cargo to pakistan, pakistan cargo, pakistan cargo dubai, door to door cargo to pakistan, pakistan cargo abu dhabi, pak cargo, parcel delivery to pakistan from dubai" />
-    <meta name="author" content="Cargo to Pakistan" />
-    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+    <!-- Default title - will be overridden by React Helmet -->
+    <title>Cargo to Pakistan from Dubai | Professional Shipping Services</title>
+    
+    <!-- Essential meta tags only - React Helmet will manage page-specific SEO -->
     <link rel="canonical" href="https://cargotopakistan.ae/" />
     <link rel="manifest" href="/manifest.json" />
     <meta name="theme-color" content="#37b05d" />
@@ -17,45 +16,93 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
     <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
 
-    <!-- Enhanced Open Graph tags -->
-    <meta property="og:title" content="Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Door-to-Door Shipping Services" />
-    <meta property="og:description" content="Need reliable cargo to Pakistan from UAE? We offer fast & secure door-to-door Pakistan cargo services from Dubai, Abu Dhabi, Sharjah, and Ajman. Get a free quote today!" />
+    <!-- Basic Open Graph - will be enhanced by React Helmet -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://cargotopakistan.ae/" />
-    <meta property="og:image" content="https://cargotopakistan.ae/opengraph-image.png" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Cargo to Pakistan from Dubai shipping services" />
     <meta property="og:site_name" content="Cargo to Pakistan" />
     <meta property="og:locale" content="en_US" />
-
-    <!-- Enhanced Twitter Card tags -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@cargotopakistan" />
-    <meta name="twitter:title" content="Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Door-to-Door Shipping Services" />
-    <meta name="twitter:description" content="Need reliable cargo to Pakistan from UAE? We offer fast & secure door-to-door Pakistan cargo services from Dubai, Abu Dhabi, Sharjah, and Ajman. Get a free quote today!" />
-    <meta name="twitter:image" content="https://cargotopakistan.ae/opengraph-image.png" />
-    <meta name="twitter:image:alt" content="Cargo to Pakistan from Dubai shipping services" />
     
-    <!-- Schema.org structured data -->
+    <!-- Schema.org structured data for local business -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
+      "@type": "MovingCompany",
       "name": "Cargo to Pakistan",
       "url": "https://cargotopakistan.ae",
       "logo": "https://cargotopakistan.ae/opengraph-image.png",
-      "description": "Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman | Pakistan Cargo Services",
+      "description": "Professional cargo shipping services from Dubai to Pakistan with door-to-door delivery",
       "address": {
         "@type": "PostalAddress",
-        "addressCountry": "AE"
+        "addressCountry": "AE",
+        "addressRegion": "Dubai",
+        "addressLocality": "Dubai"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "25.2048",
+        "longitude": "55.2708"
+      },
+      "areaServed": [
+        {
+          "@type": "City",
+          "name": "Dubai",
+          "containedIn": "United Arab Emirates"
+        },
+        {
+          "@type": "City", 
+          "name": "Abu Dhabi",
+          "containedIn": "United Arab Emirates"
+        },
+        {
+          "@type": "City",
+          "name": "Sharjah", 
+          "containedIn": "United Arab Emirates"
+        },
+        {
+          "@type": "City",
+          "name": "Ajman",
+          "containedIn": "United Arab Emirates"
+        }
+      ],
+      "serviceArea": {
+        "@type": "Country",
+        "name": "Pakistan"
       },
       "contactPoint": {
         "@type": "ContactPoint",
         "telephone": "+971504948135",
-        "contactType": "customer service"
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Urdu", "Arabic"]
       },
-      "areaServed": ["Dubai", "Abu Dhabi", "Sharjah", "Ajman", "Pakistan"],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Cargo Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Air Cargo to Pakistan",
+              "description": "Fast air freight services from Dubai to Pakistan"
+            }
+          },
+          {
+            "@type": "Offer", 
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sea Cargo to Pakistan",
+              "description": "Cost-effective sea freight from UAE to Pakistan"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service", 
+              "name": "Door-to-Door Delivery",
+              "description": "Complete pickup and delivery service"
+            }
+          }
+        ]
+      },
       "sameAs": [
         "https://wa.me/971504948135"
       ]
@@ -63,7 +110,6 @@
     </script>
     
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-      
   </head>
 
   <body>

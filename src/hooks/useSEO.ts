@@ -10,7 +10,7 @@ interface UseSEOOptions {
   keywords?: string;
   h1?: string;
   ogImage?: string;
-  pageType?: 'serviceArea' | 'serviceType' | 'pakistanDestination' | 'routePage' | 'generic';
+  pageType?: 'serviceArea' | 'serviceType' | 'pakistanDestination' | 'routePage' | 'homepage' | 'generic';
   pageData?: {
     areaName?: string;
     areaSlug?: string;
@@ -25,6 +25,11 @@ interface UseSEOOptions {
 
 export const useSEO = (options: UseSEOOptions = {}): SEOData => {
   const location = useLocation();
+
+  // Handle homepage specifically with Dubai optimization
+  if (location.pathname === '/' && (!options.pageType || options.pageType === 'homepage')) {
+    return generateSEOData.homepage();
+  }
 
   // Generate SEO data based on page type and data
   if (options.pageType && options.pageType !== 'generic' && options.pageData) {
@@ -45,20 +50,20 @@ export const useSEO = (options: UseSEOOptions = {}): SEOData => {
     );
   }
 
-  // Default SEO data based on current path
+  // Enhanced default SEO data with Dubai keywords
   return {
-    title: `${COMPANY_INFO.name} - Professional Shipping Services`,
-    description: COMPANY_INFO.description,
-    keywords: "cargo to pakistan, shipping services, uae pakistan cargo",
+    title: "Cargo to Pakistan from Dubai | Professional UAE Shipping",
+    description: "Dubai's trusted cargo service to Pakistan. Door-to-door delivery, air & sea freight, competitive rates. Serving Business Bay, Deira, all Dubai areas.",
+    keywords: "cargo to pakistan dubai, dubai pakistan shipping, uae cargo services, door to door dubai, air freight dubai pakistan",
     canonicalUrl: getCanonicalUrl(location.pathname),
-    ogTitle: `${COMPANY_INFO.name} - Professional Shipping Services`,
-    ogDescription: COMPANY_INFO.description,
+    ogTitle: "Dubai to Pakistan Cargo | Professional Shipping Services",
+    ogDescription: "Professional cargo shipping from Dubai to Pakistan with door-to-door delivery and competitive rates.",
     ogImage: SEO_DEFAULTS.defaultImage,
-    h1: "Professional Cargo Services"
+    h1: "Professional Cargo Services from Dubai to Pakistan"
   };
 };
 
-// Helper function to generate page-specific SEO
+// Helper function to generate page-specific SEO with Dubai optimization
 const generatePageSEO = (
   pageType: 'serviceArea' | 'serviceType' | 'pakistanDestination' | 'routePage',
   pageData: any
