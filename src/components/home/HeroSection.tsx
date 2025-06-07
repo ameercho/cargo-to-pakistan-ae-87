@@ -17,6 +17,10 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/20 z-0"></div>
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
+            Dubai to Pakistan Cargo | Trusted by 10,000+ Customers
+          </h1>
+          
           <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">
             Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. 
             Reliable Pakistan cargo services with secure handling and competitive rates.
