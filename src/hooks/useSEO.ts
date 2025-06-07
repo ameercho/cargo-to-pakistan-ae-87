@@ -31,8 +31,8 @@ export const useSEO = (options: UseSEOOptions = {}): SEOData => {
     return generateSEOData.homepage();
   }
 
-  // Generate SEO data based on page type and data
-  if (options.pageType && options.pageType !== 'generic' && options.pageData) {
+  // Generate SEO data based on page type and data (excluding homepage)
+  if (options.pageType && options.pageType !== 'generic' && options.pageType !== 'homepage' && options.pageData) {
     const generatedSEO = generatePageSEO(options.pageType, options.pageData);
     if (generatedSEO) {
       return generatedSEO;
