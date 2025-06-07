@@ -1,12 +1,21 @@
 
 import React, { useEffect } from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
+import SEOHead from "@/components/SEOHead";
+import { useSEO } from "@/hooks/useSEO";
 
 const MultanCargo = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const seoData = useSEO({
+    pageType: 'pakistanDestination',
+    pageData: {
+      cityName: 'Multan',
+      citySlug: 'multan'
+    }
+  });
   
   const multanInfo = {
     city: "Multan",
@@ -19,10 +28,15 @@ const MultanCargo = () => {
       "Mumtazabad",
       "Garden Town"
     ],
-    heroImage: "/images/multan-hero.jpg" // Optional - add when available
+    heroImage: "/images/multan-hero.jpg"
   };
 
-  return <PakistanCargoDestinationPage destination={multanInfo} />;
+  return (
+    <>
+      <SEOHead seoData={seoData} />
+      <PakistanCargoDestinationPage destination={multanInfo} />
+    </>
+  );
 };
 
 export default MultanCargo;

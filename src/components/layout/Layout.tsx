@@ -2,7 +2,6 @@
 import Header from "@/components/layout/Header";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
-import SEOHead from "@/components/SEOHead";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 import { SEOData } from "@/types";
 
@@ -14,7 +13,6 @@ interface LayoutProps {
 const Layout = ({ children, seoData }: LayoutProps) => {
   return (
     <ErrorBoundary>
-      {seoData && <SEOHead seoData={seoData} />}
       <div className="min-h-screen flex flex-col">
         <Header />
         <Navigation />

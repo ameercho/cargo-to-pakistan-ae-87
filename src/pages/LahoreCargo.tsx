@@ -1,12 +1,21 @@
 
 import React, { useEffect } from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
+import SEOHead from "@/components/SEOHead";
+import { useSEO } from "@/hooks/useSEO";
 
 const LahoreCargo = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const seoData = useSEO({
+    pageType: 'pakistanDestination',
+    pageData: {
+      cityName: 'Lahore',
+      citySlug: 'lahore'
+    }
+  });
   
   const lahoreInfo = {
     city: "Lahore",
@@ -21,7 +30,12 @@ const LahoreCargo = () => {
     ],
   };
 
-  return <PakistanCargoDestinationPage destination={lahoreInfo} />;
+  return (
+    <>
+      <SEOHead seoData={seoData} />
+      <PakistanCargoDestinationPage destination={lahoreInfo} />
+    </>
+  );
 };
 
 export default LahoreCargo;

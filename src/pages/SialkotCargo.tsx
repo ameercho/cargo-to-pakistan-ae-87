@@ -1,12 +1,21 @@
 
 import React, { useEffect } from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
+import SEOHead from "@/components/SEOHead";
+import { useSEO } from "@/hooks/useSEO";
 
 const SialkotCargo = () => {
-  // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+  
+  const seoData = useSEO({
+    pageType: 'pakistanDestination',
+    pageData: {
+      cityName: 'Sialkot',
+      citySlug: 'sialkot'
+    }
+  });
   
   const sialkotInfo = {
     city: "Sialkot",
@@ -19,10 +28,15 @@ const SialkotCargo = () => {
       "Small Industrial Estate",
       "Zafarwal Road"
     ],
-    heroImage: "/images/sialkot-hero.jpg" // Optional - add when available
+    heroImage: "/images/sialkot-hero.jpg"
   };
 
-  return <PakistanCargoDestinationPage destination={sialkotInfo} />;
+  return (
+    <>
+      <SEOHead seoData={seoData} />
+      <PakistanCargoDestinationPage destination={sialkotInfo} />
+    </>
+  );
 };
 
 export default SialkotCargo;
