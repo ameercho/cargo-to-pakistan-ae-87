@@ -2,15 +2,10 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
+import { useContactActions } from "@/hooks/useContactActions";
 
 const HeroSection = () => {
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-  
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20Pakistan.", "_blank");
-  };
+  const { handleCall, handleWhatsApp } = useContactActions();
 
   return (
     <section className="py-20 bg-gradient-to-br from-cargo-blue to-cargo-green text-white relative overflow-hidden">
