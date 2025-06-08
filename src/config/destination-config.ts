@@ -1,4 +1,3 @@
-
 interface DestinationInfo {
   city: string;
   description: string;
@@ -11,86 +10,201 @@ interface UAELocationInfo {
   description: string;
 }
 
-export const PAKISTAN_DESTINATIONS: Record<string, DestinationInfo> = {
-  islamabad: {
-    city: "Islamabad",
-    description: "We provide comprehensive cargo solutions from UAE to Islamabad, Pakistan's capital city. Our services are designed to meet all your shipping needs with reliability and efficiency.",
-    areas: ["F-6", "F-7", "F-8", "E-11", "G-10", "DHA"]
-  },
-  lahore: {
-    city: "Lahore", 
-    description: "We provide comprehensive cargo solutions from UAE to Lahore, Pakistan's cultural capital. Our services are designed to meet all your shipping needs with reliability and efficiency.",
-    areas: ["Gulberg", "Defence", "Johar Town", "Model Town", "Cantt", "Bahria Town"]
-  },
+export const PAKISTAN_DESTINATIONS = {
   karachi: {
     city: "Karachi",
-    description: "We provide comprehensive cargo solutions from UAE to Karachi, Pakistan's largest port city and commercial hub. Our reliable shipping services ensure efficient delivery with door-to-door options throughout Karachi.",
-    areas: ["Defence", "Gulshan", "Clifton", "North Nazimabad", "Malir", "Korangi"]
+    description: "We provide comprehensive cargo solutions from UAE to Karachi, Pakistan's largest city and economic hub. Our services are designed to meet all your shipping needs with reliability and efficiency.",
+    areas: [
+      "Clifton", 
+      "Defence", 
+      "Gulshan-e-Iqbal",
+      "North Nazimabad",
+      "Saddar",
+      "Korangi"
+    ],
+  },
+  lahore: {
+    city: "Lahore",
+    description: "We provide comprehensive cargo solutions from UAE to Lahore, Pakistan's cultural capital. Our reliable services ensure your shipments reach Lahore safely with door-to-door delivery options throughout the city.",
+    areas: [
+      "Gulberg", 
+      "Defence", 
+      "Model Town",
+      "Johar Town",
+      "Cantt",
+      "Garden Town"
+    ],
+  },
+  islamabad: {
+    city: "Islamabad",
+    description: "We provide comprehensive cargo solutions from UAE to Islamabad, Pakistan's federal capital. Our professional services ensure secure delivery across all F-sectors and surrounding areas.",
+    areas: [
+      "F-6", 
+      "F-7", 
+      "F-8",
+      "F-10",
+      "F-11",
+      "G-9"
+    ],
   },
   peshawar: {
     city: "Peshawar",
-    description: "We provide comprehensive cargo solutions from UAE to Peshawar, the historic gateway to the Khyber Pass. Our reliable shipping services ensure your cargo reaches Peshawar safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["University Town", "Hayatabad", "Board Bazaar", "Saddar", "Canal Road", "Ring Road"]
-  },
-  quetta: {
-    city: "Quetta",
-    description: "We provide comprehensive cargo solutions from UAE to Quetta, the capital city of Balochistan province. Our services are designed for efficient, secure shipping with door-to-door delivery options throughout Quetta.",
-    areas: ["Jinnah Road", "Satelite Town", "Samungli Housing Scheme", "Chiltan Housing Scheme", "Shahbaz Town", "Marriabad"]
+    description: "We provide comprehensive cargo solutions from UAE to Peshawar, a historic city in Pakistan. Our services are designed to meet all your shipping needs with reliability and efficiency.",
+    areas: [
+      "Hayatabad", 
+      "University Town", 
+      "Saddar",
+      "Gulbahar",
+      "Cantt",
+      "Warsak Road"
+    ],
   },
   faisalabad: {
     city: "Faisalabad",
-    description: "We provide comprehensive cargo solutions from UAE to Faisalabad, Pakistan's textile capital. Our reliable shipping services ensure your cargo reaches Faisalabad safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["People's Colony", "Madina Town", "Susan Road", "Kotwali Road", "Civil Lines", "Millat Town"]
+    description: "We provide comprehensive cargo solutions from UAE to Faisalabad, Pakistan's textile hub. Our reliable services ensure your shipments reach Faisalabad safely with door-to-door delivery options throughout the city.",
+    areas: [
+      "D Ground", 
+      "Madina Town", 
+      "People's Colony",
+      "Gulberg",
+      "Susan Road",
+      "Ghulam Muhammad Abad"
+    ],
+    heroImage: "/images/faisalabad-hero.jpg"
   },
   multan: {
     city: "Multan",
-    description: "We provide comprehensive cargo solutions from UAE to Multan, the city of saints in southern Punjab. Our reliable shipping services ensure efficient and secure delivery with door-to-door options throughout Multan.",
-    areas: ["Cantt", "Shah Rukn-e-Alam Colony", "Gulgasht Colony", "Bosan Road", "MDA", "New Multan"]
+    description: "We provide comprehensive cargo solutions from UAE to Multan, the City of Saints. Our reliable and efficient shipping services ensure your cargo reaches Multan safely with convenient door-to-door delivery options.",
+    areas: [
+      "Gulgasht Colony", 
+      "Cantt", 
+      "Model Town",
+      "Shah Rukn-e-Alam",
+      "Mumtazabad",
+      "Garden Town"
+    ],
+    heroImage: "/images/multan-hero.jpg"
   },
   sialkot: {
     city: "Sialkot",
-    description: "We provide comprehensive cargo solutions from UAE to Sialkot, Pakistan's export-oriented industrial city. Our reliable shipping services ensure your cargo reaches Sialkot safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["Cantt", "Allama Iqbal Town", "Paris Road", "Kashmir Road", "Rang Mahal", "Circular Road"]
+    description: "We provide comprehensive cargo solutions from UAE to Sialkot, Pakistan's industrial hub known for sports goods and surgical instruments. Our services ensure efficient, secure shipping with door-to-door delivery options throughout Sialkot.",
+    areas: [
+      "Cantt", 
+      "Paris Road", 
+      "Kashmir Road",
+      "Model Town",
+      "Small Industrial Estate",
+      "Zafarwal Road"
+    ],
+    heroImage: "/images/sialkot-hero.jpg"
   },
-  rawalpindi: {
-    city: "Rawalpindi",
-    description: "We provide comprehensive cargo solutions from UAE to Rawalpindi, the twin city of Pakistan's capital. Our reliable shipping services ensure your cargo reaches Rawalpindi safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["Saddar", "Chaklala", "Bahria Town", "DHA", "Satellite Town", "Commercial Market"]
-  },
-  gujranwala: {
-    city: "Gujranwala",
-    description: "We provide comprehensive cargo solutions from UAE to Gujranwala, Pakistan's industrial city known for its ceramics and metalwork. Our reliable services ensure efficient shipping with door-to-door delivery options throughout Gujranwala.",
-    areas: ["Satellite Town", "Model Town", "Peoples Colony", "DHA", "Civil Lines", "Khayaban-e-Green"]
-  },
-  hyderabad: {
-    city: "Hyderabad",
-    description: "We provide comprehensive cargo solutions from UAE to Hyderabad, the second largest city in Sindh province. Our reliable shipping services ensure your cargo reaches Hyderabad safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["Latifabad", "Qasimabad", "Saddar", "Market Area", "Citizen Colony", "Heerabad"]
-  },
-  bahawalpur: {
-    city: "Bahawalpur",
-    description: "We provide comprehensive cargo solutions from UAE to Bahawalpur, a historic city in Punjab province. Our reliable shipping services ensure efficient and secure delivery with door-to-door options throughout Bahawalpur.",
-    areas: ["Model Town", "Satellite Town", "Yazman Road", "One Unit Colony", "Islami Colony", "Baghdad ul Jadeed"]
-  },
-  sargoda: {
-    city: "Sargoda",
-    description: "We provide comprehensive cargo solutions from UAE to Sargoda, an important commercial center in Punjab province. Our reliable shipping services ensure your cargo reaches Sargoda safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["Satellite Town", "Canel Colony", "Block 6", "Block 9", "Muslim Bazar", "Shaheen Abad"]
+  quetta: {
+    city: "Quetta",
+    description: "We provide comprehensive cargo solutions from UAE to Quetta, the provincial capital of Balochistan. Our reliable services ensure your cargo reaches Quetta safely with door-to-door delivery options.",
+    areas: [
+      "Cantt", 
+      "Satellite Town", 
+      "Jinnah Town",
+      "Brewery Road",
+      "Zarghoon Road",
+      "Samungli Road"
+    ],
   },
   sukkur: {
     city: "Sukkur",
-    description: "We provide comprehensive cargo solutions from UAE to Sukkur, a key commercial center in Sindh province. Our reliable shipping services ensure efficient and secure delivery with door-to-door options throughout Sukkur.",
-    areas: ["Minara Road", "Military Road", "Barrage Colony", "Queens Road", "Station Road", "Civil Lines"]
+    description: "We provide comprehensive cargo solutions from UAE to Sukkur, an important commercial center in Sindh. Our services ensure reliable delivery across the city and surrounding areas.",
+    areas: [
+      "Civil Lines", 
+      "New Sukkur", 
+      "Barrage Colony",
+      "Labour Colony",
+      "Station Road",
+      "Minara Road"
+    ],
   },
   larkana: {
     city: "Larkana",
-    description: "We provide comprehensive cargo solutions from UAE to Larkana, a historic city in Sindh province. Our reliable shipping services ensure your cargo reaches Larkana safely with convenient door-to-door delivery options throughout the city.",
-    areas: ["Sachal Colony", "Dari Colony", "Murad Colony", "Allahabad", "Station Road", "Bakrani Road"]
+    description: "We provide comprehensive cargo solutions from UAE to Larkana, a historic city in Sindh province. Our reliable services ensure secure delivery throughout the city.",
+    areas: [
+      "Station Road", 
+      "Jinnah Bagh", 
+      "Civil Hospital Road",
+      "Naudero",
+      "Bakrani",
+      "Warrah"
+    ],
+  },
+  sargodha: {
+    city: "Sargodha",
+    description: "We provide comprehensive cargo solutions from UAE to Sargodha, known as the City of Eagles. Our professional services ensure reliable delivery across all areas of the city.",
+    areas: [
+      "Satellite Town", 
+      "Officers Colony", 
+      "Civil Lines",
+      "University Road",
+      "Stadium Road",
+      "Jail Road"
+    ],
+  },
+  bahawalpur: {
+    city: "Bahawalpur",
+    description: "We provide comprehensive cargo solutions from UAE to Bahawalpur, a historic city in southern Punjab. Our services ensure efficient delivery across the city and surrounding areas.",
+    areas: [
+      "Model Town", 
+      "Satellite Town", 
+      "Civil Lines",
+      "Farid Gate",
+      "Ahmedpur East",
+      "Baghdad ul Jadeed"
+    ],
+  },
+  hyderabad: {
+    city: "Hyderabad",
+    description: "We provide comprehensive cargo solutions from UAE to Hyderabad, an important city in Sindh province. Our reliable services ensure secure delivery throughout the city.",
+    areas: [
+      "Latifabad", 
+      "Qasimabad", 
+      "Cantonment",
+      "Hirabad",
+      "Hussainabad",
+      "Thandi Sarak"
+    ],
+  },
+  rawalpindi: {
+    city: "Rawalpindi",
+    description: "We provide comprehensive cargo solutions from UAE to Rawalpindi, the twin city of Islamabad. Our professional services ensure reliable delivery across all areas of the city.",
+    areas: [
+      "Saddar", 
+      "Cantt", 
+      "Committee Chowk",
+      "Commercial Market",
+      "Westridge",
+      "Chaklala"
+    ],
+  },
+  gujranwala: {
+    city: "Gujranwala",
+    description: "We provide comprehensive cargo solutions from UAE to Gujranwala, an important industrial city in Punjab. Our services ensure efficient delivery across the city.",
+    areas: [
+      "Model Town", 
+      "Satellite Town", 
+      "Civil Lines",
+      "Wapda Town",
+      "People's Colony",
+      "Rehman Pura"
+    ],
   },
   sheikhupura: {
     city: "Sheikhupura",
-    description: "We provide comprehensive cargo solutions from UAE to Sheikhupura, an industrial city in Punjab province. Our reliable shipping services ensure efficient and secure delivery with door-to-door options throughout Sheikhupura.",
-    areas: ["Model Town", "Faisalabad Road", "Sargodha Road", "Factory Area", "Civil Lines", "Gulshan Colony"]
+    description: "We provide comprehensive cargo solutions from UAE to Sheikhupura, a historic city near Lahore. Our reliable services ensure secure delivery throughout the city.",
+    areas: [
+      "Civil Lines", 
+      "Model Town", 
+      "Satellite Town",
+      "Railway Road",
+      "GT Road",
+      "Cantt"
+    ],
   }
 };
 

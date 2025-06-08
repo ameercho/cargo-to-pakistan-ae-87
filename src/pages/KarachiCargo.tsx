@@ -1,40 +1,16 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
-import SEOHead from "@/components/SEOHead";
-import { useSEO } from "@/hooks/useSEO";
+import PageWrapper from "@/components/common/PageWrapper";
+import { PAKISTAN_DESTINATIONS } from "@/config/destination-config";
 
 const KarachiCargo = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
-  const seoData = useSEO({
-    pageType: 'pakistanDestination',
-    pageData: {
-      cityName: 'Karachi',
-      citySlug: 'karachi'
-    }
-  });
-  
-  const karachiInfo = {
-    city: "Karachi",
-    description: "We provide comprehensive cargo solutions from UAE to Karachi, Pakistan's largest city and economic hub. Our services are designed to meet all your shipping needs with reliability and efficiency.",
-    areas: [
-      "Clifton", 
-      "Defence", 
-      "Gulshan-e-Iqbal",
-      "North Nazimabad",
-      "Saddar",
-      "Korangi"
-    ],
-  };
+  const karachiInfo = PAKISTAN_DESTINATIONS.karachi;
 
   return (
-    <>
-      <SEOHead seoData={seoData} />
+    <PageWrapper debug={true}>
       <PakistanCargoDestinationPage destination={karachiInfo} />
-    </>
+    </PageWrapper>
   );
 };
 
