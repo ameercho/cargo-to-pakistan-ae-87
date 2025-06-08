@@ -3,18 +3,13 @@ import React from 'react';
 import UAEToPakistanPage from "@/components/UAEToPakistanPage";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
 import SEOHead from "@/components/SEOHead";
-import { useSEO } from "@/hooks/useSEO";
+import { useEnhancedSEO } from "@/hooks/useEnhancedSEO";
 
 const AbuDhabiToPakistan = () => {
   useScrollToTop();
   
-  const seoData = useSEO({
-    pageType: 'routePage',
-    pageData: {
-      originCity: 'Abu Dhabi',
-      originSlug: 'abu-dhabi'
-    }
-  });
+  // Use enhanced SEO hook - will automatically get Abu Dhabi specific SEO
+  const seoData = useEnhancedSEO({ debug: true });
   
   const abuDhabiInfo = {
     city: "Abu Dhabi",
@@ -23,7 +18,7 @@ const AbuDhabiToPakistan = () => {
 
   return (
     <>
-      <SEOHead seoData={seoData} />
+      <SEOHead seoData={seoData} debug={true} />
       <UAEToPakistanPage location={abuDhabiInfo} />
     </>
   );

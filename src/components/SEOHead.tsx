@@ -6,9 +6,10 @@ import { SEO_DEFAULTS, COMPANY_INFO } from "@/constants";
 interface SEOHeadProps {
   seoData: SEOData;
   structuredData?: object;
+  debug?: boolean;
 }
 
-const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
+const SEOHead = ({ seoData, structuredData, debug = false }: SEOHeadProps) => {
   const {
     title,
     description,
@@ -19,7 +20,9 @@ const SEOHead = ({ seoData, structuredData }: SEOHeadProps) => {
     ogImage,
   } = seoData;
 
-  console.log('SEOHead rendering with data:', seoData);
+  if (debug) {
+    console.log('SEOHead rendering with data:', seoData);
+  }
 
   return (
     <Helmet>

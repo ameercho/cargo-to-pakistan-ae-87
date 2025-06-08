@@ -3,14 +3,13 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
 import SEOHead from "@/components/SEOHead";
-import { useSEO } from "@/hooks/useSEO";
-import { generateStructuredData } from "@/utils/dubai-seo-utils";
+import { useEnhancedSEO } from "@/hooks/useEnhancedSEO";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
 const Index = () => {
-  // Use Dubai-optimized SEO hook
-  const seoData = useSEO({ pageType: 'homepage' });
+  // Use enhanced SEO hook with centralized configuration
+  const seoData = useEnhancedSEO({ debug: true });
 
   const popularDestinations = [
     { name: "Karachi", href: "/pakistan-cargo-to-karachi", desc: "Pakistan's largest port city and commercial hub" },
@@ -92,7 +91,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <SEOHead seoData={seoData} structuredData={structuredData} />
+      <SEOHead seoData={seoData} structuredData={structuredData} debug={true} />
       
       <HeroSection />
       
