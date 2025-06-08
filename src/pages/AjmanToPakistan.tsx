@@ -1,31 +1,16 @@
 
 import React from 'react';
 import UAEToPakistanPage from "@/components/UAEToPakistanPage";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
-import SEOHead from "@/components/SEOHead";
-import { useSEO } from "@/hooks/useSEO";
+import PageWrapper from "@/components/common/PageWrapper";
+import { UAE_LOCATIONS } from "@/config/destination-config";
 
 const AjmanToPakistan = () => {
-  useScrollToTop();
-  
-  const seoData = useSEO({
-    pageType: 'routePage',
-    pageData: {
-      originCity: 'Ajman',
-      originSlug: 'ajman'
-    }
-  });
-  
-  const ajmanInfo = {
-    city: "Ajman",
-    description: "Our complete door-to-door cargo service from Ajman to Pakistan takes care of everything from collection at your location to delivery at your recipient's doorstep with professional handling throughout.",
-  };
+  const ajmanInfo = UAE_LOCATIONS.ajman;
 
   return (
-    <>
-      <SEOHead seoData={seoData} />
+    <PageWrapper debug={true}>
       <UAEToPakistanPage location={ajmanInfo} />
-    </>
+    </PageWrapper>
   );
 };
 

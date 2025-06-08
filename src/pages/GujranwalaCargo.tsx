@@ -1,28 +1,17 @@
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import PakistanCargoDestinationPage from "@/components/PakistanCargoDestinationPage";
+import PageWrapper from "@/components/common/PageWrapper";
+import { PAKISTAN_DESTINATIONS } from "@/config/destination-config";
 
 const GujranwalaCargo = () => {
-  // Scroll to top when component mounts
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-  
-  const gujranwalaInfo = {
-    city: "Gujranwala",
-    description: "We provide comprehensive cargo solutions from UAE to Gujranwala, Pakistan's industrial city known for its ceramics and metalwork. Our reliable services ensure efficient shipping with door-to-door delivery options throughout Gujranwala.",
-    areas: [
-      "Satellite Town", 
-      "Model Town", 
-      "Peoples Colony",
-      "DHA",
-      "Civil Lines",
-      "Khayaban-e-Green"
-    ],
-    heroImage: "/images/gujranwala-hero.jpg" // Optional - add when available
-  };
+  const gujranwalaInfo = PAKISTAN_DESTINATIONS.gujranwala;
 
-  return <PakistanCargoDestinationPage destination={gujranwalaInfo} />;
+  return (
+    <PageWrapper debug={true}>
+      <PakistanCargoDestinationPage destination={gujranwalaInfo} />
+    </PageWrapper>
+  );
 };
 
 export default GujranwalaCargo;

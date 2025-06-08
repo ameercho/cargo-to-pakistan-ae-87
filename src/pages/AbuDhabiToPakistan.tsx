@@ -1,26 +1,16 @@
 
 import React from 'react';
 import UAEToPakistanPage from "@/components/UAEToPakistanPage";
-import { useScrollToTop } from "@/hooks/useScrollToTop";
-import SEOHead from "@/components/SEOHead";
-import { useEnhancedSEO } from "@/hooks/useEnhancedSEO";
+import PageWrapper from "@/components/common/PageWrapper";
+import { UAE_LOCATIONS } from "@/config/destination-config";
 
 const AbuDhabiToPakistan = () => {
-  useScrollToTop();
-  
-  // Use enhanced SEO hook - will automatically get Abu Dhabi specific SEO
-  const seoData = useEnhancedSEO({ debug: true });
-  
-  const abuDhabiInfo = {
-    city: "Abu Dhabi",
-    description: "Our comprehensive cargo service from Abu Dhabi to Pakistan provides reliable and cost-effective shipping solutions with door-to-door pickup and delivery options.",
-  };
+  const abuDhabiInfo = UAE_LOCATIONS["abu-dhabi"];
 
   return (
-    <>
-      <SEOHead seoData={seoData} debug={true} />
+    <PageWrapper debug={true}>
       <UAEToPakistanPage location={abuDhabiInfo} />
-    </>
+    </PageWrapper>
   );
 };
 
