@@ -33,7 +33,7 @@ const HeroSection = () => {
               size="lg"
             >
               <Phone className="mr-2 h-5 w-5" />
-              Get Free Quote
+              Call Us
             </Button>
             
             <Button 
@@ -64,7 +64,7 @@ const HeroSection = () => {
               <div className="text-gray-300">Cost-effective bulk</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Air Cargo UAE</div>
+              <div className="font-semibold">Moving Home</div>
               <div className="text-gray-300">Fast delivery</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
