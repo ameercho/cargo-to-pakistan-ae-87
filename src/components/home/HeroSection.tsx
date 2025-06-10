@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
@@ -6,6 +5,10 @@ import { useContactActions } from "@/hooks/useContactActions";
 
 const HeroSection = () => {
   const { handleCall, handleWhatsApp } = useContactActions();
+
+  const onWhatsAppClick = () => {
+    handleWhatsApp();
+  };
 
   return (
     <section className="py-20 bg-gradient-to-br from-cargo-blue to-cargo-green text-white relative overflow-hidden">
@@ -32,7 +35,7 @@ const HeroSection = () => {
             </Button>
             
             <Button 
-              onClick={handleWhatsApp}
+              onClick={onWhatsAppClick}
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-cargo-blue"
               size="lg"
