@@ -36,7 +36,7 @@ const App = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            <TooltipProvider>
+            <TooltipProvider delayDuration={200}>
               {/* Main application routing */}
               <RouterProvider router={router} />
               
