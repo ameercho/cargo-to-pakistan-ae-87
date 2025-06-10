@@ -1,6 +1,5 @@
 
 import React from "react";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
@@ -36,13 +35,12 @@ const App = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            <TooltipProvider delayDuration={200}>
-              {/* Main application routing */}
-              <RouterProvider router={router} />
-              
-              {/* Only render ClientToasts when we're on the client side */}
-              {isMounted && <ClientToasts />}
-            </TooltipProvider>
+            {/* Temporarily removed TooltipProvider to isolate the React useRef issue */}
+            {/* Main application routing */}
+            <RouterProvider router={router} />
+            
+            {/* Only render ClientToasts when we're on the client side */}
+            {isMounted && <ClientToasts />}
           </AnalyticsProvider>
         </QueryClientProvider>
       </ThemeProvider>
