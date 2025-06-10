@@ -8,13 +8,13 @@ import { cn } from "@/lib/utils"
 const TooltipProvider = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Provider>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
->((props, ref) => {
+>(({ ...props }, ref) => {
   // Only render if React is properly initialized
   if (typeof React === 'undefined' || !React) {
     return null;
   }
   
-  return <TooltipPrimitive.Provider ref={ref} {...props} />;
+  return <TooltipPrimitive.Provider {...props} />;
 });
 
 TooltipProvider.displayName = "TooltipProvider";
