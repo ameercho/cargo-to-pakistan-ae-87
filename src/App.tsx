@@ -23,20 +23,15 @@ const queryClient = new QueryClient({
 const App = () => {
   // Track if component is mounted for client-side only features
   const [isMounted, setIsMounted] = React.useState(false);
-  const [reactReady, setReactReady] = React.useState(false);
 
   React.useEffect(() => {
-    // Ensure React is fully available before proceeding
-    if (typeof React !== 'undefined' && React && React.useState) {
-      setReactReady(true);
-      // Initialize analytics when the app mounts
-      initializeAnalytics();
-      setIsMounted(true);
-    }
+    // Initialize analytics when the app mounts
+    initializeAnalytics();
+    setIsMounted(true);
   }, []);
 
-  // Don't render anything until React is confirmed ready
-  if (!reactReady || !isMounted) {
+  // Don't render anything until mounted to avoid SSR issues
+  if (!isMounted) {
     return <div>Loading...</div>;
   }
 
