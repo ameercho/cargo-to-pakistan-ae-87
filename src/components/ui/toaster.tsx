@@ -9,9 +9,14 @@ import {
   ToastTitle,
   ToastViewport,
 } from "@/components/ui/toast";
-import * as React from "react";
+import React from "react";
 
 export function Toaster() {
+  // Add safety check for React availability
+  if (!React || typeof React.useState !== 'function') {
+    return null;
+  }
+
   // Always call hooks unconditionally at the top level
   const [mounted, setMounted] = React.useState(false);
   const [toasts, setToasts] = React.useState([]);

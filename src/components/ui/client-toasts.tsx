@@ -1,7 +1,7 @@
 
 "use client";
 
-import * as React from "react";
+import React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { canUseDOM } from "@/hooks/toast/toast-utils";
 
@@ -10,7 +10,7 @@ import { canUseDOM } from "@/hooks/toast/toast-utils";
  */
 export function ClientToasts() {
   // Check if we can use DOM and React is available
-  if (!canUseDOM() || typeof React === 'undefined' || !React) {
+  if (!canUseDOM() || !React || typeof React.useState !== 'function') {
     return null;
   }
 
