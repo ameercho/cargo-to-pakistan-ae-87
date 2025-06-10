@@ -1,14 +1,10 @@
+
 import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
-// Simplified TooltipProvider - will be re-enabled once app is stable
-const TooltipProvider = ({ children, ...props }: React.ComponentProps<typeof TooltipPrimitive.Provider>) => {
-  // For now, just render children without the tooltip functionality
-  // This prevents the useRef error while keeping the app functional
-  return <>{children}</>;
-};
+const TooltipProvider = TooltipPrimitive.Provider
 
 const Tooltip = TooltipPrimitive.Root
 

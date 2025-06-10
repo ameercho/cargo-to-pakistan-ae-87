@@ -17,12 +17,9 @@ const Layout = ({ children, seoData }: LayoutProps) => {
         <Header />
         <Navigation />
         
-        <ErrorBoundary>
-          <main className="flex-1">
-            {children}
-          </main>
-        </ErrorBoundary>
-        
+        <main className="flex-1">
+          {children}
+        </main>
         <Footer />
       </div>
     </ErrorBoundary>

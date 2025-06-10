@@ -9,23 +9,29 @@ import {
   ToastTitle,
   ToastViewport,
 } from "@/components/ui/toast";
-import React from "react";
+import * as React from "react";
+import { useToast } from "@/hooks/use-toast";
+import { canUseDOM } from "@/hooks/toast/toast-utils";
 
 export function Toaster() {
-  // Add safety check for React availability
-  if (!React || typeof React.useState !== 'function') {
-    return null;
-  }
-
-  // Always call hooks unconditionally at the top level
+  // Track if component is mounted on client
   const [mounted, setMounted] = React.useState(false);
-  const [toasts, setToasts] = React.useState([]);
+  const [toasts, setToasts] = React.useState<any[]>([]);
   
   // Only run on client-side
   React.useEffect(() => {
     setMounted(true);
-    // For now, just use empty array to prevent errors
-    setToasts([]);
+    
+    // Get toasts from context after mounting
+    if (canUseDOM()) {
+      try {
+        const { toasts: contextToasts } = useToast();
+        setToasts(contextToasts || []);
+      } catch (error) {
+        console.error("Failed to get toasts:", error);
+      }
+    }
+    
     return () => setMounted(false);
   }, []);
   

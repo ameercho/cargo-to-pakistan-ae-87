@@ -1,9 +1,10 @@
 
-import React from "react";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
 import { router } from "./routes/index";
+import * as React from "react";
 import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
 import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
@@ -30,22 +31,24 @@ const App = () => {
     setIsMounted(true);
   }, []);
 
-  // Don't render anything until mounted to avoid SSR issues
-  if (!isMounted) {
-    return <div>Loading...</div>;
-  }
-
   return (
-    <HelmetProvider>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <QueryClientProvider client={queryClient}>
-          <AnalyticsProvider>
-            <RouterProvider router={router} />
-            <ClientToasts />
-          </AnalyticsProvider>
-        </QueryClientProvider>
-      </ThemeProvider>
-    </HelmetProvider>
+    <React.StrictMode>
+      <HelmetProvider>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <QueryClientProvider client={queryClient}>
+            <AnalyticsProvider>
+              <TooltipProvider>
+                {/* Main application routing */}
+                <RouterProvider router={router} />
+                
+                {/* Only render ClientToasts when we're on the client side */}
+                {isMounted && <ClientToasts />}
+              </TooltipProvider>
+            </AnalyticsProvider>
+          </QueryClientProvider>
+        </ThemeProvider>
+      </HelmetProvider>
+    </React.StrictMode>
   );
 };
 
