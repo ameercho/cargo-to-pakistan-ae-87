@@ -1,30 +1,14 @@
-
 import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
-// Create a safe TooltipProvider that only renders when React is ready
-const TooltipProvider = React.forwardRef<
-  React.ElementRef<typeof TooltipPrimitive.Provider>,
-  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
->(({ ...props }, ref) => {
-  // Add multiple checks to ensure React is properly initialized
-  if (typeof window === 'undefined' || typeof React === 'undefined' || !React || !React.useRef) {
-    return null;
-  }
-  
-  // Additional safety check - try to use a hook to verify React context
-  try {
-    const testRef = React.useRef(null);
-    return <TooltipPrimitive.Provider {...props} />;
-  } catch (error) {
-    console.warn('TooltipProvider: React hooks not available, skipping render');
-    return null;
-  }
-});
-
-TooltipProvider.displayName = "TooltipProvider";
+// Simplified TooltipProvider - will be re-enabled once app is stable
+const TooltipProvider = ({ children, ...props }: React.ComponentProps<typeof TooltipPrimitive.Provider>) => {
+  // For now, just render children without the tooltip functionality
+  // This prevents the useRef error while keeping the app functional
+  return <>{children}</>;
+};
 
 const Tooltip = TooltipPrimitive.Root
 

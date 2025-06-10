@@ -8,7 +8,6 @@ import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
 import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
 import { initializeAnalytics } from "@/services/analytics";
-import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
@@ -36,12 +35,12 @@ const App = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            {/* Only render TooltipProvider when mounted and React is ready */}
+            {/* Temporarily removed TooltipProvider to fix React useRef issues */}
             {isMounted ? (
-              <TooltipProvider>
+              <>
                 <RouterProvider router={router} />
                 <ClientToasts />
-              </TooltipProvider>
+              </>
             ) : (
               <div>Loading...</div>
             )}
