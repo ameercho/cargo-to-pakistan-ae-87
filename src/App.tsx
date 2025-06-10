@@ -23,27 +23,30 @@ const queryClient = new QueryClient({
 const App = () => {
   // Track if component is mounted for client-side only features
   const [isMounted, setIsMounted] = React.useState(false);
+  const [reactReady, setReactReady] = React.useState(false);
 
   React.useEffect(() => {
-    // Initialize analytics when the app mounts
-    initializeAnalytics();
-    setIsMounted(true);
+    // Ensure React is fully available before proceeding
+    if (typeof React !== 'undefined' && React && React.useState) {
+      setReactReady(true);
+      // Initialize analytics when the app mounts
+      initializeAnalytics();
+      setIsMounted(true);
+    }
   }, []);
+
+  // Don't render anything until React is confirmed ready
+  if (!reactReady || !isMounted) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <HelmetProvider>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            {/* Temporarily removed TooltipProvider to fix React useRef issues */}
-            {isMounted ? (
-              <>
-                <RouterProvider router={router} />
-                <ClientToasts />
-              </>
-            ) : (
-              <div>Loading...</div>
-            )}
+            <RouterProvider router={router} />
+            <ClientToasts />
           </AnalyticsProvider>
         </QueryClientProvider>
       </ThemeProvider>
