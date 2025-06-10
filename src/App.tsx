@@ -8,6 +8,7 @@ import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
 import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
 import { initializeAnalytics } from "@/services/analytics";
+import { TooltipProvider } from "@/components/ui/tooltip";
 
 // Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
@@ -35,12 +36,15 @@ const App = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            {/* Temporarily removed TooltipProvider to isolate the React useRef issue */}
-            {/* Main application routing */}
-            <RouterProvider router={router} />
-            
-            {/* Only render ClientToasts when we're on the client side */}
-            {isMounted && <ClientToasts />}
+            {/* Only render TooltipProvider when mounted and React is ready */}
+            {isMounted ? (
+              <TooltipProvider>
+                <RouterProvider router={router} />
+                <ClientToasts />
+              </TooltipProvider>
+            ) : (
+              <div>Loading...</div>
+            )}
           </AnalyticsProvider>
         </QueryClientProvider>
       </ThemeProvider>

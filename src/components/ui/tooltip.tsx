@@ -4,17 +4,24 @@ import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
-// Create a safe TooltipProvider that checks for React context
+// Create a safe TooltipProvider that only renders when React is ready
 const TooltipProvider = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Provider>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
 >(({ ...props }, ref) => {
-  // Only render if React is properly initialized
-  if (typeof React === 'undefined' || !React) {
+  // Add multiple checks to ensure React is properly initialized
+  if (typeof window === 'undefined' || typeof React === 'undefined' || !React || !React.useRef) {
     return null;
   }
   
-  return <TooltipPrimitive.Provider {...props} />;
+  // Additional safety check - try to use a hook to verify React context
+  try {
+    const testRef = React.useRef(null);
+    return <TooltipPrimitive.Provider {...props} />;
+  } catch (error) {
+    console.warn('TooltipProvider: React hooks not available, skipping render');
+    return null;
+  }
 });
 
 TooltipProvider.displayName = "TooltipProvider";
