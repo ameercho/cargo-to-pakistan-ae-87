@@ -1,10 +1,23 @@
 
-import React from "react"
+import * as React from "react"
 import * as TooltipPrimitive from "@radix-ui/react-tooltip"
 
 import { cn } from "@/lib/utils"
 
-const TooltipProvider = TooltipPrimitive.Provider
+// Create a safe TooltipProvider that checks for React context
+const TooltipProvider = React.forwardRef<
+  React.ElementRef<typeof TooltipPrimitive.Provider>,
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Provider>
+>((props, ref) => {
+  // Only render if React is properly initialized
+  if (typeof React === 'undefined' || !React) {
+    return null;
+  }
+  
+  return <TooltipPrimitive.Provider ref={ref} {...props} />;
+});
+
+TooltipProvider.displayName = "TooltipProvider";
 
 const Tooltip = TooltipPrimitive.Root
 
