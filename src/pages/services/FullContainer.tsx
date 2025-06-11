@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -84,17 +85,6 @@ const FullContainer = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Full Container Load (FCL) Services from UAE to Pakistan | Dedicated Container Shipping</title>
-        <meta name="description" content="Professional full container load (FCL) services from UAE to Pakistan with dedicated container shipping solutions for large cargo volumes." />
-        <meta name="keywords" content="full container load, FCL, dedicated container, UAE to Pakistan shipping, container shipping" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/full-container" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
