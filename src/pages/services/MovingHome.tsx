@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Home, Clock, Package } from "lucide-react";
@@ -45,45 +44,8 @@ const MovingHome = () => {
     handleWhatsApp("Hello, I'm interested in your home moving services to Pakistan.");
   };
 
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Moving Home",
-        "item": "https://cargotopakistan.ae/services/moving-home"
-      }
-    ]
-  };
-
   return (
     <>
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Moving Home Services from UAE to Pakistan | Complete Home Relocation</title>
-        <meta name="description" content="Professional home moving services from UAE to Pakistan. Complete door-to-door home relocation solutions with careful handling of all your belongings." />
-        <meta name="keywords" content="home moving, house relocation, UAE to Pakistan moving, home shifting, furniture moving" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/moving-home" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       <ServicePageLayout
         heroSection={<MovingHomeHero onCall={handleCall} onWhatsApp={handleWhatsAppWithMessage} />}
         breadcrumbTitle="Moving Home"
