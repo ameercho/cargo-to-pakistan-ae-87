@@ -1,6 +1,4 @@
-
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Users, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lightbulb } from "lucide-react";
@@ -86,17 +84,6 @@ const Consulting = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Logistics Consulting Services | Expert Advice for Cargo to Pakistan</title>
-        <meta name="description" content="Professional logistics consulting services for optimizing cargo shipments from UAE to Pakistan. Expert advice on cost reduction and efficiency." />
-        <meta name="keywords" content="logistics consulting, cargo advice, shipping optimization, UAE to Pakistan consulting, supply chain" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/consulting" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
