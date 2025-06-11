@@ -1,5 +1,5 @@
+
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Zap, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Send } from "lucide-react";
@@ -57,45 +57,8 @@ const CourierService = () => {
     window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20courier%20services%20to%20Pakistan.`, "_blank");
   };
 
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Courier Service",
-        "item": "https://cargotopakistan.ae/services/courier-service"
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Express Courier Services from UAE to Pakistan | Fast Document & Package Delivery</title>
-        <meta name="description" content="Fast express courier services from UAE to Pakistan for urgent documents and packages with tracking and reliable delivery." />
-        <meta name="keywords" content="courier service, express delivery, UAE to Pakistan courier, fast delivery, document courier" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/courier-service" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
