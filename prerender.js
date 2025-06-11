@@ -2,6 +2,7 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import url from 'node:url'
+import { injectMetadata } from './utils/static-seo-injector.js'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
@@ -81,7 +82,7 @@ const routesToPrerender = [
 ]
 
 ;(async () => {
-  console.log('Prerendering routes...')
+  console.log('Prerendering routes with static SEO metadata injection...')
   
   for (const url of routesToPrerender) {
     try {
@@ -98,8 +99,11 @@ const routesToPrerender = [
       const { html } = renderResult
       
       // Insert the rendered app into the HTML template
-      const renderedHtml = template.replace('<!--app-html-->', html)
-
+      let renderedHtml = template.replace('<!--app-html-->', html)
+      
+      // CRITICAL: Inject static SEO metadata for this specific route
+      renderedHtml = injectMetadata(renderedHtml, url)
+      
       // Create directory structure if needed
       const urlPath = url === '/' ? '/index' : url
       const filePath = `dist${urlPath}.html`
@@ -109,14 +113,15 @@ const routesToPrerender = [
         fs.mkdirSync(dir, { recursive: true })
       }
       
-      // Write the prerendered HTML to the output directory
+      // Write the prerendered HTML with injected metadata to the output directory
       fs.writeFileSync(toAbsolute(filePath), renderedHtml)
-      console.log(`✅ Pre-rendered: ${filePath}`)
+      console.log(`✅ Pre-rendered with static SEO: ${filePath}`)
     } catch (error) {
       console.error(`❌ Error prerendering ${url}:`, error.message)
       // Continue with other routes even if one fails
     }
   }
   
-  console.log('Prerendering complete!')
+  console.log('✅ Static SEO prerendering complete!')
+  console.log('🔍 All pages now have build-time injected metadata for optimal SEO')
 })()

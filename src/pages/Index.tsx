@@ -2,15 +2,10 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
-import SEOHead from "@/components/SEOHead";
-import { useEnhancedSEO } from "@/hooks/useEnhancedSEO";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
 const Index = () => {
-  // Use enhanced SEO hook with centralized configuration
-  const seoData = useEnhancedSEO({ debug: true });
-
   const popularDestinations = [
     { name: "Karachi", href: "/pakistan-cargo-to-karachi", desc: "Pakistan's largest port city and commercial hub" },
     { name: "Lahore", href: "/pakistan-cargo-to-lahore", desc: "Cultural capital and second largest city" },
@@ -18,81 +13,8 @@ const Index = () => {
     { name: "Peshawar", href: "/pakistan-cargo-to-peshawar", desc: "Historic northwestern gateway city" }
   ];
 
-  // Enhanced structured data for Dubai local business
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "MovingCompany",
-    "name": "Cargo to Pakistan",
-    "url": "https://cargotopakistan.ae",
-    "description": "Dubai's leading cargo shipping service to Pakistan with door-to-door delivery",
-    "address": {
-      "@type": "PostalAddress",
-      "addressCountry": "AE",
-      "addressRegion": "Dubai",
-      "addressLocality": "Dubai"
-    },
-    "geo": {
-      "@type": "GeoCoordinates", 
-      "latitude": "25.2048",
-      "longitude": "55.2708"
-    },
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+971-50-494-8135",
-      "contactType": "customer service",
-      "availableLanguage": ["English", "Urdu", "Arabic"]
-    },
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Dubai",
-        "containedIn": "United Arab Emirates"
-      },
-      {
-        "@type": "Country", 
-        "name": "Pakistan"
-      }
-    ],
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Dubai Pakistan Cargo Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Air Cargo Dubai to Pakistan",
-            "description": "Fast air freight from Dubai to all Pakistan cities"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service", 
-            "name": "Sea Freight Dubai to Pakistan",
-            "description": "Cost-effective sea cargo from Dubai ports"
-          }
-        }
-      ]
-    },
-    "review": {
-      "@type": "Review",
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "4.8",
-        "bestRating": "5"
-      },
-      "author": {
-        "@type": "Organization",
-        "name": "Dubai Customer Reviews"
-      }
-    }
-  };
-
   return (
     <div className="min-h-screen">
-      <SEOHead seoData={seoData} structuredData={structuredData} debug={true} />
-      
       <HeroSection />
       
       {/* Main Content Section with Enhanced Dubai SEO Structure */}
@@ -100,7 +22,7 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-cargo-blue mb-8 text-center">
-              {seoData.h1}
+              Dubai to Pakistan Cargo | Trusted by 10,000+ Customers Worldwide
             </h1>
             
             <div className="prose max-w-none text-lg text-gray-700 mb-12">
