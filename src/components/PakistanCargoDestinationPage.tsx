@@ -1,6 +1,4 @@
-
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Plane, Ship, Truck, Package, Phone, MessageCircle } from "lucide-react";
@@ -55,16 +53,6 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
   
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>{`Cargo Services to ${destination.city}, Pakistan | Cargo to Pakistan`}</title>
-        <meta 
-          name="description" 
-          content={`Professional cargo services to ${destination.city}, Pakistan. Door-to-door delivery with reliable tracking.`} 
-        />
-        <link rel="canonical" href={`https://cargotopakistan.ae/pakistan-cargo-to-${destination.city.toLowerCase()}`} />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
