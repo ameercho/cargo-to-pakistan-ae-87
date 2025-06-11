@@ -1,5 +1,5 @@
+
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lock } from "lucide-react";
@@ -57,45 +57,8 @@ const Insurance = () => {
     window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank");
   };
 
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Insurance",
-        "item": "https://cargotopakistan.ae/services/insurance"
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Cargo Insurance Services for Shipments to Pakistan | Comprehensive Coverage</title>
-        <meta name="description" content="Comprehensive cargo insurance coverage for shipments from UAE to Pakistan. Protect your valuable cargo with our insurance services." />
-        <meta name="keywords" content="cargo insurance, shipping insurance, UAE to Pakistan insurance, cargo protection, shipment coverage" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/insurance" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
