@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Clock, Shield, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Box } from "lucide-react";
@@ -85,17 +84,6 @@ const Packaging = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Professional Packaging Services for Cargo to Pakistan | Secure Packing Solutions</title>
-        <meta name="description" content="Expert packaging services for cargo shipments from UAE to Pakistan. Professional packing solutions to ensure safe delivery." />
-        <meta name="keywords" content="packaging services, cargo packing, UAE to Pakistan, secure packaging, professional packing" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/packaging" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
