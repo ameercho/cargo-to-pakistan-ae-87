@@ -2,12 +2,22 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import url from 'node:url'
-import { injectMetadata } from './utils/static-seo-injector.js'
 
 const __dirname = path.dirname(url.fileURLToPath(import.meta.url))
 const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
+
+// Import the metadata injection function
+async function importMetadataInjector() {
+  try {
+    const { injectMetadata } = await import('./utils/static-seo-injector.js');
+    return injectMetadata;
+  } catch (error) {
+    console.error('Failed to import metadata injector:', error);
+    return null;
+  }
+}
 
 // Try to import the server render function, fallback if not available
 let render;
@@ -79,10 +89,17 @@ const routesToPrerender = [
   '/abu-dhabi-to-pakistan',
   '/sharjah-to-pakistan',
   '/ajman-to-pakistan'
-]
+];
 
 ;(async () => {
   console.log('Prerendering routes with static SEO metadata injection...')
+  
+  // Import the metadata injection function
+  const injectMetadata = await importMetadataInjector();
+  
+  if (!injectMetadata) {
+    console.error('❌ Could not load metadata injector, proceeding without SEO injection');
+  }
   
   for (const url of routesToPrerender) {
     try {
@@ -102,7 +119,14 @@ const routesToPrerender = [
       let renderedHtml = template.replace('<!--app-html-->', html)
       
       // CRITICAL: Inject static SEO metadata for this specific route
-      renderedHtml = injectMetadata(renderedHtml, url)
+      if (injectMetadata) {
+        try {
+          renderedHtml = await injectMetadata(renderedHtml, url)
+          console.log(`✅ SEO metadata injected for: ${url}`)
+        } catch (metaError) {
+          console.warn(`⚠️ Failed to inject metadata for ${url}:`, metaError.message)
+        }
+      }
       
       // Create directory structure if needed
       const urlPath = url === '/' ? '/index' : url
