@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
@@ -19,14 +18,6 @@ const SharjahArea = () => {
   
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Cargo Services in Sharjah | Shipping to Pakistan</title>
-        <meta name="description" content="Professional cargo services from Sharjah to Pakistan. Serving all areas including Al Nahda, Al Majaz, Al Khan and more." />
-        <meta name="keywords" content="sharjah cargo, pakistan shipping, sharjah to pakistan, cargo services sharjah" />
-        <link rel="canonical" href="https://cargotopakistan.ae/areas/sharjah" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
