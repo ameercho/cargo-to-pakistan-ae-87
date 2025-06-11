@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from "react-helmet-async";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Truck, Package, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
@@ -60,15 +59,6 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
 
   return (
     <div className="min-h-screen bg-white">
-      <Helmet>
-        <title>{`Cargo Services from ${location.city} to Pakistan | Reliable Shipping`}</title>
-        <meta 
-          name="description" 
-          content={`Professional cargo services from ${location.city} to Pakistan. Door-to-door delivery with reliable tracking.`} 
-        />
-        <link rel="canonical" href={`https://cargotopakistan.ae/${location.city.toLowerCase()}-to-pakistan`} />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
