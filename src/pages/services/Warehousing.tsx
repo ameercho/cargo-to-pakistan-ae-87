@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
@@ -87,15 +86,7 @@ const Warehousing = () => {
   return (
     <div className="min-h-screen">
       {/* SEO Metadata */}
-      <Helmet>
-        <title>Warehousing Services in UAE | Secure Storage Solutions for Pakistan Cargo</title>
-        <meta name="description" content="Professional warehousing and storage services in UAE with secure facilities for cargo bound to Pakistan. Flexible storage solutions." />
-        <meta name="keywords" content="warehousing, storage services, UAE warehouse, cargo storage, inventory management" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/warehousing" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
+      
 
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
