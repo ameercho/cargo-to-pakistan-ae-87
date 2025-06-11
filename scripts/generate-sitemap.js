@@ -67,17 +67,26 @@ function validateCanonicalConsistency(routes) {
   const inconsistentRoutes = [];
   
   routes.forEach(route => {
-    const seoData = getSEOData(route.url);
-    const expectedCanonical = `${baseUrl}${route.url}`;
-    
-    if (seoData.canonicalUrl !== expectedCanonical) {
+    try {
+      const seoData = getSEOData(route.url);
+      const expectedCanonical = `${baseUrl}${route.url}`;
+      
+      if (seoData.canonicalUrl !== expectedCanonical) {
+        inconsistentRoutes.push({
+          url: route.url,
+          expected: expectedCanonical,
+          actual: seoData.canonicalUrl
+        });
+      } else {
+        console.log(`✅ Route ${route.url} has canonical: ${seoData.canonicalUrl}`);
+      }
+    } catch (error) {
+      console.error(`❌ Error validating route ${route.url}:`, error.message);
       inconsistentRoutes.push({
         url: route.url,
-        expected: expectedCanonical,
-        actual: seoData.canonicalUrl
+        expected: `${baseUrl}${route.url}`,
+        actual: 'ERROR'
       });
-    } else {
-      console.log(`✅ Route ${route.url} has canonical: ${seoData.canonicalUrl}`);
     }
   });
   
@@ -97,28 +106,38 @@ function generateSitemap() {
   
   // Filter routes to only include those with correct canonicals
   const validRoutes = routes.filter(route => {
-    const seoData = getSEOData(route.url);
-    const expectedCanonical = `${baseUrl}${route.url}`;
-    
-    if (seoData.canonicalUrl !== expectedCanonical) {
-      console.log(`❌ Excluding ${route.url} - canonical mismatch`);
+    try {
+      const seoData = getSEOData(route.url);
+      const expectedCanonical = `${baseUrl}${route.url}`;
+      
+      if (seoData.canonicalUrl !== expectedCanonical) {
+        console.log(`❌ Excluding ${route.url} - canonical mismatch`);
+        return false;
+      }
+      
+      return true;
+    } catch (error) {
+      console.error(`❌ Error processing route ${route.url}, excluding from sitemap:`, error.message);
       return false;
     }
-    
-    return true;
   });
   
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${validRoutes.map(route => {
-  const seoData = getSEOData(route.url);
-  return `  <url>
+  try {
+    const seoData = getSEOData(route.url);
+    return `  <url>
     <loc>${seoData.canonicalUrl}</loc>
     <lastmod>${currentDate}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
   </url>`;
-}).join('\n')}
+  } catch (error) {
+    console.error(`❌ Error generating sitemap entry for ${route.url}:`, error.message);
+    return '';
+  }
+}).filter(entry => entry !== '').join('\n')}
 </urlset>
 `;
 
