@@ -1,33 +1,10 @@
 
-import { CheckCircle, Shield, Clock, Globe } from "lucide-react";
+import { SERVICE_FEATURES } from "./utils";
 
 const ServicesFeatures = () => {
-  const features = [
-    {
-      icon: Globe,
-      title: "Worldwide Coverage",
-      description: "All UAE cities to Pakistan destinations"
-    },
-    {
-      icon: Shield,
-      title: "Secure Handling",
-      description: "Professional packaging and protection"
-    },
-    {
-      icon: Clock,
-      title: "Timely Delivery",
-      description: "Reliable schedules and tracking"
-    },
-    {
-      icon: CheckCircle,
-      title: "Quality Service",
-      description: "Dedicated customer support team"
-    }
-  ];
-
   return (
     <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-12">
-      {features.map((feature, index) => {
+      {SERVICE_FEATURES.map((feature, index) => {
         const IconComponent = feature.icon;
         return (
           <div key={index} className="text-center">

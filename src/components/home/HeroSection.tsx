@@ -1,7 +1,9 @@
+
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { useContactActions } from "@/hooks/useContactActions";
+import { SERVICE_HIGHLIGHTS } from "./utils";
 
 const HeroSection = () => {
   const { handleCall, handleWhatsApp } = useContactActions();
@@ -57,22 +59,12 @@ const HeroSection = () => {
           </div>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Sea Cargo UAE</div>
-              <div className="text-gray-300">Cost-effective bulk</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Moving Home</div>
-              <div className="text-gray-300">Fast delivery</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Full Container</div>
-              <div className="text-gray-300">Large shipments</div>
-            </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-              <div className="font-semibold">Door-to-Door</div>
-              <div className="text-gray-300">Complete service</div>
-            </div>
+            {SERVICE_HIGHLIGHTS.map((service, index) => (
+              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
+                <div className="font-semibold">{service.title}</div>
+                <div className="text-gray-300">{service.description}</div>
+              </div>
+            ))}
           </div>
         </div>
       </div>

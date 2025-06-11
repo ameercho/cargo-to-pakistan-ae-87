@@ -1,10 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { PHONE_NUMBER } from "./utils";
 
 const ServicesCallToAction = () => {
   const handleCall = () => {
-    window.location.href = "tel:+971504948135";
+    window.location.href = `tel:${PHONE_NUMBER}`;
   };
 
   return (

@@ -6,6 +6,7 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 import { NAVIGATION_LINKS, CONTACT_INFO } from "@/constants";
 import { usePhoneCall } from "@/hooks/usePhoneCall";
 import { useNavigation } from "@/hooks/useNavigation";
+import { getNavLinkClasses, getUnderlineClasses, getMobileNavLinkClasses } from "./navigation/utils";
 
 const Header = () => {
   const { location } = useNavigation();
@@ -26,24 +27,19 @@ const Header = () => {
         
         {/* Desktop Navigation - Hidden on mobile */}
         <nav className="hidden md:flex items-center space-x-6">
-          {NAVIGATION_LINKS.main.map(link => (
-            <Link 
-              key={link.href} 
-              to={link.href} 
-              className={`font-medium tap-target px-2 py-1 transition-colors relative overflow-hidden group ${
-                location.pathname === link.href 
-                  ? "text-cargo-green after:scale-x-100" 
-                  : "text-black hover:text-cargo-green"
-              }`}
-            >
-              {link.name}
-              <span className={`absolute bottom-0 left-0 w-full h-0.5 bg-cargo-green transform ${
-                location.pathname === link.href 
-                  ? "scale-x-100" 
-                  : "scale-x-0 group-hover:scale-x-100"
-              } transition-transform duration-300 origin-left`}></span>
-            </Link>
-          ))}
+          {NAVIGATION_LINKS.main.map(link => {
+            const isActive = location.pathname === link.href;
+            return (
+              <Link 
+                key={link.href} 
+                to={link.href} 
+                className={getNavLinkClasses(isActive)}
+              >
+                {link.name}
+                <span className={getUnderlineClasses(isActive)}></span>
+              </Link>
+            );
+          })}
           <Button 
             className="bg-cargo-green hover:bg-[#176a3e] shadow-md transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 flex items-center gap-1" 
             onClick={() => makeCall('header')}
@@ -77,19 +73,18 @@ const Header = () => {
                 </div>
                 
                 <nav className="flex flex-col space-y-1">
-                  {NAVIGATION_LINKS.main.map(link => (
-                    <Link 
-                      key={link.href} 
-                      to={link.href} 
-                      className={`font-medium tap-target p-3 transition-all duration-200 ${
-                        location.pathname === link.href 
-                          ? "bg-cargo-lightGreen text-cargo-green rounded-md border-l-4 border-cargo-green" 
-                          : "text-black hover:bg-cargo-lightGreen hover:rounded-md"
-                      }`}
-                    >
-                      {link.name}
-                    </Link>
-                  ))}
+                  {NAVIGATION_LINKS.main.map(link => {
+                    const isActive = location.pathname === link.href;
+                    return (
+                      <Link 
+                        key={link.href} 
+                        to={link.href} 
+                        className={getMobileNavLinkClasses(isActive)}
+                      >
+                        {link.name}
+                      </Link>
+                    );
+                  })}
                 </nav>
                 
                 <div className="mt-auto space-y-4 pt-6 border-t mt-6">

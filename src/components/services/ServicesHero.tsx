@@ -1,9 +1,10 @@
 
 import { Button } from "@/components/ui/button";
+import { PHONE_NUMBER } from "./utils";
 
 const ServicesHero = () => {
   const handleCall = () => {
-    window.location.href = "tel:+971504948135";
+    window.location.href = `tel:${PHONE_NUMBER}`;
   };
 
   return (
