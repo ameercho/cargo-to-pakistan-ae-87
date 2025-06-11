@@ -1,4 +1,3 @@
-
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react-swc";
 import path from "path";
@@ -71,7 +70,6 @@ export default defineConfig(({ mode, command }) => {
             // Other vendor libraries
             'vendor': [
               '@tanstack/react-query',
-              'react-helmet-async',
               'next-themes',
               'sonner',
               'date-fns'
