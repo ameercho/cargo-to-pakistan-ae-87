@@ -1,6 +1,4 @@
-
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Zap } from "lucide-react";
@@ -58,45 +56,8 @@ const AirFreightCargo = () => {
     window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20air%20freight%20services%20to%20Pakistan.`, "_blank");
   };
 
-  // Breadcrumb Schema
-  const breadcrumbSchema = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "Air Freight",
-        "item": "https://cargotopakistan.ae/services/air-freight"
-      }
-    ]
-  };
-
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Air Freight Services from UAE to Pakistan | Fast Air Cargo Shipping</title>
-        <meta name="description" content="Professional air freight services from UAE to Pakistan with fast delivery times for urgent cargo shipments. Reliable and secure air cargo solutions." />
-        <meta name="keywords" content="air freight, air cargo, UAE to Pakistan shipping, fast delivery, urgent cargo, express shipping" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/air-freight" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
