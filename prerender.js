@@ -8,13 +8,13 @@ const toAbsolute = (p) => path.resolve(__dirname, p)
 
 const template = fs.readFileSync(toAbsolute('dist/index.html'), 'utf-8')
 
-// Import the metadata injection function
-async function importMetadataInjector() {
+// Import the simple SEO injector
+async function importSEOInjector() {
   try {
-    const { injectMetadata } = await import('./utils/static-seo-injector.js');
+    const { injectMetadata } = await import('./utils/simple-seo-injector.js');
     return injectMetadata;
   } catch (error) {
-    console.error('Failed to import metadata injector:', error);
+    console.error('Failed to import SEO injector:', error);
     return null;
   }
 }
@@ -92,15 +92,16 @@ const routesToPrerender = [
 ];
 
 ;(async () => {
-  console.log('🚀 Starting static SEO prerendering process...')
+  console.log('🚀 Starting simple SEO prerendering process...')
   
-  // Import the metadata injection function
-  const injectMetadata = await importMetadataInjector();
+  // Import the SEO injection function
+  const injectMetadata = await importSEOInjector();
   
   if (!injectMetadata) {
-    console.error('❌ Could not load metadata injector, proceeding without SEO injection');
+    console.error('❌ Could not load SEO injector, aborting prerender');
+    process.exit(1);
   } else {
-    console.log('✅ Static SEO injector loaded successfully');
+    console.log('✅ Simple SEO injector loaded successfully');
   }
   
   let successCount = 0;
@@ -123,15 +124,14 @@ const routesToPrerender = [
       // Insert the rendered app into the HTML template
       let renderedHtml = template.replace('<!--app-html-->', html)
       
-      // CRITICAL: Inject static SEO metadata for this specific route
-      if (injectMetadata) {
-        try {
-          renderedHtml = await injectMetadata(renderedHtml, url)
-          console.log(`✅ SEO metadata injected for: ${url}`)
-        } catch (metaError) {
-          console.warn(`⚠️ Failed to inject metadata for ${url}:`, metaError.message)
-          errorCount++;
-        }
+      // CRITICAL: Inject simple SEO metadata for this specific route
+      try {
+        renderedHtml = injectMetadata(renderedHtml, url)
+        console.log(`✅ SEO metadata injected for: ${url}`)
+      } catch (metaError) {
+        console.error(`❌ Failed to inject metadata for ${url}:`, metaError.message)
+        errorCount++;
+        continue;
       }
       
       // Create directory structure if needed
@@ -145,7 +145,7 @@ const routesToPrerender = [
       
       // Write the prerendered HTML with injected metadata to the output directory
       fs.writeFileSync(toAbsolute(filePath), renderedHtml)
-      console.log(`✅ Pre-rendered with static SEO: ${filePath}`)
+      console.log(`✅ Pre-rendered with SEO: ${filePath}`)
       successCount++;
       
     } catch (error) {
@@ -155,7 +155,7 @@ const routesToPrerender = [
     }
   }
   
-  console.log('\n🎉 Static SEO prerendering complete!')
+  console.log('\n🎉 Simple SEO prerendering complete!')
   console.log(`📊 Results: ${successCount} successful, ${errorCount} errors`)
   console.log('🔍 All pages now have build-time injected metadata for optimal SEO')
   console.log('🚀 Ready for deployment with complete static SEO!')
