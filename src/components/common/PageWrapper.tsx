@@ -1,15 +1,12 @@
 
 import React from 'react';
-import SEOHead from "@/components/SEOHead";
-import { useEnhancedSEO } from "@/hooks/useEnhancedSEO";
 import { useScrollToTop } from "@/hooks/useScrollToTop";
-import { SEOData } from "@/types";
 
 interface PageWrapperProps {
   children: React.ReactNode;
-  customSEO?: Partial<SEOData>;
-  structuredData?: object;
-  debug?: boolean;
+  customSEO?: any; // Keep for backward compatibility but unused
+  structuredData?: object; // Keep for backward compatibility but unused
+  debug?: boolean; // Keep for backward compatibility but unused
 }
 
 const PageWrapper = ({ 
@@ -19,19 +16,11 @@ const PageWrapper = ({
   debug = false 
 }: PageWrapperProps) => {
   useScrollToTop();
-  
-  const seoData = useEnhancedSEO({ 
-    customSEO, 
-    debug 
-  });
 
+  // Since we now use static SEO injection at build time,
+  // this component only handles scroll behavior and renders children
   return (
     <>
-      <SEOHead 
-        seoData={seoData} 
-        structuredData={structuredData} 
-        debug={debug} 
-      />
       {children}
     </>
   );
