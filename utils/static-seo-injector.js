@@ -1,102 +1,164 @@
 
-// Static SEO metadata injection utility for build-time HTML enhancement
+// Static SEO metadata injector for build-time injection
+// This replaces React Helmet with pure static HTML generation
 
-export function injectMetadata(html, pathname) {
-  // Import the SEO config - handle both .js and .ts extensions
-  let getSEOData;
+import { getSEOData } from '../src/config/seo-config.js';
+
+/**
+ * Generates HTML meta tags from SEO data
+ * @param {Object} seoData - SEO configuration object
+ * @returns {string} - HTML meta tags
+ */
+function generateMetaTags(seoData) {
+  const tags = [];
+  
+  // Title tag
+  if (seoData.title) {
+    tags.push(`<title>${escapeHtml(seoData.title)}</title>`);
+  }
+  
+  // Basic meta tags
+  if (seoData.description) {
+    tags.push(`<meta name="description" content="${escapeHtml(seoData.description)}" />`);
+  }
+  
+  if (seoData.keywords) {
+    tags.push(`<meta name="keywords" content="${escapeHtml(seoData.keywords)}" />`);
+  }
+  
+  // Canonical URL
+  if (seoData.canonicalUrl) {
+    tags.push(`<link rel="canonical" href="${escapeHtml(seoData.canonicalUrl)}" />`);
+  }
+  
+  // Open Graph tags
+  if (seoData.ogTitle) {
+    tags.push(`<meta property="og:title" content="${escapeHtml(seoData.ogTitle)}" />`);
+  }
+  
+  if (seoData.ogDescription) {
+    tags.push(`<meta property="og:description" content="${escapeHtml(seoData.ogDescription)}" />`);
+  }
+  
+  if (seoData.ogImage) {
+    tags.push(`<meta property="og:image" content="${escapeHtml(seoData.ogImage)}" />`);
+  }
+  
+  if (seoData.canonicalUrl) {
+    tags.push(`<meta property="og:url" content="${escapeHtml(seoData.canonicalUrl)}" />`);
+  }
+  
+  // Default Open Graph type
+  tags.push(`<meta property="og:type" content="website" />`);
+  tags.push(`<meta property="og:site_name" content="Cargo to Pakistan" />`);
+  
+  // Twitter Card tags
+  tags.push(`<meta name="twitter:card" content="summary_large_image" />`);
+  
+  if (seoData.ogTitle) {
+    tags.push(`<meta name="twitter:title" content="${escapeHtml(seoData.ogTitle)}" />`);
+  }
+  
+  if (seoData.ogDescription) {
+    tags.push(`<meta name="twitter:description" content="${escapeHtml(seoData.ogDescription)}" />`);
+  }
+  
+  if (seoData.ogImage) {
+    tags.push(`<meta name="twitter:image" content="${escapeHtml(seoData.ogImage)}" />`);
+  }
+  
+  // Additional meta tags
+  tags.push(`<meta name="robots" content="index, follow" />`);
+  tags.push(`<meta name="author" content="Cargo to Pakistan" />`);
+  tags.push(`<meta name="language" content="en" />`);
+  
+  return tags.join('\n    ');
+}
+
+/**
+ * Escapes HTML special characters to prevent XSS
+ * @param {string} text - Text to escape
+ * @returns {string} - Escaped text
+ */
+function escapeHtml(text) {
+  if (typeof text !== 'string') return '';
+  
+  const map = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#039;'
+  };
+  
+  return text.replace(/[&<>"']/g, (match) => map[match]);
+}
+
+/**
+ * Injects SEO metadata into HTML at build time
+ * @param {string} html - Original HTML content
+ * @param {string} route - Current route path
+ * @returns {Promise<string>} - HTML with injected metadata
+ */
+export async function injectMetadata(html, route) {
   try {
-    // Try to import from the JS version first
-    const seoConfig = await import('../src/config/seo-config.js');
-    getSEOData = seoConfig.getSEOData;
-  } catch (error) {
-    console.log('No JS config found, trying TS config...');
-    try {
-      // Fallback to TypeScript version
-      const seoConfig = await import('../src/config/seo-config.ts');
-      getSEOData = seoConfig.getSEOData;
-    } catch (tsError) {
-      console.error('Could not import SEO config:', error, tsError);
+    console.log(`🔍 Injecting SEO metadata for route: ${route}`);
+    
+    // Get SEO data for the current route
+    const seoData = getSEOData(route);
+    
+    if (!seoData) {
+      console.warn(`⚠️ No SEO data found for route: ${route}`);
       return html;
     }
-  }
-
-  if (!getSEOData) {
-    console.warn('No getSEOData function found, returning original HTML');
-    return html;
-  }
-
-  const seoData = getSEOData(pathname);
-  
-  // Generate meta tags HTML
-  const metaTags = generateMetaTags(seoData);
-  
-  // Inject meta tags into the head section
-  const headCloseIndex = html.indexOf('</head>');
-  if (headCloseIndex === -1) {
-    console.warn('No </head> tag found, cannot inject metadata');
-    return html;
-  }
-  
-  // Insert meta tags before closing head tag
-  const beforeHead = html.substring(0, headCloseIndex);
-  const afterHead = html.substring(headCloseIndex);
-  
-  return beforeHead + metaTags + afterHead;
-}
-
-function generateMetaTags(seoData) {
-  const {
-    title,
-    description, 
-    keywords,
-    canonicalUrl,
-    ogTitle,
-    ogDescription,
-    ogImage,
-    h1
-  } = seoData;
-
-  return `
-    <!-- Static SEO Meta Tags -->
-    <title>${escapeHtml(title)}</title>
-    <meta name="description" content="${escapeHtml(description)}" />
-    <meta name="keywords" content="${escapeHtml(keywords)}" />
-    <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
     
-    <!-- Open Graph Tags -->
-    <meta property="og:title" content="${escapeHtml(ogTitle || title)}" />
-    <meta property="og:description" content="${escapeHtml(ogDescription || description)}" />
-    <meta property="og:url" content="${escapeHtml(canonicalUrl)}" />
+    // Generate meta tags
+    const metaTags = generateMetaTags(seoData);
+    
+    // Inject the meta tags into the HTML
+    const updatedHtml = html.replace('<!--seo-head-->', metaTags);
+    
+    console.log(`✅ Successfully injected SEO metadata for: ${route}`);
+    console.log(`📝 Title: ${seoData.title}`);
+    console.log(`📄 Description: ${seoData.description?.substring(0, 100)}...`);
+    
+    return updatedHtml;
+    
+  } catch (error) {
+    console.error(`❌ Error injecting metadata for ${route}:`, error);
+    
+    // Fallback: inject basic metadata
+    const fallbackMeta = `
+    <title>Cargo to Pakistan from UAE | Professional Shipping Services</title>
+    <meta name="description" content="Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery." />
+    <meta name="keywords" content="cargo to pakistan, uae pakistan shipping, professional cargo services" />
+    <link rel="canonical" href="https://cargotopakistan.ae${route}" />
+    <meta property="og:title" content="Cargo to Pakistan from UAE" />
+    <meta property="og:description" content="Professional cargo shipping services from UAE to Pakistan." />
     <meta property="og:type" content="website" />
-    ${ogImage ? `<meta property="og:image" content="${escapeHtml(ogImage)}" />` : ''}
-    
-    <!-- Twitter Card Tags -->
+    <meta property="og:site_name" content="Cargo to Pakistan" />
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="${escapeHtml(ogTitle || title)}" />
-    <meta name="twitter:description" content="${escapeHtml(ogDescription || description)}" />
-    ${ogImage ? `<meta name="twitter:image" content="${escapeHtml(ogImage)}" />` : ''}
+    <meta name="robots" content="index, follow" />`;
     
-    <!-- Additional SEO Tags -->
-    <meta name="robots" content="index, follow" />
-    <meta name="language" content="English" />
-    <meta name="revisit-after" content="7 days" />
-    <meta name="author" content="Cargo to Pakistan" />
-    
-    <!-- Geo Tags -->
-    <meta name="geo.region" content="AE-DU" />
-    <meta name="geo.placename" content="Dubai, UAE" />
-    <meta name="geo.position" content="25.2048;55.2708" />
-    <meta name="ICBM" content="25.2048, 55.2708" />
-    
-  `;
+    return html.replace('<!--seo-head-->', fallbackMeta);
+  }
 }
 
-function escapeHtml(text) {
-  if (!text) return '';
-  return text
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/"/g, '&quot;')
-    .replace(/'/g, '&#039;');
+/**
+ * Validates that SEO data contains required fields
+ * @param {Object} seoData - SEO data to validate
+ * @returns {boolean} - Whether SEO data is valid
+ */
+function validateSEOData(seoData) {
+  if (!seoData) return false;
+  
+  const required = ['title', 'description'];
+  const missing = required.filter(field => !seoData[field]);
+  
+  if (missing.length > 0) {
+    console.warn(`⚠️ Missing required SEO fields: ${missing.join(', ')}`);
+    return false;
+  }
+  
+  return true;
 }
