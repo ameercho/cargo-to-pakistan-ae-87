@@ -1,6 +1,4 @@
-
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, FileText, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Clipboard } from "lucide-react";
@@ -86,17 +84,6 @@ const CustomsClearance = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Customs Clearance Services for Pakistan | Expert Import Documentation</title>
-        <meta name="description" content="Professional customs clearance services for cargo imports to Pakistan. Expert assistance with documentation, duties, and compliance requirements." />
-        <meta name="keywords" content="customs clearance, import documentation, Pakistan customs, duty calculation, export compliance" />
-        <link rel="canonical" href="https://cargotopakistan.ae/services/customs-clearance" />
-        <script type="application/ld+json">
-          {JSON.stringify(breadcrumbSchema)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
