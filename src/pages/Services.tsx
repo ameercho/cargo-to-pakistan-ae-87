@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import ServicesContent from "@/components/services/ServicesContent";
 import PageHeader from "@/components/layout/PageHeader";
 import { Link } from "react-router-dom";
@@ -85,55 +84,8 @@ const Services = () => {
     { from: "Dubai", to: "Peshawar", href: "/pakistan-cargo-to-peshawar", desc: "Northwestern gateway" }
   ];
 
-  const seoData = {
-    title: "Cargo Services UAE to Pakistan | Sea Freight, Air Freight & More",
-    description: "Comprehensive cargo shipping services from UAE to Pakistan. Professional sea freight, air freight, courier services, packaging, and full container loads with door-to-door delivery.",
-    keywords: "cargo services, UAE to Pakistan shipping, sea freight, air freight, courier service, full container load, professional packaging, cargo insurance",
-    canonicalUrl: "https://cargotopakistan.ae/services",
-    ogTitle: "Cargo Services UAE to Pakistan | Sea Freight, Air Freight & More",
-    ogDescription: "Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.",
-    ogImage: "https://cargotopakistan.ae/images/services-og.jpg",
-    h1: "Comprehensive Cargo Services from UAE to Pakistan"
-  };
-
-  // Structured data for services
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Cargo Services to Pakistan",
-    "provider": {
-      "@type": "Organization",
-      "name": "Cargo to Pakistan"
-    },
-    "serviceType": "Freight and Logistics",
-    "areaServed": {
-      "@type": "Place",
-      "name": "UAE to Pakistan"
-    }
-  };
-
   return (
     <div className="min-h-screen">
-      <Helmet>
-        <title>{seoData.title}</title>
-        <meta name="description" content={seoData.description} />
-        <meta name="keywords" content={seoData.keywords} />
-        <link rel="canonical" href={seoData.canonicalUrl} />
-        <meta name="robots" content="index, follow" />
-        
-        {/* Open Graph tags */}
-        <meta property="og:title" content={seoData.ogTitle} />
-        <meta property="og:description" content={seoData.ogDescription} />
-        <meta property="og:url" content={seoData.canonicalUrl} />
-        <meta property="og:image" content={seoData.ogImage} />
-        <meta property="og:type" content="website" />
-        
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
-
       {/* Hero Section */}
       <PageHeader
         title="Comprehensive Cargo Services from UAE to Pakistan"
