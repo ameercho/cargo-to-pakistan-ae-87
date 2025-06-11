@@ -1,6 +1,5 @@
 
 import React, { useEffect } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
@@ -19,14 +18,6 @@ const UmmAlQuwainArea = () => {
   
   return (
     <div className="min-h-screen">
-      {/* SEO Metadata */}
-      <Helmet>
-        <title>Cargo Services in Umm Al Quwain | Shipping to Pakistan</title>
-        <meta name="description" content="Professional cargo services from Umm Al Quwain to Pakistan. Serving all areas including UAQ City, Al Raas, Falaj Al Mualla and more." />
-        <meta name="keywords" content="umm al quwain cargo, pakistan shipping, umm al quwain to pakistan, cargo services uaq" />
-        <link rel="canonical" href="https://cargotopakistan.ae/areas/umm-al-quwain" />
-      </Helmet>
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
