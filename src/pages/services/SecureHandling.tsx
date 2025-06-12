@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Lock, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Shield } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -84,6 +85,14 @@ const SecureHandling = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Component */}
+      <PageSEO
+        title="Secure Handling Services to Pakistan | Cargo to Pakistan"
+        description="Specialized secure handling for valuable, fragile, and sensitive cargo to Pakistan. Enhanced security and careful handling. Call +971504948135."
+        keywords="secure handling Pakistan, valuable cargo UAE, fragile cargo shipping, cargo to Pakistan, secure shipping UAE"
+        canonical="https://cargotopakistan.ae/services/secure-handling"
+        robots="index,follow"
+      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

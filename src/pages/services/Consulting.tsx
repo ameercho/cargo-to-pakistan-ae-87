@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Users, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lightbulb } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -84,6 +85,14 @@ const Consulting = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Component */}
+      <PageSEO
+        title="Logistics Consulting for Cargo to Pakistan | Cargo to Pakistan"
+        description="Expert logistics consulting for cargo to Pakistan. Cost optimization, compliance, and route planning. Call +971504948135."
+        keywords="logistics consulting Pakistan, cargo consulting UAE, shipping advice, cargo to Pakistan, logistics UAE"
+        canonical="https://cargotopakistan.ae/services/consulting"
+        robots="index,follow"
+      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

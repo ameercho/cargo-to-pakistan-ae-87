@@ -1,10 +1,10 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lock } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -59,6 +59,14 @@ const Insurance = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Component */}
+      <PageSEO
+        title="Cargo Insurance for Pakistan Shipments | Cargo to Pakistan"
+        description="Comprehensive cargo insurance for shipments from UAE to Pakistan. All risk coverage, fast claims, and expert support. Call +971504948135."
+        keywords="cargo insurance Pakistan, shipment insurance UAE, all risk coverage, cargo to Pakistan, insurance UAE"
+        canonical="https://cargotopakistan.ae/services/insurance"
+        robots="index,follow"
+      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

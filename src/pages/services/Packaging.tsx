@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Package, Clock, Shield, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Box } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -84,6 +85,14 @@ const Packaging = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Component */}
+      <PageSEO
+        title="Packaging Services for Cargo to Pakistan | Cargo to Pakistan"
+        description="Professional packaging services in UAE for safe cargo delivery to Pakistan. Custom crating, secure wrapping, and expert packing. Call +971504948135."
+        keywords="packaging services Pakistan, cargo packing UAE, custom crating, cargo to Pakistan, packing UAE"
+        canonical="https://cargotopakistan.ae/services/packaging"
+        robots="index,follow"
+      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

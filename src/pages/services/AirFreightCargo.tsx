@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Zap } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -58,6 +59,15 @@ const AirFreightCargo = () => {
 
   return (
     <div className="min-h-screen">
+      {/* SEO Component */}
+      <PageSEO
+        title="Air Freight Cargo Services to Pakistan | Cargo to Pakistan"
+        description="Fast, reliable air freight cargo services from UAE to Pakistan. Express & standard air shipping, secure handling, and real-time tracking. Call +971504948135."
+        keywords="air freight Pakistan, air cargo UAE, express air shipping, cargo to Pakistan, urgent cargo UAE"
+        canonical="https://cargotopakistan.ae/services/air-freight-cargo"
+        robots="index,follow"
+      />
+
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
@@ -94,8 +104,7 @@ const AirFreightCargo = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
