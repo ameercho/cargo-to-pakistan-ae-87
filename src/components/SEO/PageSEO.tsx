@@ -10,6 +10,9 @@ interface PageSEOProps {
   robots?: string;
   ogImage?: string;
   ogType?: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  structuredData?: object;
 }
 
 const PageSEO: React.FC<PageSEOProps> = ({
@@ -19,7 +22,10 @@ const PageSEO: React.FC<PageSEOProps> = ({
   canonical,
   robots = "index,follow",
   ogImage = "https://cargotopakistan.ae/opengraph-image.png",
-  ogType = "website"
+  ogType = "website",
+  ogTitle,
+  ogDescription,
+  structuredData
 }) => {
   const currentUrl = canonical || `https://cargotopakistan.ae${window.location.pathname}`;
 
@@ -31,17 +37,23 @@ const PageSEO: React.FC<PageSEOProps> = ({
       <meta name="robots" content={robots} />
       {canonical && <link rel="canonical" href={canonical} />}
       
-      <meta property="og:title" content={title} />
-      <meta property="og:description" content={description} />
+      <meta property="og:title" content={ogTitle || title} />
+      <meta property="og:description" content={ogDescription || description} />
       <meta property="og:image" content={ogImage} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:type" content={ogType} />
       <meta property="og:site_name" content="Cargo to Pakistan" />
       
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={title} />
-      <meta name="twitter:description" content={description} />
+      <meta name="twitter:title" content={ogTitle || title} />
+      <meta name="twitter:description" content={ogDescription || description} />
       <meta name="twitter:image" content={ogImage} />
+      
+      {structuredData && (
+        <script type="application/ld+json">
+          {JSON.stringify(structuredData)}
+        </script>
+      )}
     </Helmet>
   );
 };
