@@ -4,7 +4,7 @@ import ServicesContent from "@/components/services/ServicesContent";
 import PageHeader from "@/components/layout/PageHeader";
 import PageSEO from "@/components/SEO/PageSEO";
 import { Link } from "react-router-dom";
-import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home, Settings } from "lucide-react";
+import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home, Settings, WarehouseIcon, Warehouse, Container } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
 import { 
   Breadcrumb,
@@ -75,7 +75,22 @@ const Services = () => {
       description: "Complete household relocation services for families and individuals moving from UAE to Pakistan.",
       href: "/services/moving-home",
       features: ["Household Items", "Personal Effects", "Furniture Shipping", "Complete Relocation"]
+    },
+    {
+      icon: Warehouse,
+      title: "Warehousing & Storage",
+      description: "Secure warehousing and storage solutions for your cargo before or after shipping to Pakistan.",
+      href: "/services/warehousing",
+      features: ["Climate-Controlled Storage", "24/7 Security Monitoring", "Inventory Management", "Flexible Terms"]
+    },
+    {
+      icon: Container,
+      title: "Cross Stuffing Services",
+      description: "Efficient cross stuffing services for seamless transfer of cargo between containers and vehicles.",
+      href: "/services/cross-stuffing",
+      features: ["Quick Turnaround", "Professional Handling", "Secure Transfer", "Custom Solutions"]
     }
+    
   ];
 
   const popularRoutes = [
