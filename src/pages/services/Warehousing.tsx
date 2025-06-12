@@ -67,14 +67,13 @@ const Warehousing = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Manual SEO Meta Tags */}
+      {/* SEO Component */}
       <PageSEO
-        title="Warehousing Services UAE to Pakistan | Secure Storage & Distribution"
-        description="Professional warehousing services in Dubai, Abu Dhabi & Sharjah for Pakistan cargo. Secure storage, inventory management & distribution. Call +971504948135"
+        title="Warehousing Services UAE to Pakistan | Cargo to Pakistan"
+        description="Secure warehousing and storage in UAE for cargo to Pakistan. 24/7 monitored facilities, inventory management, and distribution. Call +971504948135."
         keywords="warehousing UAE, cargo storage Dubai, Pakistan cargo warehouse, inventory management, secure storage UAE"
-        ogTitle="Warehousing Services UAE to Pakistan | Cargo Storage"
-        ogDescription="Secure warehousing facilities across UAE for Pakistan cargo with 24/7 monitoring and professional inventory management."
-        structuredData={structuredData}
+        canonical="https://cargotopakistan.ae/services/warehousing"
+        robots="index,follow"
       />
 
       {/* Hero Section */}

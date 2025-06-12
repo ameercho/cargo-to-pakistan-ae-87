@@ -104,7 +104,8 @@ const AirFreightCargo = () => {
               </div>
             </div>
           </div>
-        </
+        </div>
+      </section>
 
       {/* Breadcrumb Navigation */}
       <section className="py-4 bg-gray-50 border-b">
