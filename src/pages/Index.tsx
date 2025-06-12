@@ -32,7 +32,7 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-cargo-blue mb-8 text-center">
-              <strong>Dubai to Pakistan Cargo</strong> | Trusted by 10,000+ Customers Worldwide
+              Cargo to Pakistan | Door to door
             </h1>
             
             <div className="prose max-w-none text-lg text-gray-700 mb-12">
@@ -63,7 +63,7 @@ const Index = () => {
             {/* Popular Destinations Section */}
             <div className="mb-16">
               <h2 className="text-3xl font-bold text-cargo-blue mb-8 text-center">
-                Popular <strong>Pakistan Destinations</strong> from UAE
+                Popular Pakistan Destinations from UAE
               </h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
