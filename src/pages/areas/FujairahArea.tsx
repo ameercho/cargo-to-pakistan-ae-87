@@ -1,9 +1,9 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 
 const FujairahArea = () => {
   // Scroll to top when component mounts
@@ -18,6 +18,14 @@ const FujairahArea = () => {
   
   return (
     <div className="min-h-screen">
+      <PageSEO
+        title="Cargo to Pakistan from Fujairah | Reliable Shipping Service"
+        description="Professional cargo shipping from Fujairah to Pakistan with door-to-door delivery. Serving Fujairah City, Dibba, Masafi & all Fujairah areas. Call +971504948135"
+        keywords="cargo to pakistan fujairah, fujairah pakistan shipping, cargo service fujairah, pakistan cargo fujairah"
+        canonical="https://cargotopakistan.ae/areas/fujairah"
+        robots="index,follow"
+      />
+
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

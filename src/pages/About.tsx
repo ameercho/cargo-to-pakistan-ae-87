@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import FloatingButton from "@/components/FloatingButton";
 import PageHeader from "@/components/layout/PageHeader";
+import PageSEO from "@/components/SEO/PageSEO";
 import { Link, useLocation } from "react-router-dom";
 import { ArrowRight, CheckCircle, Users, Award, ShieldCheck, Map, Info } from "lucide-react";
 import { 
@@ -24,6 +25,14 @@ const About = () => {
 
   return (
     <div>
+      <PageSEO
+        title="About Cargo to Pakistan | Trusted UAE Pakistan Shipping Company"
+        description="Your trusted partner for reliable and professional cargo services from UAE to Pakistan with years of experience and thousands of satisfied customers. Established 2015."
+        keywords="about cargo to pakistan, uae pakistan shipping company, cargo service provider, shipping company uae"
+        canonical="https://cargotopakistan.ae/about"
+        robots="index,follow"
+      />
+
       {/* Hero Section */}
       <PageHeader
         title="About Cargo to Pakistan"

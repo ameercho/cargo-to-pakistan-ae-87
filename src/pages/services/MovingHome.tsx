@@ -9,6 +9,7 @@ import MovingHomeHero from "@/components/services/moving-home/MovingHomeHero";
 import MovingHomeContent from "@/components/services/moving-home/MovingHomeContent";
 import MovingHomeSidebar from "@/components/services/moving-home/MovingHomeSidebar";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
+import PageSEO from "@/components/SEO/PageSEO";
 import { useContactActions } from "@/hooks/useContactActions";
 
 const MovingHome = () => {
@@ -46,6 +47,13 @@ const MovingHome = () => {
 
   return (
     <>
+      <PageSEO
+        title="Moving Home to Pakistan | Professional Home Relocation Service"
+        description="Professional home moving services from UAE to Pakistan. Complete household relocation with packing, shipping, and door-to-door delivery. Call +971504948135"
+        keywords="moving home to pakistan, household relocation uae, home shifting service, pakistan home moving"
+        canonical="https://cargotopakistan.ae/services/moving-home"
+        robots="index,follow"
+      />
       <ServicePageLayout
         heroSection={<MovingHomeHero onCall={handleCall} onWhatsApp={handleWhatsAppWithMessage} />}
         breadcrumbTitle="Moving Home"

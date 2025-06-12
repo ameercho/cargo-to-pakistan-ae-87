@@ -4,6 +4,7 @@ import ContactInfo from "@/components/contact/ContactInfo";
 import ContactMap from "@/components/contact/ContactMap";
 import FloatingButton from "@/components/FloatingButton";
 import PageHeader from "@/components/layout/PageHeader";
+import PageSEO from "@/components/SEO/PageSEO";
 import { Link, useLocation } from "react-router-dom";
 import { Phone } from "lucide-react";
 import { 
@@ -26,6 +27,14 @@ const Contact = () => {
 
   return (
     <div>
+      <PageSEO
+        title="Contact Cargo to Pakistan | Get Quote & Support"
+        description="Get in touch with our expert team for professional cargo shipping services from UAE to Pakistan. We're here to help with quotes, questions, and support. Call +971504948135"
+        keywords="contact cargo to pakistan, cargo quote uae, pakistan shipping support, cargo service contact"
+        canonical="https://cargotopakistan.ae/contact"
+        robots="index,follow"
+      />
+
       {/* Hero Section */}
       <PageHeader
         title="Contact Cargo to Pakistan"
