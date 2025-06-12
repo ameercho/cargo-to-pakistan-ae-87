@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Warehouse, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Archive } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
+import { generateServiceSchema } from "@/utils/seo-helpers";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -18,6 +20,13 @@ const Warehousing = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  // SEO structured data
+  const structuredData = generateServiceSchema(
+    "Warehousing Services UAE to Pakistan",
+    "Professional warehousing and storage solutions in UAE with secure facilities for cargo to Pakistan",
+    "Cargo Warehousing"
+  );
   
   const services = [
     {
@@ -58,6 +67,16 @@ const Warehousing = () => {
 
   return (
     <div className="min-h-screen">
+      {/* Manual SEO Meta Tags */}
+      <PageSEO
+        title="Warehousing Services UAE to Pakistan | Secure Storage & Distribution"
+        description="Professional warehousing services in Dubai, Abu Dhabi & Sharjah for Pakistan cargo. Secure storage, inventory management & distribution. Call +971504948135"
+        keywords="warehousing UAE, cargo storage Dubai, Pakistan cargo warehouse, inventory management, secure storage UAE"
+        ogTitle="Warehousing Services UAE to Pakistan | Cargo Storage"
+        ogDescription="Secure warehousing facilities across UAE for Pakistan cargo with 24/7 monitoring and professional inventory management."
+        structuredData={structuredData}
+      />
+
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
@@ -68,10 +87,10 @@ const Warehousing = () => {
                 Warehousing Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Secure Warehousing in <span className="text-cargo-orange">UAE</span>
+                <strong>Secure Warehousing</strong> in <span className="text-cargo-orange">UAE</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Professional warehousing and storage solutions in UAE with secure facilities for your cargo.
+                Professional warehousing and storage solutions in UAE with <strong>secure facilities</strong> for your cargo.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -135,11 +154,11 @@ const Warehousing = () => {
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our warehousing services provide secure, climate-controlled storage facilities across the UAE for cargo destined to Pakistan. Whether you need short-term storage during transit or long-term warehousing solutions, we offer flexible options to meet your requirements.
+                    Our <strong>warehousing services</strong> provide secure, climate-controlled storage facilities across the UAE for cargo destined to Pakistan. Whether you need short-term storage during transit or long-term warehousing solutions, we offer flexible options to meet your requirements.
                   </p>
                   
                   <p className="mb-4">
-                    Our state-of-the-art warehouse facilities are strategically located in Dubai, Abu Dhabi, and Sharjah, providing convenient access to major ports and airports. We offer comprehensive inventory management, quality control, and distribution services to ensure your cargo is handled with the utmost care.
+                    Our state-of-the-art warehouse facilities are strategically located in <strong>Dubai, Abu Dhabi, and Sharjah</strong>, providing convenient access to major ports and airports. We offer comprehensive inventory management, quality control, and distribution services to ensure your cargo is handled with the utmost care.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
@@ -153,7 +172,7 @@ const Warehousing = () => {
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <ShieldCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>24/7 security monitoring</span>
+                        <span><strong>24/7 security monitoring</strong></span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
@@ -184,7 +203,7 @@ const Warehousing = () => {
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Dubai Warehouse
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> <strong>Dubai Warehouse</strong>
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
                       <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Abu Dhabi Facility
