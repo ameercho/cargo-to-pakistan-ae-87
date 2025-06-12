@@ -22,6 +22,7 @@ const Index = () => {
         description="Professional cargo shipping from UAE to Pakistan with door-to-door delivery. Serving Dubai, Abu Dhabi, Sharjah & all Emirates. Trusted by 10,000+ customers. Call +971504948135"
         keywords="cargo to pakistan, dubai to pakistan cargo, uae pakistan shipping, cargo service dubai, pakistan cargo uae"
         canonical="https://cargotopakistan.ae"
+        robots="index,follow"
       />
       
       <HeroSection />
