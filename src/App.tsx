@@ -1,9 +1,9 @@
 
+import React from "react";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
-import React from "react";
 import { ThemeProvider } from "next-themes";
 import { ClientToasts } from "@/components/ui/client-toasts";
 import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
@@ -20,7 +20,7 @@ const queryClient = new QueryClient({
   },
 });
 
-const App = () => {
+const App: React.FC = () => {
   // Track if component is mounted for client-side only features
   const [isMounted, setIsMounted] = React.useState(false);
 
@@ -40,19 +40,21 @@ const App = () => {
   }
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <QueryClientProvider client={queryClient}>
-        <AnalyticsProvider>
-          <TooltipProvider>
-            {/* Main application routing */}
-            <RouterProvider router={router} />
-            
-            {/* Client-side only components */}
-            <ClientToasts />
-          </TooltipProvider>
-        </AnalyticsProvider>
-      </QueryClientProvider>
-    </ThemeProvider>
+    <React.StrictMode>
+      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <QueryClientProvider client={queryClient}>
+          <AnalyticsProvider>
+            <TooltipProvider>
+              {/* Main application routing */}
+              <RouterProvider router={router} />
+              
+              {/* Client-side only components */}
+              <ClientToasts />
+            </TooltipProvider>
+          </AnalyticsProvider>
+        </QueryClientProvider>
+      </ThemeProvider>
+    </React.StrictMode>
   );
 };
 
