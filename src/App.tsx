@@ -44,13 +44,16 @@ const App: React.FC = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            <TooltipProvider>
-              {/* Main application routing */}
-              <RouterProvider router={router} />
-              
-              {/* Client-side only components */}
-              <ClientToasts />
-            </TooltipProvider>
+            {/* Only render TooltipProvider after React is fully mounted */}
+            {isMounted && (
+              <TooltipProvider>
+                {/* Main application routing */}
+                <RouterProvider router={router} />
+                
+                {/* Client-side only components */}
+                <ClientToasts />
+              </TooltipProvider>
+            )}
           </AnalyticsProvider>
         </QueryClientProvider>
       </ThemeProvider>
