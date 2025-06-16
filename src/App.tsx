@@ -1,6 +1,5 @@
 
 import React from "react";
-import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
@@ -27,7 +26,11 @@ const App: React.FC = () => {
   React.useEffect(() => {
     // Initialize analytics when the app mounts
     initializeAnalytics();
-    setIsMounted(true);
+    
+    // Use setTimeout to ensure React is fully ready
+    setTimeout(() => {
+      setIsMounted(true);
+    }, 0);
   }, []);
 
   // Don't render anything until mounted to avoid SSR issues
@@ -44,16 +47,11 @@ const App: React.FC = () => {
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            {/* Only render TooltipProvider after React is fully mounted */}
-            {isMounted && (
-              <TooltipProvider>
-                {/* Main application routing */}
-                <RouterProvider router={router} />
-                
-                {/* Client-side only components */}
-                <ClientToasts />
-              </TooltipProvider>
-            )}
+            {/* Main application routing without TooltipProvider for now */}
+            <RouterProvider router={router} />
+            
+            {/* Client-side only components */}
+            <ClientToasts />
           </AnalyticsProvider>
         </QueryClientProvider>
       </ThemeProvider>
