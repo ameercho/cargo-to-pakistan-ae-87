@@ -169,7 +169,7 @@ const Index = () => {
                     <strong>Sharjah Cargo Services</strong>
                   </h3>
                   <p className="text-sm opacity-90">Al Nahda, Al Majaz, Al Khan & all Sharjah areas to Pakistan</p>
-                </div>
+                </Link>
               </div>
             </div>
 
