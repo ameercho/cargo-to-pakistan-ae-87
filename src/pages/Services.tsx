@@ -100,14 +100,44 @@ const Services = () => {
     { from: "Dubai", to: "Peshawar", href: "/pakistan-cargo-to-peshawar", desc: "Northwestern gateway" }
   ];
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Cargo Services to Pakistan",
+    "description": "Comprehensive cargo shipping services from UAE to Pakistan including sea freight, air freight, courier services",
+    "provider": {
+      "@type": "Organization",
+      "name": "Cargo to Pakistan",
+      "telephone": "+971504948135",
+      "url": "https://cargotopakistan.ae"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Pakistan"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Pakistan Cargo Services",
+      "itemListElement": services.map(service => ({
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": service.title,
+          "description": service.description
+        }
+      }))
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <PageSEO
         title="Cargo to Pakistan Services | Dubai Abu Dhabi Sharjah | Door-to-Door Shipping"
-        description=" sea freight, air freight, courier services, and complete logistics support for all your cargo needs from UAE to Pakistan"
+        description="Comprehensive cargo shipping services including sea freight, air freight, courier services, and complete logistics support for all your cargo needs from UAE to Pakistan"
         keywords="sea cargo to pakistan, dubai to pakistan sea cargo, moving home to pakistan, Full container service, pakistan cargo courier service"
         canonical="https://cargotopakistan.ae/services"
         robots="index,follow"
+        structuredData={structuredData}
       />
       {/* Hero Section */}
       <PageHeader
@@ -141,21 +171,36 @@ const Services = () => {
           </Breadcrumb>
         </div>
       </section>
+
+      {/* Main Content */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <h1 className="text-4xl font-bold text-center text-cargo-blue mb-8">
+            <strong>Professional Cargo Services</strong> from UAE to Pakistan
+          </h1>
+          
+          <div className="prose max-w-4xl mx-auto mb-12 text-center">
+            <p className="text-lg text-gray-700 mb-6">
+              We offer comprehensive <strong>cargo shipping services from all major UAE cities to Pakistan destinations</strong>. 
+              Our experienced team provides professional handling, competitive rates, and reliable delivery 
+              across sea freight, air freight, courier services, and specialized logistics solutions.
+            </p>
+            
+            <p className="text-gray-700">
+              From <strong>Dubai to Karachi cargo</strong> and <strong>Abu Dhabi to Lahore shipping</strong>, we ensure your 
+              goods reach Pakistan safely and on time. Our door-to-door service covers all major Pakistan cities 
+              including Islamabad, Peshawar, Faisalabad, and more.
+            </p>
+          </div>
+        </div>
+      </section>
       
       {/* Services Grid */}
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <h2 className="text-3xl font-bold text-center text-cargo-blue mb-12">
-            Our Complete Range of Shipping Services
+            Our Complete Range of <strong>Pakistan Shipping Services</strong>
           </h2>
-          
-          <div className="prose max-w-4xl mx-auto mb-12 text-center">
-            <p className="text-lg text-gray-700">
-              We offer comprehensive cargo shipping services from all major UAE cities to Pakistan destinations. 
-              Our experienced team provides professional handling, competitive rates, and reliable delivery 
-              across sea freight, air freight, courier services, and specialized logistics solutions.
-            </p>
-          </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => {
@@ -183,6 +228,7 @@ const Services = () => {
                   <Link 
                     to={service.href}
                     className="inline-flex items-center text-cargo-blue hover:text-cargo-green transition-colors font-semibold"
+                    title={`Learn more about ${service.title}`}
                   >
                     Learn More <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
@@ -197,35 +243,61 @@ const Services = () => {
       <section className="py-16 bg-white">
         <div className="container-custom">
           <h2 className="text-3xl font-bold text-center text-cargo-blue mb-12">
-            Why Choose Our Cargo Services
+            Why Choose Our <strong>UAE to Pakistan Cargo Services</strong>
           </h2>
           
           <div className="prose max-w-4xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div>
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Professional Expertise</h3>
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  <strong>Professional Expertise in Pakistan Shipping</strong>
+                </h3>
                 <p className="text-gray-700 mb-4">
-                  With years of experience in UAE to Pakistan cargo shipping, our team understands 
+                  With years of experience in <strong>UAE to Pakistan cargo shipping</strong>, our team understands 
                   the complexities of international logistics. We handle customs clearance, 
-                  documentation, and ensure compliance with all regulations.
+                  documentation, and ensure compliance with all regulations for smooth delivery to Pakistan.
                 </p>
                 <p className="text-gray-700">
                   Our professional packing services protect your cargo during transit, while our 
-                  real-time tracking keeps you informed throughout the shipping process.
+                  real-time tracking keeps you informed throughout the shipping process from UAE to Pakistan.
                 </p>
               </div>
               
               <div>
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Competitive Pricing</h3>
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  <strong>Competitive Pricing for Pakistan Cargo</strong>
+                </h3>
                 <p className="text-gray-700 mb-4">
-                  We offer the most competitive rates for cargo services from UAE to Pakistan 
+                  We offer the most competitive rates for <strong>cargo services from UAE to Pakistan</strong> 
                   without compromising on quality or reliability. Our sea freight options are 
-                  particularly cost-effective for bulk shipments.
+                  particularly cost-effective for bulk shipments to Pakistan.
                 </p>
                 <p className="text-gray-700">
                   Transparent pricing with no hidden fees ensures you know exactly what you're 
-                  paying for. Get a free quote today for your specific shipping requirements.
+                  paying for. Get a free quote today for your specific Pakistan shipping requirements.
                 </p>
+              </div>
+            </div>
+            
+            <div className="bg-cargo-lightBlue p-6 rounded-lg">
+              <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                <strong>Complete Pakistan Cargo Solutions</strong>
+              </h3>
+              <p className="text-gray-700 mb-4">
+                From <strong>household goods to commercial cargo</strong>, we handle all types of shipments to Pakistan. 
+                Our services include professional packing, customs clearance, door-to-door delivery, 
+                and cargo insurance for complete peace of mind.
+              </p>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <Link to="/services/sea-freight" className="text-cargo-blue hover:text-cargo-green font-semibold">
+                  → Sea Freight Services
+                </Link>
+                <Link to="/services/air-freight" className="text-cargo-blue hover:text-cargo-green font-semibold">
+                  → Air Freight Services  
+                </Link>
+                <Link to="/services/moving-home" className="text-cargo-blue hover:text-cargo-green font-semibold">
+                  → Home Moving Services
+                </Link>
               </div>
             </div>
           </div>
@@ -236,7 +308,7 @@ const Services = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <h2 className="text-3xl font-bold text-center text-cargo-blue mb-12">
-            Popular Shipping Routes
+            Popular <strong>UAE to Pakistan Shipping Routes</strong>
           </h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -245,9 +317,10 @@ const Services = () => {
                 key={index}
                 to={route.href}
                 className="bg-white p-6 rounded-lg hover:shadow-lg transition-shadow text-center group"
+                title={`Cargo shipping from ${route.from} to ${route.to}`}
               >
                 <h3 className="font-semibold text-cargo-blue mb-2 group-hover:text-cargo-green transition-colors">
-                  {route.from} → {route.to}
+                  <strong>{route.from} → {route.to}</strong>
                 </h3>
                 <p className="text-sm text-gray-600 mb-2">
                   {route.desc}
@@ -263,6 +336,7 @@ const Services = () => {
             <Link 
               to="/service-areas"
               className="inline-flex items-center text-cargo-blue hover:text-cargo-green transition-colors font-semibold"
+              title="View all UAE to Pakistan service routes"
             >
               View All Service Routes <ArrowRight className="ml-2 h-4 w-4" />
             </Link>

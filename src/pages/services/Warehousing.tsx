@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -74,6 +75,7 @@ const Warehousing = () => {
         keywords="warehousing UAE, cargo storage Dubai, Pakistan cargo warehouse, inventory management, secure storage UAE"
         canonical="https://cargotopakistan.ae/services/warehousing"
         robots="index,follow"
+        structuredData={structuredData}
       />
 
       {/* Hero Section */}
@@ -85,11 +87,11 @@ const Warehousing = () => {
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
                 Warehousing Services
               </span>
-              <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                <strong>Secure Warehousing</strong> in <span className="text-cargo-orange">UAE</span>
+              <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white leading-tight">
+                <strong>Professional Warehousing Services</strong> in <span className="text-cargo-orange">UAE</span> for Pakistan Cargo
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Professional warehousing and storage solutions in UAE with <strong>secure facilities</strong> for your cargo.
+                Secure warehousing and storage solutions in UAE with <strong>24/7 monitored facilities</strong> for your cargo shipments to Pakistan. Professional inventory management and distribution services.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -146,73 +148,108 @@ const Warehousing = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
-                <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Warehouse className="mr-2 h-6 w-6 text-cargo-green" />
-                  Professional Warehousing Services in UAE
+                <h2 className="text-3xl font-bold text-cargo-blue mb-6 flex items-center">
+                  <Warehouse className="mr-3 h-8 w-8 text-cargo-green" />
+                  <strong>UAE Warehousing Services</strong> for Pakistan Cargo
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our <strong>warehousing services</strong> provide secure, climate-controlled storage facilities across the UAE for cargo destined to Pakistan. Whether you need short-term storage during transit or long-term warehousing solutions, we offer flexible options to meet your requirements.
+                    Our <strong>professional warehousing services in UAE</strong> provide secure, climate-controlled storage facilities 
+                    across Dubai, Abu Dhabi, and Sharjah for cargo destined to Pakistan. Whether you need short-term storage 
+                    during transit or long-term warehousing solutions, we offer flexible options to meet your Pakistan shipping requirements.
                   </p>
                   
-                  <p className="mb-4">
-                    Our state-of-the-art warehouse facilities are strategically located in <strong>Dubai, Abu Dhabi, and Sharjah</strong>, providing convenient access to major ports and airports. We offer comprehensive inventory management, quality control, and distribution services to ensure your cargo is handled with the utmost care.
+                  <p className="mb-6">
+                    Our state-of-the-art warehouse facilities are strategically located near major UAE ports and airports, 
+                    providing convenient access for <strong>sea freight and air freight to Pakistan</strong>. We offer comprehensive 
+                    inventory management, quality control, and distribution services to ensure your cargo is handled with the utmost care 
+                    before shipment to Pakistan.
                   </p>
+
+                  <h3 className="text-2xl font-semibold text-cargo-blue mt-8 mb-4">
+                    <strong>Professional Warehousing Features</strong>
+                  </h3>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
-                    <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
+                    <h4 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                       <Warehouse className="mr-2 h-5 w-5" />
-                      Why Choose Our Warehousing Services?
-                    </h3>
+                      Why Choose Our UAE Warehouse Services?
+                    </h4>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <ShieldCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span><strong>24/7 security monitoring</strong></span>
+                        <span><strong>24/7 Security Monitoring</strong></span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Clock className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Climate-controlled environment</span>
+                        <span>Climate-Controlled Environment</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Archive className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Advanced inventory management</span>
+                        <span>Advanced Inventory Management</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Regular quality inspections</span>
+                        <span>Regular Quality Inspections</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Warehouse Locations</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                    <strong>Strategic Warehouse Locations in UAE</strong>
+                  </h3>
                   
                   <p className="mb-4">
-                    Our warehouse facilities are strategically located across the UAE:
+                    Our warehouse facilities are strategically located across the UAE for optimal <strong>cargo shipping to Pakistan</strong>:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> <strong>Dubai Warehouse</strong>
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> <strong>Dubai Warehouse</strong> - Near Jebel Ali Port
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Abu Dhabi Facility
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Abu Dhabi Facility - KIZAD Area
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Sharjah Storage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Sharjah Storage - Port Area
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Jebel Ali Complex
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Air Cargo Complex - DXB
                     </div>
+                  </div>
+
+                  <div className="bg-gray-50 p-6 rounded-lg">
+                    <h4 className="text-lg font-semibold text-cargo-blue mb-3">
+                      <strong>Warehouse Services for Pakistan Cargo</strong>
+                    </h4>
+                    <ul className="space-y-2">
+                      <li className="flex items-start">
+                        <Package className="h-4 w-4 text-cargo-green mr-2 mt-1" />
+                        <span>Temporary storage during customs clearance for Pakistan shipments</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Archive className="h-4 w-4 text-cargo-green mr-2 mt-1" />
+                        <span>Consolidation services for multiple Pakistan destinations</span>
+                      </li>
+                      <li className="flex items-start">
+                        <Warehouse className="h-4 w-4 text-cargo-green mr-2 mt-1" />
+                        <span>Cross-docking facilities for efficient Pakistan cargo transfer</span>
+                      </li>
+                      <li className="flex items-start">
+                        <ShieldCheck className="h-4 w-4 text-cargo-green mr-2 mt-1" />
+                        <span>Insurance coverage for stored cargo destined to Pakistan</span>
+                      </li>
+                    </ul>
                   </div>
                 </div>
               </div>
@@ -227,7 +264,7 @@ const Warehousing = () => {
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us for warehousing rates and availability!
+                    Get competitive warehousing rates for your Pakistan cargo!
                   </p>
                 </div>
                 
@@ -252,7 +289,9 @@ const Warehousing = () => {
               </div>
               
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Key Benefits</h3>
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  <strong>Key Benefits</strong>
+                </h3>
                 
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
@@ -261,7 +300,7 @@ const Warehousing = () => {
                         <benefit.icon className="h-5 w-5 text-cargo-blue" />
                       </div>
                       <div>
-                        <h4 className="font-medium mb-1">{benefit.title}</h4>
+                        <h4 className="font-medium mb-1"><strong>{benefit.title}</strong></h4>
                         <p className="text-sm text-gray-600">{benefit.description}</p>
                       </div>
                     </div>
@@ -278,9 +317,11 @@ const Warehousing = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Warehousing Solutions</h2>
+            <h2 className="text-3xl font-bold text-cargo-blue mt-3 mb-3">
+              <strong>Complete Warehousing Solutions</strong> for Pakistan Cargo
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive storage and distribution services to support your cargo operations.
+              Comprehensive storage and distribution services to support your cargo operations from UAE to Pakistan.
             </p>
           </div>
           
