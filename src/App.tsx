@@ -30,6 +30,15 @@ const App = () => {
     setIsMounted(true);
   }, []);
 
+  // Don't render anything until mounted to avoid SSR issues
+  if (!isMounted) {
+    return (
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cargo-blue"></div>
+      </div>
+    );
+  }
+
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <QueryClientProvider client={queryClient}>
@@ -38,8 +47,8 @@ const App = () => {
             {/* Main application routing */}
             <RouterProvider router={router} />
             
-            {/* Only render ClientToasts when we're on the client side */}
-            {isMounted && <ClientToasts />}
+            {/* Client-side only components */}
+            <ClientToasts />
           </TooltipProvider>
         </AnalyticsProvider>
       </QueryClientProvider>
