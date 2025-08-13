@@ -35,61 +35,108 @@ try {
   };
 }
 
-// Complete list of all routes that need to be prerendered
-const routesToPrerender = [
-  '/',
-  '/services',
-  '/about',
-  '/contact',
-  '/faq',
-  '/service-areas',
-  
-  // Pakistan City Pages
-  '/pakistan-cargo-to-karachi',
-  '/pakistan-cargo-to-lahore',
-  '/pakistan-cargo-to-islamabad',
-  '/pakistan-cargo-to-peshawar',
-  '/pakistan-cargo-to-quetta',
-  '/pakistan-cargo-to-faisalabad',
-  '/pakistan-cargo-to-multan',
-  '/pakistan-cargo-to-sialkot',
-  '/pakistan-cargo-to-rawalpindi',
-  '/pakistan-cargo-to-gujranwala',
-  '/pakistan-cargo-to-hyderabad',
-  '/pakistan-cargo-to-bahawalpur',
-  '/pakistan-cargo-to-sargoda',
-  '/pakistan-cargo-to-sukkur',
-  '/pakistan-cargo-to-larkana',
-  '/pakistan-cargo-to-sheikhupura',
-  
-  // Service Pages
-  '/services/sea-freight',
-  '/services/air-freight',
-  '/services/full-container',
-  '/services/packaging',
-  '/services/insurance',
-  '/services/courier-service',
-  '/services/warehousing',
-  '/services/consulting',
-  '/services/customs-clearance',
-  '/services/secure-handling',
-  
-  // UAE Area Pages
-  '/areas/dubai',
-  '/areas/abu-dhabi',
-  '/areas/sharjah',
-  '/areas/ajman',
-  '/areas/ras-al-khaimah',
-  '/areas/fujairah',
-  '/areas/umm-al-quwain',
-  '/areas/al-ain',
-  
-  // Country Routes
-  '/dubai-to-pakistan',
-  '/abu-dhabi-to-pakistan',
-  '/sharjah-to-pakistan',
-  '/ajman-to-pakistan'
-];
+// Dynamic route extraction from route configuration files
+async function getRoutesToPrerender() {
+  try {
+    // Import route configurations
+    const { mainRoutes } = await import('./src/routes/config/mainRoutes.ts');
+    const { serviceRoutes } = await import('./src/routes/config/serviceRoutes.ts');
+    const { areaRoutes } = await import('./src/routes/config/areaRoutes.ts');
+    const { pakistanRoutes } = await import('./src/routes/config/pakistanRoutes.ts');
+    
+    // Combine all routes
+    const allRoutes = [
+      ...mainRoutes,
+      ...serviceRoutes,
+      ...areaRoutes,
+      ...pakistanRoutes
+    ];
+    
+    // Extract paths and convert to URLs
+    const routes = [];
+    
+    for (const route of allRoutes) {
+      if ('index' in route && route.index) {
+        // Index route maps to root
+        routes.push('/');
+      } else if (route.path && route.path !== '*') {
+        // Regular route - add leading slash if not present
+        const routePath = route.path.startsWith('/') ? route.path : '/' + route.path;
+        routes.push(routePath);
+      }
+    }
+    
+    // Remove duplicates and sort
+    return [...new Set(routes)].sort();
+  } catch (error) {
+    console.error('Failed to load route configurations:', error);
+    // Fallback to static list if dynamic loading fails
+    return [
+      '/',
+      '/services',
+      '/about',
+      '/contact',
+      '/faq',
+      '/service-areas',
+      
+      // Pakistan City Pages
+      '/pakistan-cargo-to-karachi',
+      '/pakistan-cargo-to-lahore',
+      '/pakistan-cargo-to-islamabad',
+      '/pakistan-cargo-to-peshawar',
+      '/pakistan-cargo-to-quetta',
+      '/pakistan-cargo-to-faisalabad',
+      '/pakistan-cargo-to-multan',
+      '/pakistan-cargo-to-sialkot',
+      '/pakistan-cargo-to-rawalpindi',
+      '/pakistan-cargo-to-gujranwala',
+      '/pakistan-cargo-to-hyderabad',
+      '/pakistan-cargo-to-bahawalpur',
+      '/pakistan-cargo-to-sargoda',
+      '/pakistan-cargo-to-sukkur',
+      '/pakistan-cargo-to-larkana',
+      '/pakistan-cargo-to-sheikhupura',
+      
+      // Service Pages
+      '/services/sea-freight',
+      '/services/air-freight',
+      '/services/full-container',
+      '/services/packaging',
+      '/services/insurance',
+      '/services/courier-service',
+      '/services/warehousing',
+      '/services/consulting',
+      '/services/customs-clearance',
+      '/services/secure-handling',
+      '/services/moving-home',
+      
+      // UAE Area Pages
+      '/areas/dubai',
+      '/areas/abu-dhabi',
+      '/areas/sharjah',
+      '/areas/ajman',
+      '/areas/ras-al-khaimah',
+      '/areas/fujairah',
+      '/areas/umm-al-quwain',
+      '/areas/al-ain',
+      
+      // Country Routes
+      '/dubai-to-pakistan',
+      '/abu-dhabi-to-pakistan',
+      '/sharjah-to-pakistan',
+      '/ajman-to-pakistan'
+    ];
+  }
+}
+
+// Helper function to ensure directory exists
+function ensureDirectoryExists(filePath) {
+  const dir = path.dirname(toAbsolute(filePath));
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+    console.log(`📁 Created directory: ${dir}`);
+  }
+}
 
 ;(async () => {
   console.log('🚀 Starting simple SEO prerendering process...')
@@ -103,6 +150,11 @@ const routesToPrerender = [
   } else {
     console.log('✅ Simple SEO injector loaded successfully');
   }
+  
+  // Get dynamic routes from configuration
+  const routesToPrerender = await getRoutesToPrerender();
+  console.log(`📋 Found ${routesToPrerender.length} routes to prerender`);
+  console.log('🔗 Routes:', routesToPrerender.join(', '));
   
   let successCount = 0;
   let errorCount = 0;
@@ -137,11 +189,9 @@ const routesToPrerender = [
       // Create directory structure if needed
       const urlPath = url === '/' ? '/index' : url
       const filePath = `dist${urlPath}.html`
-      const dir = path.dirname(toAbsolute(filePath))
       
-      if (!fs.existsSync(dir)) {
-        fs.mkdirSync(dir, { recursive: true })
-      }
+      // Ensure directory exists before writing
+      ensureDirectoryExists(filePath)
       
       // Write the prerendered HTML with injected metadata to the output directory
       fs.writeFileSync(toAbsolute(filePath), renderedHtml)
