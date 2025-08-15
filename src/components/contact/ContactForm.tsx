@@ -97,7 +97,7 @@ const ContactForm = () => {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John Doe" {...field} className="tap-target" />
+                    <Input placeholder="Muhammad" {...field} className="tap-target" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

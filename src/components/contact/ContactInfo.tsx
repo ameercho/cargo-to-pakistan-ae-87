@@ -8,7 +8,7 @@ const ContactInfo = () => {
     {
       icon: Phone,
       title: "Phone",
-      details: ["+971504948135"],
+      details: ["+971504948135, +971585847087, +971585817087"],
     },
     {
       icon: Mail,
@@ -18,12 +18,12 @@ const ContactInfo = () => {
     {
       icon: MapPin,
       title: "Address",
-      details: ["Jebel Ali Industrial, Dubai, UAE"],
+      details: ["Jebel Ali, Dubai, UAE"],
     },
     {
       icon: Clock,
       title: "Working Hours",
-      details: ["Monday - Friday: 9AM - 6PM", "Saturday: 10AM - 4PM"],
+      details: ["Monday - Saturday: 9AM - 6PM"],
     },
   ];
 
