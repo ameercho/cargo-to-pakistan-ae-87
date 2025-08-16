@@ -12,6 +12,8 @@ export const CONTACT_INFO = {
   phone: COMPANY_INFO.phone,
   email: COMPANY_INFO.email,
   whatsapp: COMPANY_INFO.phone,
+  whatsappBase: `https://wa.me/${COMPANY_INFO.phone.replace(/[^\d]/g, '')}`,
+  defaultMessage: "Hello, I'm interested in your cargo services to Pakistan.",
   address: COMPANY_INFO.address
 };
 

@@ -2,14 +2,14 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
-import { useContactActions } from "@/hooks/useContactActions";
+import { useContact } from "@/hooks/useContact";
 import { SERVICE_HIGHLIGHTS } from "./utils";
 
 const HeroSection = () => {
-  const { handleCall, handleWhatsApp } = useContactActions();
+  const { makeCall, openWhatsApp } = useContact();
 
   const onWhatsAppClick = () => {
-    handleWhatsApp();
+    openWhatsApp(undefined, 'hero_section');
   };
 
   return (
@@ -28,7 +28,7 @@ const HeroSection = () => {
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
-              onClick={handleCall}
+              onClick={() => makeCall('hero_section')}
               className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg"
               size="lg"
             >

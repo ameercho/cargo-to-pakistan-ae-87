@@ -20,13 +20,13 @@ export default {
     extend: {
       colors: {
         cargo: {
-          green: "var(--cargo-green)",
-          blue: "var(--cargo-blue)",
-          orange: "var(--cargo-orange)",
-          lightGreen: "var(--cargo-lightGreen)",
-          lightBlue: "var(--cargo-lightBlue)",
-          lightOrange: "var(--cargo-lightOrange)",
-          gray: "var(--cargo-gray)",
+          green: "hsl(var(--cargo-green))",
+          blue: "hsl(var(--cargo-blue))",
+          orange: "hsl(var(--cargo-orange))",
+          lightGreen: "hsl(var(--cargo-light-green))",
+          lightBlue: "hsl(var(--cargo-light-blue))",
+          lightOrange: "hsl(var(--cargo-light-orange))",
+          gray: "hsl(var(--cargo-gray))",
         },
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

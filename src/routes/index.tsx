@@ -1,6 +1,6 @@
 
-import { createBrowserRouter, Outlet } from "react-router-dom";
-import Layout from "@/components/layout/Layout";
+import { createBrowserRouter } from "react-router-dom";
+import AppLayout from "@/components/layout/AppLayout";
 import { mainRoutes } from "./config/mainRoutes";
 import { serviceRoutes } from "./config/serviceRoutes";
 import { areaRoutes } from "./config/areaRoutes";
@@ -33,7 +33,7 @@ const createRouteElement = (routeConfig: any) => {
 const routes = [
   {
     path: "/",
-    element: <Layout><Outlet /></Layout>,
+    element: <AppLayout />,
     children: allRoutes.map(createRouteElement),
   },
 ];

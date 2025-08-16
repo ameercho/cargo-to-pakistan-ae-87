@@ -1,11 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { PHONE_NUMBER } from "./utils";
+import { useContact } from "@/hooks/useContact";
 
 const ServicesHero = () => {
-  const handleCall = () => {
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
+  const { makeCall } = useContact();
 
   return (
     <section className="py-12 bg-cargo-green text-white">
@@ -16,7 +14,7 @@ const ServicesHero = () => {
             Comprehensive shipping solutions for your cargo to Pakistan
           </p>
           <Button 
-            onClick={handleCall}
+            onClick={() => makeCall('services_hero')}
             className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" 
             size="lg"
           >

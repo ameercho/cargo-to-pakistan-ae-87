@@ -10,11 +10,11 @@ import {
 import { ChevronDown } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/constants";
 import { useNavigation } from "@/hooks/useNavigation";
-import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useContact } from "@/hooks/useContact";
 
 const DesktopNavigation = () => {
   const { isActive } = useNavigation();
-  const { makeCall } = usePhoneCall();
+  const { makeCall } = useContact();
 
   return (
     <div className="hidden lg:flex items-center space-x-6">

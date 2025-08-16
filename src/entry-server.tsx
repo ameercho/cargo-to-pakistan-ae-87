@@ -2,8 +2,7 @@
 import ReactDOMServer from 'react-dom/server';
 import { StaticRouter } from "react-router-dom/server";
 import { createElement } from 'react';
-import Layout from './components/layout/Layout';
-import { Outlet } from "react-router-dom";
+import AppLayout from './components/layout/AppLayout';
 import { getElement } from './routes';
 import { routeExists } from './utils/route-utils';
 import { getSEOData } from './config/seo-config';

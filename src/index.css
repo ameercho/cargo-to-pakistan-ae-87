@@ -5,13 +5,36 @@
 
 @layer base {
   :root {
-    --cargo-green: #1e8a50;
-    --cargo-blue: #0052cc;
-    --cargo-orange: #ff6b35;
-    --cargo-lightGreen: #e6f4ed;
-    --cargo-lightBlue: #e6f0ff;
-    --cargo-lightOrange: #ffede6;
-    --cargo-gray: #f5f5f7;
+    /* Design System Colors - HSL values for proper Tailwind integration */
+    --cargo-green: 145 64% 32%; /* #1e8a50 */
+    --cargo-blue: 218 100% 40%; /* #0052cc */
+    --cargo-orange: 16 100% 60%; /* #ff6b35 */
+    --cargo-light-green: 145 30% 93%; /* #e6f4ed */
+    --cargo-light-blue: 218 100% 95%; /* #e6f0ff */
+    --cargo-light-orange: 16 100% 93%; /* #ffede6 */
+    --cargo-gray: 210 14% 97%; /* #f5f5f7 */
+    
+    /* Semantic design tokens */
+    --primary: var(--cargo-green);
+    --primary-foreground: 0 0% 100%;
+    --secondary: var(--cargo-light-green);
+    --secondary-foreground: var(--cargo-green);
+    --accent: var(--cargo-orange);
+    --accent-foreground: 0 0% 100%;
+    --muted: var(--cargo-gray);
+    --muted-foreground: 215 16% 47%;
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: var(--cargo-blue);
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --destructive: 0 93% 73%;
+    --destructive-foreground: 0 0% 100%;
+    --radius: 0.5rem;
   }
 }
 

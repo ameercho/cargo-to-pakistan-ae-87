@@ -31,6 +31,7 @@ export const SERVICE_FEATURES = [
 ] as const;
 
 /**
- * Phone number for contact actions
+ * Re-export phone number from main constants
  */
-export const PHONE_NUMBER = "+971504948135";
+import { CONTACT_INFO } from "@/constants";
+export const PHONE_NUMBER = CONTACT_INFO.phone;

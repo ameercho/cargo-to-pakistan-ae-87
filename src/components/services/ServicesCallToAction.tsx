@@ -1,12 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { PHONE_NUMBER } from "./utils";
+import { useContact } from "@/hooks/useContact";
 
 const ServicesCallToAction = () => {
-  const handleCall = () => {
-    window.location.href = `tel:${PHONE_NUMBER}`;
-  };
+  const { makeCall } = useContact();
 
   return (
     <section className="py-12 bg-cargo-green text-white">
@@ -25,7 +23,7 @@ const ServicesCallToAction = () => {
             </Button>
           </Link>
           <Button 
-            onClick={handleCall}
+            onClick={() => makeCall('services_cta')}
             variant="outline" 
             className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
             size="lg"

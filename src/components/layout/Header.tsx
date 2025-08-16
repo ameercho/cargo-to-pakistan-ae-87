@@ -4,13 +4,13 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { NAVIGATION_LINKS, CONTACT_INFO } from "@/constants";
-import { usePhoneCall } from "@/hooks/usePhoneCall";
+import { useContact } from "@/hooks/useContact";
 import { useNavigation } from "@/hooks/useNavigation";
 import { getNavLinkClasses, getUnderlineClasses, getMobileNavLinkClasses } from "./navigation/utils";
 
 const Header = () => {
   const { location } = useNavigation();
-  const { makeCall } = usePhoneCall();
+  const { makeCall } = useContact();
   const isHomepage = location.pathname === '/';
   
   return (

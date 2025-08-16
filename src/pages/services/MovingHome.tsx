@@ -10,7 +10,7 @@ import MovingHomeContent from "@/components/services/moving-home/MovingHomeConte
 import MovingHomeSidebar from "@/components/services/moving-home/MovingHomeSidebar";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContactActions } from "@/hooks/useContactActions";
+import { useContact } from "@/hooks/useContact";
 
 const MovingHome = () => {
   // Scroll to top when component mounts
@@ -18,7 +18,7 @@ const MovingHome = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  const { handleCall, handleWhatsApp } = useContactActions();
+  const { makeCall, openWhatsApp } = useContact();
   
   const services = [
     {
@@ -42,7 +42,7 @@ const MovingHome = () => {
   ];
 
   const handleWhatsAppWithMessage = () => {
-    handleWhatsApp("Hello, I'm interested in your home moving services to Pakistan.");
+    openWhatsApp("Hello, I'm interested in your home moving services to Pakistan.", 'moving_home_page');
   };
 
   return (
@@ -55,7 +55,7 @@ const MovingHome = () => {
         robots="index,follow"
       />
       <ServicePageLayout
-        heroSection={<MovingHomeHero onCall={handleCall} onWhatsApp={handleWhatsAppWithMessage} />}
+        heroSection={<MovingHomeHero onCall={() => makeCall('moving_home_hero')} onWhatsApp={handleWhatsAppWithMessage} />}
         breadcrumbTitle="Moving Home"
       >
         {/* Main Content */}
@@ -66,7 +66,7 @@ const MovingHome = () => {
                 <MovingHomeContent />
               </div>
               
-              <MovingHomeSidebar onCall={handleCall} onWhatsApp={handleWhatsAppWithMessage} />
+              <MovingHomeSidebar onCall={() => makeCall('moving_home_sidebar')} onWhatsApp={handleWhatsAppWithMessage} />
             </div>
           </div>
         </section>
