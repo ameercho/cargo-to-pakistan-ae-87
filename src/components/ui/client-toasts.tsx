@@ -1,20 +1,25 @@
 
 "use client";
 
-import * as React from "react";
+import { useState, useEffect } from "react";
 import { Toaster } from "@/components/ui/toaster";
 
 /**
  * ClientToasts ensures toast functionality only runs on the client side
  */
 export function ClientToasts() {
-  const [mounted, setMounted] = React.useState(false);
+  // Enhanced check for React availability
+  const [mounted, setMounted] = useState(false);
   
-  React.useEffect(() => {
-    setMounted(true);
+  useEffect(() => {
+    // Double-check that we're in a proper React environment
+    if (typeof window !== 'undefined' && typeof document !== 'undefined') {
+      setMounted(true);
+    }
   }, []);
   
-  if (!mounted) {
+  // Don't render anything until we're sure React is fully available
+  if (!mounted || typeof window === 'undefined') {
     return null;
   }
 
