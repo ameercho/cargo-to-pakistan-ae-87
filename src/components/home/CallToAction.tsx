@@ -36,7 +36,7 @@ const CallToAction = () => {
             <Button 
               onClick={handleWhatsApp}
               variant="outline"
-              className="border-white text-white hover:bg-white hover:text-cargo-blue"
+              className="border-blue text-white hover:bg-white hover:text-cargo-blue"
               size="lg"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
