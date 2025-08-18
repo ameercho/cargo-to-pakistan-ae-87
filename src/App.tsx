@@ -4,6 +4,8 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
 
+// Force cache refresh
+
 // Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
   defaultOptions: {
