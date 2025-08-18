@@ -5,6 +5,7 @@ import { ArrowRight, Users, Clock, Package, MapPin, FileCheck, ShieldCheck, Phon
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
+import { useContact } from "@/hooks/useContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -49,12 +50,12 @@ const Consulting = () => {
     { title: "Risk Assessment", description: "Identify and mitigate shipping risks", icon: ShieldCheck },
   ];
 
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('consulting_page');
+  
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20logistics%20consulting%20services.`, "_blank");
+    openWhatsApp("Hello, I'm interested in your logistics consulting services.", 'consulting_page');
   };
 
   // Breadcrumb Schema

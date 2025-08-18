@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Truck, Package, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import { useContact } from "@/hooks/useContact";
 
 interface UAEToPakistanPageProps {
   location: {
@@ -49,12 +50,12 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
     "Insurance options available"
   ];
   
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('uae_pakistan_page');
   
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20from%20${location.city}%20to%20Pakistan.`, "_blank");
+    openWhatsApp(`Hello, I'm interested in your cargo services from ${location.city} to Pakistan.`, 'uae_pakistan_page');
   };
 
   return (

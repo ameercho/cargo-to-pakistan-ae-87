@@ -2,14 +2,15 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
+import { useContact } from "@/hooks/useContact";
 
 const ServiceAreasHero = () => {
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('service_areas_hero');
   
   const handleWhatsApp = () => {
-    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20Pakistan.", "_blank");
+    openWhatsApp(undefined, 'service_areas_hero');
   };
   
   return (

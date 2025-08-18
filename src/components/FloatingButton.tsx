@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
+import { useContact } from "@/hooks/useContact";
 
 const FloatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,9 +27,10 @@ const FloatingButton = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
+  const { openWhatsApp } = useContact();
+  
   const handleWhatsAppClick = () => {
-    // WhatsApp API link with updated number
-    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
+    openWhatsApp(undefined, 'floating_button');
   };
 
   return (

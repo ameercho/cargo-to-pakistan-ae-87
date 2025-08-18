@@ -1,15 +1,10 @@
 
 import { Button } from "@/components/ui/button";
-import { Phone, MessageCircle, ArrowRight } from "lucide-react";
+import { Phone, MessageCircle } from "lucide-react";
+import { useContact } from "@/hooks/useContact";
 
 const CallToAction = () => {
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-  
-  const handleWhatsApp = () => {
-    window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20Pakistan.", "_blank");
-  };
+  const { makeCall, openWhatsApp } = useContact();
 
   return (
     <section className="py-16 bg-cargo-blue text-white">
@@ -25,7 +20,7 @@ const CallToAction = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             <Button 
-              onClick={handleCall}
+              onClick={() => makeCall('home_cta')}
               className="bg-cargo-orange hover:bg-orange-600 text-white"
               size="lg"
             >
@@ -34,9 +29,9 @@ const CallToAction = () => {
             </Button>
             
             <Button 
-              onClick={handleWhatsApp}
+              onClick={() => openWhatsApp(undefined, 'home_cta')}
               variant="outline"
-              className="border-blue text-white hover:bg-white hover:text-cargo-blue"
+              className="border-white text-white hover:bg-white hover:text-cargo-blue"
               size="lg"
             >
               <MessageCircle className="mr-2 h-5 w-5" />

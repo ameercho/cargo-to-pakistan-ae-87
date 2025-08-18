@@ -6,6 +6,7 @@ import PakistanCargoSidebar from "@/components/pakistan-cargo/PakistanCargoSideb
 import PakistanCargoServices from "@/components/pakistan-cargo/PakistanCargoServices";
 import PakistanCargoTestimonials from "@/components/pakistan-cargo/PakistanCargoTestimonials";
 import CallToAction from "@/components/home/CallToAction";
+import { useContact } from "@/hooks/useContact";
 
 interface DestinationInfo {
   city: string;
@@ -25,12 +26,12 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
   }, []);
 
   // Contact handlers
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('pakistan_destination_page');
   
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services%20to%20${destination.city},%20Pakistan.`, "_blank");
+    openWhatsApp(`Hello, I'm interested in your cargo services to ${destination.city}, Pakistan.`, 'pakistan_destination_page');
   };
   
   return (

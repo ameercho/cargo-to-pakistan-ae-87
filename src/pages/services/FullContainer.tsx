@@ -5,6 +5,7 @@ import { ArrowRight, Truck, Clock, Package, MapPin, FileCheck, ShieldCheck, Phon
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
+import { useContact } from "@/hooks/useContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -49,12 +50,12 @@ const FullContainer = () => {
     { title: "Global Reach", description: "Worldwide container shipping network", icon: MapPin },
   ];
 
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('full_container_page');
+  
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20full%20container%20services%20to%20Pakistan.`, "_blank");
+    openWhatsApp("Hello, I'm interested in your full container services to Pakistan.", 'full_container_page');
   };
 
   // Breadcrumb Schema

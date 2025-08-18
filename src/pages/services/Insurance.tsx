@@ -49,12 +49,12 @@ const Insurance = () => {
     { title: "Expert Support", description: "Dedicated support from insurance specialists", icon: FileCheck },
   ];
 
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('insurance_page');
+  
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank");
+    openWhatsApp("Hello, I'm interested in your cargo insurance services.", 'insurance_page');
   };
 
   return (
@@ -86,7 +86,7 @@ const Insurance = () => {
                 <Button 
                   className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
                   size="lg"
-                  onClick={() => window.location.href = "tel:+971504948135"}
+                  onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
@@ -95,7 +95,7 @@ const Insurance = () => {
                   variant="outline" 
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
-                  onClick={() => window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20insurance%20services.`, "_blank")}
+                  onClick={handleWhatsApp}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp

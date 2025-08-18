@@ -5,6 +5,7 @@ import { ArrowRight, Zap, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone,
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
+import { useContact } from "@/hooks/useContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -49,12 +50,12 @@ const CourierService = () => {
     { title: "Reliable Service", description: "Trusted courier services you can depend on", icon: Zap },
   ];
 
-  const handleCall = () => {
-    window.location.href = "tel:+971504948135";
-  };
-
+  const { makeCall, openWhatsApp } = useContact();
+  
+  const handleCall = () => makeCall('courier_service_page');
+  
   const handleWhatsApp = () => {
-    window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20courier%20services%20to%20Pakistan.`, "_blank");
+    openWhatsApp("Hello, I'm interested in your courier services to Pakistan.", 'courier_service_page');
   };
 
   return (
@@ -86,7 +87,7 @@ const CourierService = () => {
                 <Button 
                   className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
                   size="lg"
-                  onClick={() => window.location.href = "tel:+971504948135"}
+                  onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Now
@@ -95,7 +96,7 @@ const CourierService = () => {
                   variant="outline" 
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
-                  onClick={() => window.open(`https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20courier%20services%20to%20Pakistan.`, "_blank")}
+                  onClick={handleWhatsApp}
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
                   WhatsApp
