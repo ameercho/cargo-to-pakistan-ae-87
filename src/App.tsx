@@ -20,37 +20,17 @@ const queryClient = new QueryClient({
 });
 
 const App: React.FC = () => {
-  // Track if component is mounted for client-side only features
-  const [isMounted, setIsMounted] = React.useState(false);
-
   React.useEffect(() => {
     // Initialize analytics when the app mounts
     initializeAnalytics();
-    
-    // Use setTimeout to ensure React is fully ready
-    setTimeout(() => {
-      setIsMounted(true);
-    }, 0);
   }, []);
-
-  // Don't render anything until mounted to avoid SSR issues
-  if (!isMounted) {
-    return (
-      <div className="flex items-center justify-center min-h-screen">
-        <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cargo-blue"></div>
-      </div>
-    );
-  }
 
   return (
     <React.StrictMode>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
         <QueryClientProvider client={queryClient}>
           <AnalyticsProvider>
-            {/* Main application routing without TooltipProvider for now */}
             <RouterProvider router={router} />
-            
-            {/* Client-side only components */}
             <ClientToasts />
           </AnalyticsProvider>
         </QueryClientProvider>

@@ -5,6 +5,7 @@ import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Pho
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
+import { useContact } from "@/hooks/useContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
