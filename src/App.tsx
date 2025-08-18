@@ -19,11 +19,7 @@ const queryClient = new QueryClient({
 });
 
 const App: React.FC = () => {
-  // Add debugging to see if React is available
-  console.log("App rendering, React available:", !!React, !!React?.useState);
-  
   React.useEffect(() => {
-    console.log("App mounted, initializing analytics");
     initializeAnalytics();
   }, []);
 

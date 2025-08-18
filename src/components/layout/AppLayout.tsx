@@ -3,16 +3,11 @@ import { Outlet } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
-import { SimpleToaster } from "@/components/ui/simple-toaster";
 
 /**
- * Main application layout component
- * Consolidates all layout concerns in one place
+ * Main application layout component - simplified version
  */
 const AppLayout: React.FC = () => {
-  // Add debugging
-  console.log("AppLayout rendering, React available:", !!React?.useState);
-  
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">
@@ -23,7 +18,6 @@ const AppLayout: React.FC = () => {
         </main>
         
         <Footer />
-        <SimpleToaster />
       </div>
     </ErrorBoundary>
   );

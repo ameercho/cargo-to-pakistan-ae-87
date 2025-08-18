@@ -9,9 +9,7 @@ import { useNavigation } from "@/hooks/useNavigation";
 import { getNavLinkClasses, getUnderlineClasses, getMobileNavLinkClasses } from "./navigation/utils";
 
 const Header = () => {
-  console.log("Header rendering, about to call useNavigation");
   const { location } = useNavigation();
-  console.log("Header: useNavigation successful");
   const { makeCall } = useContact();
   const isHomepage = location.pathname === '/';
   
