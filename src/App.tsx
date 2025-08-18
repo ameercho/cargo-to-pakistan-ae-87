@@ -26,16 +26,14 @@ const App: React.FC = () => {
   }, []);
 
   return (
-    <React.StrictMode>
-      <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-        <QueryClientProvider client={queryClient}>
-          <AnalyticsProvider>
-            <RouterProvider router={router} />
-            <ClientToasts />
-          </AnalyticsProvider>
-        </QueryClientProvider>
-      </ThemeProvider>
-    </React.StrictMode>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <QueryClientProvider client={queryClient}>
+        <AnalyticsProvider>
+          <RouterProvider router={router} />
+          <ClientToasts />
+        </AnalyticsProvider>
+      </QueryClientProvider>
+    </ThemeProvider>
   );
 };
 
