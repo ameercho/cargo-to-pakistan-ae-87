@@ -1,13 +1,17 @@
 
 import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
-import { useAnalyticsContext } from '@/contexts/AnalyticsContext';
+import { useSafeAnalytics } from '@/hooks/useSafeAnalytics';
 
 export const usePageAnalytics = (pageTitle?: string) => {
-  const location = useLocation();
-  const { trackPageView } = useAnalyticsContext();
+  const { trackPageView } = useSafeAnalytics();
 
   useEffect(() => {
-    trackPageView(location.pathname, pageTitle || document.title);
-  }, [location.pathname, pageTitle, trackPageView]);
+    const currentPath = window.location.pathname;
+    trackPageView(currentPath);
+    
+    // Update document title
+    if (pageTitle) {
+      document.title = pageTitle;
+    }
+  }, [pageTitle, trackPageView]);
 };

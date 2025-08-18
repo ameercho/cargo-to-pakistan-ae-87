@@ -3,8 +3,6 @@ import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
-import { ThemeProvider } from "next-themes";
-import { initializeAnalytics } from "@/services/analytics";
 
 // Create a new query client instance with optimized settings
 const queryClient = new QueryClient({
@@ -18,16 +16,10 @@ const queryClient = new QueryClient({
 });
 
 const App: React.FC = () => {
-  React.useEffect(() => {
-    initializeAnalytics();
-  }, []);
-
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-      <QueryClientProvider client={queryClient}>
-        <RouterProvider router={router} />
-      </QueryClientProvider>
-    </ThemeProvider>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
   );
 };
 
