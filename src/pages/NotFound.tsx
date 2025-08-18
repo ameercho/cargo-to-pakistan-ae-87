@@ -1,7 +1,7 @@
 
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
-import { trackEvent } from "@/services/analytics";
+
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import PageSEO from "@/components/SEO/PageSEO";
@@ -16,12 +16,6 @@ const NotFound = () => {
       location.pathname
     );
     
-    // Track 404 error in analytics
-    trackEvent(
-      'Error', 
-      '404', 
-      `Path: ${location.pathname}`,
-    );
   }, [location.pathname]);
 
   return (

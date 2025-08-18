@@ -5,15 +5,13 @@ import { useEffect, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Phone } from "lucide-react";
-import { trackEvent } from "@/services/analytics";
+
 
 export const ShuffleHero = () => {
   const handleCall = () => {
-    trackEvent('Contact', 'Call', 'Hero Section');
     window.location.href = "tel:+971504948135";
   };
   const handleWhatsApp = () => {
-    trackEvent('Contact', 'WhatsApp', 'Hero Section');
     window.open("https://wa.me/971504948135?text=Hello,%20I'm%20interested%20in%20your%20cargo%20services.", "_blank");
   };
   return <section className="w-full px-8 py-16 md:py-24 grid grid-cols-1 md:grid-cols-2 items-center gap-8 max-w-6xl mx-auto">
