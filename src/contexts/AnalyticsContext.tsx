@@ -1,5 +1,5 @@
 
-import React, { createContext, useContext, ReactNode } from 'react';
+import React, { createContext, ReactNode } from 'react';
 import { 
   trackPhoneCall as trackPhoneCallService,
   trackQuoteRequest as trackQuoteRequestService,
@@ -32,9 +32,22 @@ export const AnalyticsProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export const useAnalyticsContext = () => {
-  const context = useContext(AnalyticsContext);
-  if (context === undefined) {
-    throw new Error('useAnalyticsContext must be used within an AnalyticsProvider');
+  // Return a safe default instead of throwing when context is undefined
+  try {
+    const context = React.useContext(AnalyticsContext);
+    return context || {
+      trackPhoneCall: () => {},
+      trackQuoteRequest: () => {},
+      trackServiceView: () => {},
+      trackPageView: () => {},
+    };
+  } catch (error) {
+    // Return safe defaults if React.useContext fails
+    return {
+      trackPhoneCall: () => {},
+      trackQuoteRequest: () => {},
+      trackServiceView: () => {},
+      trackPageView: () => {},
+    };
   }
-  return context;
 };
