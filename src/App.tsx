@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
 import { ThemeProvider } from "next-themes";
-import { ClientToasts } from "@/components/ui/client-toasts";
 import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
 import { initializeAnalytics } from "@/services/analytics";
 
@@ -20,8 +19,11 @@ const queryClient = new QueryClient({
 });
 
 const App: React.FC = () => {
+  // Add debugging to see if React is available
+  console.log("App rendering, React available:", !!React, !!React?.useState);
+  
   React.useEffect(() => {
-    // Initialize analytics when the app mounts
+    console.log("App mounted, initializing analytics");
     initializeAnalytics();
   }, []);
 
@@ -30,7 +32,6 @@ const App: React.FC = () => {
       <QueryClientProvider client={queryClient}>
         <AnalyticsProvider>
           <RouterProvider router={router} />
-          <ClientToasts />
         </AnalyticsProvider>
       </QueryClientProvider>
     </ThemeProvider>
