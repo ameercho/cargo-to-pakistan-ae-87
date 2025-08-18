@@ -4,7 +4,6 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 import { router } from "./routes/index";
 import { ThemeProvider } from "next-themes";
-import { AnalyticsProvider } from "@/contexts/AnalyticsContext";
 import { initializeAnalytics } from "@/services/analytics";
 
 // Create a new query client instance with optimized settings
@@ -26,9 +25,7 @@ const App: React.FC = () => {
   return (
     <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
       <QueryClientProvider client={queryClient}>
-        <AnalyticsProvider>
-          <RouterProvider router={router} />
-        </AnalyticsProvider>
+        <RouterProvider router={router} />
       </QueryClientProvider>
     </ThemeProvider>
   );

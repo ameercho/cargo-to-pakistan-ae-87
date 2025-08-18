@@ -1,14 +1,23 @@
 
-import { useLocation } from 'react-router-dom';
-
+/**
+ * Simplified navigation hook without React Router dependencies
+ * Provides safe fallbacks during React initialization issues
+ */
 export const useNavigation = () => {
-  const location = useLocation();
+  // Fallback location object
+  const location = {
+    pathname: window?.location?.pathname || '/'
+  };
 
   const isActive = (path: string) => {
-    if (path === '/') {
-      return location.pathname === '/';
+    try {
+      if (path === '/') {
+        return location.pathname === '/';
+      }
+      return location.pathname.startsWith(path);
+    } catch (error) {
+      return false;
     }
-    return location.pathname.startsWith(path);
   };
 
   return {
