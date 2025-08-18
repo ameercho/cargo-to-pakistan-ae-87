@@ -2,11 +2,11 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { SERVICE_HIGHLIGHTS } from "./utils";
 
 const HeroSection = () => {
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
 
   const onWhatsAppClick = () => {
     openWhatsApp(undefined, 'hero_section');

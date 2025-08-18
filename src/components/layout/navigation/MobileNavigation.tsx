@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/constants";
-import { useNavigation } from "@/hooks/useNavigation";
+import { useSafeNavigation } from "@/hooks/useSafeNavigation";
 import { useMobileMenu } from "@/hooks/useMobileMenu";
 
 const MobileNavigation = () => {
-  const { isActive } = useNavigation();
+  const { isActive } = useSafeNavigation();
   const { isMobileMenuOpen, toggleMobileMenu } = useMobileMenu();
 
   return (

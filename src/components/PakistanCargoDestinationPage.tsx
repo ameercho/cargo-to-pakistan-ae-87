@@ -6,7 +6,7 @@ import PakistanCargoSidebar from "@/components/pakistan-cargo/PakistanCargoSideb
 import PakistanCargoServices from "@/components/pakistan-cargo/PakistanCargoServices";
 import PakistanCargoTestimonials from "@/components/pakistan-cargo/PakistanCargoTestimonials";
 import CallToAction from "@/components/home/CallToAction";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 interface DestinationInfo {
   city: string;
@@ -26,7 +26,7 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
   }, []);
 
   // Contact handlers
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('pakistan_destination_page');
   

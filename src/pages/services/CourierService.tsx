@@ -5,7 +5,7 @@ import { ArrowRight, Zap, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone,
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -50,7 +50,7 @@ const CourierService = () => {
     { title: "Reliable Service", description: "Trusted courier services you can depend on", icon: Zap },
   ];
 
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('courier_service_page');
   

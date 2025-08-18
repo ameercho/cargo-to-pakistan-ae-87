@@ -1,10 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const CallToAction = () => {
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
 
   return (
     <section className="py-16 bg-cargo-blue text-white">

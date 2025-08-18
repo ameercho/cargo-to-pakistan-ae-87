@@ -10,7 +10,7 @@ import MovingHomeContent from "@/components/services/moving-home/MovingHomeConte
 import MovingHomeSidebar from "@/components/services/moving-home/MovingHomeSidebar";
 import ServicePageLayout from "@/components/services/ServicePageLayout";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const MovingHome = () => {
   // Scroll to top when component mounts
@@ -18,7 +18,7 @@ const MovingHome = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const services = [
     {

@@ -9,12 +9,12 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { ChevronDown } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/constants";
-import { useNavigation } from "@/hooks/useNavigation";
-import { useContact } from "@/hooks/useContact";
+import { useSafeNavigation } from "@/hooks/useSafeNavigation";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const DesktopNavigation = () => {
-  const { isActive } = useNavigation();
-  const { makeCall } = useContact();
+  const { isActive } = useSafeNavigation();
+  const { makeCall } = useSafeContact();
 
   return (
     <div className="hidden lg:flex items-center space-x-6">

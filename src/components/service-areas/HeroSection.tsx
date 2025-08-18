@@ -2,10 +2,10 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const ServiceAreasHero = () => {
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('service_areas_hero');
   

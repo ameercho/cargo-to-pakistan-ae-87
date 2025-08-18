@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Truck, Package, Phone, MessageCircle, MapPin, Clock } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 interface UAEToPakistanPageProps {
   location: {
@@ -50,7 +50,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
     "Insurance options available"
   ];
   
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('uae_pakistan_page');
   

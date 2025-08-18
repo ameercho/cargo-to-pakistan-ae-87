@@ -5,7 +5,7 @@ import { ArrowRight, Users, Clock, Package, MapPin, FileCheck, ShieldCheck, Phon
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -50,7 +50,7 @@ const Consulting = () => {
     { title: "Risk Assessment", description: "Identify and mitigate shipping risks", icon: ShieldCheck },
   ];
 
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('consulting_page');
   

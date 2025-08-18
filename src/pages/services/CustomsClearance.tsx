@@ -5,7 +5,7 @@ import { ArrowRight, FileText, Clock, Package, MapPin, FileCheck, ShieldCheck, P
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -50,7 +50,7 @@ const CustomsClearance = () => {
     { title: "Cost Transparency", description: "Clear duty and tax calculations", icon: FileCheck },
   ];
 
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('customs_clearance_page');
   

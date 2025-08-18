@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X } from "lucide-react";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const FloatingButton = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +27,7 @@ const FloatingButton = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
 
-  const { openWhatsApp } = useContact();
+  const { openWhatsApp } = useSafeContact();
   
   const handleWhatsAppClick = () => {
     openWhatsApp(undefined, 'floating_button');

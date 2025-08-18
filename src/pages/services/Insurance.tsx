@@ -5,7 +5,7 @@ import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Pho
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -50,7 +50,7 @@ const Insurance = () => {
     { title: "Expert Support", description: "Dedicated support from insurance specialists", icon: FileCheck },
   ];
 
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('insurance_page');
   

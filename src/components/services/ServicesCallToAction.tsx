@@ -1,10 +1,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const ServicesCallToAction = () => {
-  const { makeCall } = useContact();
+  const { makeCall } = useSafeContact();
 
   return (
     <section className="py-12 bg-cargo-green text-white">

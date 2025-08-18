@@ -5,7 +5,7 @@ import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phon
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import PageSEO from "@/components/SEO/PageSEO";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
   BreadcrumbItem,
@@ -50,7 +50,7 @@ const AirFreightCargo = () => {
     { title: "Track & Trace", description: "Real-time tracking throughout the journey", icon: FileCheck },
   ];
   
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('air_freight_page');
   

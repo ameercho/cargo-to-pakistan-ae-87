@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import { Phone, MessageCircle } from "lucide-react";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 interface PageHeaderProps {
   title: string;
@@ -21,7 +21,7 @@ const PageHeader = ({
   showButtons = true,
   backgroundClass = "bg-gradient-to-br from-cargo-green to-cargo-blue"
 }: PageHeaderProps) => {
-  const { makeCall, openWhatsApp } = useContact();
+  const { makeCall, openWhatsApp } = useSafeContact();
   
   const handleCall = () => makeCall('page_header');
   

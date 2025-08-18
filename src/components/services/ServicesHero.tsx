@@ -1,9 +1,9 @@
 
 import { Button } from "@/components/ui/button";
-import { useContact } from "@/hooks/useContact";
+import { useSafeContact } from "@/hooks/useSafeContact";
 
 const ServicesHero = () => {
-  const { makeCall } = useContact();
+  const { makeCall } = useSafeContact();
 
   return (
     <section className="py-12 bg-cargo-green text-white">
