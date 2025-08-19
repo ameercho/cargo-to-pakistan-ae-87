@@ -37,8 +37,7 @@ const ServiceAreasHero = () => {
               </Button>
               <Button 
                 onClick={handleWhatsApp} 
-                variant="outline" 
-                className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
+                className="bg-cargo-green hover:bg-cargo-green/90 text-white shadow-lg tap-target"
                 size="lg"
               >
                 <MessageCircle className="mr-2 h-5 w-5" />

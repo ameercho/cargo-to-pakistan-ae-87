@@ -85,8 +85,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
                   Call Now
                 </Button>
                 <Button 
-                  variant="outline" 
-                  className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
+                  className="bg-cargo-green hover:bg-cargo-green/90 text-white shadow-lg tap-target"
                   size="lg"
                   onClick={handleWhatsApp}
                 >
@@ -186,8 +185,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
                 
                 <div className="mt-4">
                   <Button 
-                    variant="outline" 
-                    className="w-full border-cargo-blue text-white bg-cargo-blue hover:bg-blue-700"
+                    className="w-full bg-cargo-green hover:bg-cargo-green/90 text-white"
                     onClick={handleWhatsApp}
                   >
                     <MessageCircle className="mr-2 h-4 w-4" />

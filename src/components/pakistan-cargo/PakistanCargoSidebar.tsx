@@ -60,8 +60,7 @@ const PakistanCargoSidebar: React.FC<PakistanCargoSidebarProps> = ({
         
         <div className="mt-4">
           <Button 
-            variant="outline" 
-            className="w-full border-cargo-blue text-white bg-cargo-blue hover:bg-blue-700"
+            className="w-full bg-cargo-green hover:bg-cargo-green/90 text-white"
             onClick={onWhatsApp}
           >
             <MessageCircle className="mr-2 h-4 w-4" />

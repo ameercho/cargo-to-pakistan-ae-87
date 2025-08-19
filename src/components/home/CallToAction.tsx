@@ -30,8 +30,7 @@ const CallToAction = () => {
             
             <Button 
               onClick={() => openWhatsApp(undefined, 'home_cta')}
-              variant="outline"
-              className="border-white text-white hover:bg-white hover:text-cargo-blue"
+              className="bg-cargo-green hover:bg-cargo-green/90 text-white"
               size="lg"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
