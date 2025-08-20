@@ -2,6 +2,12 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
 
+interface StructuredData {
+  "@context": string;
+  "@type": string;
+  [key: string]: any;
+}
+
 interface PageSEOProps {
   title: string;
   description: string;
@@ -12,8 +18,29 @@ interface PageSEOProps {
   ogType?: string;
   ogTitle?: string;
   ogDescription?: string;
-  structuredData?: object;
+  structuredData?: StructuredData | StructuredData[];
 }
+
+// SEO validation helper
+const validateSEOData = (props: PageSEOProps) => {
+  const warnings: string[] = [];
+  
+  if (props.title.length > 60) {
+    warnings.push('Title exceeds 60 characters - may be truncated in search results');
+  }
+  
+  if (props.description.length > 160) {
+    warnings.push('Description exceeds 160 characters - may be truncated in search results');
+  }
+  
+  if (!props.title.includes('Pakistan') && !props.title.includes('UAE')) {
+    warnings.push('Consider including target keywords (Pakistan/UAE) in title');
+  }
+  
+  if (warnings.length > 0 && process.env.NODE_ENV === 'development') {
+    console.warn('SEO Warnings:', warnings);
+  }
+};
 
 const PageSEO: React.FC<PageSEOProps> = ({
   title,
@@ -27,6 +54,11 @@ const PageSEO: React.FC<PageSEOProps> = ({
   ogDescription,
   structuredData
 }) => {
+  // Validate SEO data in development
+  React.useEffect(() => {
+    validateSEOData({ title, description, keywords, canonical, robots, ogImage, ogType, ogTitle, ogDescription, structuredData });
+  }, [title, description, keywords, canonical, robots, ogImage, ogType, ogTitle, ogDescription, structuredData]);
+
   const currentUrl = canonical || `https://cargotopakistan.ae${window.location.pathname}`;
 
   return (
@@ -51,7 +83,7 @@ const PageSEO: React.FC<PageSEOProps> = ({
       
       {structuredData && (
         <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
+          {JSON.stringify(Array.isArray(structuredData) ? structuredData : [structuredData], null, 0)}
         </script>
       )}
     </Helmet>
