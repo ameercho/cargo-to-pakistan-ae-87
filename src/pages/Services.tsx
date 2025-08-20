@@ -1,6 +1,7 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
+import { Ship, Plane, Truck, Package, Shield, Clock } from "lucide-react";
 const Services = () => {
   const services = [
     {
