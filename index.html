@@ -112,27 +112,17 @@
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main-fresh.tsx"></script>
     <script>
-      // DISABLE SERVICE WORKER TO PREVENT CACHING ISSUES
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-            console.log('Unregistered service worker:', registration);
-          }
-        });
-        
-        // Clear all caches
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            caches.delete(name);
-            console.log('Deleted cache:', name);
-          }
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+              console.log('ServiceWorker registration failed: ', error);
+            });
         });
       }
-      
-      // Add cache busting to force fresh load
-      const timestamp = Date.now();
-      console.log('Cache bust timestamp:', timestamp);
     </script>
   </body>
 </html>
