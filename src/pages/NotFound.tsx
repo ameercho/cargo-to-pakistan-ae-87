@@ -1,46 +1,42 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { Home, ArrowLeft } from "lucide-react";
+
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
+
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
+import PageSEO from "@/components/SEO/PageSEO";
 
 const NotFound = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // Log the 404 error to console
+    console.error(
+      "404 Error: User attempted to access non-existent route:",
+      location.pathname
+    );
+    
+  }, [location.pathname]);
+
   return (
-    <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-      <div className="text-center">
-        <div className="mb-8">
-          <h1 className="text-9xl font-bold text-cargo-blue">404</h1>
-          <h2 className="text-3xl font-bold text-gray-800 mb-4">Page Not Found</h2>
-          <p className="text-xl text-gray-600 mb-8">
-            The page you're looking for doesn't exist or has been moved.
-          </p>
-        </div>
-
-        <div className="space-x-4">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 bg-cargo-blue hover:bg-blue-800 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            <Home size={20} />
-            Go Home
-          </Link>
-          
-          <button
-            onClick={() => window.history.back()}
-            className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            <ArrowLeft size={20} />
-            Go Back
-          </button>
-        </div>
-
-        <div className="mt-12">
-          <p className="text-gray-500 mb-4">Looking for cargo services to Pakistan?</p>
-          <Link
-            to="/services"
-            className="text-cargo-blue hover:text-cargo-orange font-semibold"
-          >
-            View Our Services →
-          </Link>
-        </div>
+    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+      <PageSEO
+        title="Page Not Found | Cargo to Pakistan"
+        description="The page you're looking for doesn't exist. Visit our homepage for cargo shipping services from UAE to Pakistan."
+        keywords="cargo to pakistan, 404 error, page not found"
+        canonical="https://cargotopakistan.ae/404"
+        robots="noindex,nofollow"
+      />
+      <div className="text-center max-w-md">
+        <h1 className="text-6xl font-bold mb-4 text-cargo-blue">404</h1>
+        <p className="text-xl text-gray-600 mb-6">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <Button asChild className="bg-cargo-green hover:bg-[#176a3e]">
+          <a href="/" className="inline-flex items-center">
+            <ArrowLeft className="mr-2 h-4 w-4" /> Return to Homepage
+          </a>
+        </Button>
       </div>
     </div>
   );

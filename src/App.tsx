@@ -1,24 +1,23 @@
 
 import React from "react";
-import { Routes, Route } from "react-router-dom";
-import AppLayout from "@/components/layout/AppLayout";
-import Index from "@/pages/Index";
-import Services from "@/pages/Services";
-import Contact from "@/pages/Contact";
-import About from "@/pages/About";
-import NotFound from "@/pages/NotFound";
 
+console.log('App.tsx: React object:', React);
+console.log('App.tsx: React hooks available:', {
+  useEffect: !!React.useEffect,
+  useState: !!React.useState,
+  useContext: !!React.useContext
+});
+
+// Minimal test component to verify React is working
 const App: React.FC = () => {
+  console.log('App.tsx: Component rendering');
+  
   return (
-    <Routes>
-      <Route path="/" element={<AppLayout />}>
-        <Route index element={<Index />} />
-        <Route path="services" element={<Services />} />
-        <Route path="contact" element={<Contact />} />
-        <Route path="about" element={<About />} />
-        <Route path="*" element={<NotFound />} />
-      </Route>
-    </Routes>
+    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
+      <h1>React Test</h1>
+      <p>If you can see this, React is working!</p>
+      <p>Check console for debug logs</p>
+    </div>
   );
 };
 
