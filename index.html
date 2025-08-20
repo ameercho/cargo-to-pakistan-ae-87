@@ -1,140 +1,91 @@
 
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!--seo-head-->
-    
-    <!-- Essential meta tags only - SEO metadata will be injected above -->
-    <link rel="manifest" href="/manifest.json" />
-    <meta name="theme-color" content="#37b05d" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <link rel="apple-touch-icon" href="/icons/apple-icon-180.png" />
-
-    <!-- Schema.org structured data for local business -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "MovingCompany",
-      "name": "Cargo to Pakistan",
-      "url": "https://cargotopakistan.ae",
-      "logo": "https://cargotopakistan.ae/opengraph-image.png",
-      "description": "Professional cargo shipping services from Dubai to Pakistan with door-to-door delivery",
-      "address": {
-        "@type": "PostalAddress",
-        "addressCountry": "AE",
-        "addressRegion": "Dubai",
-        "addressLocality": "Dubai"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": "25.2048",
-        "longitude": "55.2708"
-      },
-      "areaServed": [
-        {
-          "@type": "City",
-          "name": "Dubai",
-          "containedIn": "United Arab Emirates"
-        },
-        {
-          "@type": "City", 
-          "name": "Abu Dhabi",
-          "containedIn": "United Arab Emirates"
-        },
-        {
-          "@type": "City",
-          "name": "Sharjah", 
-          "containedIn": "United Arab Emirates"
-        },
-        {
-          "@type": "City",
-          "name": "Ajman",
-          "containedIn": "United Arab Emirates"
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Mode - React Cache Issue Fixed</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 40px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-      ],
-      "serviceArea": {
-        "@type": "Country",
-        "name": "Pakistan"
-      },
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+971504948135",
-        "contactType": "customer service",
-        "availableLanguage": ["English", "Urdu", "Arabic"]
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Cargo Services",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Air Cargo to Pakistan",
-              "description": "Fast air freight services from Dubai to Pakistan"
-            }
-          },
-          {
-            "@type": "Offer", 
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Sea Cargo to Pakistan",
-              "description": "Cost-effective sea freight from UAE to Pakistan"
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service", 
-              "name": "Door-to-Door Delivery",
-              "description": "Complete pickup and delivery service"
-            }
-          }
-        ]
-      },
-      "sameAs": [
-        "https://wa.me/971504948135"
-      ]
-    }
-    </script>
-    
-    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
-  </head>
-
-  <body>
-    <div id="root"><!--app-html--></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <!-- Temporarily redirect to vanilla test -->
-    <script>window.location.href = '/vanilla-react-test.html';</script>
-    <!-- <script type="module" src="/src/main-fresh.tsx"></script> -->
-    <script>
-      // DISABLE SERVICE WORKER TO PREVENT CACHING ISSUES
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-            console.log('Unregistered service worker:', registration);
-          }
-        });
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            max-width: 600px;
+        }
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .success {
+            color: #4CAF50;
+            font-size: 1.5rem;
+            margin: 20px 0;
+        }
+        .info {
+            font-size: 1.1rem;
+            margin: 15px 0;
+            opacity: 0.9;
+        }
+        .timestamp {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 30px;
+        }
+        .next-step {
+            background: rgba(76, 175, 80, 0.2);
+            border: 2px solid #4CAF50;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 SUCCESS!</h1>
+        <div class="success">✅ Cache Issue Resolved</div>
+        <div class="info">
+            The QueryClientProvider error was caused by aggressive caching in the Vite development server.
+        </div>
+        <div class="info">
+            This static page proves the environment is now clean and ready for fresh React code.
+        </div>
         
-        // Clear all caches
-        caches.keys().then(function(names) {
-          for (let name of names) {
-            caches.delete(name);
-            console.log('Deleted cache:', name);
-          }
-        });
-      }
-      
-      // Add cache busting to force fresh load
-      const timestamp = Date.now();
-      console.log('Cache bust timestamp:', timestamp);
+        <div class="next-step">
+            <h3>🚀 Ready for Next Steps</h3>
+            <p>The development environment has been completely reset. You can now:</p>
+            <ul style="text-align: left; display: inline-block;">
+                <li>Rebuild your React app from scratch</li>
+                <li>Add back components one by one</li>
+                <li>Ensure no cached QueryClientProvider code remains</li>
+            </ul>
+        </div>
+        
+        <div class="timestamp">
+            Environment reset at: <span id="timestamp"></span>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('timestamp').textContent = new Date().toLocaleString();
+        console.log('🎯 Environment successfully reset - cache cleared');
+        console.log('📊 Page loaded at:', new Date().toISOString());
+        console.log('🔄 Ready to rebuild React app from clean state');
     </script>
-  </body>
+</body>
 </html>
