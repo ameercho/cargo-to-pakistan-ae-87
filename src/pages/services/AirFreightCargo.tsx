@@ -65,7 +65,7 @@ const AirFreightCargo = () => {
         title="Air Freight Cargo Services to Pakistan | Cargo to Pakistan"
         description="Fast, reliable air freight cargo services from UAE to Pakistan. Express & standard air shipping, secure handling, and real-time tracking. Call +971504948135."
         keywords="air freight Pakistan, air cargo UAE, express air shipping, cargo to Pakistan, urgent cargo UAE"
-        canonical="https://cargotopakistan.ae/services/air-freight-cargo"
+        canonical="https://cargotopakistan.ae/services/air-freight"
         robots="index,follow"
       />
 
