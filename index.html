@@ -110,7 +110,9 @@
     <div id="root"><!--app-html--></div>
     <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
     <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
-    <script type="module" src="/src/main-fresh.tsx"></script>
+    <!-- Temporarily redirect to vanilla test -->
+    <script>window.location.href = '/vanilla-react-test.html';</script>
+    <!-- <script type="module" src="/src/main-fresh.tsx"></script> -->
     <script>
       // DISABLE SERVICE WORKER TO PREVENT CACHING ISSUES
       if ('serviceWorker' in navigator) {
