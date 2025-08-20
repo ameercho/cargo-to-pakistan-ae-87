@@ -14,7 +14,7 @@ const SargodaCargo = () => {
         title="Cargo to Sargodha Pakistan | UAE to Sargodha Shipping"
         description="Professional cargo shipping from UAE to Sargodha Pakistan with door-to-door delivery. Reliable shipping service from Dubai, Abu Dhabi, Sharjah. Call +971504948135"
         keywords="cargo to sargodha, uae sargodha shipping, pakistan cargo sargodha"
-        canonical="https://cargotopakistan.ae/pakistan-cargo-to-sargodha"
+        canonical="https://cargotopakistan.ae/pakistan-cargo-to-sargoda"
         robots="index,follow"
       />
       <PakistanCargoDestinationPage destination={sargodhaInfo} />
