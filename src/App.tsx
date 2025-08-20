@@ -1,23 +1,14 @@
 
-import React from "react";
+import * as React from "react";
+import { RouterProvider } from "react-router-dom";
+import { router } from "./routes/index";
 
-console.log('App.tsx: React object:', React);
-console.log('App.tsx: React hooks available:', {
-  useEffect: !!React.useEffect,
-  useState: !!React.useState,
-  useContext: !!React.useContext
-});
+// Temporarily removed QueryClientProvider to isolate React import issue
+// Force cache refresh - analytics removed completely
 
-// Minimal test component to verify React is working
 const App: React.FC = () => {
-  console.log('App.tsx: Component rendering');
-  
   return (
-    <div style={{ padding: '20px', fontFamily: 'Arial, sans-serif' }}>
-      <h1>React Test</h1>
-      <p>If you can see this, React is working!</p>
-      <p>Check console for debug logs</p>
-    </div>
+    <RouterProvider router={router} />
   );
 };
 
