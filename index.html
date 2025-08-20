@@ -1,91 +1,15 @@
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Debug Mode - React Cache Issue Fixed</title>
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            margin: 0;
-            padding: 40px;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 60px;
-            border-radius: 20px;
-            text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-            max-width: 600px;
-        }
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-        .success {
-            color: #4CAF50;
-            font-size: 1.5rem;
-            margin: 20px 0;
-        }
-        .info {
-            font-size: 1.1rem;
-            margin: 15px 0;
-            opacity: 0.9;
-        }
-        .timestamp {
-            font-size: 0.9rem;
-            opacity: 0.7;
-            margin-top: 30px;
-        }
-        .next-step {
-            background: rgba(76, 175, 80, 0.2);
-            border: 2px solid #4CAF50;
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 30px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>🎉 SUCCESS!</h1>
-        <div class="success">✅ Cache Issue Resolved</div>
-        <div class="info">
-            The QueryClientProvider error was caused by aggressive caching in the Vite development server.
-        </div>
-        <div class="info">
-            This static page proves the environment is now clean and ready for fresh React code.
-        </div>
-        
-        <div class="next-step">
-            <h3>🚀 Ready for Next Steps</h3>
-            <p>The development environment has been completely reset. You can now:</p>
-            <ul style="text-align: left; display: inline-block;">
-                <li>Rebuild your React app from scratch</li>
-                <li>Add back components one by one</li>
-                <li>Ensure no cached QueryClientProvider code remains</li>
-            </ul>
-        </div>
-        
-        <div class="timestamp">
-            Environment reset at: <span id="timestamp"></span>
-        </div>
-    </div>
-
-    <script>
-        document.getElementById('timestamp').textContent = new Date().toLocaleString();
-        console.log('🎯 Environment successfully reset - cache cleared');
-        console.log('📊 Page loaded at:', new Date().toISOString());
-        console.log('🔄 Ready to rebuild React app from clean state');
-    </script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cargo to Pakistan - UAE Pakistan Shipping Service</title>
+    <meta name="description" content="Professional cargo shipping from UAE to Pakistan. Door-to-door delivery service for all major cities. Reliable, secure & affordable shipping solutions." />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
 </html>
