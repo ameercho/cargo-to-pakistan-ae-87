@@ -2,7 +2,6 @@
 import React, { useEffect } from 'react';
 import ServicesContent from "@/components/services/ServicesContent";
 import PageHeader from "@/components/layout/PageHeader";
-import PageSEO from "@/components/SEO/PageSEO";
 import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home, Settings, WarehouseIcon, Warehouse, Container } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
@@ -131,14 +130,6 @@ const Services = () => {
 
   return (
     <div className="min-h-screen">
-      <PageSEO
-        title="Cargo to Pakistan Services | Dubai Abu Dhabi Sharjah | Door-to-Door Shipping"
-        description="Comprehensive cargo shipping services including sea freight, air freight, courier services, and complete logistics support for all your cargo needs from UAE to Pakistan"
-        keywords="sea cargo to pakistan, dubai to pakistan sea cargo, moving home to pakistan, Full container service, pakistan cargo courier service"
-        canonical="https://cargotopakistan.ae/services"
-        robots="index,follow"
-        structuredData={structuredData}
-      />
       {/* Hero Section */}
       <PageHeader
         title="Comprehensive Cargo Services from UAE to Pakistan"

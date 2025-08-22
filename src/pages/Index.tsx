@@ -3,7 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
+
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
@@ -57,14 +57,6 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
-      <PageSEO
-        title="Cargo to Pakistan from UAE | Dubai Abu Dhabi Sharjah | Door-to-Door Shipping"
-        description="Professional cargo shipping from UAE to Pakistan with door-to-door delivery. Serving Dubai, Abu Dhabi, Sharjah & all Emirates. Trusted by 10,000+ customers. Call +971504948135"
-        keywords="cargo to pakistan, dubai to pakistan cargo, uae pakistan shipping, cargo service dubai, pakistan cargo uae"
-        canonical="https://cargotopakistan.ae"
-        robots="index,follow"
-        structuredData={structuredData}
-      />
       
       <HeroSection />
       
