@@ -1,5 +1,6 @@
 
-import React, { Suspense } from "react";
+import * as React from "react";
+import { Suspense } from "react";
 import ErrorBoundary from "@/components/common/ErrorBoundary";
 
 // Loading component
