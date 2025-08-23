@@ -86,13 +86,6 @@ const FullContainer = () => {
   return (
     <div className="min-h-screen">
       {/* SEO Component */}
-      <PageSEO
-        title="Full Container Load (FCL) to Pakistan | Cargo to Pakistan"
-        description="Dedicated full container shipping from UAE to Pakistan. 20ft & 40ft FCL, secure transport, and global reach. Call +971504948135."
-        keywords="full container Pakistan, FCL shipping UAE, container cargo, cargo to Pakistan, container shipping UAE"
-        canonical="https://cargotopakistan.ae/services/full-container"
-        robots="index,follow"
-      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

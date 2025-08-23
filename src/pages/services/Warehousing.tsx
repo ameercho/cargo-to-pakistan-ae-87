@@ -67,16 +67,6 @@ const Warehousing = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Component */}
-      <PageSEO
-        title="Warehousing Services UAE to Pakistan | Cargo to Pakistan"
-        description="Secure warehousing and storage in UAE for cargo to Pakistan. 24/7 monitored facilities, inventory management, and distribution. Call +971504948135."
-        keywords="warehousing UAE, cargo storage Dubai, Pakistan cargo warehouse, inventory management, secure storage UAE"
-        canonical="https://cargotopakistan.ae/services/warehousing"
-        robots="index,follow"
-        structuredData={structuredData}
-      />
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

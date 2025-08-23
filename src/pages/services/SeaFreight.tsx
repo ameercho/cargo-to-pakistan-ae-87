@@ -59,13 +59,6 @@ const SeaFreight = () => {
   return (
     <div className="min-h-screen">
       {/* SEO Component */}
-      <PageSEO
-        title="Sea Freight Services to Pakistan | Cargo to Pakistan"
-        description="Affordable sea freight shipping from UAE to Pakistan. FCL & LCL ocean cargo, secure handling, and reliable delivery. Call +971504948135."
-        keywords="sea freight Pakistan, ocean shipping UAE, FCL LCL cargo, cargo to Pakistan, sea cargo UAE"
-        canonical="https://cargotopakistan.ae/services/sea-freight"
-        robots="index,follow"
-      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
