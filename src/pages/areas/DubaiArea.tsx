@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
 
 const DubaiArea = () => {
   useEffect(() => {
@@ -18,13 +17,6 @@ const DubaiArea = () => {
   
   return (
     <div className="min-h-screen">
-      <PageSEO
-        title="Cargo to Pakistan from Dubai | Door-to-Door Shipping Service"
-        description="Professional cargo shipping from Dubai to Pakistan with door-to-door delivery. Serving Dubai Marina, Downtown, Business Bay & all Dubai areas. Call +971504948135"
-        keywords="cargo to pakistan dubai, dubai pakistan shipping, cargo service dubai, pakistan cargo dubai"
-        canonical="https://cargotopakistan.ae/areas/dubai"
-      />
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

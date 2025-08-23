@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
 
 const AjmanArea = () => {
   useEffect(() => {
@@ -18,13 +17,6 @@ const AjmanArea = () => {
   
   return (
     <div className="min-h-screen">
-      <PageSEO
-        title="Cargo to Pakistan from Ajman | Reliable Shipping Service"
-        description="Professional cargo shipping from Ajman to Pakistan with door-to-door delivery. Serving Al Nuaimiya, Al Rashidiya & all Ajman areas. Call +971504948135"
-        keywords="cargo to pakistan ajman, ajman pakistan shipping, cargo service ajman, pakistan cargo ajman"
-        canonical="https://cargotopakistan.ae/areas/ajman"
-      />
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

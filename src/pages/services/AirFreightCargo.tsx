@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Zap } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
@@ -60,8 +59,7 @@ const AirFreightCargo = () => {
 
   return (
     <div className="min-h-screen">
-      {/* SEO Component */}
-      <PageSEO
+      {/* SEO handled by build-time injection */}
         title="Air Freight Cargo Services to Pakistan | Cargo to Pakistan"
         description="Fast, reliable air freight cargo services from UAE to Pakistan. Express & standard air shipping, secure handling, and real-time tracking. Call +971504948135."
         keywords="air freight Pakistan, air cargo UAE, express air shipping, cargo to Pakistan, urgent cargo UAE"

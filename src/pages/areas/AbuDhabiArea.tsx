@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
 
 const AbuDhabiArea = () => {
   useEffect(() => {
@@ -18,13 +17,6 @@ const AbuDhabiArea = () => {
   
   return (
     <div className="min-h-screen">
-      <PageSEO
-        title="Cargo to Pakistan from Abu Dhabi | Professional Shipping Service"
-        description="Reliable cargo shipping from Abu Dhabi to Pakistan with door-to-door delivery. Serving Al Reem Island, Khalifa City, Mussafah & all Abu Dhabi areas. Call +971504948135"
-        keywords="cargo to pakistan abu dhabi, abu dhabi pakistan shipping, cargo service abu dhabi, pakistan cargo abu dhabi"
-        canonical="https://cargotopakistan.ae/areas/abu-dhabi"
-      />
-
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>

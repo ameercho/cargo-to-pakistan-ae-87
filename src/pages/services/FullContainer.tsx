@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Truck, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Container } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
-import PageSEO from "@/components/SEO/PageSEO";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,
