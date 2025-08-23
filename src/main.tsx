@@ -1,21 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { RouterProvider } from 'react-router-dom'
-import { router } from './routes'
-import { Toaster } from '@/components/ui/toaster'
 import './index.css'
 
+// Create the most basic React app possible
 function App() {
   return (
-    <>
-      <RouterProvider router={router} />
-      <Toaster />
-    </>
+    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
+      <h1>Cargo to Pakistan - Basic Test</h1>
+      <p>If you can see this, React is working!</p>
+    </div>
   )
 }
 
+// Use basic DOM rendering without React imports to test
 const container = document.getElementById('root')
-if (!container) throw new Error('Failed to find the root element')
-
-const root = ReactDOM.createRoot(container)
-root.render(<App />)
+if (container) {
+  container.innerHTML = `
+    <div style="padding: 20px; font-family: Arial;">
+      <h1>Cargo to Pakistan - Direct DOM Test</h1>
+      <p>Testing without React first...</p>
+      <button onclick="alert('Basic JS works!')">Test Button</button>
+    </div>
+  `
+}
