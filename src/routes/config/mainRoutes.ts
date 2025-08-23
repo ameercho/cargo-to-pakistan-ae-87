@@ -36,6 +36,10 @@ export const mainRoutes = [
     element: ServiceAreas,
   },
   {
+    path: "areas",
+    element: ServiceAreas, // Redirect areas to service-areas
+  },
+  {
     path: "*",
     element: NotFound,
   }
