@@ -1,5 +1,5 @@
 
-const { SEO_CONFIG, generateDynamicSEO } = require('../src/config/seo-config.js');
+import { SEO_CONFIG, generateDynamicSEO } from '../src/config/seo-config.js';
 
 function injectMetadata(html, pathname) {
   console.log('Injecting static SEO for:', pathname);
@@ -45,4 +45,4 @@ function injectMetadata(html, pathname) {
   return html.replace('<head>', `<head>${metaTags}`);
 }
 
-module.exports = { injectMetadata };
+export { injectMetadata };
