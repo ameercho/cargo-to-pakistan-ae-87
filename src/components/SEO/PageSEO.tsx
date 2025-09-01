@@ -65,7 +65,7 @@ const PageSEO = ({
     }
     
     if (canonical) {
-      let linkElement = document.querySelector('link[rel="canonical"]');
+      let linkElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
       if (linkElement) {
         linkElement.setAttribute('href', canonical);
       } else {
@@ -88,7 +88,7 @@ const PageSEO = ({
 
     // Add structured data if provided
     if (structuredData) {
-      let structuredDataElement = document.querySelector('script[type="application/ld+json"]');
+      let structuredDataElement = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
       if (structuredDataElement) {
         structuredDataElement.textContent = JSON.stringify(structuredData);
       } else {
