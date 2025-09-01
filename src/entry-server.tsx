@@ -11,7 +11,7 @@ export async function render(url: string) {
   try {
     console.log('Server rendering URL:', url);
     
-    // Use centralized SEO configuration
+    // Use centralized SEO configuration - this ensures single source of truth
     const meta = getSEOData(url);
     console.log('Generated server meta:', meta);
     
