@@ -61,6 +61,36 @@ export const SEO_CONFIG = {
     ogImage: 'https://cargotopakistan.ae/images/lahore-cargo.jpg',
     h1: 'Cargo to Lahore, Pakistan'
   },
+  '/pakistan-cargo-to-sialkot': {
+    title: 'Cargo to Sialkot from Dubai & UAE | Door-to-Door Service',
+    description: 'Professional door-to-door cargo services from Dubai and UAE to Sialkot, Pakistan. Get free pickup, secure handling, and the best rates for all your shipping needs.',
+    keywords: 'cargo to Sialkot from Dubai, shipping to Sialkot from UAE, door-to-door cargo Sialkot, cargo service Dubai to Sialkot, Sialkot cargo Pakistan, air freight to Sialkot, sea cargo Sialkot, household moving to Sialkot, best cargo company to Pakistan, cheapest cargo to Sialkot from Dubai',
+    canonicalUrl: 'https://cargotopakistan.ae/pakistan-cargo-to-sialkot',
+    ogTitle: 'Cargo to Sialkot from Dubai & UAE | Door-to-Door Service',
+    ogDescription: 'Reliable cargo services from UAE to Sialkot, Pakistan with door-to-door delivery.',
+    ogImage: 'https://cargotopakistan.ae/images/sialkot-hero.jpg',
+    h1: 'Cargo to Sialkot, Pakistan'
+  },
+  '/pakistan-cargo-to-multan': {
+    title: 'Cargo to Multan from Dubai & UAE | Door-to-Door Service',
+    description: 'Professional door-to-door cargo services from Dubai and UAE to Multan, Pakistan. Get free pickup, secure handling, and the best rates for all your shipping needs.',
+    keywords: 'cargo to Multan from Dubai, shipping to Multan from UAE, door-to-door cargo Multan, cargo service Dubai to Multan, Multan cargo Pakistan, air freight to Multan, sea cargo Multan, household moving to Multan, best cargo company to Pakistan, cheapest cargo to Multan from Dubai',
+    canonicalUrl: 'https://cargotopakistan.ae/pakistan-cargo-to-multan',
+    ogTitle: 'Cargo to Multan from Dubai & UAE | Door-to-Door Service',
+    ogDescription: 'Reliable cargo services from UAE to Multan, Pakistan with door-to-door delivery.',
+    ogImage: 'https://cargotopakistan.ae/images/multan-hero.jpg',
+    h1: 'Cargo to Multan, Pakistan'
+ },
+  '/pakistan-cargo-to-faisalabad': {
+    title: 'Cargo to Faisalabad from Dubai & UAE | Door-to-Door Service',
+    description: 'Professional door-to-door cargo services from Dubai and UAE to Faisalabad, Pakistan. Get free pickup, secure handling, and the best rates for all your shipping needs.',
+    keywords: 'cargo to Faisalabad from Dubai, shipping to Faisalabad from UAE, door-to-door cargo Faisalabad, cargo service Dubai to Faisalabad, Faisalabad cargo Pakistan, air freight to Faisalabad, sea cargo Faisalabad, household moving to Faisalabad, best cargo company to Pakistan, cheapest cargo to Faisalabad from Dubai',
+    canonicalUrl: 'https://cargotopakistan.ae/pakistan-cargo-to-faisalabad',
+    ogTitle: 'Cargo to Faisalabad from Dubai & UAE | Door-to-Door Service',
+    ogDescription: 'Reliable cargo services from UAE to Faisalabad, Pakistan with door-to-door delivery.',
+    ogImage: 'https://cargotopakistan.ae/images/faisalabad-hero.jpg',
+    h1: 'Cargo to Faisalabad, Pakistan'
+},
 
   // Service pages - manually optimized
   '/services': {
