@@ -18,7 +18,7 @@ export const SEO_CONFIG = {
 
   // UAE to Pakistan routes - manually optimized
   '/dubai-to-pakistan': {
-    title: 'Dubai to Pakistan Cargo | Door-to-Door Delivery Service 2024',
+    title: 'Dubai to Pakistan Cargo | Door-to-Door Delivery Service 2025',
     description: 'Professional cargo shipping from Dubai to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
     keywords: 'dubai to pakistan cargo, dubai pakistan shipping, door to door cargo dubai, dubai cargo services',
     canonicalUrl: 'https://cargotopakistan.ae/dubai-to-pakistan',
@@ -29,7 +29,7 @@ export const SEO_CONFIG = {
   },
 
   '/abu-dhabi-to-pakistan': {
-    title: 'Abu Dhabi to Pakistan Cargo | Capital Emirate Shipping 2024',
+    title: 'Abu Dhabi to Pakistan Cargo | Capital Emirate Shipping 2025',
     description: 'Professional cargo services from Abu Dhabi to Pakistan with comprehensive door-to-door delivery and competitive rates.',
     keywords: 'abu dhabi to pakistan cargo, abu dhabi pakistan shipping, capital emirate cargo, abu dhabi shipping',
     canonicalUrl: 'https://cargotopakistan.ae/abu-dhabi-to-pakistan',
