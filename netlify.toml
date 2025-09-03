@@ -55,19 +55,32 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https:;"
 
-# Cache static assets
+# Cache static assets with 1 year expiration
 [[headers]]
   for = "/assets/*"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Cache JavaScript files with versioned names
 [[headers]]
   for = "/*.js"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Cache CSS files with versioned names  
 [[headers]]
   for = "/*.css"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache vendor and build assets (includes hashed filenames)
+[[headers]]
+  for = "/assets/*-*.js"
+    [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/assets/*-*.css"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
