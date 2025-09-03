@@ -30,7 +30,9 @@ const PageSEO = ({
     
     // Check if static SEO has already been injected
     const hasStaticSEO = document.querySelector('meta[name="seo-source"][content="static"]');
-    if (hasStaticSEO) {
+    const hasStaticTitle = document.title && document.title.trim() !== '';
+    
+    if (hasStaticSEO && hasStaticTitle) {
       console.log('Static SEO already injected, skipping dynamic SEO');
       return;
     }
