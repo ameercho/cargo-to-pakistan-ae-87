@@ -126,7 +126,7 @@ export const SEO_CONFIG = {
     ogDescription: 'Reliable cargo services from UAE to Faisalabad, Pakistan with door-to-door delivery.',
     ogImage: 'https://cargotopakistan.ae/images/faisalabad-hero.jpg',
     h1: 'Cargo to Faisalabad, Pakistan'
-};
+}
 
 // Dynamic SEO generation for routes not in manual config
 export const generateDynamicSEO = (pathname) => {
