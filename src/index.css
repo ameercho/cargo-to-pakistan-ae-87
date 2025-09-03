@@ -7,8 +7,8 @@
   :root {
     /* Design System Colors - HSL values with WCAG AA compliant contrast */
     --cargo-green: 145 64% 32%; /* #1e8a50 */
-    --cargo-blue: 218 100% 35%; /* #003db3 - darker for better contrast */
-    --cargo-orange: 16 100% 45%; /* #e65100 - darker for better contrast with white text */
+    --cargo-blue: 218 100% 30%; /* #002d99 - much darker for better contrast */
+    --cargo-orange: 16 100% 38%; /* #c23400 - much darker for 4.5:1 contrast with white */
     --cargo-light-green: 145 30% 93%; /* #e6f4ed */
     --cargo-light-blue: 218 100% 95%; /* #e6f0ff */
     --cargo-light-orange: 16 100% 93%; /* #ffede6 */
@@ -98,6 +98,6 @@
   
   /* WCAG AA contrast fixes for footer text on blue background */
   .bg-cargo-blue .text-gray-400 {
-    color: #cbd5e1 !important; /* Lighter gray for better contrast on blue */
+    color: #e2e8f0 !important; /* Much lighter gray for 4.5:1 contrast on dark blue */
   }
 }
