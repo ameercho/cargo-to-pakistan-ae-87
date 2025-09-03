@@ -51,7 +51,7 @@ export const SEO_CONFIG = {
 
   },
 
-  // UAE to Pakistan routes - manually optimized
+  // UAE to Pakistan routes -  manually optimized
   '/dubai-to-pakistan': {
     title: 'Dubai to Pakistan Cargo | Door-to-Door Delivery Service 2025',
     description: 'Professional cargo shipping from Dubai to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
