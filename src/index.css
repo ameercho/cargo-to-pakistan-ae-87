@@ -5,10 +5,10 @@
 
 @layer base {
   :root {
-    /* Design System Colors - HSL values for proper Tailwind integration */
+    /* Design System Colors - HSL values with WCAG AA compliant contrast */
     --cargo-green: 145 64% 32%; /* #1e8a50 */
-    --cargo-blue: 218 100% 40%; /* #0052cc */
-    --cargo-orange: 16 100% 60%; /* #ff6b35 */
+    --cargo-blue: 218 100% 35%; /* #003db3 - darker for better contrast */
+    --cargo-orange: 16 100% 45%; /* #e65100 - darker for better contrast with white text */
     --cargo-light-green: 145 30% 93%; /* #e6f4ed */
     --cargo-light-blue: 218 100% 95%; /* #e6f0ff */
     --cargo-light-orange: 16 100% 93%; /* #ffede6 */
@@ -94,5 +94,10 @@
     line-height: 1 !important;
     top: -6px !important;
     right: 2px !important;
+  }
+  
+  /* WCAG AA contrast fixes for footer text on blue background */
+  .bg-cargo-blue .text-gray-400 {
+    color: #cbd5e1 !important; /* Lighter gray for better contrast on blue */
   }
 }
