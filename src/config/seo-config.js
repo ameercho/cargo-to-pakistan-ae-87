@@ -3,7 +3,7 @@
 // This replaces the React Helmet approach with static generation
 
 // Centralized SEO configuration with manual control
-export const SEO_CONFIG = {
+const SEO_CONFIG = {
   // Homepage - manually optimized
   '/': {
     title: 'Cargo to Pakistan Dubai | #1 Professional Shipping Service UAE 2024',
@@ -129,7 +129,7 @@ export const SEO_CONFIG = {
 }
 
 // Dynamic SEO generation for routes not in manual config
-export const generateDynamicSEO = (pathname) => {
+const generateDynamicSEO = (pathname) => {
   const baseUrl = 'https://cargotopakistan.ae';
   
   // Pakistan city cargo pages
@@ -165,7 +165,7 @@ export const generateDynamicSEO = (pathname) => {
 };
 
 // Get SEO data with manual override priority
-export const getSEOData = (pathname, customSEO) => {
+const getSEOData = (pathname, customSEO) => {
   console.log('Getting static SEO data for:', pathname);
   
   // First check manual configuration
@@ -180,3 +180,6 @@ export const getSEOData = (pathname, customSEO) => {
   console.log('Final static SEO data:', finalSEO);
   return finalSEO;
 };
+
+// Export for ES modules
+export { SEO_CONFIG, generateDynamicSEO, getSEOData };
