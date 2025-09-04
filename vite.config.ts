@@ -21,6 +21,14 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     sourcemap: false,
-    minify: true
+    minify: true,
+    rollupOptions: {
+      output: {
+        // Force cache busting with timestamp
+        entryFileNames: `[name]-${Date.now()}.js`,
+        chunkFileNames: `[name]-${Date.now()}.js`,
+        assetFileNames: `[name]-${Date.now()}.[ext]`
+      }
+    }
   }
 }));
