@@ -40,13 +40,17 @@ export default defineConfig(({ mode, command }) => {
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          // Manual chunk splitting for better caching
+          // Simplified manual chunks to avoid React duplication issues
           manualChunks: {
-            // React and React DOM in separate chunk
-            'react-vendor': ['react', 'react-dom'],
-            // React Router in separate chunk
-            'router': ['react-router-dom', '@remix-run/router'],
-            // UI components in separate chunk - only include packages that actually exist
+            // Keep React and related libraries together to avoid context issues
+            'vendor': [
+              'react', 
+              'react-dom', 
+              'react-router-dom', 
+              '@remix-run/router',
+              '@tanstack/react-query'
+            ],
+            // UI components that don't cause React context issues
             'ui-vendor': [
               '@radix-ui/react-accordion',
               '@radix-ui/react-alert-dialog',
@@ -67,9 +71,8 @@ export default defineConfig(({ mode, command }) => {
             'forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
             // Icons and charts
             'icons-charts': ['lucide-react', 'recharts'],
-            // Other vendor libraries
-            'vendor': [
-              '@tanstack/react-query',
+            // Other libraries
+            'misc': [
               'next-themes',
               'sonner',
               'date-fns'
