@@ -28,10 +28,15 @@ export default defineConfig(({ mode, command }) => {
       componentTagger(),
       sitemapPlugin(),
     ].filter(Boolean),
+    optimizeDeps: {
+      include: ['react', 'react-dom', 'react-router-dom'],
+      force: true
+    },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+      dedupe: ['react', 'react-dom', 'react-router-dom']
     },
     build: {
       // Client build configuration
