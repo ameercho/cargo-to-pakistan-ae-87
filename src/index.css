@@ -5,10 +5,10 @@
 
 @layer base {
   :root {
-    /* Design System Colors - HSL values with WCAG AA compliant contrast */
+    /* Design System Colors - HSL values for proper Tailwind integration */
     --cargo-green: 145 64% 32%; /* #1e8a50 */
-    --cargo-blue: 218 100% 30%; /* #002d99 - much darker for better contrast */
-    --cargo-orange: 16 100% 38%; /* #c23400 - much darker for 4.5:1 contrast with white */
+    --cargo-blue: 218 100% 40%; /* #0052cc */
+    --cargo-orange: 16 100% 60%; /* #ff6b35 */
     --cargo-light-green: 145 30% 93%; /* #e6f4ed */
     --cargo-light-blue: 218 100% 95%; /* #e6f0ff */
     --cargo-light-orange: 16 100% 93%; /* #ffede6 */
@@ -79,25 +79,5 @@
   
   .hero-gradient {
     @apply bg-gradient-to-br from-cargo-blue to-cargo-green text-white;
-  }
-  
-  /* Accessibility fix for Lovable badge close button - ensure minimum 24px touch target */
-  #lovable-badge-close {
-    min-width: 24px !important;
-    min-height: 24px !important;
-    width: 24px !important;
-    height: 24px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    font-size: 14px !important;
-    line-height: 1 !important;
-    top: -6px !important;
-    right: 2px !important;
-  }
-  
-  /* WCAG AA contrast fixes for footer text on blue background */
-  .bg-cargo-blue .text-gray-400 {
-    color: #e2e8f0 !important; /* Much lighter gray for 4.5:1 contrast on dark blue */
   }
 }

@@ -3,7 +3,7 @@
 // This replaces the React Helmet approach with static generation
 
 // Centralized SEO configuration with manual control
-const SEO_CONFIG = {
+export const SEO_CONFIG = {
   // Homepage - manually optimized
   '/': {
     title: 'Cargo to Pakistan Dubai | #1 Professional Shipping Service UAE 2024',
@@ -15,9 +15,8 @@ const SEO_CONFIG = {
     ogImage: 'https://cargotopakistan.ae/images/dubai-cargo-hero.jpg',
     h1: 'Dubai to Pakistan Cargo | Trusted by 10,000+ Customers Worldwide'
   },
-  
-  // Contact page - manually optimized
-  '/contact': {
+  // Contact navigation manu - manually optimized
+  '/': {
     title: 'Contact CargoToPakistan.ae | Get in Touch from UAE to Pakistan 2025',
     description: 'Need help with shipping from UAE to Pakistan? Contact our expert cargo team for fast quotes, support, and assistance. Call or message us today!',
     keywords: 'contact CargoToPakistan, UAE to Pakistan shipping help, cargo support UAE, quick quote Pakistan cargo, get in touch shipping UAE',
@@ -27,9 +26,8 @@ const SEO_CONFIG = {
     ogImage: 'https://cargotopakistan.ae/images/contact-banner.jpg',
     h1: 'Contact Our Cargo Support Team'
   },
-  
-  // About page - manually optimized
-  '/about': {
+  //About navigation manu - manually optimized
+  '/': {
     title: 'About CargoToPakistan.ae | Trusted UAE-Pakistan Cargo Experts',
     description: 'Learn about CargoToPakistan.ae, your reliable cargo partner from UAE to Pakistan. Over a decade of experience, expert handling, fast delivery, and unbeatable service.',
     keywords: 'CargoToPakistan about, UAE Pakistan cargo experts, cargo shipping UAE, reliable freight provider, Pakistan cargo specialists UAE',
@@ -38,10 +36,10 @@ const SEO_CONFIG = {
     ogDescription: 'Discover our commitment and expertise in shipping from UAE to Pakistan. Trustworthy, experienced, and customer-focused cargo services.',
     ogImage: 'https://cargotopakistan.ae/images/about-banner.jpg',
     h1: 'About CargoToPakistan – Your UAE-Pakistan Cargo Partner'
+
   },
-  
-  // Services page - manually optimized
-  '/services': {
+    // Services - manually optimized
+  '/': {
     title: 'UAE to Pakistan Cargo Services | Efficient Freight & Courier by CargoToPakistan.ae',
     description: 'Explore our comprehensive shipping services from UAE to Pakistan—air and sea freight, FCL/LCL options, door-to-door delivery, express courier. Flexible, secure, and customer-focused.',
     keywords: 'UAE Pakistan cargo services, air freight Pakistan, sea freight Pakistan, FCL LCL shipping, door-to-door delivery, express courier UAE to Pakistan',
@@ -50,9 +48,10 @@ const SEO_CONFIG = {
     ogDescription: 'Reliable and customizable cargo options from UAE to Pakistan. We offer air freight, sea freight, container shipping (FCL/LCL), courier services, and secure handling at competitive rates.',
     ogImage: 'https://cargotopakistan.ae/images/services-banner.jpg',
     h1: 'Comprehensive UAE-to-Pakistan Cargo & Courier Services'
+
   },
 
-  // UAE to Pakistan routes - manually optimized
+  // UAE to Pakistan routes -  manually optimized
   '/dubai-to-pakistan': {
     title: 'Dubai to Pakistan Cargo | Door-to-Door Delivery Service 2025',
     description: 'Professional cargo shipping from Dubai to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
@@ -126,10 +125,23 @@ const SEO_CONFIG = {
     ogDescription: 'Reliable cargo services from UAE to Faisalabad, Pakistan with door-to-door delivery.',
     ogImage: 'https://cargotopakistan.ae/images/faisalabad-hero.jpg',
     h1: 'Cargo to Faisalabad, Pakistan'
+},
+
+  // Service pages - manually optimized
+  '/services': {
+      title: 'Cargo to Sialkot Pakistan | Fast & Reliable UAE Shipping 2025',
+      description: 'Affordable cargo services from UAE to Sialkot, Pakistan. Air cargo, sea shipping, door-to-door delivery, and courier services with trusted handling and timely delivery.',
+      keywords: 'cargo to Sialkot Pakistan, UAE to Sialkot shipping, air cargo Sialkot, sea freight Sialkot, courier service UAE Pakistan, door to door cargo Sialkot',
+      canonicalUrl: 'https://cargotopakistan.ae/pakistan-cargo-to-sialkot',
+      ogTitle: 'Cargo to Sialkot from UAE | Secure Shipping Solutions',
+      ogDescription: 'Ship cargo from UAE to Sialkot, Pakistan with reliable air and sea freight options. Fast delivery, professional service, and competitive rates.',
+      ogImage: 'https://cargotopakistan.ae/images/sialkot-cargo.jpg',
+      h1: 'UAE to Sialkot Cargo Services'
 }
+};
 
 // Dynamic SEO generation for routes not in manual config
-const generateDynamicSEO = (pathname) => {
+export const generateDynamicSEO = (pathname) => {
   const baseUrl = 'https://cargotopakistan.ae';
   
   // Pakistan city cargo pages
@@ -165,7 +177,7 @@ const generateDynamicSEO = (pathname) => {
 };
 
 // Get SEO data with manual override priority
-const getSEOData = (pathname, customSEO) => {
+export const getSEOData = (pathname, customSEO) => {
   console.log('Getting static SEO data for:', pathname);
   
   // First check manual configuration
@@ -180,6 +192,3 @@ const getSEOData = (pathname, customSEO) => {
   console.log('Final static SEO data:', finalSEO);
   return finalSEO;
 };
-
-// Export for ES modules
-export { SEO_CONFIG, generateDynamicSEO, getSEOData };

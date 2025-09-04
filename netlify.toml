@@ -55,50 +55,19 @@
     Referrer-Policy = "strict-origin-when-cross-origin"
     Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/; script-src 'self' https://cdn.gpteng.co 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https:;"
 
-# Cache all static assets with aggressive caching
-[[headers]]
-  for = "/assets/*.js"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/*.css"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
+# Cache static assets
 [[headers]]
   for = "/assets/*"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-# Cache build artifacts with specific patterns
 [[headers]]
-  for = "/assets/react-vendor-*.js"
+  for = "/*.js"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
 [[headers]]
-  for = "/assets/ui-vendor-*.js"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/router-*.js"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/vendor-*.js"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/index-*.js"
-    [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/assets/index-*.css"
+  for = "/*.css"
     [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 

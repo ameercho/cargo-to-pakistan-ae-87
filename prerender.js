@@ -138,7 +138,7 @@ function ensureDirectoryExists(filePath) {
   }
 }
 
-(async () => {
+;(async () => {
   console.log('🚀 Starting simple SEO prerendering process...')
   
   // Import the SEO injection function

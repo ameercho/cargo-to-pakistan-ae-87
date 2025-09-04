@@ -1,21 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
+import { router } from './routes'
+import { RouterProvider } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-// Debug React loading
-console.log('React object:', React);
-console.log('React.useContext:', React?.useContext);
-console.log('React.useRef:', React?.useRef);
+// Import SEO cleanup utility
+import './utils/seo-cleanup'
 
-if (!React || typeof React.useContext !== 'function') {
-  console.error('React is not properly loaded!', React);
-}
-
-function SimpleTest() {
-  console.log('Rendering SimpleTest component');
-  return React.createElement('div', { 
-    style: { padding: '20px', fontSize: '18px' } 
-  }, 'React is working! Check console for debug info.');
-}
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
 
 const rootElement = document.getElementById("root")
 if (!rootElement) {
@@ -23,4 +23,11 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement)
-root.render(React.createElement(SimpleTest))
+
+root.render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </React.StrictMode>
+)
