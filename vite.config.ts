@@ -31,21 +31,38 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        // Force single React instance
+        "react": path.resolve(__dirname, "node_modules/react"),
+        "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+        "react-router-dom": path.resolve(__dirname, "node_modules/react-router-dom")
       },
       dedupe: ['react', 'react-dom', 'react-router-dom']
     },
     optimizeDeps: {
+      // Force pre-bundling of React to ensure single instance
       include: ['react', 'react-dom', 'react-router-dom'],
-      exclude: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
-      force: true
+      // Don't pre-bundle these to avoid conflicts
+      exclude: [],
+      force: true,
+      esbuildOptions: {
+        // Ensure JSX is handled correctly
+        jsx: 'automatic',
+        // Define React for global scope
+        define: {
+          global: 'globalThis',
+        },
+      }
     },
-    cacheDir: '.vite-cache-' + Date.now(),
+    // Clear cache on every restart to prevent stale dependencies
+    clearScreen: false,
     build: {
       // Client build configuration
       outDir: 'dist',
       // Increase chunk size warning limit to reduce noise
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
+        // Ensure external dependencies don't create duplicate React instances
+        external: [],
         output: {
           // Manual chunk splitting for better caching
           manualChunks: {
