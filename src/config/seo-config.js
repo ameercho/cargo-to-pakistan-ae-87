@@ -7,7 +7,7 @@ export const SEO_CONFIG = {
   // Homepage - manually optimized
   '/': {
     title: 'Cargo to Pakistan Dubai | #1 Professional Shipping Service UAE 2024',
-    description: 'Dubai\'s leading cargo service to Pakistan. 10,000+ satisfied customers. Door-to-door delivery from Business Bay, Deira to all Pakistan cities.',
+    description: 'Dubai\'s leading cargo service to Pakistan. 10,000+ satisfied customers. Door-to-door delivery from Dubai to all Pakistan cities.',
     keywords: 'cargo to pakistan dubai, dubai pakistan shipping, door to door cargo dubai, air cargo dubai pakistan, sea freight dubai',
     canonicalUrl: 'https://cargotopakistan.ae/',
     ogTitle: 'Dubai\'s #1 Cargo Service to Pakistan | 4.9★ Rated Professional Shipping',
@@ -17,28 +17,28 @@ export const SEO_CONFIG = {
   },
   // Contact navigation manu - manually optimized
   '/contact': {
-    title: 'Contact CargoToPakistan.ae | Get in Touch from UAE to Pakistan 2025',
-    description: 'Need help with shipping from UAE to Pakistan? Contact our expert cargo team for fast quotes, support, and assistance. Call or message us today!',
-    keywords: 'contact CargoToPakistan, UAE to Pakistan shipping help, cargo support UAE, quick quote Pakistan cargo, get in touch shipping UAE',
+    title: 'Contact Us | Cargo to Pakistan from Dubai & UAE',
+    description: 'Get in touch with us to book your shipment or get a free quote. Contact our team in Dubai for reliable and affordable cargo services to Pakistan',
+    keywords: 'contact Cargo to Pakistan, cargo service Dubai contact number, shipping company in Dubai, get a quote cargo to Pakistan, cargo to Pakistan office address, cargo booking Dubai, contact details for shipping to Pakistan, best cargo company in Dubai',
     canonicalUrl: 'https://cargotopakistan.ae/contact',
     ogTitle: 'Contact CargoToPakistan – UAE-to-Pakistan Cargo Support',
     ogDescription: 'Reach out for reliable cargo assistance from UAE to Pakistan. Fast quotes, responsive service, and dedicated support for your shipping needs.',
     ogImage: 'https://cargotopakistan.ae/images/contact-banner.jpg',
-    h1: 'Contact Our Cargo Support Team'
+    h1: 'Contact Cargo to Pakistan'
   },
   //About navigation manu - manually optimized
   '/about': {
-    title: 'About CargoToPakistan.ae | Trusted UAE-Pakistan Cargo Experts',
-    description: 'Learn about CargoToPakistan.ae, your reliable cargo partner from UAE to Pakistan. Over a decade of experience, expert handling, fast delivery, and unbeatable service.',
-    keywords: 'CargoToPakistan about, UAE Pakistan cargo experts, cargo shipping UAE, reliable freight provider, Pakistan cargo specialists UAE',
+    title: 'About Us | Your Trusted Cargo Partner from UAE to Pakistan',
+    description: 'Learn about Cargo to Pakistan, your trusted and professional shipping partner from the UAE to Pakistan. We offer reliable, door-to-door cargo services with a focus on customer satisfaction and secure delivery.',
+    keywords: 'about Cargo to Pakistan, trusted cargo company Dubai, shipping from UAE to Pakistan, professional cargo services, door-to-door delivery Pakistan, best cargo partner from Dubai, our mission, company history',
     canonicalUrl: 'https://cargotopakistan.ae/about',
-    ogTitle: 'About CargoToPakistan – UAE-Pakistan Cargo Specialists',
-    ogDescription: 'Discover our commitment and expertise in shipping from UAE to Pakistan. Trustworthy, experienced, and customer-focused cargo services.',
-    ogImage: 'https://cargotopakistan.ae/images/about-banner.jpg',
-    h1: 'About CargoToPakistan – Your UAE-Pakistan Cargo Partner'
+    ogTitle: 'About Us | Your Trusted Cargo Partner from UAE to Pakistan',
+    ogDescription: 'Since 2015, we have been providing reliable and affordable cargo services from the UAE to Pakistan. Learn more about our story, values, and commitment to excellence.',
+    ogImage: 'https://cargotopakistan.ae/images/about-us.jpg',
+    h1: 'About Cargo to Pakistan'
 
   },
-    // Services - manually optimized
+    //Services navigation manu - manually optimized
   '/services': {
     title: 'UAE to Pakistan Cargo Services | Efficient Freight & Courier by CargoToPakistan.ae',
     description: 'Explore our comprehensive shipping services from UAE to Pakistan—air and sea freight, FCL/LCL options, door-to-door delivery, express courier. Flexible, secure, and customer-focused.',
@@ -50,9 +50,32 @@ export const SEO_CONFIG = {
     h1: 'Comprehensive UAE-to-Pakistan Cargo & Courier Services'
 
   },
+  //FAQ navigation manu - manually optimized
+   '/faq': {
+    title: 'Cargo to Pakistan from Dubai FAQ | Your Shipping Questions Answered',
+    description: 'Find answers to frequently asked questions about our cargo services from Dubai to Pakistan. Learn about shipping rates, delivery times, and what items you can send.',
+    keywords: 'cargo to Pakistan FAQ, shipping questions Dubai to Pakistan, how to send cargo to Pakistan, cargo rates from Dubai to Pakistan, door-to-door cargo questions, Pakistan cargo service FAQ, customs clearance Pakistan from Dubai, shipping electronics to Pakistan from UAE',
+    canonicalUrl: 'https://cargotopakistan.ae/faq',
+    ogTitle: 'Cargo to Pakistan from Dubai FAQ | Your Shipping Questions Answered',
+    ogDescription: 'Find answers to frequently asked questions about our cargo services from Dubai to Pakistan. Learn about shipping rates, delivery times, and what items you can send.',
+    ogImage: 'https://cargotopakistan.ae/images/services-banner.jpg',
+    h1: 'Cargo to Pakistan from Dubai FAQ | Your Shipping Questions Answered'
+
+  },
   
 
   // UAE to Pakistan routes -  manually optimized
+  '/areas/dubai': {
+    title: 'Cargo from Dubai to Pakistan | Door-to-Door Service',
+    description: 'Professional door-to-door cargo services from Dubai to all cities in Pakistan. Get free pickup, secure handling, and the best rates for all your shipping needs.',
+    keywords: 'cargo from Dubai to Pakistan, shipping from Dubai to Pakistan, door-to-door cargo Dubai, cargo service Dubai, best cargo company in Dubai, cheapest cargo from Dubai to Pakistan, air freight from Dubai, sea cargo from Dubai',
+    canonicalUrl: 'https://cargotopakistan.ae/areas/dubai',
+    ogTitle: 'Cargo from Dubai to Pakistan | Door-to-Door Service',
+    ogDescription: 'Reliable cargo services from Dubai to Pakistan with door-to-door delivery.',
+    ogImage: 'https://cargotopakistan.ae/images/dubai-hero.jpg',
+    h1: 'Cargo from Dubai to Pakistan'
+ },
+
   '/dubai-to-pakistan': {
     title: 'Dubai to Pakistan Cargo | Door-to-Door Delivery Service 2025',
     description: 'Professional cargo shipping from Dubai to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
@@ -127,6 +150,7 @@ export const SEO_CONFIG = {
     ogImage: 'https://cargotopakistan.ae/images/faisalabad-hero.jpg',
     h1: 'Cargo to Faisalabad, Pakistan'
 },
+
 
   
   
