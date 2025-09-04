@@ -39,20 +39,22 @@ export default defineConfig(({ mode, command }) => {
       dedupe: ['react', 'react-dom', 'react-router-dom']
     },
     optimizeDeps: {
-      // Force pre-bundling of React to ensure single instance
-      include: ['react', 'react-dom', 'react-router-dom'],
-      // Don't pre-bundle these to avoid conflicts
-      exclude: [],
-      force: true,
-      esbuildOptions: {
-        // Ensure JSX is handled correctly
-        jsx: 'automatic',
-        // Define React for global scope
-        define: {
-          global: 'globalThis',
-        },
-      }
+      // Completely disable pre-bundling for React to force fresh instances
+      exclude: [
+        'react', 
+        'react-dom', 
+        'react-router-dom',
+        '@radix-ui/react-dialog',
+        '@radix-ui/react-dropdown-menu',
+        '@radix-ui/react-accordion',
+        '@radix-ui/react-toast',
+        '@radix-ui/react-tooltip'
+      ],
+      // Force complete rebuild
+      force: true
     },
+    // Force new cache directory
+    cacheDir: '.vite-fresh-' + Math.random().toString(36).substr(2, 9),
     // Clear cache on every restart to prevent stale dependencies
     clearScreen: false,
     build: {
