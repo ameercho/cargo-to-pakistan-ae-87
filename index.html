@@ -111,25 +111,29 @@
 
   <body>
     <div id="root"><!--app-html--></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <!-- Temporarily disable GPT Engineer script -->
+    <!-- <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script> -->
     <script type="module" src="/src/main.tsx"></script>
     <script>
-      // Disable service worker temporarily to clear cache
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-          for(let registration of registrations) {
-            registration.unregister();
-          }
-        });
-        // Clear all caches
-        if ('caches' in window) {
-          caches.keys().then(function(cacheNames) {
-            cacheNames.forEach(function(cacheName) {
-              caches.delete(cacheName);
-            });
+      // Clear ALL possible caches aggressively
+      if ('caches' in window) {
+        caches.keys().then(function(cacheNames) {
+          cacheNames.forEach(function(cacheName) {
+            console.log('Deleting cache:', cacheName);
+            caches.delete(cacheName);
           });
-        }
+        });
+      }
+      
+      // Clear sessionStorage and localStorage
+      if (typeof Storage !== "undefined") {
+        sessionStorage.clear();
+        localStorage.clear();
+      }
+      
+      // Force reload with no cache
+      if (performance.navigation.type !== 1) {
+        location.reload(true);
       }
     </script>
   </body>
