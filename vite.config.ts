@@ -31,40 +31,14 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        // Force single React instance
-        "react": path.resolve(__dirname, "node_modules/react"),
-        "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
-        "react-router-dom": path.resolve(__dirname, "node_modules/react-router-dom")
       },
-      dedupe: ['react', 'react-dom', 'react-router-dom']
     },
-    optimizeDeps: {
-      // Completely disable pre-bundling for React to force fresh instances
-      exclude: [
-        'react', 
-        'react-dom', 
-        'react-router-dom',
-        '@radix-ui/react-dialog',
-        '@radix-ui/react-dropdown-menu',
-        '@radix-ui/react-accordion',
-        '@radix-ui/react-toast',
-        '@radix-ui/react-tooltip'
-      ],
-      // Force complete rebuild
-      force: true
-    },
-    // Force new cache directory
-    cacheDir: '.vite-fresh-' + Math.random().toString(36).substr(2, 9),
-    // Clear cache on every restart to prevent stale dependencies
-    clearScreen: false,
     build: {
       // Client build configuration
       outDir: 'dist',
       // Increase chunk size warning limit to reduce noise
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
-        // Ensure external dependencies don't create duplicate React instances
-        external: [],
         output: {
           // Manual chunk splitting for better caching
           manualChunks: {
