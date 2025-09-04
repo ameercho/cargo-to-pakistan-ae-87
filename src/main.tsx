@@ -1,31 +1,29 @@
-// Completely minimal React test - no imports except React
-const React = window.React || require('react');
-const ReactDOM = window.ReactDOM || require('react-dom/client');
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import './index.css'
+import App from './App'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-function MinimalApp() {
-  return React.createElement('div', {
-    style: { 
-      padding: '20px', 
-      fontFamily: 'Arial, sans-serif',
-      backgroundColor: '#f0f0f0',
-      minHeight: '100vh'
-    }
-  }, [
-    React.createElement('h1', { 
-      key: 'title',
-      style: { color: 'green' } 
-    }, '✅ React Working - No Dependencies'),
-    React.createElement('p', { 
-      key: 'desc' 
-    }, 'This is a completely isolated React component with zero dependencies.'),
-    React.createElement('p', { 
-      key: 'time' 
-    }, `Loaded at: ${new Date().toLocaleTimeString()}`)
-  ]);
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
+const rootElement = document.getElementById("root")
+if (!rootElement) {
+  throw new Error("Root element not found")
 }
 
-const rootElement = document.getElementById("root");
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(React.createElement(MinimalApp));
-}
+const root = ReactDOM.createRoot(rootElement)
+
+root.render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+  </React.StrictMode>
+)
