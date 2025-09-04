@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Shield, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Lock } from "lucide-react";
+import { ArrowRight, Package, Truck, Shield, Clock, ShieldCheck, FileCheck, Phone, MessageCircle, MapPin, RefreshCw } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { useSafeContact } from "@/hooks/useSafeContact";
@@ -14,7 +14,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 
-const Insurance = () => {
+const CrossStuffing = () => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -22,44 +22,43 @@ const Insurance = () => {
   
   const services = [
     {
-      title: "All Risk Coverage",
-      description: "Comprehensive insurance coverage against all types of cargo loss or damage.",
-      icon: ShieldCheck,
+      title: "Container Consolidation",
+      description: "Efficient consolidation of multiple shipments into containers.",
+      icon: Package,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Specialized Cargo",
-      description: "Insurance solutions for valuable, fragile, and sensitive cargo items.",
-      icon: Shield,
+      title: "Cargo Redistribution",
+      description: "Redistribution of cargo for optimal shipping configurations.",
+      icon: RefreshCw,
       iconColor: "text-cargo-blue",
     },
     {
-      title: "Customized Plans",
-      description: "Tailored insurance plans to meet your specific cargo and shipping needs.",
-      icon: Package,
+      title: "Secure Handling",
+      description: "Professional handling and protection during transfer operations.",
+      icon: Shield,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Comprehensive Coverage", description: "Protection against all types of cargo risks", icon: ShieldCheck },
-    { title: "Valuable Cargo", description: "Insurance for high-value and sensitive items", icon: Shield },
-    { title: "Fast Claims", description: "Quick and efficient claims processing", icon: Clock },
-    { title: "Global Coverage", description: "Worldwide insurance coverage", icon: MapPin },
-    { title: "Expert Support", description: "Dedicated support from insurance specialists", icon: FileCheck },
+    { title: "Cost Optimization", description: "Reduce shipping costs through efficient consolidation", icon: Package },
+    { title: "Fast Processing", description: "Quick cross stuffing and cargo handling", icon: Clock },
+    { title: "Safe Operations", description: "Secure handling during transfer process", icon: ShieldCheck },
+    { title: "Quality Control", description: "Thorough inspection and documentation", icon: FileCheck },
+    { title: "Professional Service", description: "Expert handling by trained personnel", icon: Shield },
   ];
 
   const { makeCall, openWhatsApp } = useSafeContact();
   
-  const handleCall = () => makeCall('insurance_page');
+  const handleCall = () => makeCall('cross_stuffing_page');
   
   const handleWhatsApp = () => {
-    openWhatsApp("Hello, I'm interested in your cargo insurance services.", 'insurance_page');
+    openWhatsApp("Hello, I'm interested in your cross stuffing services.", 'cross_stuffing_page');
   };
 
   return (
     <div className="min-h-screen">
-      {/* SEO Component */}
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/30 z-0"></div>
@@ -67,13 +66,13 @@ const Insurance = () => {
           <div className="max-w-3xl mx-auto">
             <div className="flex flex-col items-start space-y-6">
               <span className="bg-white/20 text-white px-4 py-1 rounded-full text-sm backdrop-blur-sm border border-white/20">
-                Insurance Services
+                Cargo Handling Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Cargo Insurance for <span className="text-cargo-orange">Pakistan</span>
+                Cross Stuffing Services to <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Comprehensive insurance coverage to protect your valuable cargo during shipment to Pakistan.
+                Professional cross stuffing and cargo consolidation services for efficient container loading and cost-effective shipping to Pakistan.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -117,7 +116,7 @@ const Insurance = () => {
               </BreadcrumbItem>
               <BreadcrumbSeparator />
               <BreadcrumbItem>
-                <BreadcrumbPage>Insurance</BreadcrumbPage>
+                <BreadcrumbPage>Cross Stuffing</BreadcrumbPage>
               </BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
@@ -131,71 +130,71 @@ const Insurance = () => {
             <div className="lg:col-span-2">
               <div className="bg-white p-8 rounded-xl shadow-sm border border-gray-100">
                 <h2 className="text-2xl font-bold text-cargo-blue mb-6 flex items-center">
-                  <Shield className="mr-2 h-6 w-6 text-cargo-green" />
-                  Comprehensive Cargo Insurance Services
+                  <RefreshCw className="mr-2 h-6 w-6 text-cargo-green" />
+                  Professional Cross Stuffing Services
                 </h2>
               
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our cargo insurance services provide comprehensive coverage for your shipments from UAE to Pakistan. We protect your valuable cargo against loss, damage, or theft during transit, ensuring peace of mind and financial security.
+                    Our cross stuffing services provide efficient cargo consolidation and container loading solutions for shipments to Pakistan. We specialize in optimizing container space utilization, reducing shipping costs, and ensuring safe handling during the transfer process.
                   </p>
                   
                   <p className="mb-4">
-                    We offer a range of insurance options to suit different types of cargo and shipping requirements. Our experienced insurance specialists will help you choose the right coverage plan and provide expert support throughout the claims process.
+                    Cross stuffing involves transferring cargo from one container to another or consolidating multiple shipments into a single container. Our skilled team handles this process with precision, ensuring your goods are properly secured and documented throughout the operation.
                   </p>
                   
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                      <Shield className="mr-2 h-5 w-5" />
-                      Why Choose Our Insurance Services?
+                      <RefreshCw className="mr-2 h-5 w-5" />
+                      Why Choose Our Cross Stuffing Services?
                     </h3>
                     
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <ShieldCheck className="h-4 w-4 text-cargo-green" />
+                          <Package className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Comprehensive coverage options</span>
+                        <span>Efficient container consolidation</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <Clock className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Fast and efficient claims processing</span>
+                        <span>Quick processing times</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
-                          <Package className="h-4 w-4 text-cargo-green" />
+                          <ShieldCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Coverage for all types of cargo</span>
+                        <span>Secure cargo handling</span>
                       </li>
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
                           <FileCheck className="h-4 w-4 text-cargo-green" />
                         </div>
-                        <span>Expert support and guidance</span>
+                        <span>Complete documentation</span>
                       </li>
                     </ul>
                   </div>
                   
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Insurance Coverage Options</h3>
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Cross Stuffing Operations</h3>
                   
                   <p className="mb-4">
-                    We offer a range of insurance coverage options including:
+                    Our cross stuffing services include:
                   </p>
                   
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> All Risk Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Container Consolidation
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Limited Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Cargo Redistribution
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Specialized Cargo Coverage
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Space Optimization
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Customized Insurance Plans
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Quality Inspection
                     </div>
                   </div>
                 </div>
@@ -205,13 +204,13 @@ const Insurance = () => {
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
-                  <Shield className="mr-2 h-5 w-5" />
-                  Request Insurance Quote
+                  <RefreshCw className="mr-2 h-5 w-5" />
+                  Get Cross Stuffing Quote
                 </h3>
                 
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
-                    Contact us for a free cargo insurance quote!
+                    Contact us for cross stuffing services!
                   </p>
                 </div>
                 
@@ -262,9 +261,9 @@ const Insurance = () => {
         <div className="container-custom">
           <div className="text-center mb-12">
             <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Comprehensive Insurance Solutions</h2>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Cross Stuffing Solutions</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Protect your valuable cargo with our comprehensive insurance coverage options.
+              Professional cargo consolidation and container handling services for efficient shipping.
             </p>
           </div>
           
@@ -282,14 +281,14 @@ const Insurance = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/packaging">
+              <Link to="/services/warehousing">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
+                  Warehousing Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
-              <Link to="/services/secure-handling">
+              <Link to="/services/packaging">
                 <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                  Secure Handling <ArrowRight className="ml-2 h-4 w-4" />
+                  Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
             </div>
@@ -303,4 +302,4 @@ const Insurance = () => {
   );
 };
 
-export default Insurance;
+export default CrossStuffing;

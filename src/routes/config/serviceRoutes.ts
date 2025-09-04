@@ -6,13 +6,13 @@ const SeaFreight = lazy(() => import("@/pages/services/SeaFreight"));
 const AirFreightCargo = lazy(() => import("@/pages/services/AirFreightCargo"));
 const FullContainer = lazy(() => import("@/pages/services/FullContainer"));
 const Packaging = lazy(() => import("@/pages/services/Packaging"));
-const Insurance = lazy(() => import("@/pages/services/Insurance"));
 const CourierService = lazy(() => import("@/pages/services/CourierService"));
 const MovingHome = lazy(() => import("@/pages/services/MovingHome"));
 const Warehousing = lazy(() => import("@/pages/services/Warehousing"));
 const Consulting = lazy(() => import("@/pages/services/Consulting"));
 const CustomsClearance = lazy(() => import("@/pages/services/CustomsClearance"));
 const SecureHandling = lazy(() => import("@/pages/services/SecureHandling"));
+const CrossStuffing = lazy(() => import("@/pages/services/CrossStuffing"));
 
 export const serviceRoutes = [
   {
@@ -30,10 +30,6 @@ export const serviceRoutes = [
   {
     path: "services/packaging",
     element: Packaging,
-  },
-  {
-    path: "services/insurance",
-    element: Insurance,
   },
   {
     path: "services/courier-service",
@@ -58,5 +54,9 @@ export const serviceRoutes = [
   {
     path: "services/secure-handling",
     element: SecureHandling,
+  },
+  {
+    path: "services/cross-stuffing",
+    element: CrossStuffing,
   }
 ];

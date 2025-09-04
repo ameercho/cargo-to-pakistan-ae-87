@@ -83,10 +83,10 @@ const MainServices = () => {
               Packaging Services
             </Link>
             <Link 
-              to="/services/insurance"
+              to="/services/cross-stuffing"
               className="bg-orange-100 text-cargo-orange px-4 py-2 rounded-lg hover:bg-cargo-orange hover:text-white transition-colors"
             >
-              Cargo Insurance
+              Cross Stuffing
             </Link>
           </div>
         </div>

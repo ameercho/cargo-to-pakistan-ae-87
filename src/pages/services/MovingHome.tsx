@@ -93,9 +93,9 @@ const MovingHome = () => {
                     Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
-                <Link to="/services/insurance">
+                <Link to="/services/cross-stuffing">
                   <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
-                    Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
+                    Cross Stuffing <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
               </div>

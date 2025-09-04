@@ -48,7 +48,7 @@ export const NAVIGATION_LINKS = {
     { name: "Courier Service", href: "/services/courier-service" },
     { name: "Packaging", href: "/services/packaging" },
     { name: "Warehousing", href: "/services/warehousing" },
-    { name: "Insurance", href: "/services/insurance" },
+    { name: "Cross Stuffing", href: "/services/cross-stuffing" },
     { name: "Moving Home", href: "/services/moving-home" }
   ],
   areas: [

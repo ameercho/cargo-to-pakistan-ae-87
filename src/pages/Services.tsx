@@ -62,13 +62,6 @@ const Services = () => {
       features: ["Custom Packaging", "Fragile Item Handling", "Export Packing", "Quality Materials"]
     },
     {
-      icon: Shield,
-      title: "Cargo Insurance",
-      description: "Comprehensive insurance coverage to protect your valuable shipments during transit to Pakistan.",
-      href: "/services/insurance",
-      features: ["Full Coverage", "Competitive Rates", "Easy Claims Process", "Peace of Mind"]
-    },
-    {
       icon: Home,
       title: "Moving Home Services",
       description: "Complete household relocation services for families and individuals moving from UAE to Pakistan.",

@@ -23,7 +23,7 @@ export function routeExists(pathname: string, routes: RouteObject[]): boolean {
     
     // Service Pages
     'services/sea-freight', 'services/air-freight', 'services/full-container',
-    'services/packaging', 'services/insurance', 'services/courier-service',
+    'services/packaging', 'services/courier-service', 'services/cross-stuffing',
     'services/warehousing', 'services/consulting', 'services/customs-clearance',
     'services/secure-handling', 'services/moving-home',
     

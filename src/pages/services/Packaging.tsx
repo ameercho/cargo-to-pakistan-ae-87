@@ -307,9 +307,9 @@ const Packaging = () => {
           
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/services/insurance">
+              <Link to="/services/cross-stuffing">
                 <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
-                  Cargo Insurance <ArrowRight className="ml-2 h-4 w-4" />
+                  Cross Stuffing <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
               <Link to="/services/courier-service">

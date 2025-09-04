@@ -28,11 +28,11 @@ const HomeServices = () => {
       link: "/services/packaging"
     },
     {
-      title: "Insurance",
-      description: "Comprehensive coverage for your valuable shipments against loss or damage.",
+      title: "Cross Stuffing",
+      description: "Professional container consolidation and cargo handling services.",
       icon: ShieldCheck,
       iconColor: "text-cargo-green",
-      link: "/services/insurance"
+      link: "/services/cross-stuffing"
     },
     {
       title: "Courier Service",
