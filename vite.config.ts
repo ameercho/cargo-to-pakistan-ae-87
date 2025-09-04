@@ -48,11 +48,6 @@ export default defineConfig(({ mode, command }) => {
       cssMinify: true,
       // Use default esbuild minification instead of terser
       minify: true
-    },
-    // SSR configuration
-    ssr: {
-      // Don't externalize dependencies for SSR
-      noExternal: ['react', 'react-dom', 'react-router-dom']
     }
   };
 });
