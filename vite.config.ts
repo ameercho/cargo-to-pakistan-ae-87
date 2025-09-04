@@ -20,11 +20,12 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom"],
   },
   optimizeDeps: {
-    include: ["react", "react-dom"],
-    exclude: [],
     force: true,
+    include: ["react", "react-dom", "react/jsx-runtime"],
+    exclude: ["react-router-dom", "@radix-ui/react-dialog"],
     esbuildOptions: {
-      target: 'esnext'
+      target: 'esnext',
+      jsx: 'automatic'
     }
   },
   build: {
@@ -32,23 +33,10 @@ export default defineConfig(({ mode }) => ({
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       external: [],
-      output: {
-        manualChunks: {
-          'react-vendor': ['react', 'react-dom'],
-          'router': ['react-router-dom'],
-          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-accordion']
-        }
-      }
     },
     sourcemap: false,
     cssMinify: true,
-    minify: true,
-    commonjsOptions: {
-      include: [/node_modules/],
-      transformMixedEsModules: true
-    }
+    minify: true
   },
-  define: {
-    global: 'globalThis'
-  }
+  cacheDir: '.vite-new-cache'
 }));
