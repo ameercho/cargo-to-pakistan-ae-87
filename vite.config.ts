@@ -36,8 +36,10 @@ export default defineConfig(({ mode, command }) => {
     },
     optimizeDeps: {
       include: ['react', 'react-dom', 'react-router-dom'],
+      exclude: ['@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
       force: true
     },
+    cacheDir: '.vite-cache-' + Date.now(),
     build: {
       // Client build configuration
       outDir: 'dist',
