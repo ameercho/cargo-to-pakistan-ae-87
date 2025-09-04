@@ -11,9 +11,10 @@ import { pakistanRoutes } from './config/pakistanRoutes'
 
 // Helper function to create route elements with lazy loading
 const createLazyRoute = (Component: any) => {
-  return React.createElement(React.Suspense, 
-    { fallback: React.createElement('div', { className: 'flex items-center justify-center min-h-screen' }, 'Loading...') },
-    React.createElement(Component)
+  return (
+    <React.Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+      <Component />
+    </React.Suspense>
   );
 };
 
