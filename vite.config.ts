@@ -8,7 +8,6 @@ export default defineConfig(({ mode }) => ({
   server: {
     host: "::",
     port: 8080,
-    force: true,
   },
   plugins: [
     react(),
@@ -22,14 +21,24 @@ export default defineConfig(({ mode }) => ({
   },
   optimizeDeps: {
     include: ["react", "react-dom"],
+    exclude: [],
     force: true,
-    exclude: ['@radix-ui/react-dialog', 'react-router-dom']
+    esbuildOptions: {
+      target: 'esnext'
+    }
   },
   build: {
     outDir: 'dist',
     chunkSizeWarningLimit: 1000,
     rollupOptions: {
       external: [],
+      output: {
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'router': ['react-router-dom'],
+          'ui': ['@radix-ui/react-dialog', '@radix-ui/react-accordion']
+        }
+      }
     },
     sourcemap: false,
     cssMinify: true,
@@ -39,8 +48,7 @@ export default defineConfig(({ mode }) => ({
       transformMixedEsModules: true
     }
   },
-  clearScreen: false,
-  esbuild: {
-    logOverride: { 'this-is-undefined-in-esm': 'silent' }
+  define: {
+    global: 'globalThis'
   }
 }));
