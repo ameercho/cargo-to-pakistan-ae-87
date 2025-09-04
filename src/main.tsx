@@ -1,9 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import './index.css'
 
-function SimpleApp() {
-  return <div>Hello World - Testing React</div>
+function TestApp() {
+  return React.createElement('div', null, 'React Test - No CSS')
 }
 
 const rootElement = document.getElementById("root")
@@ -12,4 +11,4 @@ if (!rootElement) {
 }
 
 const root = ReactDOM.createRoot(rootElement)
-root.render(<SimpleApp />)
+root.render(React.createElement(TestApp))
