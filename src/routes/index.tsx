@@ -18,11 +18,15 @@ const createLazyRoute = (Component: any) => {
   );
 };
 
-// Convert route configs to actual routes
+// Convert route configs to actual routes with proper Suspense wrapping
 const convertRoutes = (routes: any[]) => {
   return routes.map(route => ({
     ...route,
-    element: createLazyRoute(route.element)
+    element: (
+      <React.Suspense fallback={<div className="flex items-center justify-center min-h-screen">Loading...</div>}>
+        <route.element />
+      </React.Suspense>
+    )
   }));
 };
 
