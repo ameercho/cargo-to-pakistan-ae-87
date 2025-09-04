@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import AppLayout from './components/layout/AppLayout'
 
 // Pages
@@ -57,7 +57,8 @@ import SheikhupuraCargo from './pages/SheikhupuraCargo'
 
 function App() {
   return (
-    <AppLayout>
+    <BrowserRouter>
+      <AppLayout>
       <Routes>
         <Route path="/" element={<Index />} />
         <Route path="/services" element={<Services />} />
@@ -117,6 +118,7 @@ function App() {
         <Route path="*" element={<NotFound />} />
       </Routes>
     </AppLayout>
+    </BrowserRouter>
   )
 }
 
