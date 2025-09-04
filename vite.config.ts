@@ -29,12 +29,16 @@ export default defineConfig(({ mode, command }) => {
       sitemapPlugin(),
     ].filter(Boolean),
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom'],
+      include: ['react', 'react-dom', 'react-router-dom', '@radix-ui/react-dialog'],
       force: true
     },
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        // Force single React instance
+        "react": path.resolve(__dirname, "./node_modules/react"),
+        "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
+        "react-router-dom": path.resolve(__dirname, "./node_modules/react-router-dom")
       },
       dedupe: ['react', 'react-dom', 'react-router-dom']
     },
@@ -44,8 +48,14 @@ export default defineConfig(({ mode, command }) => {
       // Increase chunk size warning limit to reduce noise
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
-        // Remove manual chunks to avoid React context issues
+        // Force external dependencies to use single instances
         external: [],
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'router-vendor': ['react-router-dom']
+          }
+        }
       },
       // Enable source maps for better debugging in production
       sourcemap: false,
