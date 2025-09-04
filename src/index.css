@@ -80,4 +80,19 @@
   .hero-gradient {
     @apply bg-gradient-to-br from-cargo-blue to-cargo-green text-white;
   }
+  
+  /* Accessibility fix for Lovable badge close button - ensure minimum 24px touch target */
+  #lovable-badge-close {
+    min-width: 24px !important;
+    min-height: 24px !important;
+    width: 24px !important;
+    height: 24px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 14px !important;
+    line-height: 1 !important;
+    top: -6px !important;
+    right: 2px !important;
+  }
 }
