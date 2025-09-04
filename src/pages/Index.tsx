@@ -3,6 +3,7 @@ import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
+import PageSEO from "@/components/SEO/PageSEO";
 
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
@@ -57,6 +58,16 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <PageSEO 
+        title="Cargo to Pakistan Dubai | #1 Professional Shipping Service UAE 2024"
+        description="Dubai's leading cargo service to Pakistan. 10,000+ satisfied customers. Door-to-door delivery from Business Bay, Deira to all Pakistan cities."
+        keywords="cargo to pakistan dubai, dubai pakistan shipping, door to door cargo dubai, air cargo dubai pakistan, sea freight dubai"
+        canonical="https://cargotopakistan.ae/"
+        ogTitle="Dubai's #1 Cargo Service to Pakistan | 4.9★ Rated Professional Shipping"
+        ogDescription="Trusted by 10,000+ customers. Professional cargo shipping from Dubai to Pakistan with complete door-to-door service."
+        ogImage="https://cargotopakistan.ae/images/dubai-cargo-hero.jpg"
+        structuredData={structuredData}
+      />
       
       <HeroSection />
       
