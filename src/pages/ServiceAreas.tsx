@@ -4,6 +4,7 @@ import FloatingButton from "@/components/FloatingButton";
 import ServiceAreasHero from "@/components/service-areas/HeroSection";
 import UAELocationsSection from "@/components/service-areas/UAELocationsSection";
 import PakistanLocationsSection from "@/components/service-areas/PakistanLocationsSection";
+import UAECitiesSection from "@/components/service-areas/UAECitiesSection";
 import PopularRoutesSection from "@/components/service-areas/PopularRoutesSection";
 import ShippingServicesSection from "@/components/service-areas/ShippingServicesSection";
 import CallToAction from "@/components/service-areas/CallToAction";
@@ -24,6 +25,7 @@ const ServiceAreas = () => {
         <ServiceAreasHero />
         <UAELocationsSection />
         <PakistanLocationsSection />
+        <UAECitiesSection />
         <PopularRoutesSection />
         <ShippingServicesSection />
         <CallToAction />
