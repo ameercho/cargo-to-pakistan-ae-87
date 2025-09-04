@@ -39,46 +39,8 @@ export default defineConfig(({ mode, command }) => {
       // Increase chunk size warning limit to reduce noise
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
-        output: {
-          // Simplified manual chunks to avoid React duplication issues
-          manualChunks: {
-            // Keep React and related libraries together to avoid context issues
-            'vendor': [
-              'react', 
-              'react-dom', 
-              'react-router-dom', 
-              '@remix-run/router',
-              '@tanstack/react-query'
-            ],
-            // UI components that don't cause React context issues
-            'ui-vendor': [
-              '@radix-ui/react-accordion',
-              '@radix-ui/react-alert-dialog',
-              '@radix-ui/react-avatar',
-              '@radix-ui/react-dialog',
-              '@radix-ui/react-dropdown-menu',
-              '@radix-ui/react-label',
-              '@radix-ui/react-select',
-              '@radix-ui/react-separator',
-              '@radix-ui/react-tabs',
-              '@radix-ui/react-toast',
-              '@radix-ui/react-tooltip',
-              '@radix-ui/react-slot'
-            ],
-            // Utility libraries
-            'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
-            // Form handling
-            'forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
-            // Icons and charts
-            'icons-charts': ['lucide-react', 'recharts'],
-            // Other libraries
-            'misc': [
-              'next-themes',
-              'sonner',
-              'date-fns'
-            ]
-          }
-        }
+        // Remove manual chunks to avoid React context issues
+        external: [],
       },
       // Enable source maps for better debugging in production
       sourcemap: false,
