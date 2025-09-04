@@ -23,6 +23,7 @@ export default defineConfig(({ mode }) => ({
   optimizeDeps: {
     include: ["react", "react-dom"],
     force: true,
+    exclude: ['@radix-ui/react-dialog', 'react-router-dom']
   },
   build: {
     outDir: 'dist',
@@ -32,6 +33,14 @@ export default defineConfig(({ mode }) => ({
     },
     sourcemap: false,
     cssMinify: true,
-    minify: true
+    minify: true,
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
+    }
+  },
+  clearScreen: false,
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
   }
 }));
