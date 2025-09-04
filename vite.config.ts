@@ -19,6 +19,10 @@ export default defineConfig(({ mode }) => ({
     },
     dedupe: ["react", "react-dom"],
   },
+  optimizeDeps: {
+    include: ["react", "react-dom"],
+    force: true,
+  },
   build: {
     outDir: 'dist',
     chunkSizeWarningLimit: 1000,
