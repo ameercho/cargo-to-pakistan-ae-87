@@ -32,6 +32,12 @@ export default defineConfig(({ mode, command }) => {
       alias: {
         "@": path.resolve(__dirname, "./src"),
       },
+      // Ensure React is deduplicated
+      dedupe: ['react', 'react-dom', 'react-router-dom'],
+    },
+    optimizeDeps: {
+      // Force single React instance
+      include: ['react', 'react-dom', 'react-router-dom'],
     },
     build: {
       // Client build configuration
