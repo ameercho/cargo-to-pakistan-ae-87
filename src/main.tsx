@@ -1,25 +1,33 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import './index.css'
+import { router } from './routes'
+import { RouterProvider } from 'react-router-dom'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
-// Minimal test component without any external dependencies
-const MinimalApp = () => {
-  console.log('React instance:', React);
-  console.log('useContext:', React.useContext);
-  console.log('useRef:', React.useRef);
-  
-  return (
-    <div style={{ padding: '20px', fontFamily: 'Arial' }}>
-      <h1>Minimal React Test</h1>
-      <p>If you see this, React is working correctly.</p>
-      <p>Check console for React instance details.</p>
-    </div>
-  );
-};
+// Import SEO cleanup utility
+import './utils/seo-cleanup'
 
-const rootElement = document.getElementById("root");
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+})
+
+const rootElement = document.getElementById("root")
 if (!rootElement) {
-  throw new Error("Root element not found");
+  throw new Error("Root element not found")
 }
 
-const root = ReactDOM.createRoot(rootElement);
-root.render(<MinimalApp />);
+const root = ReactDOM.createRoot(rootElement)
+
+root.render(
+  <React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <RouterProvider router={router} />
+    </QueryClientProvider>
+  </React.StrictMode>
+)
