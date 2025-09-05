@@ -71,7 +71,8 @@ const routes = [
 function generateSitemap() {
   const currentDate = new Date().toISOString().split('T')[0];
   
-  console.log('🔍 Generating sitemap with fallback canonical URLs...');
+  console.log('🔍 Generating sitemap with complete route coverage...');
+  console.log(`📊 Including ${routes.length} routes in sitemap`);
   
   const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
