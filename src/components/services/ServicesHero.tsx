@@ -18,7 +18,7 @@ const ServicesHero = () => {
             className="bg-cargo-orange hover:bg-orange-600 text-white tap-target" 
             size="lg"
           >
-            Call
+            Call Us
           </Button>
         </div>
       </div>

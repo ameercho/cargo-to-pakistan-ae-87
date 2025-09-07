@@ -105,7 +105,7 @@ const Header = () => {
                     onClick={() => makeCall('mobile_menu')}
                   >
                     <Phone size={16} />
-                    Call Now
+                    Call Us
                   </Button>
                 </div>
               </div>

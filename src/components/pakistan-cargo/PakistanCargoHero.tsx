@@ -47,7 +47,7 @@ const PakistanCargoHero: React.FC<PakistanCargoHeroProps> = ({
                 onClick={onCall}
               >
                 <Phone className="mr-2 h-5 w-5" />
-                Call Now
+                Call Us
               </Button>
               <Button 
                 className="bg-cargo-green hover:bg-cargo-green/90 text-white shadow-lg tap-target"

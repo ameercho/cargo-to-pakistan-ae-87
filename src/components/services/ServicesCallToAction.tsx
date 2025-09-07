@@ -28,7 +28,7 @@ const ServicesCallToAction = () => {
             className="bg-transparent border-white text-white hover:bg-white/10 tap-target" 
             size="lg"
           >
-            Call
+            Call Us
           </Button>
         </div>
       </div>

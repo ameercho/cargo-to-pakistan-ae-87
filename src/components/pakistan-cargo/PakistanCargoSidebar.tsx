@@ -55,7 +55,7 @@ const PakistanCargoSidebar: React.FC<PakistanCargoSidebarProps> = ({
           onClick={onCall}
         >
           <Phone className="mr-2 h-4 w-4" />
-          Call +971504948135
+          Call Us
         </Button>
         
         <div className="mt-4">

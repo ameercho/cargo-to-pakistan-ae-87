@@ -25,7 +25,7 @@ const CallToAction = () => {
               size="lg"
             >
               <Phone className="mr-2 h-5 w-5" />
-              Call +971 50 494 8135
+              Call Us
             </Button>
             
             <Button 
@@ -34,7 +34,7 @@ const CallToAction = () => {
               size="lg"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
-              WhatsApp Quote
+              WhatsApp
             </Button>
           </div>
           

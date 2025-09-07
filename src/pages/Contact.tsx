@@ -140,7 +140,7 @@ const Contact = () => {
                 <span className="text-green-600 font-bold text-xl">W</span>
               </div>
               <h3 className="text-xl font-semibold text-cargo-blue mb-3">
-                <strong>WhatsApp Us</strong>
+                <strong>WhatsApp</strong>
               </h3>
               <p className="text-gray-600 mb-4">
                 Quick responses via WhatsApp for your Pakistan shipping queries and updates.

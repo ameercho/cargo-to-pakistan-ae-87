@@ -81,7 +81,7 @@ const AirFreightCargo = () => {
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Now
+                  Call Us
                 </Button>
                 <Button 
                   className="bg-cargo-green hover:bg-cargo-green/90 text-white shadow-lg tap-target"
@@ -224,7 +224,7 @@ const AirFreightCargo = () => {
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-4 w-4" />
-                  Call +971504948135
+                  Call Us
                 </Button>
                 
                 <div className="mt-4">

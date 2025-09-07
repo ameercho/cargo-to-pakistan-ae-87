@@ -27,7 +27,7 @@ export const ShuffleHero = () => {
         {/* Call and WhatsApp buttons */}
         <div className="flex flex-wrap gap-4 pt-4">
           <Button onClick={handleCall} className="bg-cargo-green hover:bg-cargo-green/90 text-white tap-target flex items-center gap-2" aria-label="Call our customer service">
-            <Phone className="h-4 w-4" /> Call Us Now
+            <Phone className="h-4 w-4" /> Call Us
           </Button>
           <Button onClick={handleWhatsApp} className="bg-cargo-green hover:bg-cargo-green/90 text-white tap-target flex items-center gap-2" aria-label="Contact us on WhatsApp">
             <MessageCircle className="h-4 w-4" /> WhatsApp

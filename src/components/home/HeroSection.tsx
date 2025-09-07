@@ -42,7 +42,7 @@ const HeroSection = () => {
               size="lg"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
-              WhatsApp Us
+              WhatsApp
             </Button>
             
             <Button 
