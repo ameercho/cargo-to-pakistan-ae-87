@@ -7,7 +7,7 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import FloatingButton from "@/components/FloatingButton";
+
 import PageHeader from "@/components/layout/PageHeader";
 import { useState } from "react";
 import { Search, HelpCircle } from "lucide-react";
@@ -231,7 +231,7 @@ const FAQ = () => {
         </div>
       </section>
 
-      <FloatingButton />
+      
     </div>
   );
 };

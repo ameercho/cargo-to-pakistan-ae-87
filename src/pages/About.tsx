@@ -1,6 +1,6 @@
 
 import { Button } from "@/components/ui/button";
-import FloatingButton from "@/components/FloatingButton";
+
 import PageHeader from "@/components/layout/PageHeader";
 
 import { Link, useLocation } from "react-router-dom";
@@ -324,7 +324,7 @@ const About = () => {
         </div>
       </section>
 
-      <FloatingButton />
+      
     </div>
   );
 };

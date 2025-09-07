@@ -1,6 +1,6 @@
 
 import React from 'react';
-import FloatingButton from "@/components/FloatingButton";
+
 import ServiceAreasHero from "@/components/service-areas/HeroSection";
 import UAELocationsSection from "@/components/service-areas/UAELocationsSection";
 import PakistanLocationsSection from "@/components/service-areas/PakistanLocationsSection";
@@ -29,7 +29,7 @@ const ServiceAreas = () => {
         <PopularRoutesSection />
         <ShippingServicesSection />
         <CallToAction />
-        <FloatingButton />
+        
       </div>
     </PageWrapper>
   );

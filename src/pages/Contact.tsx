@@ -2,7 +2,7 @@
 import ContactForm from "@/components/contact/ContactForm";
 import ContactInfo from "@/components/contact/ContactInfo";
 import ContactMap from "@/components/contact/ContactMap";
-import FloatingButton from "@/components/FloatingButton";
+
 import PageHeader from "@/components/layout/PageHeader";
 
 import { Link, useLocation } from "react-router-dom";
@@ -220,7 +220,7 @@ const Contact = () => {
       {/* Map Section */}
       <ContactMap />
 
-      <FloatingButton />
+      
     </div>
   );
 };
