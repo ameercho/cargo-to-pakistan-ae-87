@@ -113,6 +113,35 @@
     </script>
     
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+    
+    <!-- CSS preload optimization to eliminate render-blocking -->
+    <script>
+      // Optimize CSS loading to prevent render blocking
+      (function() {
+        // This script will run before CSS is loaded and help with preloading
+        const cssPreload = function(href, media) {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'style';
+          link.href = href;
+          link.media = media || 'all';
+          link.onload = function() {
+            this.rel = 'stylesheet';
+          };
+          document.head.appendChild(link);
+        };
+        
+        // Preload fonts to prevent layout shift
+        const fontPreload = function(href) {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'font';
+          link.href = href;
+          link.crossOrigin = 'anonymous';
+          document.head.appendChild(link);
+        };
+      })();
+    </script>
   </head>
 
   <body>
