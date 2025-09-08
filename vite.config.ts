@@ -34,6 +34,9 @@ export default defineConfig(({ mode }) => ({
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      // Force single React instance
+      "react": path.resolve(__dirname, "./node_modules/react"),
+      "react-dom": path.resolve(__dirname, "./node_modules/react-dom"),
     },
   },
   build: {
@@ -42,6 +45,9 @@ export default defineConfig(({ mode }) => ({
     minify: true
   },
   optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
+    // Force Vite to rebuild all deps
+    force: true,
+    include: ['react', 'react-dom'],
+    exclude: ['react-router-dom', '@radix-ui/react-dialog']
   }
 }));
