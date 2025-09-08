@@ -43,40 +43,8 @@ export default defineConfig(({ mode, command }) => {
       outDir: 'dist',
       // Increase chunk size warning limit to reduce noise
       chunkSizeWarningLimit: 1000,
-      rollupOptions: {
-        output: {
-          // Simplified chunk splitting to prevent React instance conflicts
-          manualChunks: {
-            // Single React chunk to prevent multiple instances
-            'react': ['react', 'react-dom', 'react-router-dom', '@remix-run/router'],
-            // UI libraries
-            'ui': [
-              '@radix-ui/react-accordion',
-              '@radix-ui/react-alert-dialog',
-              '@radix-ui/react-avatar',
-              '@radix-ui/react-dialog',
-              '@radix-ui/react-dropdown-menu',
-              '@radix-ui/react-label',
-              '@radix-ui/react-select',
-              '@radix-ui/react-separator',
-              '@radix-ui/react-tabs',
-              '@radix-ui/react-toast',
-              '@radix-ui/react-tooltip',
-              '@radix-ui/react-slot'
-            ],
-            // Vendor utilities
-            'vendor': [
-              '@tanstack/react-query',
-              'lucide-react',
-              'clsx',
-              'tailwind-merge',
-              'class-variance-authority',
-              'next-themes',
-              'sonner'
-            ]
-          }
-        }
-      },
+      // Disable manual chunking completely to prevent React instance issues
+      rollupOptions: {},
       // Enable source maps for better debugging in production
       sourcemap: false,
       // Minimize CSS

@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import './index.css'
-import { router } from './routes'
+import { simpleRouter } from './routes/SimpleRouter'
 import { RouterProvider } from 'react-router-dom'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 
@@ -27,7 +27,7 @@ const root = ReactDOM.createRoot(rootElement)
 root.render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
-      <RouterProvider router={router} />
+      <RouterProvider router={simpleRouter} />
     </QueryClientProvider>
   </React.StrictMode>
 )
