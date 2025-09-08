@@ -45,12 +45,12 @@ export default defineConfig(({ mode, command }) => {
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          // Manual chunk splitting for better caching
+          // Simplified chunk splitting to prevent React instance conflicts
           manualChunks: {
-            // React, React DOM, and React Router in single chunk to prevent multiple instances
-            'react-vendor': ['react', 'react-dom', 'react-router-dom', '@remix-run/router'],
-            // UI components in separate chunk - only include packages that actually exist
-            'ui-vendor': [
+            // Single React chunk to prevent multiple instances
+            'react': ['react', 'react-dom', 'react-router-dom', '@remix-run/router'],
+            // UI libraries
+            'ui': [
               '@radix-ui/react-accordion',
               '@radix-ui/react-alert-dialog',
               '@radix-ui/react-avatar',
@@ -64,18 +64,15 @@ export default defineConfig(({ mode, command }) => {
               '@radix-ui/react-tooltip',
               '@radix-ui/react-slot'
             ],
-            // Utility libraries
-            'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
-            // Form handling
-            'forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
-            // Icons and charts
-            'icons-charts': ['lucide-react', 'recharts'],
-            // Other vendor libraries
+            // Vendor utilities
             'vendor': [
               '@tanstack/react-query',
+              'lucide-react',
+              'clsx',
+              'tailwind-merge',
+              'class-variance-authority',
               'next-themes',
-              'sonner',
-              'date-fns'
+              'sonner'
             ]
           }
         }

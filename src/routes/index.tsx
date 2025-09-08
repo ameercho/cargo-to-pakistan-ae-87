@@ -1,5 +1,5 @@
 
-import React from 'react'
+import React, { Suspense } from 'react'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AppLayout from '@/components/layout/AppLayout'
 
@@ -9,19 +9,22 @@ import { serviceRoutes } from './config/serviceRoutes'
 import { areaRoutes } from './config/areaRoutes'
 import { pakistanRoutes } from './config/pakistanRoutes'
 
-// Helper function to create route elements with lazy loading
-const createLazyRoute = (Component: any) => {
-  return React.createElement(React.Suspense, 
-    { fallback: React.createElement('div', { className: 'flex items-center justify-center min-h-screen' }, 'Loading...') },
-    React.createElement(Component)
-  );
-};
+// Loading component
+const LoadingFallback = () => (
+  <div className="flex items-center justify-center min-h-screen">
+    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-cargo-blue"></div>
+  </div>
+)
 
-// Convert route configs to actual routes
+// Convert route configs to actual routes with proper JSX
 const convertRoutes = (routes: any[]) => {
   return routes.map(route => ({
     ...route,
-    element: createLazyRoute(route.element)
+    element: (
+      <Suspense fallback={<LoadingFallback />}>
+        <route.element />
+      </Suspense>
+    )
   }));
 };
 
