@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Home, Clock, Package } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
-import CallToAction from "@/components/home/CallToAction";
+import CallToAction from "@/components/service-areas/CallToAction";
 import MovingHomeHero from "@/components/services/moving-home/MovingHomeHero";
 import MovingHomeContent from "@/components/services/moving-home/MovingHomeContent";
 import MovingHomeSidebar from "@/components/services/moving-home/MovingHomeSidebar";

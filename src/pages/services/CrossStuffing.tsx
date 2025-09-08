@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Package, Truck, Shield, Clock, ShieldCheck, FileCheck, Phone, MessageCircle, MapPin, RefreshCw } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
-import CallToAction from "@/components/home/CallToAction";
+import CallToAction from "@/components/service-areas/CallToAction";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import { 
   Breadcrumb,

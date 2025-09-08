@@ -4,7 +4,7 @@ import ServicesContent from "@/components/services/ServicesContent";
 import PageHeader from "@/components/layout/PageHeader";
 import { Link } from "react-router-dom";
 import { ArrowRight, Ship, Plane, Package, Shield, Truck, Home, Settings, WarehouseIcon, Warehouse, Container } from "lucide-react";
-import CallToAction from "@/components/home/CallToAction";
+import CallToAction from "@/components/service-areas/CallToAction";
 import { 
   Breadcrumb,
   BreadcrumbItem,

@@ -5,7 +5,7 @@ import PakistanCargoMainContent from "@/components/pakistan-cargo/PakistanCargoM
 import PakistanCargoSidebar from "@/components/pakistan-cargo/PakistanCargoSidebar";
 import PakistanCargoServices from "@/components/pakistan-cargo/PakistanCargoServices";
 import PakistanCargoTestimonials from "@/components/pakistan-cargo/PakistanCargoTestimonials";
-import CallToAction from "@/components/home/CallToAction";
+import CallToAction from "@/components/service-areas/CallToAction";
 import { useSafeContact } from "@/hooks/useSafeContact";
 
 interface DestinationInfo {
