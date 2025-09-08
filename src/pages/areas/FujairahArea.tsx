@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
-import CallToAction from "@/components/service-areas/CallToAction";
+import CallToAction from "@/components/home/CallToAction";
 
 const FujairahArea = () => {
   // Scroll to top when component mounts
