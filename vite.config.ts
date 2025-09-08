@@ -22,40 +22,26 @@ const sitemapPlugin = () => {
 };
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode, command }) => {
-  return {
-    server: {
-      host: "::",
-      port: 8080,
+export default defineConfig(({ mode }) => ({
+  server: {
+    host: "::",
+    port: 8080,
+  },
+  plugins: [
+    react(),
+    mode === 'development' && componentTagger(),
+  ].filter(Boolean),
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "./src"),
     },
-    plugins: [
-      react(),
-      mode === 'development' && componentTagger(),
-      command === 'build' && sitemapPlugin(),
-    ].filter(Boolean),
-    resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-      },
-    },
-    build: {
-      // Client build configuration
-      outDir: 'dist',
-      // Increase chunk size warning limit to reduce noise
-      chunkSizeWarningLimit: 1000,
-      // Disable manual chunking completely to prevent React instance issues
-      rollupOptions: {},
-      // Enable source maps for better debugging in production
-      sourcemap: false,
-      // Minimize CSS
-      cssMinify: true,
-      // Use default esbuild minification instead of terser
-      minify: true
-    },
-    // SSR configuration
-    ssr: {
-      // Don't externalize dependencies for SSR
-      noExternal: ['react', 'react-dom', 'react-router-dom']
-    }
-  };
-});
+  },
+  build: {
+    outDir: 'dist',
+    sourcemap: false,
+    minify: true
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom']
+  }
+}));
