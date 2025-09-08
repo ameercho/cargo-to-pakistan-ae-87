@@ -45,12 +45,14 @@ export default defineConfig(({ mode, command }) => {
       chunkSizeWarningLimit: 1000,
       rollupOptions: {
         output: {
-          // Simplified chunk splitting to avoid React duplication issues
+          // Manual chunk splitting for better caching
           manualChunks: {
-            // Keep React as a single chunk to avoid multiple instances
-            'react': ['react', 'react-dom', 'react-router-dom'],
-            // UI components
-            'ui': [
+            // React and React DOM in separate chunk
+            'react-vendor': ['react', 'react-dom'],
+            // React Router in separate chunk
+            'router': ['react-router-dom', '@remix-run/router'],
+            // UI components in separate chunk - only include packages that actually exist
+            'ui-vendor': [
               '@radix-ui/react-accordion',
               '@radix-ui/react-alert-dialog',
               '@radix-ui/react-avatar',
@@ -65,12 +67,17 @@ export default defineConfig(({ mode, command }) => {
               '@radix-ui/react-slot'
             ],
             // Utility libraries
+            'utils': ['clsx', 'tailwind-merge', 'class-variance-authority'],
+            // Form handling
+            'forms': ['react-hook-form', '@hookform/resolvers', 'zod'],
+            // Icons and charts
+            'icons-charts': ['lucide-react', 'recharts'],
+            // Other vendor libraries
             'vendor': [
-              'clsx', 
-              'tailwind-merge', 
-              'class-variance-authority',
               '@tanstack/react-query',
-              'lucide-react'
+              'next-themes',
+              'sonner',
+              'date-fns'
             ]
           }
         }
