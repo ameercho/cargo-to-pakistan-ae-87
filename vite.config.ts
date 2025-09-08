@@ -47,10 +47,8 @@ export default defineConfig(({ mode, command }) => {
         output: {
           // Manual chunk splitting for better caching
           manualChunks: {
-            // React and React DOM in separate chunk
-            'react-vendor': ['react', 'react-dom'],
-            // React Router in separate chunk
-            'router': ['react-router-dom', '@remix-run/router'],
+            // React, React DOM, and React Router in single chunk to prevent multiple instances
+            'react-vendor': ['react', 'react-dom', 'react-router-dom', '@remix-run/router'],
             // UI components in separate chunk - only include packages that actually exist
             'ui-vendor': [
               '@radix-ui/react-accordion',
