@@ -114,11 +114,14 @@
     
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     
+    <!-- Resource hints for critical request chain optimization -->
+    <link rel="modulepreload" href="/src/main.tsx">
+    
     <!-- CSS preload optimization to eliminate render-blocking -->
     <script>
-      // Optimize CSS loading to prevent render blocking
+      // Optimize CSS loading to prevent render blocking and reduce critical request chains
       (function() {
-        // This script will run before CSS is loaded and help with preloading
+        // Preload critical CSS as soon as possible
         const cssPreload = function(href, media) {
           const link = document.createElement('link');
           link.rel = 'preload';
