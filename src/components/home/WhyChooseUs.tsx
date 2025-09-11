@@ -6,7 +6,7 @@ const WhyChooseUs = () => {
     {
       icon: Shield,
       title: "Secure Handling",
-      description: "Professional packing and secure handling of all cargo with comprehensive insurance coverage."
+      description: "Professional packing and secure handling of all cargo."
     },
     {
       icon: Clock,
