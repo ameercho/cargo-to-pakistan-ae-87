@@ -61,28 +61,25 @@ const QuoteForm = () => {
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
     
-    // Simulate API call
     try {
-      // In a real app, you would make an API call here
-      await new Promise(resolve => setTimeout(resolve, 1500));
-      
-      console.log("Form submitted with data:", data);
-      
+      // Netlify Forms will handle the submission
       toast({
         title: "Quote Request Submitted!",
         description: "We'll get back to you with a quotation shortly.",
         variant: "default",
       });
       
-      // Reset form
-      form.reset();
+      // Redirect to thank you page after a short delay
+      setTimeout(() => {
+        window.location.href = "/thank-you";
+      }, 1000);
+      
     } catch (error) {
       toast({
         title: "Error",
         description: "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
-    } finally {
       setIsSubmitting(false);
     }
   };
@@ -92,7 +89,14 @@ const QuoteForm = () => {
       <h2 className="text-2xl font-bold text-cargo-blue mb-6">Get a Free Quote</h2>
       
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+        <form 
+          onSubmit={form.handleSubmit(onSubmit)} 
+          className="space-y-4"
+          method="POST"
+          data-netlify="true"
+          name="quote"
+        >
+          <input type="hidden" name="form-name" value="quote" />
           <FormField
             control={form.control}
             name="name"

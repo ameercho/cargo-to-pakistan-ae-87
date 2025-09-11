@@ -146,18 +146,26 @@ const UmmAlQuwainArea = () => {
                 
                 <div className="border-t border-gray-200 pt-6">
                   <h4 className="font-medium mb-4">Request a Pickup</h4>
-                  <form className="space-y-4">
+                  <form 
+                    className="space-y-4"
+                    method="POST"
+                    data-netlify="true"
+                    name="ummalquwain-pickup"
+                    action="/thank-you"
+                  >
+                    <input type="hidden" name="form-name" value="ummalquwain-pickup" />
+                    <input type="hidden" name="pickup-area" value="Umm Al Quwain" />
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                      <input type="text" id="name" className="w-full p-2 border border-gray-300 rounded" />
+                      <input type="text" id="name" name="name" className="w-full p-2 border border-gray-300 rounded" required />
                     </div>
                     <div>
                       <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                      <input type="tel" id="phone" className="w-full p-2 border border-gray-300 rounded" />
+                      <input type="tel" id="phone" name="phone" className="w-full p-2 border border-gray-300 rounded" required />
                     </div>
                     <div>
                       <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">Pickup Location</label>
-                      <input type="text" id="location" className="w-full p-2 border border-gray-300 rounded" />
+                      <input type="text" id="location" name="location" className="w-full p-2 border border-gray-300 rounded" required />
                     </div>
                     <Button className="w-full bg-cargo-blue hover:bg-blue-800">
                       Schedule Pickup
