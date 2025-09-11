@@ -101,6 +101,7 @@ const ContactForm = () => {
           action="/thank-you"
         >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
           <input type="hidden" name="inquiry" value={form.watch("inquiry") || ""} readOnly />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField

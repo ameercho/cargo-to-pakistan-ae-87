@@ -154,6 +154,7 @@ const UmmAlQuwainArea = () => {
                     action="/thank-you"
                   >
                     <input type="hidden" name="form-name" value="ummalquwain-pickup" />
+                    <input type="hidden" name="bot-field" />
                     <input type="hidden" name="pickup-area" value="Umm Al Quwain" />
                     <div>
                       <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>

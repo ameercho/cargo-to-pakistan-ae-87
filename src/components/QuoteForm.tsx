@@ -104,6 +104,7 @@ const QuoteForm = () => {
           action="/thank-you"
         >
           <input type="hidden" name="form-name" value="quote" />
+          <input type="hidden" name="bot-field" />
           <input type="hidden" name="serviceType" value={form.watch("serviceType") || ""} readOnly />
           <FormField
             control={form.control}
