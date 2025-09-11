@@ -179,7 +179,7 @@ const Index = () => {
                   <h4 className="text-xl font-semibold text-cargo-blue mb-3">
                     <strong>Sea Freight to Pakistan</strong>
                   </h4>
-                  <p className="text-gray-600">Cost-effective ocean cargo for large shipments with 15-30 days delivery to Pakistan ports</p>
+                  <p className="text-gray-600">Cost-effective ocean cargo for large shipments with 25-40 days delivery to Pakistan ports</p>
                   <Link to="/services/sea-freight" className="text-cargo-blue hover:text-cargo-green mt-2 inline-block">
                     Learn More →
                   </Link>
