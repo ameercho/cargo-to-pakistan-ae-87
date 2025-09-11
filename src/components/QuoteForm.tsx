@@ -42,7 +42,9 @@ type FormValues = z.infer<typeof formSchema>;
 
 const QuoteForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
+  const encode = (data: Record<string, string>) => new URLSearchParams(data as any).toString();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -60,26 +62,30 @@ const QuoteForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    
     try {
-      // Netlify Forms will handle the submission
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "quote", ...data } as any),
+      });
+
+      setSubmitted(true);
+
       toast({
         title: "Quote Request Submitted!",
         description: "We'll get back to you with a quotation shortly.",
         variant: "default",
       });
-      
-      // Redirect to thank you page after a short delay
-      setTimeout(() => {
-        window.location.href = "/thank-you";
-      }, 1000);
-      
+
+      form.reset();
+      window.location.href = "/thank-you";
     } catch (error) {
       toast({
         title: "Error",
         description: "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -95,8 +101,10 @@ const QuoteForm = () => {
           method="POST"
           data-netlify="true"
           name="quote"
+          action="/thank-you"
         >
           <input type="hidden" name="form-name" value="quote" />
+          <input type="hidden" name="serviceType" value={form.watch("serviceType") || ""} readOnly />
           <FormField
             control={form.control}
             name="name"
@@ -244,6 +252,11 @@ const QuoteForm = () => {
               </>
             ) : "Get Free Quote"}
           </Button>
+          {submitted && (
+            <p className="text-sm text-cargo-green mt-3" role="status">
+              Thanks! Your request has been received.
+            </p>
+          )}
         </form>
       </Form>
     </div>

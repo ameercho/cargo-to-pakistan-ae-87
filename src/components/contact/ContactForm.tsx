@@ -40,7 +40,9 @@ type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
+  const encode = (data: Record<string, string>) => new URLSearchParams(data as any).toString();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -56,26 +58,31 @@ const ContactForm = () => {
 
   const onSubmit = async (data: FormValues) => {
     setIsSubmitting(true);
-    
     try {
-      // Netlify Forms will handle the submission
+      await fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: encode({ "form-name": "contact", ...data } as any),
+      });
+
+      setSubmitted(true);
+
       toast({
         title: "Message Sent!",
         description: "We've received your message and will get back to you shortly.",
         variant: "default",
       });
-      
-      // Redirect to thank you page after a short delay
-      setTimeout(() => {
-        window.location.href = "/thank-you";
-      }, 1000);
-      
+
+      form.reset();
+      // Redirect to thank you page
+      window.location.href = "/thank-you";
     } catch (error) {
       toast({
         title: "Error",
         description: "There was a problem sending your message. Please try again.",
         variant: "destructive",
       });
+    } finally {
       setIsSubmitting(false);
     }
   };
@@ -91,8 +98,10 @@ const ContactForm = () => {
           method="POST"
           data-netlify="true"
           name="contact"
+          action="/thank-you"
         >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="inquiry" value={form.watch("inquiry") || ""} readOnly />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <FormField
               control={form.control}
@@ -211,6 +220,11 @@ const ContactForm = () => {
               </>
             ) : "Send Message"}
           </Button>
+          {submitted && (
+            <p className="text-sm text-cargo-green mt-3" role="status">
+              Thanks! We received your message.
+            </p>
+          )}
         </form>
       </Form>
     </div>

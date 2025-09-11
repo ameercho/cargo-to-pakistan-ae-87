@@ -169,7 +169,7 @@ const AbuDhabiArea = () => {
                       <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">Pickup Location</label>
                       <input type="text" id="location" name="location" className="w-full p-2 border border-gray-300 rounded" required />
                     </div>
-                    <Button className="w-full bg-cargo-blue hover:bg-blue-800">
+                    <Button className="w-full bg-cargo-blue hover:bg-blue-800" type="submit">
                       Schedule Pickup
                     </Button>
                   </form>
