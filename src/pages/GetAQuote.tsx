@@ -113,6 +113,25 @@ const GetAQuote = () => {
                     <span className="text-sm font-medium">Door-to-Door Service</span>
                   </div>
                 </div>
+                  <div className="flex flex-wrap justify-center gap-4">
+                  <Button 
+                    onClick={() => makeCall('quote_page_cta')}
+                    className="bg-cargo-orange hover:bg-orange-600 text-white"
+                    size="lg"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Us
+                  </Button>
+                  
+                  <Button 
+                    onClick={() => openWhatsApp("Hi, I want to ship cargo to Pakistan. Can you help me with a quote?", 'quote_page_cta')}
+                    className="bg-cargo-green hover:bg-cargo-green/90 text-white"
+                    size="lg"
+                  >
+                    <MessageCircle className="mr-2 h-5 w-5" />
+                    WhatsApp
+                  </Button>
+                </div>
               </div>
               
               {/* Right Column - Lead Form */}
@@ -301,8 +320,8 @@ const GetAQuote = () => {
                 <div className="bg-cargo-blue/10 p-4 rounded-full w-16 h-16 mx-auto mb-4 flex items-center justify-center">
                   <Phone className="h-8 w-8 text-cargo-blue" />
                 </div>
-                <h3 className="font-semibold text-lg mb-2">24/7 Support</h3>
-                <p className="text-gray-600 text-sm">Dedicated customer support in English, Urdu, and Arabic languages</p>
+                <h3 className="font-semibold text-lg mb-2">Customer Support</h3>
+                <p className="text-gray-600 text-sm">Dedicated customer support in English and Urdu languages</p>
               </div>
             </div>
             
@@ -348,7 +367,7 @@ const GetAQuote = () => {
                   size="lg"
                 >
                   <Phone className="mr-2 h-5 w-5" />
-                  Call Us Now
+                  Call Us
                 </Button>
                 
                 <Button 
@@ -357,7 +376,7 @@ const GetAQuote = () => {
                   size="lg"
                 >
                   <MessageCircle className="mr-2 h-5 w-5" />
-                  WhatsApp Quote
+                  WhatsApp
                 </Button>
               </div>
             </div>
