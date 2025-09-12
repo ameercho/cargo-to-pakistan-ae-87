@@ -21,8 +21,7 @@ const GetAQuote = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    // Netlify will handle the form submission
+    // Do not prevent default to allow Netlify submission and redirect
     setIsSubmitted(true);
   };
 
@@ -122,11 +121,15 @@ const GetAQuote = () => {
                   name="cargo-quote" 
                   method="POST" 
                   data-netlify="true"
+                  action="/thank-you"
                   onSubmit={handleSubmit}
                   className="space-y-4"
                 >
                   <input type="hidden" name="form-name" value="cargo-quote" />
                   <input type="hidden" name="bot-field" />
+                  {/* Ensure Select values are submitted */}
+                  <input type="hidden" name="originCity" value={formData.originCity} />
+                  <input type="hidden" name="cargoType" value={formData.cargoType} />
                   
                   <div className="text-center mb-6">
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">Get Your Free Quote</h2>
