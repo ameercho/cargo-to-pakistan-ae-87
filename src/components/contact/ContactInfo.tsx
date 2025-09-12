@@ -57,7 +57,7 @@ const ContactInfo = () => {
       <div className="bg-gray-100 p-6 rounded-lg">
         <h3 className="text-xl font-bold text-cargo-blue mb-4 flex items-center">
           <MessageSquare className="h-5 w-5 mr-2 text-cargo-green" />
-          Live Chat Support 
+          Live Chat Support
         </h3>
         <p className="text-gray-600 mb-4">
           Need immediate assistance? Our customer support team is available through live chat during business hours.
