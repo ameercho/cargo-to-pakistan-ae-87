@@ -6,16 +6,13 @@
 @layer base {
   :root {
     /* Design System Colors - HSL values for proper Tailwind integration */
-    --background: 0 0% 100%;   /* white */
-    --foreground: 222 47% 11%; /* dark gray/black */
-    --input: 0 0% 100%;
-    --border: 0 0% 80%;
-    --ring: 240 5% 64%;
-    /* ...your cargo colors... */
-    --cargo-green: 145 64% 32%;
-    --cargo-blue: 218 100% 40%;
-    --cargo-orange: 16 100% 60%;
-    --cargo-light-green: 145 30% 93%;
+    --cargo-green: 145 64% 32%; /* #1e8a50 */
+    --cargo-blue: 218 100% 40%; /* #0052cc */
+    --cargo-orange: 16 100% 60%; /* #ff6b35 */
+    --cargo-light-green: 145 30% 93%; /* #e6f4ed */
+    --cargo-light-blue: 218 100% 95%; /* #e6f0ff */
+    --cargo-light-orange: 16 100% 93%; /* #ffede6 */
+    --cargo-gray: 210 14% 97%; /* #f5f5f7 */
     
     /* Semantic design tokens */
     --primary: var(--cargo-green);
