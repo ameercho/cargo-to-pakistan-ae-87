@@ -113,25 +113,26 @@ const GetAQuote = () => {
                     <span className="text-sm font-medium">Door-to-Door Service</span>
                   </div>
                 </div>
-                  <div className="flex flex-wrap justify-center gap-4">
-                  <Button 
-                    onClick={() => makeCall('quote_page_cta')}
-                    className="bg-cargo-orange hover:bg-orange-600 text-white"
-                    size="lg"
-                  >
-                    <Phone className="mr-2 h-5 w-5" />
-                    Call Us
-                  </Button>
-                  
-                  <Button 
-                    onClick={() => openWhatsApp("Hi, I want to ship cargo to Pakistan. Can you help me with a quote?", 'quote_page_cta')}
-                    className="bg-cargo-green hover:bg-cargo-green/90 text-white"
-                    size="lg"
-                  >
-                    <MessageCircle className="mr-2 h-5 w-5" />
-                    WhatsApp
-                  </Button>
-                </div>
+                 {/* Call us  CTA */}
+                <div className="flex flex-wrap justify-left gap-4">
+                <Button 
+                  onClick={() => makeCall('quote_page_cta')}
+                  className="bg-cargo-orange hover:bg-orange-600 text-white"
+                  size="lg"
+                >
+                  <Phone className="mr-2 h-5 w-5" />
+                  Call Us
+                </Button>
+                
+                <Button 
+                  onClick={() => openWhatsApp("Hi, I want to ship cargo to Pakistan. Can you help me with a quote?", 'quote_page_cta')}
+                  className="bg-cargo-green hover:bg-cargo-green/90 text-white"
+                  size="lg"
+                >
+                  <MessageCircle className="mr-2 h-5 w-5" />
+                  WhatsApp
+                </Button>
+              </div>
               </div>
               
               {/* Right Column - Lead Form */}
