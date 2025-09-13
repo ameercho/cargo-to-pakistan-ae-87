@@ -228,7 +228,7 @@ const GetAQuote = () => {
                   
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">
-                      Message / Details
+                      Message / Details 
                     </label>
                     <Textarea 
                       name="message"
