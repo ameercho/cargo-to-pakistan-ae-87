@@ -121,7 +121,7 @@ const RasAlKhaimahArea = () => {
                     <div>
                       <h4 className="font-medium">Our Ras Al Khaimah Office</h4>
                       <p className="text-gray-600 text-sm">
-                        Al Muntasir Road, Ras Al Khaimah<br />
+                         Street N200, JAFZA North - Dubai<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -132,6 +132,8 @@ const RasAlKhaimahArea = () => {
                     <div>
                       <h4 className="font-medium">Call Us</h4>
                       <p className="text-gray-600">+971 7 123 4567</p>
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   
@@ -139,7 +141,7 @@ const RasAlKhaimahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">rak@cargotopakistan.ae</p>
+                      <p className="text-gray-600">info@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

@@ -121,7 +121,7 @@ const UmmAlQuwainArea = () => {
                     <div>
                       <h4 className="font-medium">Our Umm Al Quwain Office</h4>
                       <p className="text-gray-600 text-sm">
-                        King Faisal Street, Umm Al Quwain<br />
+                         Street N200, JAFZA North - Dubai<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -131,7 +131,9 @@ const UmmAlQuwainArea = () => {
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Call Us</h4>
-                      <p className="text-gray-600">+971 6 765 4321</p>
+                      <p className="text-gray-600">+971504948135</p>
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   
@@ -139,7 +141,7 @@ const UmmAlQuwainArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">uaq@cargotopakistan.ae</p>
+                      <p className="text-gray-600">info@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

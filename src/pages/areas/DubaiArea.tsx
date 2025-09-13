@@ -121,9 +121,9 @@ const DubaiArea = () => {
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 text-cargo-green mr-3 mt-1" />
                     <div>
-                      <h4 className="font-medium">Our Dubai Office</h4>
+                      <h4 className="font-medium">Our Dubai Warehouse</h4>
                       <p className="text-gray-600 text-sm">
-                        Al Quoz Industrial Area 4, Dubai<br />
+                         Street N200, JAFZA North - Dubai<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -134,6 +134,8 @@ const DubaiArea = () => {
                     <div>
                       <h4 className="font-medium">Call Us</h4>
                       <p className="text-gray-600">+971504948135</p>
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   
@@ -141,7 +143,7 @@ const DubaiArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">dubai@cargotopakistan.ae</p>
+                      <p className="text-gray-600">info@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

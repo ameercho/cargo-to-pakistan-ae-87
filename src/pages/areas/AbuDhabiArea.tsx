@@ -123,7 +123,7 @@ const AbuDhabiArea = () => {
                     <div>
                       <h4 className="font-medium">Our Abu Dhabi Service</h4>
                       <p className="text-gray-600 text-sm">
-                        Mussafah, Abu Dhabi<br />
+                        Mussafah 40, Abu Dhabi<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -134,6 +134,8 @@ const AbuDhabiArea = () => {
                     <div>
                       <h4 className="font-medium">Call Us</h4>
                       <p className="text-gray-600">+971504948135</p>
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   

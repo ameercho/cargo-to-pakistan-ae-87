@@ -123,7 +123,7 @@ const SharjahArea = () => {
                     <div>
                       <h4 className="font-medium">Our Sharjah Office</h4>
                       <p className="text-gray-600 text-sm">
-                        King Faisal Street, Sharjah<br />
+                         Street N200, JAFZA North - Dubai<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -133,7 +133,9 @@ const SharjahArea = () => {
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Call Us</h4>
-                      <p className="text-gray-600">+971504948135</p>
+                      <p className="text-gray-600">+971504948135</p>.
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   
@@ -141,7 +143,7 @@ const SharjahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">sharjah@cargotopakistan.ae</p>
+                      <p className="text-gray-600">info@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>

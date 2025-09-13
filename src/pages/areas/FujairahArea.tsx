@@ -121,7 +121,7 @@ const FujairahArea = () => {
                     <div>
                       <h4 className="font-medium">Our Fujairah Office</h4>
                       <p className="text-gray-600 text-sm">
-                        Hamad Bin Abdullah Road, Fujairah<br />
+                        Street N200, JAFZA North - Dubai<br />
                         United Arab Emirates
                       </p>
                     </div>
@@ -131,7 +131,9 @@ const FujairahArea = () => {
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Call Us</h4>
-                      <p className="text-gray-600">+971 9 123 4567</p>
+                      <p className="text-gray-600">+971504948135</p>
+                      <p className="text-gray-600">+971585817087</p>
+                      <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
                   
@@ -139,7 +141,7 @@ const FujairahArea = () => {
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">fujairah@cargotopakistan.ae</p>
+                      <p className="text-gray-600">info@cargotopakistan.ae</p>
                     </div>
                   </div>
                 </div>
