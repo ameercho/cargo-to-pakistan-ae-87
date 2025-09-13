@@ -157,7 +157,19 @@
       // @ts-ignore
       window.ReactDOM = ReactDOMClient;
     </script>
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script>
+      // Conditionally enable the visual editor to avoid duplicate React instances
+      (function() {
+        const params = new URLSearchParams(window.location.search);
+        const enableEditor = params.has('visualEditor') || params.get('editor') === '1';
+        if (enableEditor) {
+          const s = document.createElement('script');
+          s.type = 'module';
+          s.src = 'https://cdn.gpteng.co/gptengineer.js';
+          document.body.appendChild(s);
+        }
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
