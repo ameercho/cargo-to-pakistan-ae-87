@@ -36,6 +36,11 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        // Hard-pin React to a single instance to avoid invalid hook calls
+        "react": path.resolve(__dirname, "node_modules/react"),
+        "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
+        "react/jsx-runtime": path.resolve(__dirname, "node_modules/react/jsx-runtime.js"),
+        "react/jsx-dev-runtime": path.resolve(__dirname, "node_modules/react/jsx-dev-runtime.js"),
       },
       // Dedupe to avoid multiple React copies causing invalid hook calls
       dedupe: ["react", "react-dom"],
