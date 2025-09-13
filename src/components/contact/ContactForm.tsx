@@ -74,8 +74,7 @@ const ContactForm = () => {
       });
 
       form.reset();
-      // Redirect to thank you page
-      window.location.href = "/thank-you";
+      // Let Netlify handle the redirect to thank-you page
     } catch (error) {
       toast({
         title: "Error",

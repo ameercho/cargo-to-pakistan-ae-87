@@ -18,12 +18,8 @@ const GetAQuote = () => {
     cargoType: "",
     message: ""
   });
-  const [isSubmitted, setIsSubmitted] = useState(false);
+  
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    // Do not prevent default to allow Netlify submission and redirect
-    setIsSubmitted(true);
-  };
 
   const handleInputChange = (field: string, value: string) => {
     setFormData(prev => ({ ...prev, [field]: value }));
@@ -47,26 +43,6 @@ const GetAQuote = () => {
     }
   ];
 
-  if (isSubmitted) {
-    return (
-      <div className="min-h-screen bg-background flex items-center justify-center p-4">
-        <div className="text-center max-w-md mx-auto">
-          <div className="bg-cargo-green/10 p-8 rounded-lg">
-            <h2 className="text-2xl font-bold text-cargo-green mb-4">Quote Request Submitted!</h2>
-            <p className="text-gray-600 mb-6">
-              Thank you for your interest! We'll contact you within 2 hours with your personalized quote.
-            </p>
-            <Button 
-              onClick={() => setIsSubmitted(false)}
-              className="bg-cargo-green hover:bg-cargo-green/90"
-            >
-              Submit Another Quote
-            </Button>
-          </div>
-        </div>
-      </div>
-    );
-  }
 
   return (
     <>
@@ -142,7 +118,6 @@ const GetAQuote = () => {
                   method="POST" 
                   data-netlify="true"
                   action="/thank-you"
-                  onSubmit={handleSubmit}
                   className="space-y-4"
                 >
                   <input type="hidden" name="form-name" value="cargo-quote" />
