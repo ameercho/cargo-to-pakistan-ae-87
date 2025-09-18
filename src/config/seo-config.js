@@ -4,6 +4,178 @@
 
 // Centralized SEO configuration with manual control
 export const SEO_CONFIG = {
+  '/larkana-cargo': {
+    title: 'Larkana Cargo | UAE to Larkana Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Larkana, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'larkana cargo, uae to larkana shipping, cargo to larkana pakistan, door to door larkana cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/larkana-cargo',
+    ogTitle: 'Larkana Cargo | UAE to Larkana Pakistan',
+    ogDescription: 'Send cargo from UAE to Larkana, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/larkana-hero.jpg',
+    h1: 'Larkana Cargo Services'
+  },
+  '/peshawar-cargo': {
+    title: 'Peshawar Cargo | UAE to Peshawar Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Peshawar, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'peshawar cargo, uae to peshawar shipping, cargo to peshawar pakistan, door to door peshawar cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/peshawar-cargo',
+    ogTitle: 'Peshawar Cargo | UAE to Peshawar Pakistan',
+    ogDescription: 'Send cargo from UAE to Peshawar, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/peshawar-hero.jpg',
+    h1: 'Peshawar Cargo Services'
+  },
+  '/sargodha-cargo': {
+    title: 'Sargodha Cargo | UAE to Sargodha Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Sargodha, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'sargodha cargo, uae to sargodha shipping, cargo to sargodha pakistan, door to door sargodha cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/sargodha-cargo',
+    ogTitle: 'Sargodha Cargo | UAE to Sargodha Pakistan',
+    ogDescription: 'Send cargo from UAE to Sargodha, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/sargodha-hero.jpg',
+    h1: 'Sargodha Cargo Services'
+  },
+  '/sharjah-to-pakistan': {
+    title: 'Sharjah to Pakistan Cargo | Door-to-Door Delivery',
+    description: 'Professional cargo shipping from Sharjah to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
+    keywords: 'sharjah to pakistan cargo, sharjah pakistan shipping, door to door cargo sharjah, sharjah cargo services',
+    canonicalUrl: 'https://cargotopakistan.ae/sharjah-to-pakistan',
+    ogTitle: 'Sharjah to Pakistan Cargo | Professional Shipping Service',
+    ogDescription: 'Fast & reliable cargo shipping from Sharjah to Pakistan with complete door-to-door service.',
+    ogImage: 'https://cargotopakistan.ae/images/sharjah-route.jpg',
+    h1: 'Sharjah to Pakistan Cargo Services'
+  },
+  '/ajman-to-pakistan': {
+    title: 'Ajman to Pakistan Cargo | Door-to-Door Delivery',
+    description: 'Professional cargo shipping from Ajman to Pakistan with door-to-door pickup and delivery. Reliable, secure & affordable shipping solutions.',
+    keywords: 'ajman to pakistan cargo, ajman pakistan shipping, door to door cargo ajman, ajman cargo services',
+    canonicalUrl: 'https://cargotopakistan.ae/ajman-to-pakistan',
+    ogTitle: 'Ajman to Pakistan Cargo | Professional Shipping Service',
+    ogDescription: 'Fast & reliable cargo shipping from Ajman to Pakistan with complete door-to-door service.',
+    ogImage: 'https://cargotopakistan.ae/images/ajman-route.jpg',
+    h1: 'Ajman to Pakistan Cargo Services'
+  },
+  '/thank-you': {
+    title: 'Thank You | Cargo to Pakistan',
+    description: 'Thank you for contacting Cargo to Pakistan. We have received your message and will respond soon.',
+    keywords: 'thank you, cargo to pakistan, contact confirmation',
+    canonicalUrl: 'https://cargotopakistan.ae/thank-you',
+    ogTitle: 'Thank You | Cargo to Pakistan',
+    ogDescription: 'We have received your message. Our team will get back to you soon.',
+    ogImage: 'https://cargotopakistan.ae/images/thank-you.jpg',
+    h1: 'Thank You!'
+  },
+  '/404': {
+    title: '404 Not Found | Cargo to Pakistan',
+    description: 'The page you are looking for does not exist. Return to the homepage or contact us for help.',
+    keywords: '404, not found, cargo to pakistan',
+    canonicalUrl: 'https://cargotopakistan.ae/404',
+    ogTitle: '404 Not Found | Cargo to Pakistan',
+    ogDescription: 'This page does not exist. Go back to the homepage or contact support.',
+    ogImage: 'https://cargotopakistan.ae/images/404.jpg',
+    h1: '404 - Page Not Found'
+  },
+  '/service-areas': {
+    title: 'Service Areas | UAE to Pakistan Cargo',
+    description: 'Complete coverage of all UAE Emirates and Pakistan destinations for cargo shipping. Door-to-door service, free pickup, and professional support.',
+    keywords: 'service areas, uae to pakistan cargo, cargo coverage uae, cargo destinations pakistan',
+    canonicalUrl: 'https://cargotopakistan.ae/service-areas',
+    ogTitle: 'Service Areas | UAE to Pakistan Cargo',
+    ogDescription: 'We serve all UAE Emirates and Pakistan cities with reliable cargo shipping.',
+    ogImage: 'https://cargotopakistan.ae/images/service-areas.jpg',
+    h1: 'Service Areas'
+  },
+  '/services': {
+    title: 'Our Cargo Services | Dubai & UAE to Pakistan',
+    description: 'Explore our full range of cargo services from Dubai and UAE to Pakistan, including air freight, sea freight, door-to-door delivery, and household moving.',
+    keywords: 'cargo services Dubai, shipping services UAE to Pakistan, air freight Dubai Pakistan, sea cargo UAE, door-to-door cargo Dubai, household shipping to Pakistan, best cargo service UAE',
+    canonicalUrl: 'https://cargotopakistan.ae/services',
+    ogTitle: 'Cargo Services from Dubai & UAE to Pakistan',
+    ogDescription: 'Professional cargo services from Dubai and UAE to Pakistan, including air, sea, and door-to-door delivery.',
+    ogImage: 'https://cargotopakistan.ae/images/services-hero.jpg',
+    h1: 'Our Cargo Services'
+  },
+  // City-specific cargo pages - best practice SEO
+  '/hyderabad-cargo': {
+    title: 'Hyderabad Cargo | UAE to Hyderabad Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Hyderabad, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'hyderabad cargo, uae to hyderabad shipping, cargo to hyderabad pakistan, door to door hyderabad cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/hyderabad-cargo',
+    ogTitle: 'Hyderabad Cargo | UAE to Hyderabad Pakistan',
+    ogDescription: 'Send cargo from UAE to Hyderabad, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/hyderabad-hero.jpg',
+    h1: 'Hyderabad Cargo Services'
+  },
+  '/islamabad-cargo': {
+    title: 'Islamabad Cargo | UAE to Islamabad Pakistan Shipping',
+    description: 'Fast and secure cargo shipping from UAE to Islamabad, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'islamabad cargo, uae to islamabad shipping, cargo to islamabad pakistan, door to door islamabad cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/islamabad-cargo',
+    ogTitle: 'Islamabad Cargo | UAE to Islamabad Pakistan',
+    ogDescription: 'Send cargo from UAE to Islamabad, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/islamabad-hero.jpg',
+    h1: 'Islamabad Cargo Services'
+  },
+  '/gujranwala-cargo': {
+    title: 'Gujranwala Cargo | UAE to Gujranwala Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Gujranwala, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'gujranwala cargo, uae to gujranwala shipping, cargo to gujranwala pakistan, door to door gujranwala cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/gujranwala-cargo',
+    ogTitle: 'Gujranwala Cargo | UAE to Gujranwala Pakistan',
+    ogDescription: 'Send cargo from UAE to Gujranwala, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/gujranwala-hero.jpg',
+    h1: 'Gujranwala Cargo Services'
+  },
+  '/multan-cargo': {
+    title: 'Multan Cargo | UAE to Multan Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Multan, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'multan cargo, uae to multan shipping, cargo to multan pakistan, door to door multan cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/multan-cargo',
+    ogTitle: 'Multan Cargo | UAE to Multan Pakistan',
+    ogDescription: 'Send cargo from UAE to Multan, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/multan-hero.jpg',
+    h1: 'Multan Cargo Services'
+  },
+  '/sialkot-cargo': {
+    title: 'Sialkot Cargo | UAE to Sialkot Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Sialkot, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'sialkot cargo, uae to sialkot shipping, cargo to sialkot pakistan, door to door sialkot cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/sialkot-cargo',
+    ogTitle: 'Sialkot Cargo | UAE to Sialkot Pakistan',
+    ogDescription: 'Send cargo from UAE to Sialkot, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/sialkot-hero.jpg',
+    h1: 'Sialkot Cargo Services'
+  },
+  '/faisalabad-cargo': {
+    title: 'Faisalabad Cargo | UAE to Faisalabad Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Faisalabad, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'faisalabad cargo, uae to faisalabad shipping, cargo to faisalabad pakistan, door to door faisalabad cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/faisalabad-cargo',
+    ogTitle: 'Faisalabad Cargo | UAE to Faisalabad Pakistan',
+    ogDescription: 'Send cargo from UAE to Faisalabad, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/faisalabad-hero.jpg',
+    h1: 'Faisalabad Cargo Services'
+  },
+  '/rawalpindi-cargo': {
+    title: 'Rawalpindi Cargo | UAE to Rawalpindi Pakistan Shipping',
+    description: 'Affordable and secure cargo shipping from UAE to Rawalpindi, Pakistan. Door-to-door delivery, free pickup, and professional service.',
+    keywords: 'rawalpindi cargo, uae to rawalpindi shipping, cargo to rawalpindi pakistan, door to door rawalpindi cargo',
+    canonicalUrl: 'https://cargotopakistan.ae/rawalpindi-cargo',
+    ogTitle: 'Rawalpindi Cargo | UAE to Rawalpindi Pakistan',
+    ogDescription: 'Send cargo from UAE to Rawalpindi, Pakistan with reliable door-to-door service and best rates.',
+    ogImage: 'https://cargotopakistan.ae/images/rawalpindi-hero.jpg',
+    h1: 'Rawalpindi Cargo Services'
+  },
+  // Get A Quote page - manually optimized
+  '/get-a-quote': {
+    title: 'Get a Quote | Cargo to Pakistan from Dubai & UAE',
+    description: 'Request a free quote for air and sea cargo shipping from Dubai and UAE to Pakistan. Fast response, affordable rates, and secure door-to-door delivery.',
+    keywords: 'get a quote cargo to Pakistan, cargo quote Dubai, shipping quote UAE to Pakistan, air freight quote, sea cargo quote, door-to-door cargo quote',
+    canonicalUrl: 'https://cargotopakistan.ae/get-a-quote',
+    ogTitle: 'Get a Free Cargo Quote | Dubai to Pakistan',
+    ogDescription: 'Get your personalized cargo shipping quote from Dubai and UAE to Pakistan. Fast, reliable, and affordable service.',
+    ogImage: 'https://cargotopakistan.ae/images/quote-hero.jpg',
+    h1: 'Get a Quote for Cargo to Pakistan'
+  },
   // Homepage - manually optimized
 '/': {
     title: 'Cargo to Pakistan from Dubai | Cheap, Reliable & Door-to-Door UAE',
