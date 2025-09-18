@@ -64,9 +64,41 @@ const GetAQuote = () => {
                   Get a Free Quote for Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman
                 </h1>
                 
+
                 <p className="text-lg md:text-xl text-gray-100 leading-relaxed">
                   Fill out the form below to get a personalized, all-inclusive quote with no hidden fees.
                 </p>
+
+                {/* Pricing Details */}
+                <div className="bg-white/10 rounded-lg p-4 md:p-6 mb-4">
+                  <h2 className="text-xl font-semibold mb-2 text-white">Pricing (AED per kg or item)</h2>
+                  <div className="overflow-x-auto">
+                    <table className="min-w-full text-sm text-white">
+                      <thead>
+                        <tr className="border-b border-white/20">
+                          <th className="text-left py-1 pr-4">Item Type</th>
+                          <th className="text-left py-1">Price (AED)</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr><td>General Items - clothes, shoes, toys, wood furniture, luggage</td><td>3</td></tr>
+                        <tr><td>Electronics - small appliances (juicer, blender, small oven)</td><td>12</td></tr>
+                        <tr><td>Mattress</td><td>5</td></tr>
+                        <tr><td>Sofa</td><td>8</td></tr>
+                        <tr><td>Furniture (dismantle)</td><td>3</td></tr>
+                        <tr><td>Bicycle kids</td><td>100</td></tr>
+                        <tr><td>Bicycle adult</td><td>150</td></tr>
+                        <tr><td>Scooty battery operated</td><td>12</td></tr>
+                        <tr><td>Kids toy car battery operated</td><td>12</td></tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div className="mt-3 text-sm text-orange-100">
+                    <p>Above are the indication price.<br />
+                    <span className="font-semibold">AED 30/- Doc fee per invoice will apply.</span><br />
+                    Packing Charges varies and are additional.</p>
+                  </div>
+                </div>
                 
                 {/* Trust Signals */}
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
@@ -109,6 +141,19 @@ const GetAQuote = () => {
                   WhatsApp
                 </Button>
               </div>
+
+              {/* Catchy Note for Full Container Discount */}
+              <a
+                href="/services/moving-home"
+                className="block mt-6 p-4 rounded-lg bg-gradient-to-r from-cargo-orange to-cargo-green text-white shadow-lg flex items-center gap-3 hover:shadow-xl hover:scale-[1.02] transition-all focus:outline-none focus:ring-2 focus:ring-cargo-blue"
+                aria-label="Learn more about moving home services and full container discounts"
+              >
+                <span className="text-2xl">🚚</span>
+                <div>
+                  <span className="font-semibold text-lg">Moving out of the UAE?</span><br />
+                  <span className="text-sm">Click here to get <span className="font-bold underline">exclusive discounts</span> on full container shipping! Secure, fast, and affordable relocation for your entire home or business.</span>
+                </div>
+              </a>
               </div>
               
               {/* Right Column - Lead Form */}
