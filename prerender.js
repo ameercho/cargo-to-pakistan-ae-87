@@ -66,8 +66,8 @@ async function getRoutesToPrerender() {
       }
     }
     
-    // Remove duplicates and sort
-    return [...new Set(routes)].sort();
+  // Remove duplicates and sort
+  return [...new Set(routes)].sort();
   } catch (error) {
     console.error('Failed to load route configurations:', error);
     // Fallback to static list if dynamic loading fails
@@ -78,7 +78,9 @@ async function getRoutesToPrerender() {
       '/contact',
       '/faq',
       '/service-areas',
-      
+      '/thank-you',
+      '/get-a-quote',
+      '/door-to-door-cargo',
       // Pakistan City Pages
       '/pakistan-cargo-to-karachi',
       '/pakistan-cargo-to-lahore',
@@ -96,7 +98,6 @@ async function getRoutesToPrerender() {
       '/pakistan-cargo-to-sukkur',
       '/pakistan-cargo-to-larkana',
       '/pakistan-cargo-to-sheikhupura',
-      
       // Service Pages
       '/services/sea-freight',
       '/services/air-freight',
@@ -109,7 +110,6 @@ async function getRoutesToPrerender() {
       '/services/customs-clearance',
       '/services/secure-handling',
       '/services/moving-home',
-      
       // UAE Area Pages
       '/areas/dubai',
       '/areas/abu-dhabi',
@@ -119,7 +119,6 @@ async function getRoutesToPrerender() {
       '/areas/fujairah',
       '/areas/umm-al-quwain',
       '/areas/al-ain',
-      
       // Country Routes
       '/dubai-to-pakistan',
       '/abu-dhabi-to-pakistan',

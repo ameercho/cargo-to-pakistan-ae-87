@@ -9,7 +9,8 @@ import ErrorBoundary from "@/components/common/ErrorBoundary";
  */
 const AppLayout: React.FC = () => {
   const location = useLocation();
-  const hideChrome = location.pathname === '/get-a-quote';
+  // Hide header/footer for landing pages (add more paths as needed)
+  const hideChrome = ['/get-a-quote', '/door-to-door-cargo'].includes(location.pathname);
   return (
     <ErrorBoundary>
       <div className="min-h-screen flex flex-col">
