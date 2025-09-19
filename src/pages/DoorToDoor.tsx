@@ -39,20 +39,59 @@ const DoorToDoor: React.FC = () => {
               <p className="text-lg md:text-xl mb-6">
                 We handle everything from pickup at your door in Dubai to safe delivery at your loved ones' door in Pakistan.
               </p>
-              <ul className="flex flex-col md:flex-row justify-center gap-4 mb-8 text-left md:text-center">
-                <li className="flex items-center gap-2 justify-center">
-                  <CheckCircle className="h-5 w-5 text-cargo-yellow" /> Free pickup anywhere in Dubai/UAE
-                </li>
-                <li className="flex items-center gap-2 justify-center">
-                  <CheckCircle className="h-5 w-5 text-cargo-yellow" /> Professional packing and handling
-                </li>
-                <li className="flex items-center gap-2 justify-center">
-                  <CheckCircle className="h-5 w-5 text-cargo-yellow" /> Secure and reliable tracking
-                </li>
-                <li className="flex items-center gap-2 justify-center">
-                  <CheckCircle className="h-5 w-5 text-cargo-yellow" /> Transparent pricing with no hidden fees
-                </li>
-              </ul>
+              {/* Pricing Details */}
+              <div className="bg-white/10 rounded-lg p-4 md:p-6 mb-4 text-left">
+                <h2 className="text-xl font-semibold mb-2 text-white">Pricing (AED per kg or item)</h2>
+                <div className="overflow-x-auto">
+                  <table className="min-w-full text-sm text-white">
+                    <thead>
+                      <tr className="border-b border-white/20">
+                        <th className="text-left py-1 pr-4">Item Type</th>
+                        <th className="text-left py-1">Price (AED)</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr><td>General Items - clothes, shoes, toys, wood furniture, luggage</td><td>3</td></tr>
+                      <tr><td>Electronics - small appliances (juicer, blender, small oven)</td><td>12</td></tr>
+                      <tr><td>Mattress</td><td>5</td></tr>
+                      <tr><td>Sofa</td><td>8</td></tr>
+                      <tr><td>Furniture (dismantle)</td><td>3</td></tr>
+                      <tr><td>Bicycle kids</td><td>100</td></tr>
+                      <tr><td>Bicycle adult</td><td>150</td></tr>
+                      <tr><td>Scooty battery operated</td><td>12</td></tr>
+                      <tr><td>Kids toy car battery operated</td><td>12</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div className="mt-3 text-sm text-orange-100">
+                  <p>Above are the indication price.<br />
+                  <span className="font-semibold">AED 30/- Doc fee per invoice will apply.</span><br />
+                  Packing Charges varies and are additional.</p>
+                </div>
+              </div>
+
+              {/* Trust Signals */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-left">
+                <div className="flex items-center space-x-3">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <Shield className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-medium">No Hidden Fees</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <MapPin className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-medium">Real-Time Tracking</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-white/20 p-2 rounded-full">
+                    <Truck className="h-5 w-5" />
+                  </div>
+                  <span className="text-sm font-medium">Door-to-Door Service</span>
+                </div>
+              </div>
+
               <div className="flex flex-wrap justify-left gap-4">
                 <Button 
                   onClick={() => makeCall('quote_page_cta')}
