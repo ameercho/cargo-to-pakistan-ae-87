@@ -11,7 +11,7 @@ export function routeExists(pathname: string, routes: RouteObject[]): boolean {
   // List of all valid routes
   const validRoutes = [
     // Main routes
-    '', 'services', 'about', 'contact', 'faq', 'service-areas', 'door-to-door-cargo', 'get-a-quote', 'thank-you',
+    '', 'services', 'about', 'contact', 'faq', 'service-areas',
     
     // Pakistan City Pages
     'pakistan-cargo-to-karachi', 'pakistan-cargo-to-lahore', 'pakistan-cargo-to-islamabad',

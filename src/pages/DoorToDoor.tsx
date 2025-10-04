@@ -7,9 +7,9 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useSafeContact } from "@/hooks/useSafeContact";
-import PageSEO from "@/components/SEO/PageSEO";
 
 const DoorToDoor: React.FC = () => {
+
   const { makeCall, openWhatsApp } = useSafeContact();
   const [formData, setFormData] = useState({
     fullName: "",
@@ -25,35 +25,8 @@ const DoorToDoor: React.FC = () => {
     setFormData(prev => ({ ...prev, [field]: value }));
   };
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "name": "Door to Door Cargo to Pakistan",
-    "description": "Hassle-free door to door cargo service from UAE to Pakistan with free pickup and doorstep delivery",
-    "provider": {
-      "@type": "Organization",
-      "name": "Cargo to Pakistan",
-      "url": "https://cargotopakistan.ae"
-    },
-    "areaServed": ["UAE", "Pakistan"],
-    "offers": {
-      "@type": "Offer",
-      "availability": "https://schema.org/InStock"
-    }
-  };
-
   return (
     <>
-      <PageSEO 
-        title="Door to Door Cargo to Pakistan | Free Pickup & Delivery UAE 2025"
-        description="Hassle-free door to door cargo service from UAE to Pakistan. Free pickup from your doorstep in Dubai, Abu Dhabi, Sharjah. Delivery direct to recipient in Pakistan."
-        keywords="door to door cargo Pakistan, cargo pickup UAE, door to door shipping Dubai to Pakistan, home pickup cargo service, doorstep delivery Pakistan"
-        canonical="https://cargotopakistan.ae/door-to-door-cargo"
-        ogTitle="Door to Door Cargo to Pakistan | Free Pickup & Home Delivery"
-        ogDescription="Complete door to door cargo service from UAE to Pakistan with free pickup and doorstep delivery."
-        ogImage="https://cargotopakistan.ae/images/door-to-door-hero.jpg"
-        structuredData={structuredData}
-      />
       {/* Hero Section */}
       <section className="py-16 bg-gradient-to-br from-cargo-green to-cargo-blue text-white text-center">
         <div className="container mx-auto px-4 max-w-6xl">

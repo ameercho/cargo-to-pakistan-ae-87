@@ -54,16 +54,6 @@ export const SEO_CONFIG = {
     ogImage: 'https://cargotopakistan.ae/images/ajman-route.jpg',
     h1: 'Ajman to Pakistan Cargo Services'
   },
-  '/door-to-door-cargo': {
-    title: 'Door to Door Cargo to Pakistan | Free Pickup & Delivery UAE 2025',
-    description: 'Hassle-free door to door cargo service from UAE to Pakistan. Free pickup from your doorstep in Dubai, Abu Dhabi, Sharjah. Delivery direct to recipient in Pakistan.',
-    keywords: 'door to door cargo Pakistan, cargo pickup UAE, door to door shipping Dubai to Pakistan, home pickup cargo service, doorstep delivery Pakistan',
-    canonicalUrl: 'https://cargotopakistan.ae/door-to-door-cargo',
-    ogTitle: 'Door to Door Cargo to Pakistan | Free Pickup & Home Delivery',
-    ogDescription: 'Complete door to door cargo service from UAE to Pakistan with free pickup and doorstep delivery.',
-    ogImage: 'https://cargotopakistan.ae/images/door-to-door-hero.jpg',
-    h1: 'Hassle-Free Door-to-Door Pakistan Cargo'
-  },
   '/thank-you': {
     title: 'Thank You | Cargo to Pakistan',
     description: 'Thank you for contacting Cargo to Pakistan. We have received your message and will respond soon.',
