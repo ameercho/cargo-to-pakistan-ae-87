@@ -37,6 +37,7 @@ export const NAVIGATION_LINKS = {
   main: [
     { name: "Home", href: "/" },
     { name: "Services", href: "/services" },
+    { name: "Door to Door", href: "/door-to-door-cargo" },
     { name: "About", href: "/about" },
     { name: "FAQ", href: "/faq" },
     { name: "Contact", href: "/contact" }
