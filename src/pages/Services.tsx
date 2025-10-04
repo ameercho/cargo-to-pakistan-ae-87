@@ -42,7 +42,7 @@ const Services = () => {
       title: "Door to Door",
       description: "Complete door-to-door cargo solutions from any UAE location to any address in Pakistan. Free pickup, professional packing, customs clearance, and reliable delivery for home and business shipping.",
       href: "/services/door-to-door",
-      features: ["Free Pickup UAE-wide", "Packing & Unpacking", "Customs Clearance", "All Cities in Pakistan", "Real-Time Tracking", "Affordable Rates"]
+      features: ["Packing & Unpacking", "Customs Clearance", "All Cities in Pakistan", "Affordable Rates"]
     },
     {
       icon: Home,
