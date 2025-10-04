@@ -8,6 +8,7 @@ const FullContainer = lazy(() => import("@/pages/services/FullContainer"));
 const Packaging = lazy(() => import("@/pages/services/Packaging"));
 const CourierService = lazy(() => import("@/pages/services/CourierService"));
 const MovingHome = lazy(() => import("@/pages/services/MovingHome"));
+const DoorToDoorService = lazy(() => import("@/pages/services/DoorToDoorService"));
 const Warehousing = lazy(() => import("@/pages/services/Warehousing"));
 const Consulting = lazy(() => import("@/pages/services/Consulting"));
 const CustomsClearance = lazy(() => import("@/pages/services/CustomsClearance"));
@@ -38,6 +39,10 @@ export const serviceRoutes = [
   {
     path: "services/moving-home",
     element: MovingHome,
+  },
+  {
+    path: "services/door-to-door",
+    element: DoorToDoorService,
   },
   {
     path: "services/warehousing",
