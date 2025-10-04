@@ -40,10 +40,28 @@ export default defineConfig(({ mode, command }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
+        // Hard-pin React core packages to a single instance
+        "react": path.resolve(__dirname, "node_modules/react"),
+        "react-dom": path.resolve(__dirname, "node_modules/react-dom"),
       },
+      // Dedupe to avoid multiple React copies causing invalid hook calls
+      dedupe: ["react", "react-dom"],
+      // Preserve symlinks to avoid resolving to different React copies
+      preserveSymlinks: true,
     },
     optimizeDeps: {
-      include: ['react', 'react-dom', 'react-router-dom'],
+      include: [
+        'react',
+        'react-dom',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
+        'react-router-dom',
+        '@remix-run/router',
+        '@radix-ui/react-dialog',
+        '@radix-ui/react-slot',
+        '@radix-ui/react-primitive',
+        '@radix-ui/react-compose-refs'
+      ],
     },
     build: {
       // Client build configuration
@@ -96,5 +114,10 @@ export default defineConfig(({ mode, command }) => {
       // Use default esbuild minification instead of terser
       minify: true
     },
+    // SSR configuration
+    ssr: {
+      // Don't externalize dependencies for SSR
+      noExternal: ['react', 'react-dom', 'react-router-dom']
+    }
   };
 });
