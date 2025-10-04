@@ -88,7 +88,7 @@ const Index = () => {
               <p className="mb-6">
                 From specialized cargo services in <strong>Business Bay and Downtown Dubai</strong> to comprehensive shipping solutions from 
                 Dubai Marina and Jumeirah, we offer complete <strong>door-to-door cargo to Pakistan</strong> with professional packing, 
-                Dubai customs clearance assistance, real-time tracking, and comprehensive insurance options for complete 
+                Dubai customs clearance assistance, real-time tracking, and complete
                 peace of mind throughout your Dubai Pakistan cargo shipping experience.
               </p>
             </div>

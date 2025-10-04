@@ -47,7 +47,7 @@ const UAEToPakistanPage: React.FC<UAEToPakistanPageProps> = ({ location }) => {
     "Customs clearance assistance",
     "Real-time tracking",
     "Competitive rates",
-    "Insurance options available"
+  // Removed insurance options available
   ];
   
   const { makeCall, openWhatsApp } = useSafeContact();

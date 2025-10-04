@@ -34,7 +34,7 @@ const UAECitiesSection = () => {
     { 
       name: "Ras Al Khaimah", 
       path: "/areas/ras-al-khaimah",
-      description: "Professional cargo services from Ras Al Khaimah to Pakistan with full insurance coverage."
+  description: "Professional cargo services from Ras Al Khaimah to Pakistan."
     },
     { 
       name: "Fujairah", 

@@ -21,7 +21,7 @@ export const ShuffleHero = () => {
         </span>
         <h1 className="text-4xl md:text-6xl font-bold text-gray-900 leading-tight">Professional Cargo Services from UAE to Pakistan</h1>
         <p className="text-base md:text-lg text-gray-600 my-4 md:my-6">
-          Experience premium cargo shipping solutions from UAE to Pakistan with our comprehensive door-to-door delivery services. We specialize in sea freight, air freight, full container loads, and express courier services with competitive rates and reliable tracking. Our professional team ensures secure handling of your valuable shipments with customs clearance assistance and insurance coverage options.
+          Experience premium cargo shipping solutions from UAE to Pakistan with our comprehensive door-to-door delivery services. We specialize in sea freight, air freight, full container loads, and express courier services with competitive rates and reliable tracking. Our professional team ensures secure handling of your valuable shipments with customs clearance assistance.
         </p>
         
         {/* Call and WhatsApp buttons */}

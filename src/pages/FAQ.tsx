@@ -57,8 +57,7 @@ const FAQ = () => {
           answer: "We offer air freight, sea freight, and road transport services to Pakistan. Each option has different pricing, transit times, and weight/size limitations to suit different shipping needs."
         },
         {
-          question: "Do you offer insurance for shipments?",
-          answer: "Yes, we offer comprehensive insurance coverage for B2B shipments. The cost is typically a percentage of the declared value. We highly recommend insurance for valuable or fragile items."
+          // Removed insurance FAQ
         },
         {
           question: "How is shipping cost calculated?",

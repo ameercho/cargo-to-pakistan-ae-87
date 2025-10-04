@@ -236,7 +236,7 @@ const Warehousing = () => {
                       </li>
                       <li className="flex items-start">
                         <ShieldCheck className="h-4 w-4 text-cargo-green mr-2 mt-1" />
-                        <span>Insurance coverage for stored cargo destined to Pakistan</span>
+                        {/* Removed insurance coverage for stored cargo destined to Pakistan */}
                       </li>
                     </ul>
                   </div>

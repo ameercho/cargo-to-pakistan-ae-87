@@ -33,7 +33,7 @@ export const SERVICE_PRICING_TIERS = {
 // Common service features
 export const SERVICE_FEATURES = {
   tracking: 'Real-time tracking included',
-  insurance: 'Comprehensive insurance available',
+  // Removed insurance constant
   packaging: 'Professional packaging included',
   customs: 'Customs clearance assistance',
   doorToDoor: 'Complete door-to-door service'

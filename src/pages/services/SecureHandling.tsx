@@ -44,7 +44,7 @@ const SecureHandling = () => {
     { title: "Enhanced Security", description: "Advanced security protocols for valuable cargo", icon: Lock },
     { title: "Careful Handling", description: "Special care for fragile and sensitive items", icon: Package },
     { title: "Tracking & Monitoring", description: "Real-time monitoring throughout transit", icon: Clock },
-    { title: "Insurance Coverage", description: "Comprehensive insurance for high-value items", icon: ShieldCheck },
+  // Removed insurance coverage for high-value items
     { title: "Chain of Custody", description: "Documented handling and transfer procedures", icon: FileCheck },
   ];
 

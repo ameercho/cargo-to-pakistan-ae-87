@@ -45,7 +45,7 @@ const Packaging = () => {
     { title: "Custom Crating", description: "Custom wooden crating for valuables", icon: Box },
     { title: "Secure Wrapping", description: "Protective wrapping and cushioning", icon: ShieldCheck },
     { title: "Fragile Handling", description: "Special care for fragile items", icon: Package },
-    { title: "Insurance Options", description: "Coverage for packed items", icon: FileCheck },
+  // Removed insurance options for packed items
   ];
 
   const handleCall = () => {

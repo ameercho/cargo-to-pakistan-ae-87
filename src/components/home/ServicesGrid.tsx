@@ -36,9 +36,7 @@ const ServicesGrid = () => {
     },
     {
       icon: Shield,
-      title: "Insurance",
-      description: "Comprehensive insurance coverage to protect your valuable shipments.",
-      href: "/services/insurance"
+  // Removed insurance service
     }
   ];
 

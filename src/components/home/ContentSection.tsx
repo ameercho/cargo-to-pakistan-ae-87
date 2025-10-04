@@ -95,7 +95,7 @@ const ContentSection = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-cargo-green mt-0.5 flex-shrink-0" />
-                    <span>Cargo insurance for valuable shipments</span>
+                    {/* Removed cargo insurance for valuable shipments */}
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-5 w-5 text-cargo-green mt-0.5 flex-shrink-0" />

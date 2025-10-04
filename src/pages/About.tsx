@@ -269,7 +269,7 @@ const About = () => {
                   <li>• Professional packing for Pakistan shipments</li>
                   <li>• Customs clearance expertise</li>
                   <li>• Real-time tracking systems</li>
-                  <li>• Insurance coverage options</li>
+                  {/* Removed insurance coverage options */}
                 </ul>
               </div>
               

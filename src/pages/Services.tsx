@@ -21,7 +21,7 @@ const Services = () => {
       title: "Sea Freight",
       description: "Cost-effective sea cargo shipping from UAE to all major Pakistan ports. Full container load (FCL) and less than container load (LCL) options available.",
       href: "/services/sea-freight",
-      features: ["FCL & LCL Options", "Port-to-Port & Door-to-Door", "Customs Clearance", "Cargo Insurance"]
+  features: ["FCL & LCL Options", "Port-to-Port & Door-to-Door", "Customs Clearance"]
     },
     {
       icon: Plane,
@@ -34,7 +34,7 @@ const Services = () => {
       icon: Package,
       title: "Courier & Parcel",
       description: "Affordable courier and parcel delivery from UAE to Pakistan for documents, gifts, and small packages.",
-      href: "/services/courier",
+      href: "/services/courier-service",
       features: ["Doorstep Pickup", "Online Tracking", "Customs Support", "Fast Delivery"]
     },
     {
@@ -50,13 +50,6 @@ const Services = () => {
       description: "Professional home moving and relocation services from UAE to Pakistan, including packing, shipping, and delivery.",
       href: "/services/moving-home",
       features: ["Household Packing", "Furniture Handling", "Insurance", "Unpacking Service"]
-    },
-    {
-      icon: Shield,
-      title: "Cargo Insurance",
-      description: "Comprehensive cargo insurance for all shipments from UAE to Pakistan. Protect your goods in transit.",
-      href: "/services/cargo-insurance",
-      features: ["All-Risk Coverage", "Affordable Rates", "Quick Claims", "Peace of Mind"]
     },
     {
       icon: Warehouse,
@@ -219,7 +212,7 @@ const Services = () => {
                   <p className="text-gray-700 mb-4">
                     From <strong>household goods to commercial cargo</strong>, we handle all types of shipments to Pakistan.
                     Our services include professional packing, customs clearance, door-to-door delivery,
-                    and cargo insurance for complete peace of mind.
+                    and complete peace of mind.
                   </p>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                     <Link to="/services/sea-freight" className="text-cargo-blue hover:text-cargo-green font-semibold">
