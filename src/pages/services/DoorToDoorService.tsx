@@ -18,11 +18,10 @@ const DoorToDoorService = () => {
   }, []);
 
   const features = [
-    { title: "Free Pickup UAE-wide", description: "We collect your cargo from any location in the UAE.", icon: Truck },
+    { title: "Free Pickup Service", description: "We collect your cargo from any location under coverage area in the UAE.", icon: Truck },
     { title: "Packing & Unpacking", description: "Professional packing and unpacking for safe transit.", icon: Package },
     { title: "Customs Clearance", description: "We handle all paperwork and customs for you.", icon: ShieldCheck },
     { title: "All Cities in Pakistan", description: "Doorstep delivery to every city and town.", icon: MapPin },
-    { title: "Real-Time Tracking", description: "Track your shipment every step of the way.", icon: Clock },
     { title: "Affordable Rates", description: "Transparent pricing with no hidden fees.", icon: Home },
   ];
 
