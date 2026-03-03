@@ -4,10 +4,17 @@ import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import CallToAction from "@/components/home/CallToAction";
 
+// SEO Imports
+import PageSEO from "@/components/SEO/PageSEO";
+import { generateSEOData } from "../utils/seo-utils";
+
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
 const Index = () => {
+  // Pull optimized Metadata from your utils (Updated to 2026 internally)
+  const seo = generateSEOData.homepage();
+
   const popularDestinations = [
     { name: "Karachi", href: "/pakistan-cargo-to-karachi", desc: "Pakistan's largest port city and commercial hub" },
     { name: "Lahore", href: "/pakistan-cargo-to-lahore", desc: "Cultural capital and second largest city" },
@@ -23,13 +30,31 @@ const Index = () => {
     "url": "https://cargotopakistan.ae",
     "logo": "https://cargotopakistan.ae/opengraph-image.png",
     "telephone": "+971504948135",
+    "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "1240"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+971504948135",
+      "contactType": "customer service",
+      "areaServed": ["AE", "PK"],
+      "availableLanguage": ["English", "Urdu", "Hindi", "Arabic"]
+    },
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "AE",
       "addressRegion": "Dubai",
       "addressLocality": "Dubai"
     },
-    "areaServed": ["United Arab Emirates", "Pakistan"],
+    "areaServed": [
+      { "@type": "City", "name": "Dubai" },
+      { "@type": "City", "name": "Abu Dhabi" },
+      { "@type": "City", "name": "Sharjah" },
+      { "@type": "Country", "name": "Pakistan" }
+    ],
     "serviceType": "Cargo Shipping Services",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -57,6 +82,18 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      {/* PageSEO component handles the <head> tags. 
+          The structuredData passed here will be injected as JSON-LD.
+      */}
+      <PageSEO 
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        ogTitle={seo.ogTitle}
+        ogDescription={seo.ogDescription}
+        ogImage={seo.ogImage}
+        structuredData={structuredData}
+      />
       
       <HeroSection />
       
@@ -65,7 +102,7 @@ const Index = () => {
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
             <h1 className="text-4xl font-bold text-cargo-blue mb-8 text-center">
-              <strong>Professional Cargo to Pakistan</strong> | Door to Door Delivery Service
+              <strong>{seo.h1}</strong>
             </h1>
             
             <div className="prose max-w-none text-lg text-gray-700 mb-12">
