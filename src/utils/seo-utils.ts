@@ -1,4 +1,3 @@
-
 import { SEOData } from "@/types";
 import { getCanonicalUrl } from "./url-utils";
 import { SEO_DEFAULTS, COMPANY_INFO } from "@/constants";
@@ -9,14 +8,14 @@ export { getCanonicalUrl, shouldIncludeInSitemap } from "./url-utils";
 export const generateSEOData = {
   // Enhanced homepage with unique content
   homepage: (): SEOData => ({
-    title: "Cargo to Pakistan Dubai | #1 Professional Shipping Service UAE 2024",
-    description: "Dubai's leading cargo service to Pakistan. 10,000+ satisfied customers. Door-to-door delivery from Business Bay, Deira to all Pakistan cities. Get free quote!",
-    keywords: "cargo to pakistan dubai, dubai pakistan shipping, door to door cargo dubai, air cargo dubai pakistan, sea freight dubai, business bay cargo services",
-    canonicalUrl: "https://cargotopakistan.ae/",
-    ogTitle: "Dubai's #1 Cargo Service to Pakistan | 4.9★ Rated Professional Shipping",
-    ogDescription: "Trusted by 10,000+ customers. Professional cargo shipping from Dubai to Pakistan with complete door-to-door service.",
-    ogImage: "https://cargotopakistan.ae/images/dubai-cargo-hero.jpg",
-    h1: "Dubai to Pakistan Cargo | Trusted by 10,000+ Customers Worldwide"
+    title: 'Dubai to Pakistan Cargo | Trusted by 10,000+ Customers',
+    description: 'Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. Reliable Pakistan cargo services with secure handling and competitive rates.',
+    keywords: 'cargo to Pakistan from Dubai, cheap cargo Dubai Pakistan, reliable cargo company UAE, air freight Dubai Pakistan, sea cargo UAE to Pakistan, door-to-door cargo Dubai',
+    canonicalUrl: 'https://cargotopakistan.ae/',
+    ogTitle: 'Dubai to Pakistan Cargo | Trusted by 10,000+ Customers',
+    ogDescription: 'Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. Reliable service with secure handling.',
+    ogImage: 'https://cargotopakistan.ae/images/home-hero.jpg',
+    h1: 'Dubai to Pakistan Cargo | Trusted by 10,000+ Customers'
   }),
 
   // Service area pages with enhanced local targeting
@@ -24,14 +23,14 @@ export const generateSEOData = {
     const areaKeywords = {
       'dubai': 'business bay cargo, deira shipping, downtown dubai freight, marina cargo services',
       'abu-dhabi': 'khalifa city cargo, corniche shipping, capital emirate freight, al reem cargo',
-      'sharjah': 'al majaz cargo, rolla shipping, cultural city freight, nahda cargo services',
+      'sharjah': 'al majaz cargo, rolla shipping, cultural city freight, nuhda cargo services',
       'ajman': 'al nuaimiya cargo, corniche ajman shipping, smallest emirate freight'
     };
 
     const localKeywords = areaKeywords[areaSlug as keyof typeof areaKeywords] || '';
 
     return {
-      title: `${areaName} to Pakistan Cargo | Fast Professional Shipping 2024`,
+      title: `${areaName} to Pakistan Cargo | Fast Professional Shipping 2026`,
       description: `Professional cargo services from ${areaName} to Pakistan. Complete door-to-door delivery with pickup from all ${areaName} areas. Competitive rates, 4.9★ rating.`,
       keywords: `${areaName.toLowerCase()} cargo pakistan, ${areaName.toLowerCase()} shipping services, ${localKeywords}, door to door ${areaName.toLowerCase()}`,
       canonicalUrl: `${COMPANY_INFO.website}/areas/${areaSlug}`,
@@ -74,7 +73,7 @@ export const generateSEOData = {
     };
 
     return {
-      title: `Dubai to ${cityName} Cargo | Fast Pakistan Delivery Service 2024`,
+      title: `Dubai to ${cityName} Cargo | Fast Pakistan Delivery Service 2026`,
       description: `Professional cargo from Dubai to ${cityName}, ${cityInfo.description}. Door-to-door delivery to ${cityInfo.areas}. Get instant quote!`,
       keywords: `dubai to ${cityName.toLowerCase()}, cargo to ${cityName.toLowerCase()}, ${cityInfo.keywords}, ${cityName.toLowerCase()} shipping dubai`,
       canonicalUrl: `${COMPANY_INFO.website}/pakistan-cargo-to-${citySlug}`,
@@ -117,7 +116,7 @@ export const generateSEOData = {
     };
 
     return {
-      title: `${serviceName} Dubai to Pakistan | Best Rates & Service 2024`,
+      title: `${serviceName} Dubai to Pakistan | Best Rates & Service 2026`,
       description: `Professional ${serviceName.toLowerCase()} from Dubai to Pakistan. ${serviceInfo.description} with ${serviceInfo.features}. Get free quote!`,
       keywords: `${serviceName.toLowerCase()} dubai pakistan, ${serviceInfo.keywords}, professional ${serviceName.toLowerCase()} dubai`,
       canonicalUrl: `${COMPANY_INFO.website}/services/${serviceSlug}`,
@@ -160,7 +159,7 @@ export const generateSEOData = {
     };
 
     return {
-      title: `${originCity} to Pakistan Cargo | Complete Door-to-Door Service 2024`,
+      title: `${originCity} to Pakistan Cargo | Complete Door-to-Door Service 2026`,
       description: `Professional cargo from ${originCity} to Pakistan. ${routeInfo.districts} pickup, Pakistan doorstep delivery. Air, sea & express options available.`,
       keywords: `${originCity.toLowerCase()} pakistan cargo, ${originCity.toLowerCase()} to pakistan shipping, ${routeInfo.keywords}, door to door ${originCity.toLowerCase()}`,
       canonicalUrl: `${COMPANY_INFO.website}/${originSlug}-to-pakistan`,
@@ -184,7 +183,70 @@ export const generateSEOData = {
   })
 };
 
-// Enhanced related services with specific descriptions
+// --- START BRIDGE FUNCTION FOR PRERENDERER ---
+/**
+ * Maps incoming URL paths to the correct SEO generator functions.
+ * Essential for the build-time static injection process.
+ */
+export const getSEOForPath = (path: string): SEOData => {
+  // Normalize path
+  const normalizedPath = path === '' || path === 'index' ? '/' : path;
+
+  // 1. Homepage
+  if (normalizedPath === '/') {
+    return generateSEOData.homepage();
+  }
+
+ // UAE Area Pages (e.g., /areas/dubai)
+  if (normalizedPath.startsWith('/areas/')) {
+    const slug = normalizedPath.replace('/areas/', '').split('/')[0]; // Gets 'dubai' or 'abu-dhabi'
+    const name = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return generateSEOData.serviceArea(name, slug);
+  }
+
+  // 3. Pakistan Destination Pages (e.g., /pakistan-cargo-to-karachi)
+  if (normalizedPath.startsWith('/pakistan-cargo-to-')) {
+    const slug = normalizedPath.replace('/pakistan-cargo-to-', '').replace(/\/$/, "");
+    const name = slug.charAt(0).toUpperCase() + slug.slice(1);
+    return generateSEOData.pakistanDestination(name, slug);
+  }
+
+  // 4. Service Type Pages (e.g., /services/air-freight)
+  if (normalizedPath.startsWith('/services/')) {
+    const slug = normalizedPath.replace('/services/', '').replace(/\/$/, "");
+    const name = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return generateSEOData.serviceType(name, slug);
+  }
+
+  // 5. Route Pages (e.g., /dubai-to-pakistan)
+  if (normalizedPath.endsWith('-to-pakistan')) {
+    const slug = normalizedPath.replace('-to-pakistan', '').replace(/^\//, "").replace(/\/$/, "");
+    const name = slug.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    return generateSEOData.routePage(name, slug);
+  }
+
+  // 6. Static/Main Pages (Contact, About, etc)
+  const mainPages: Record<string, {title: string, desc: string}> = {
+    '/about': { title: 'About Us | Cargo to Pakistan Expert UAE', desc: 'Leading cargo service provider from UAE to Pakistan with decades of experience.' },
+    '/contact': { title: 'Contact Us | Cargo to Pakistan Dubai Office', desc: 'Get in touch for the best cargo rates from Dubai to Pakistan. 24/7 customer support.' },
+    '/faq': { title: 'Cargo FAQs | Shipping from Dubai to Pakistan Guide', desc: 'Frequently asked questions about shipping, customs, and delivery to Pakistan.' }
+  };
+
+  if (mainPages[normalizedPath]) {
+    return generateSEOData.genericPage(
+      normalizedPath, 
+      mainPages[normalizedPath].title, 
+      mainPages[normalizedPath].desc, 
+      'cargo contact, dubai pakistan shipping info', 
+      mainPages[normalizedPath].title
+    );
+  }
+
+  // Default Fallback
+  return generateSEOData.homepage();
+};
+// --- END BRIDGE FUNCTION ---
+
 export const relatedServices = [
   { name: "Air Freight Dubai to Pakistan", url: "/services/air-freight", description: "Fast air cargo for urgent Dubai shipments with 2-3 days delivery" },
   { name: "Sea Freight Dubai to Pakistan", url: "/services/sea-freight", description: "Cost-effective ocean shipping from Dubai with competitive rates" },
@@ -194,7 +256,6 @@ export const relatedServices = [
   { name: "Professional Packing Dubai", url: "/services/packaging", description: "Expert packing services in Dubai with quality materials" }
 ];
 
-// Popular destinations with enhanced descriptions
 export const popularDestinations = [
   { name: "Karachi", url: "/pakistan-cargo-to-karachi", description: "Dubai to Pakistan's largest port & business hub with Clifton, Defence coverage" },
   { name: "Lahore", url: "/pakistan-cargo-to-lahore", description: "Dubai to Pakistan's cultural capital with Gulberg, Model Town delivery" },
@@ -204,7 +265,6 @@ export const popularDestinations = [
   { name: "Faisalabad", url: "/pakistan-cargo-to-faisalabad", description: "Dubai to Pakistan's textile hub with industrial area service" }
 ];
 
-// UAE service areas with enhanced descriptions
 export const uaeServiceAreas = [
   { name: "Dubai", url: "/areas/dubai", description: "Business Bay, Deira, Downtown - Complete Dubai coverage with premium service" },
   { name: "Abu Dhabi", url: "/areas/abu-dhabi", description: "Capital emirate with Khalifa City, Corniche comprehensive service" },
