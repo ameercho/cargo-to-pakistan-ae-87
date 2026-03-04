@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Phone, MessageCircle } from "lucide-react";
@@ -14,9 +13,12 @@ const HeroSection = () => {
 
   return (
     <section className="py-20 bg-gradient-to-br from-cargo-blue to-cargo-green text-white relative overflow-hidden">
+      {/* Reduced complexity: simple overlay instead of heavy filters */}
       <div className="absolute inset-0 bg-black/20 z-0"></div>
+      
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
+          {/* SEO Priority: This is often the visual H1 or H2, keep text clear */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
             Dubai to Pakistan Cargo | Trusted by 10,000+ Customers
           </h2>
@@ -31,6 +33,7 @@ const HeroSection = () => {
               onClick={() => makeCall('hero_section')}
               className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg"
               size="lg"
+              aria-label="Call for cargo inquiry"
             >
               <Phone className="mr-2 h-5 w-5" />
               Call Us
@@ -40,6 +43,7 @@ const HeroSection = () => {
               onClick={onWhatsAppClick}
               className="bg-cargo-green hover:bg-cargo-green/90 text-white"
               size="lg"
+              aria-label="WhatsApp for cargo inquiry"
             >
               <MessageCircle className="mr-2 h-5 w-5" />
               WhatsApp
@@ -57,11 +61,15 @@ const HeroSection = () => {
             </Button>
           </div>
           
+          {/* Performance Optimized: Removed backdrop-blur-sm */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
             {SERVICE_HIGHLIGHTS.map((service, index) => (
-              <div key={index} className="bg-white/10 backdrop-blur-sm rounded-lg p-3">
-                <div className="font-semibold">{service.title}</div>
-                <div className="text-gray-300">{service.description}</div>
+              <div 
+                key={index} 
+                className="bg-white/20 border border-white/10 rounded-lg p-3 transition-colors hover:bg-white/30"
+              >
+                <div className="font-semibold text-white">{service.title}</div>
+                <div className="text-gray-200">{service.description}</div>
               </div>
             ))}
           </div>
