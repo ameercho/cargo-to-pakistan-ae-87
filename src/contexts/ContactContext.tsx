@@ -84,14 +84,12 @@ export const ContactProvider = ({ children }: { children: React.ReactNode }) => 
             </div>
             
             <div className="p-6">
-              <label className="block text-gray-700 font-bold mb-3 text-right" dir="rtl">
-                آپ کا پیارا نام کیا ہے؟
-              </label>
+              <label className="block text-gray-700 font-bold mb-3">What is your name</label>
               
               <input 
                 type="text" 
                 placeholder="نام یہاں لکھیں (Enter Name)..."
-                className="w-full border-2 border-gray-100 rounded-xl px-4 py-4 outline-none focus:border-cargo-orange transition-all text-cargo-blue font-bold text-lg text-right shadow-inner"
+                className="w-full border-2 border-gray-100 rounded-xl px-4 py-4 outline-none focus:border-cargo-orange transition-all text-cargo-blue font-bold text-lg shadow-inner"
                 dir="auto"
                 value={tempName}
                 onChange={(e) => setTempName(e.target.value)}
@@ -104,13 +102,13 @@ export const ContactProvider = ({ children }: { children: React.ReactNode }) => 
                   onClick={() => { setShowModal(false); if(pendingAction) executeAction(pendingAction); }} 
                   className="text-gray-400 font-bold hover:text-gray-600 transition-colors py-2 text-sm"
                 >
-                  Skip / چھوڑیں
+                  Skip
                 </button>
                 <button 
                   onClick={submitName} 
                   className="bg-cargo-orange text-white font-black py-4 rounded-xl hover:bg-orange-600 shadow-lg transition-all active:scale-95 text-lg"
                 >
-                  Continue / آگے بڑھیں
+                  Continue
                 </button>
               </div>
             </div>
