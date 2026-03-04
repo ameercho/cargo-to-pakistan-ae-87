@@ -32,7 +32,8 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/ https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://www.gstatic.com; script-src 'self' https://cdn.gpteng.co https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https: https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net;"
+    # Update only the CSP line in your [[headers]] section:
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/ https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://www.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.gpteng.co https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https: https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net;"
 
 # 4. PERFORMANCE: Cache Static Assets
 [[headers]]
