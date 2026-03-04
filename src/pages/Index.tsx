@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react"; 
 import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -9,82 +8,9 @@ import PageSEO from "@/components/SEO/PageSEO";
 import { generateSEOData } from "../utils/seo-utils";
 
 import { Link } from "react-router-dom";
-import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
+import { ArrowRight, MapPin, Truck, Plane, Ship } from "lucide-react";
 
 const Index = () => {
-  // --- COOKIE & PERSONALIZATION LOGIC START ---
-  const [isReturningUser, setIsReturningUser] = useState(false);
-  const [customerName, setCustomerName] = useState("");
-  
-  // UI State for the Name Capture Modal
-  const [showNameModal, setShowNameModal] = useState(false);
-  const [tempName, setTempName] = useState("");
-  const [pendingAction, setPendingAction] = useState<"whatsapp" | "call" | null>(null);
-
-  useEffect(() => {
-    const returningCookieName = "returning_customer";
-    const nameCookieName = "customer_name";
-    const cookies = document.cookie.split("; ");
-    
-    // 1. Check for returning status
-    const hasReturningCookie = cookies.find((row) => row.startsWith(`${returningCookieName}=`));
-    if (hasReturningCookie) {
-      setIsReturningUser(true);
-    } else {
-      const expiry = new Date();
-      expiry.setDate(expiry.getDate() + 30);
-      document.cookie = `${returningCookieName}=true; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
-      setIsReturningUser(false);
-    }
-
-    // 2. Check for saved customer name
-    const hasNameCookie = cookies.find((row) => row.startsWith(`${nameCookieName}=`));
-    if (hasNameCookie) {
-      setCustomerName(decodeURIComponent(hasNameCookie.split("=")[1]));
-    }
-  }, []);
-
-  // 3. Unified Contact Intent Handler
-  const handleContactIntent = (type: "whatsapp" | "call") => {
-    if (customerName) {
-      // If we already have the name, proceed immediately
-      executeAction(type, customerName);
-    } else {
-      // Otherwise, open the name capture modal
-      setPendingAction(type);
-      setShowNameModal(true);
-    }
-  };
-
-  const executeAction = (type: "whatsapp" | "call", name?: string) => {
-    const phoneNumber = "971504948135";
-    if (type === "whatsapp") {
-      const msg = name 
-        ? `Hi, I am ${name}. I need a cargo quote to Pakistan.` 
-        : "Hi, I need a cargo quote to Pakistan.";
-      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, "_blank");
-    } else {
-      // Direct Phone Call
-      window.location.href = `tel:+${phoneNumber}`;
-    }
-  };
-
-  const handleModalSubmit = () => {
-    if (tempName.trim()) {
-      const expiry = new Date();
-      expiry.setDate(expiry.getDate() + 90);
-      document.cookie = `customer_name=${encodeURIComponent(tempName.trim())}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
-      setCustomerName(tempName.trim());
-      if (pendingAction) executeAction(pendingAction, tempName.trim());
-    } else if (pendingAction) {
-      // If they click continue without a name, just proceed
-      executeAction(pendingAction);
-    }
-    setShowNameModal(false);
-    setTempName("");
-  };
-  // --- COOKIE & PERSONALIZATION LOGIC END ---
-
   const seo = generateSEOData.homepage();
 
   const popularDestinations = [
@@ -127,29 +53,7 @@ const Index = () => {
       { "@type": "City", "name": "Sharjah" },
       { "@type": "Country", "name": "Pakistan" }
     ],
-    "serviceType": "Cargo Shipping Services",
-    "hasOfferCatalog": {
-      "@type": "OfferCatalog",
-      "name": "Cargo Services",
-      "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Sea Freight to Pakistan",
-            "description": "Cost-effective ocean cargo shipping"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Air Freight to Pakistan", 
-            "description": "Fast air cargo delivery"
-          }
-        }
-      ]
-    }
+    "serviceType": "Cargo Shipping Services"
   };
 
   return (
@@ -164,13 +68,8 @@ const Index = () => {
         structuredData={structuredData}
       />
       
-      {/* Passing all personalization data and new handlers to HeroSection */}
-      <HeroSection 
-        isReturning={isReturningUser} 
-        customerName={customerName} 
-        onWhatsAppClick={() => handleContactIntent("whatsapp")}
-        onCallClick={() => handleContactIntent("call")}
-      />
+      {/* HeroSection now manages its own global contact state */}
+      <HeroSection />
       
       <section className="py-16 bg-white">
         <div className="container-custom">
@@ -190,8 +89,6 @@ const Index = () => {
               <p className="mb-6">
                 Our <strong>Dubai cargo services</strong> include express air cargo to Pakistan for urgent deliveries, 
                 cost-effective sea cargo from Dubai ports for bulk shipments, and full door-to-door logistics. 
-                With years of experience in <strong>Dubai to Pakistan logistics</strong>, we understand the unique 
-                requirements of businesses and expatriates across the Emirates.
               </p>
             </div>
 
@@ -279,49 +176,6 @@ const Index = () => {
       <ServicesGrid />
       <WhyChooseUs />
       <CallToAction />
-
-      {/* --- CUSTOM NAME CAPTURE MODAL --- */}
-      {showNameModal && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
-          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
-           <div className="bg-cargo-blue p-6 text-white text-center">
-  {/* The Encouraging Urdu Header */}
-  <h3 className="text-2xl font-bold mb-2 leading-relaxed" dir="rtl">
-    اپنی پہچان بتائیں، بہترین رہنمائی پائیں
-  </h3>
-  <p className="text-blue-100 text-sm font-medium">
-    Share your name for the best guidance
-  </p>
-</div>
-            <div className="p-6">
-              <label className="block text-gray-700 font-semibold mb-2">What is your name?</label>
-              <input 
-                type="text" 
-                placeholder="Enter your name..."
-                className="w-full border-2 border-gray-100 rounded-lg px-4 py-3 outline-none focus:border-cargo-orange transition-colors text-cargo-blue font-medium"
-                value={tempName}
-                onChange={(e) => setTempName(e.target.value)}
-                onKeyDown={(e) => e.key === 'Enter' && handleModalSubmit()}
-                autoFocus
-              />
-              <div className="grid grid-cols-2 gap-3 mt-6">
-                <button 
-                  onClick={() => { setShowNameModal(false); if(pendingAction) executeAction(pendingAction); }} 
-                  className="text-gray-400 font-medium hover:text-gray-600 transition-colors"
-                >
-                  Skip
-                </button>
-                <button 
-                  onClick={handleModalSubmit} 
-                  className="bg-cargo-orange text-white font-bold py-2 rounded-lg hover:bg-orange-600 shadow-md transition-all active:scale-95"
-                >
-                  Continue
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
