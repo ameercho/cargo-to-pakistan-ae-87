@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { 
@@ -7,17 +6,27 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, User } from "lucide-react";
 import { NAVIGATION_LINKS } from "@/constants";
 import { useSafeNavigation } from "@/hooks/useSafeNavigation";
-import { useSafeContact } from "@/hooks/useSafeContact";
+import { useContact } from "@/contexts/ContactContext"; // Import Global Context
 
 const DesktopNavigation = () => {
   const { isActive } = useSafeNavigation();
-  const { makeCall } = useSafeContact();
+  const { handleContact, customerName } = useContact();
 
   return (
     <div className="hidden lg:flex items-center space-x-6">
+      {/* Personalized Islamic Greeting */}
+      {customerName && (
+        <div className="flex items-center px-4 py-1.5 bg-cargo-blue/5 rounded-full border border-cargo-blue/20 animate-in fade-in slide-in-from-right-4">
+          <User className="h-4 w-4 text-cargo-blue mr-2" />
+          <span className="text-sm font-bold text-cargo-blue" dir="rtl">
+            السلام علیکم، {customerName}
+          </span>
+        </div>
+      )}
+
       <Link 
         to="/" 
         className={`text-gray-700 hover:text-cargo-blue transition-colors ${
@@ -109,8 +118,11 @@ const DesktopNavigation = () => {
         Contact
       </Link>
 
-      <Button asChild className="bg-cargo-orange hover:bg-orange-600 tap-target">
-        <Link to="/contact">Get Quote</Link>
+      <Button 
+        onClick={() => handleContact('whatsapp')} 
+        className="bg-cargo-orange hover:bg-orange-600 tap-target font-black px-6 shadow-md"
+      >
+        Get Quote
       </Button>
     </div>
   );
