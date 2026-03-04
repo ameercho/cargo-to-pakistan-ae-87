@@ -15,11 +15,15 @@ const Index = () => {
   // --- COOKIE & PERSONALIZATION LOGIC START ---
   const [isReturningUser, setIsReturningUser] = useState(false);
   const [customerName, setCustomerName] = useState("");
+  
+  // UI State for the Name Capture Modal
+  const [showNameModal, setShowNameModal] = useState(false);
+  const [tempName, setTempName] = useState("");
+  const [pendingAction, setPendingAction] = useState<"whatsapp" | "call" | null>(null);
 
   useEffect(() => {
     const returningCookieName = "returning_customer";
     const nameCookieName = "customer_name";
-    
     const cookies = document.cookie.split("; ");
     
     // 1. Check for returning status
@@ -40,34 +44,47 @@ const Index = () => {
     }
   }, []);
 
-  // 3. WhatsApp Pre-Capture Handler
-  const handleWhatsAppAction = (e: React.MouseEvent) => {
-    e.preventDefault();
-    
-    // If we already have the name, skip the prompt
+  // 3. Unified Contact Intent Handler
+  const handleContactIntent = (type: "whatsapp" | "call") => {
     if (customerName) {
-      window.open(`https://wa.me/971504948135?text=Hi, I am ${customerName}. I need a cargo quote to Pakistan.`, "_blank");
-      return;
+      // If we already have the name, proceed immediately
+      executeAction(type, customerName);
+    } else {
+      // Otherwise, open the name capture modal
+      setPendingAction(type);
+      setShowNameModal(true);
     }
+  };
 
-    // Ask for name (Fastest implementation for performance)
-    const nameInput = window.prompt("Who shall we address the quote to?");
-    
-    if (nameInput) {
+  const executeAction = (type: "whatsapp" | "call", name?: string) => {
+    const phoneNumber = "971504948135";
+    if (type === "whatsapp") {
+      const msg = name 
+        ? `Hi, I am ${name}. I need a cargo quote to Pakistan.` 
+        : "Hi, I need a cargo quote to Pakistan.";
+      window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`, "_blank");
+    } else {
+      // Direct Phone Call
+      window.location.href = `tel:+${phoneNumber}`;
+    }
+  };
+
+  const handleModalSubmit = () => {
+    if (tempName.trim()) {
       const expiry = new Date();
       expiry.setDate(expiry.getDate() + 90);
-      document.cookie = `customer_name=${encodeURIComponent(nameInput)}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
-      
-      setCustomerName(nameInput);
-      window.open(`https://wa.me/971504948135?text=Hi, I am ${nameInput}. I need a cargo quote to Pakistan.`, "_blank");
-    } else {
-      // If user cancels, proceed with a generic message
-      window.open("https://wa.me/971504948135?text=Hi, I need a cargo quote to Pakistan.", "_blank");
+      document.cookie = `customer_name=${encodeURIComponent(tempName.trim())}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
+      setCustomerName(tempName.trim());
+      if (pendingAction) executeAction(pendingAction, tempName.trim());
+    } else if (pendingAction) {
+      // If they click continue without a name, just proceed
+      executeAction(pendingAction);
     }
+    setShowNameModal(false);
+    setTempName("");
   };
   // --- COOKIE & PERSONALIZATION LOGIC END ---
 
-  // Optimized Metadata (2026 Internal Update)
   const seo = generateSEOData.homepage();
 
   const popularDestinations = [
@@ -147,11 +164,12 @@ const Index = () => {
         structuredData={structuredData}
       />
       
-      {/* Passing all personalization data to HeroSection */}
+      {/* Passing all personalization data and new handlers to HeroSection */}
       <HeroSection 
         isReturning={isReturningUser} 
         customerName={customerName} 
-        onWhatsAppClick={handleWhatsAppAction}
+        onWhatsAppClick={() => handleContactIntent("whatsapp")}
+        onCallClick={() => handleContactIntent("call")}
       />
       
       <section className="py-16 bg-white">
@@ -261,6 +279,43 @@ const Index = () => {
       <ServicesGrid />
       <WhyChooseUs />
       <CallToAction />
+
+      {/* --- CUSTOM NAME CAPTURE MODAL --- */}
+      {showNameModal && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
+          <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
+            <div className="bg-cargo-blue p-5 text-white text-center">
+              <h3 className="text-xl font-bold">Personalized Quote</h3>
+            </div>
+            <div className="p-6">
+              <label className="block text-gray-700 font-semibold mb-2">What is your name?</label>
+              <input 
+                type="text" 
+                placeholder="Enter your name..."
+                className="w-full border-2 border-gray-100 rounded-lg px-4 py-3 outline-none focus:border-cargo-orange transition-colors text-cargo-blue font-medium"
+                value={tempName}
+                onChange={(e) => setTempName(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleModalSubmit()}
+                autoFocus
+              />
+              <div className="grid grid-cols-2 gap-3 mt-6">
+                <button 
+                  onClick={() => { setShowNameModal(false); if(pendingAction) executeAction(pendingAction); }} 
+                  className="text-gray-400 font-medium hover:text-gray-600 transition-colors"
+                >
+                  Skip
+                </button>
+                <button 
+                  onClick={handleModalSubmit} 
+                  className="bg-cargo-orange text-white font-bold py-2 rounded-lg hover:bg-orange-600 shadow-md transition-all active:scale-95"
+                >
+                  Continue
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

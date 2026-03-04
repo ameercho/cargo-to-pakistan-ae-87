@@ -4,14 +4,15 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import { SERVICE_HIGHLIGHTS } from "./utils";
 
-// Define the interface to receive data from Index.tsx
+// Updated interface to include onCallClick
 interface HeroSectionProps {
   isReturning?: boolean;
   customerName?: string;
   onWhatsAppClick?: (e: React.MouseEvent) => void;
+  onCallClick?: (e: React.MouseEvent) => void; // Added for name capture
 }
 
-const HeroSection = ({ isReturning, customerName, onWhatsAppClick }: HeroSectionProps) => {
+const HeroSection = ({ isReturning, customerName, onWhatsAppClick, onCallClick }: HeroSectionProps) => {
   const { makeCall } = useSafeContact();
 
   return (
@@ -42,7 +43,7 @@ const HeroSection = ({ isReturning, customerName, onWhatsAppClick }: HeroSection
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
             <Button 
-              onClick={() => makeCall('hero_section')}
+              onClick={onCallClick} // Connected to personalized handler in Index.tsx
               className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg"
               size="lg"
               aria-label="Call for cargo inquiry"
