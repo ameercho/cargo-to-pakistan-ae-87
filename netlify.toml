@@ -16,15 +16,13 @@
   status = 200
 
 # 2. SEO & SPA REDIRECT
-# This is the industry-standard way for Vite SPAs. 
-# Netlify will automatically serve the static .html file if it exists (like /about.html).
-# If it doesn't exist, it will fall back to index.html for React to handle.
+# Industry-standard fallback for Vite/React.
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
 
-# 3. SECURITY & SEO HEADERS
+# 3. GLOBAL HEADERS & FRESHNESS CONTROL
 [[headers]]
   for = "/*"
   [headers.values]
@@ -32,33 +30,34 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-    # Update only the CSP line in your [[headers]] section:
+    # Added 'unsafe-eval' to ensure GTM runs smoothly for Google Ads.
     Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/ https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://www.gstatic.com; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.gpteng.co https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https: https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net;"
+    # NEW BEST PRACTICE: Prevents the "Broken Site" issue for Google Ads traffic.
+    # Forces browser to verify the version with Netlify before using old cache.
+    Cache-Control = "public, max-age=0, must-revalidate"
 
-# 4. PERFORMANCE: Cache Static Assets
+# 4. PERFORMANCE: Long-Term Cache for Immutable Assets
+# Vite generates unique hash names (like index-A1B2.js), so these never change.
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
-[[headers]]
-  for = "/*.js"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-[[headers]]
-  for = "/*.css"
-  [headers.values]
-    Cache-Control = "public, max-age=31536000, immutable"
-
-# 5. FRESHNESS: Images & Sitemap
+# 5. IMAGES: Faster Loading, Rapid Updates
 [[headers]]
   for = "/images/*"
   [headers.values]
-    Cache-Control = "public, max-age=86400, must-revalidate"
+    # Set to 1 year but with revalidate to ensure updates are seen.
+    Cache-Control = "public, max-age=31536000, must-revalidate"
 
+# 6. SEO: Sitemap & Robots
 [[headers]]
   for = "/sitemap.xml"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "public, max-age=0, must-revalidate"
     Content-Type = "application/xml"
+
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

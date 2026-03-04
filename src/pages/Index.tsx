@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"; 
 import HeroSection from "@/components/home/HeroSection";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -11,6 +12,61 @@ import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Package, Truck, Plane, Ship, Clock, Shield } from "lucide-react";
 
 const Index = () => {
+  // --- COOKIE & PERSONALIZATION LOGIC START ---
+  const [isReturningUser, setIsReturningUser] = useState(false);
+  const [customerName, setCustomerName] = useState("");
+
+  useEffect(() => {
+    const returningCookieName = "returning_customer";
+    const nameCookieName = "customer_name";
+    
+    const cookies = document.cookie.split("; ");
+    
+    // 1. Check for returning status
+    const hasReturningCookie = cookies.find((row) => row.startsWith(`${returningCookieName}=`));
+    if (hasReturningCookie) {
+      setIsReturningUser(true);
+    } else {
+      const expiry = new Date();
+      expiry.setDate(expiry.getDate() + 30);
+      document.cookie = `${returningCookieName}=true; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
+      setIsReturningUser(false);
+    }
+
+    // 2. Check for saved customer name
+    const hasNameCookie = cookies.find((row) => row.startsWith(`${nameCookieName}=`));
+    if (hasNameCookie) {
+      setCustomerName(decodeURIComponent(hasNameCookie.split("=")[1]));
+    }
+  }, []);
+
+  // 3. WhatsApp Pre-Capture Handler
+  const handleWhatsAppAction = (e: React.MouseEvent) => {
+    e.preventDefault();
+    
+    // If we already have the name, skip the prompt
+    if (customerName) {
+      window.open(`https://wa.me/971504948135?text=Hi, I am ${customerName}. I need a cargo quote to Pakistan.`, "_blank");
+      return;
+    }
+
+    // Ask for name (Fastest implementation for performance)
+    const nameInput = window.prompt("Who shall we address the quote to?");
+    
+    if (nameInput) {
+      const expiry = new Date();
+      expiry.setDate(expiry.getDate() + 90);
+      document.cookie = `customer_name=${encodeURIComponent(nameInput)}; expires=${expiry.toUTCString()}; path=/; SameSite=Lax; Secure`;
+      
+      setCustomerName(nameInput);
+      window.open(`https://wa.me/971504948135?text=Hi, I am ${nameInput}. I need a cargo quote to Pakistan.`, "_blank");
+    } else {
+      // If user cancels, proceed with a generic message
+      window.open("https://wa.me/971504948135?text=Hi, I need a cargo quote to Pakistan.", "_blank");
+    }
+  };
+  // --- COOKIE & PERSONALIZATION LOGIC END ---
+
   // Optimized Metadata (2026 Internal Update)
   const seo = generateSEOData.homepage();
 
@@ -91,7 +147,12 @@ const Index = () => {
         structuredData={structuredData}
       />
       
-      <HeroSection />
+      {/* Passing all personalization data to HeroSection */}
+      <HeroSection 
+        isReturning={isReturningUser} 
+        customerName={customerName} 
+        onWhatsAppClick={handleWhatsAppAction}
+      />
       
       <section className="py-16 bg-white">
         <div className="container-custom">

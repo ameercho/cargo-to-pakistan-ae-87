@@ -4,12 +4,15 @@ import { ArrowRight, Phone, MessageCircle } from "lucide-react";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import { SERVICE_HIGHLIGHTS } from "./utils";
 
-const HeroSection = () => {
-  const { makeCall, openWhatsApp } = useSafeContact();
+// Define the interface to receive data from Index.tsx
+interface HeroSectionProps {
+  isReturning?: boolean;
+  customerName?: string;
+  onWhatsAppClick?: (e: React.MouseEvent) => void;
+}
 
-  const onWhatsAppClick = () => {
-    openWhatsApp(undefined, 'hero_section');
-  };
+const HeroSection = ({ isReturning, customerName, onWhatsAppClick }: HeroSectionProps) => {
+  const { makeCall } = useSafeContact();
 
   return (
     <section className="py-20 bg-gradient-to-br from-cargo-blue to-cargo-green text-white relative overflow-hidden">
@@ -18,14 +21,23 @@ const HeroSection = () => {
       
       <div className="container-custom relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* SEO Priority: This is often the visual H1 or H2, keep text clear */}
+          {/* Personalized Heading Logic */}
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white leading-tight">
-            Dubai to Pakistan Cargo | Trusted by 10,000+ Customers
+            {isReturning ? (
+              <>
+                Welcome Back{customerName ? `, ${customerName}` : ""}! <br />
+                <span className="text-cargo-orange">Ready for your Next Shipment?</span>
+              </>
+            ) : (
+              <>Dubai to Pakistan Cargo | Trusted by 10,000+ Customers</>
+            )}
           </h2>
           
           <p className="text-xl md:text-2xl text-gray-100 mb-8 max-w-3xl mx-auto">
-            Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. 
-            Reliable Pakistan cargo services with secure handling and competitive rates.
+            {isReturning 
+              ? "Get a priority quote update or book your pickup instantly via WhatsApp."
+              : "Professional door-to-door cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman. Reliable services with competitive rates."
+            }
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-8">
@@ -40,7 +52,7 @@ const HeroSection = () => {
             </Button>
             
             <Button 
-              onClick={onWhatsAppClick}
+              onClick={onWhatsAppClick} // Uses the personalized handler from Index.tsx
               className="bg-cargo-green hover:bg-cargo-green/90 text-white"
               size="lg"
               aria-label="WhatsApp for cargo inquiry"
@@ -61,7 +73,7 @@ const HeroSection = () => {
             </Button>
           </div>
           
-          {/* Performance Optimized: Removed backdrop-blur-sm */}
+          {/* Performance Optimized: Service Highlights */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl mx-auto text-sm">
             {SERVICE_HIGHLIGHTS.map((service, index) => (
               <div 
