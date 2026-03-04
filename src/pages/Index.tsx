@@ -284,9 +284,15 @@ const Index = () => {
       {showNameModal && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 animate-in fade-in duration-200">
           <div className="bg-white rounded-xl shadow-2xl max-w-sm w-full overflow-hidden animate-in zoom-in duration-300">
-            <div className="bg-cargo-blue p-5 text-white text-center">
-              <h3 className="text-xl font-bold">Personalized Quote</h3>
-            </div>
+           <div className="bg-cargo-blue p-6 text-white text-center">
+  {/* The Encouraging Urdu Header */}
+  <h3 className="text-2xl font-bold mb-2 leading-relaxed" dir="rtl">
+    اپنی پہچان بتائیں، بہترین رہنمائی پائیں
+  </h3>
+  <p className="text-blue-100 text-sm font-medium">
+    Share your name for the best guidance
+  </p>
+</div>
             <div className="p-6">
               <label className="block text-gray-700 font-semibold mb-2">What is your name?</label>
               <input 
