@@ -1,43 +1,18 @@
-
 User-agent: *
 Allow: /
 
-# Block access to admin or sensitive areas (if any in future)
+# Block access to system/admin areas (Current protection)
 Disallow: /admin/
 Disallow: /api/
 Disallow: /_netlify/
-Disallow: /.*
+Disallow: /dist/          # From my 1st suggestion: prevents indexing of raw build files
+Disallow: /node_modules/  # From my 1st suggestion: prevents indexing of library code
 
-# Allow specific bots full access
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-User-agent: Baiduspider
-Allow: /
-
-User-agent: YandexBot
-Allow: /
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Crawl delay for polite crawling
+# Crawl delay for polite crawling (Kept from your current file)
 Crawl-delay: 1
+
+# Preferred Host
+Host: https://cargotopakistan.ae
 
 # Sitemap location
 Sitemap: https://cargotopakistan.ae/sitemap.xml
