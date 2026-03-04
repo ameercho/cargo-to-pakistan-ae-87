@@ -11,7 +11,80 @@
 [[redirects]]
   from = "/sitemap.xml"
   to = "/sitemap.xml"
+  status = 200# Netlify Configuration for cargotopakistan.ae
+# Optimized for 54 Prerendered SEO Routes (2026)
+
+[build]
+  # We use 'npm run build' because your package.json already handles 
+  # both 'vite build' AND 'tsx prerender.js'. 
+  command = "npm run build"
+  publish = "dist"
+
+# 1. PRIMARY REDIRECTS (System Files)
+[[redirects]]
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
   status = 200
+
+[[redirects]]
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+# 2. SEO OPTIMIZATION: Serve Prerendered HTML Files
+# This rule tells Netlify: "If the user asks for /about, look for /about.html first"
+# This ensures Google sees the static 2026 metadata immediately.
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  force = false
+
+# 3. SPA FALLBACK
+# If no static HTML file exists, fall back to the main app index.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# 4. SECURITY & SEO HEADERS
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    # Added your GTM, Google Ads, and tracking scripts to CSP
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data: https: /.netlify/images/ https://www.googletagmanager.com https://www.googleadservices.com https://stats.g.doubleclick.net https://www.gstatic.com; script-src 'self' https://cdn.gpteng.co https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self'; connect-src 'self' https: https://www.googletagmanager.com https://www.googleadservices.com https://*.google.com https://*.doubleclick.net;"
+
+# 5. PERFORMANCE: Cache Static Assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# 6. FRESHNESS: Images & Sitemap
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, must-revalidate"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+    Content-Type = "application/xml"
 
 [[redirects]]
   from = "/robots.txt"
