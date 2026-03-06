@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
@@ -44,7 +43,6 @@ const QuoteForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const { toast } = useToast();
-  const encode = (data: Record<string, string>) => new URLSearchParams(data as any).toString();
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -60,29 +58,39 @@ const QuoteForm = () => {
     },
   });
 
-  const onSubmit = async (data: FormValues) => {
+  const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     try {
+      // Helper to encode form data for Netlify
+      const formData = new URLSearchParams();
+      formData.append("form-name", "quote");
+      Object.entries(values).forEach(([key, value]) => {
+        formData.append(key, value || "");
+      });
+
       await fetch("/", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: encode({ "form-name": "quote", ...data } as any),
+        body: formData.toString(),
       });
 
       setSubmitted(true);
-
       toast({
         title: "Quote Request Submitted!",
         description: "We'll get back to you with a quotation shortly.",
-        variant: "default",
       });
 
       form.reset();
-      window.location.href = "/thank-you";
+      
+      // Redirect to thank-you page after a short delay
+      setTimeout(() => {
+        window.location.href = "/thank-you";
+      }, 1500);
+
     } catch (error) {
       toast({
-        title: "Error",
-        description: "There was a problem submitting your request. Please try again.",
+        title: "Submission Error",
+        description: "There was a problem. Please try again or use WhatsApp.",
         variant: "destructive",
       });
     } finally {
@@ -98,14 +106,23 @@ const QuoteForm = () => {
         <form 
           onSubmit={form.handleSubmit(onSubmit)} 
           className="space-y-4"
-          method="POST"
           data-netlify="true"
           name="quote"
-          action="/thank-you"
+          data-netlify-honeypot="bot-field"
         >
+          {/* Netlify Hidden Fields */}
           <input type="hidden" name="form-name" value="quote" />
-          <input type="hidden" name="bot-field" />
-          <input type="hidden" name="serviceType" value={form.watch("serviceType") || ""} readOnly />
+          <p className="hidden">
+            <label>Don’t fill this out: <input name="bot-field" /></label>
+          </p>
+          
+          {/* ServiceType Hidden Input for Netlify Detection */}
+          <input 
+            type="hidden" 
+            name="serviceType" 
+            value={form.watch("serviceType") || ""} 
+          />
+
           <FormField
             control={form.control}
             name="name"
@@ -158,7 +175,7 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>From Location</FormLabel>
                   <FormControl>
-                    <Input placeholder="City, Country" {...field} className="tap-target" />
+                    <Input placeholder="City, UAE" {...field} className="tap-target" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -172,7 +189,7 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>To Location</FormLabel>
                   <FormControl>
-                    <Input defaultValue="Pakistan" {...field} className="tap-target" />
+                    <Input {...field} className="tap-target" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -187,7 +204,7 @@ const QuoteForm = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Service Type</FormLabel>
-                  <Select onValueChange={field.onChange} defaultValue={field.value}>
+                  <Select onValueChange={field.onChange} value={field.value}>
                     <FormControl>
                       <SelectTrigger className="tap-target">
                         <SelectValue placeholder="Select a service" />
@@ -233,9 +250,6 @@ const QuoteForm = () => {
                     {...field} 
                   />
                 </FormControl>
-                <FormDescription>
-                  Include any specific requirements or questions.
-                </FormDescription>
                 <FormMessage />
               </FormItem>
             )}
@@ -243,19 +257,20 @@ const QuoteForm = () => {
           
           <Button 
             type="submit" 
-            className="w-full bg-cargo-orange hover:bg-orange-600 tap-target" 
+            className="w-full bg-cargo-orange hover:bg-orange-600 tap-target py-6 text-lg font-semibold" 
             disabled={isSubmitting}
           >
             {isSubmitting ? (
               <>
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                Processing...
+                <Loader2 className="mr-2 h-5 w-5 animate-spin" />
+                Processing Request...
               </>
             ) : "Get Free Quote"}
           </Button>
+          
           {submitted && (
-            <p className="text-sm text-cargo-green mt-3" role="status">
-              Thanks! Your request has been received.
+            <p className="text-center text-sm text-green-600 mt-2 font-medium">
+              Redirecting you to the thank-you page...
             </p>
           )}
         </form>
