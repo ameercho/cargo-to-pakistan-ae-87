@@ -14,12 +14,12 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { 
+import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue 
+  SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/components/ui/use-toast";
 import { Loader2 } from "lucide-react";
@@ -29,7 +29,10 @@ const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address" }),
   phone: z.string().min(10, { message: "Please enter a valid phone number" }),
   fromLocation: z.string().min(2, { message: "Please enter a valid location" }),
-  toLocation: z.string().min(2, { message: "Please enter a valid location" }).default("Pakistan"),
+  toLocation: z
+    .string()
+    .min(2, { message: "Please enter a valid location" })
+    .default("Pakistan"),
   serviceType: z.string({
     required_error: "Please select a service type",
   }),
@@ -79,12 +82,11 @@ const QuoteForm = () => {
       });
 
       form.reset();
-      
+
       // Redirect to thank-you page after a short delay
       setTimeout(() => {
         window.location.href = "/thank-you";
       }, 1500);
-
     } catch (error) {
       toast({
         title: "Submission Error",
@@ -98,11 +100,13 @@ const QuoteForm = () => {
 
   return (
     <div className="w-full max-w-md mx-auto bg-white rounded-lg shadow-md p-6">
-      <h2 className="text-2xl font-bold text-cargo-blue mb-6">Get a Free Quote</h2>
-      
+      <h2 className="text-2xl font-bold text-cargo-blue mb-6">
+        Get a Free Quote
+      </h2>
+
       <Form {...form}>
-        <form 
-          onSubmit={form.handleSubmit(onSubmit)} 
+        <form
+          onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-4"
           data-netlify="true"
           name="quote"
@@ -111,14 +115,16 @@ const QuoteForm = () => {
           {/* Netlify Hidden Fields */}
           <input type="hidden" name="form-name" value="quote" />
           <p className="hidden">
-            <label>Don’t fill this out: <input name="bot-field" /></label>
+            <label>
+              Don’t fill this out: <input name="bot-field" />
+            </label>
           </p>
-          
+
           {/* ServiceType Hidden Input for Netlify Detection */}
-          <input 
-            type="hidden" 
-            name="serviceType" 
-            value={form.watch("serviceType") || ""} 
+          <input
+            type="hidden"
+            name="serviceType"
+            value={form.watch("serviceType") || ""}
           />
 
           <FormField
@@ -128,13 +134,17 @@ const QuoteForm = () => {
               <FormItem>
                 <FormLabel>Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} className="tap-target" />
+                  <Input
+                    placeholder="John Doe"
+                    {...field}
+                    className="tap-target"
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -143,13 +153,17 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="you@example.com" {...field} className="tap-target" />
+                    <Input
+                      placeholder="you@example.com"
+                      {...field}
+                      className="tap-target"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="phone"
@@ -157,14 +171,18 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>Phone</FormLabel>
                   <FormControl>
-                    <Input placeholder="+92 300 1234567" {...field} className="tap-target" />
+                    <Input
+                      placeholder="+92 300 1234567"
+                      {...field}
+                      className="tap-target"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -173,13 +191,17 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>From Location</FormLabel>
                   <FormControl>
-                    <Input placeholder="City, UAE" {...field} className="tap-target" />
+                    <Input
+                      placeholder="City, UAE"
+                      {...field}
+                      className="tap-target"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="toLocation"
@@ -194,7 +216,7 @@ const QuoteForm = () => {
               )}
             />
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <FormField
               control={form.control}
@@ -219,7 +241,7 @@ const QuoteForm = () => {
                 </FormItem>
               )}
             />
-            
+
             <FormField
               control={form.control}
               name="weight"
@@ -227,14 +249,19 @@ const QuoteForm = () => {
                 <FormItem>
                   <FormLabel>Approx. Weight (kg)</FormLabel>
                   <FormControl>
-                    <Input type="text" placeholder="Enter weight" {...field} className="tap-target" />
+                    <Input
+                      type="text"
+                      placeholder="Enter weight"
+                      {...field}
+                      className="tap-target"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
               )}
             />
           </div>
-          
+
           <FormField
             control={form.control}
             name="description"
@@ -242,20 +269,20 @@ const QuoteForm = () => {
               <FormItem>
                 <FormLabel>Additional Details (Optional)</FormLabel>
                 <FormControl>
-                  <Textarea 
-                    placeholder="Tell us more about your shipment..." 
-                    className="resize-none tap-target" 
-                    {...field} 
+                  <Textarea
+                    placeholder="Tell us more about your shipment..."
+                    className="resize-none tap-target"
+                    {...field}
                   />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
-          <Button 
-            type="submit" 
-            className="w-full bg-cargo-orange hover:bg-orange-600 tap-target py-6 text-lg font-semibold" 
+
+          <Button
+            type="submit"
+            className="w-full bg-cargo-orange hover:bg-orange-600 tap-target py-6 text-lg font-semibold"
             disabled={isSubmitting}
           >
             {isSubmitting ? (
@@ -263,9 +290,11 @@ const QuoteForm = () => {
                 <Loader2 className="mr-2 h-5 w-5 animate-spin" />
                 Processing Request...
               </>
-            ) : "Get Free Quote"}
+            ) : (
+              "Get Free Quote"
+            )}
           </Button>
-          
+
           {submitted && (
             <p className="text-center text-sm text-green-600 mt-2 font-medium">
               Redirecting you to the thank-you page...
