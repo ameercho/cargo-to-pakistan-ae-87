@@ -1,20 +1,28 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, MapPin, Phone, Mail } from "lucide-react";
 import CallToAction from "@/components/home/CallToAction";
+import DoorToDoorService from "@/components/DoorToDoorService";
 
 const AbuDhabiArea = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const locations = [
-    "Al Reem Island", "Al Raha", "Khalifa City", "Mussafah", "Yas Island",
-    "Saadiyat Island", "Al Reef", "Baniyas", "Al Shamkha", "Al Nahyan"
+    "Al Reem Island",
+    "Al Raha",
+    "Khalifa City",
+    "Mussafah",
+    "Yas Island",
+    "Saadiyat Island",
+    "Al Reef",
+    "Baniyas",
+    "Al Shamkha",
+    "Al Nahyan",
   ];
-  
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
@@ -30,10 +38,12 @@ const AbuDhabiArea = () => {
                 <strong>Cargo to Pakistan</strong> from Abu Dhabi
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Reliable <strong>cargo shipping from Abu Dhabi to Pakistan</strong> with door-to-door service
+                Reliable{" "}
+                <strong>cargo shipping from Abu Dhabi to Pakistan</strong> with
+                door-to-door service
               </p>
-              <Button 
-                className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
+              <Button
+                className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target"
                 size="lg"
               >
                 Get a Quote
@@ -48,87 +58,146 @@ const AbuDhabiArea = () => {
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
-              <h2 className="text-2xl font-bold text-cargo-blue mb-6">Abu Dhabi to Pakistan Cargo Services</h2>
-              
+              <h2 className="text-2xl font-bold text-cargo-blue mb-6">
+                Abu Dhabi to Pakistan Cargo Services
+              </h2>
+
               <div className="prose max-w-none">
                 <p className="mb-4 text-lg">
-                  We provide comprehensive <strong>cargo shipping solutions from Abu Dhabi to Pakistan</strong> covering all major cities. Our services reach the entire Abu Dhabi emirate, ensuring that no matter where you are located, we can collect your cargo and deliver it safely to Pakistan.
+                  We provide comprehensive{" "}
+                  <strong>
+                    cargo shipping solutions from Abu Dhabi to Pakistan
+                  </strong>{" "}
+                  covering all major cities. Our services reach the entire Abu
+                  Dhabi emirate, ensuring that no matter where you are located,
+                  we can collect your cargo and deliver it safely to Pakistan.
                 </p>
-                
+
                 <p className="mb-4">
-                  With years of experience in the logistics industry, our <strong>Abu Dhabi cargo team</strong> understands the unique requirements of shipping to Pakistan. We offer personalized service to meet your specific cargo needs, whether you're sending personal effects or commercial goods from <strong>Al Reem Island, Khalifa City, or Mussafah</strong>.
+                  With years of experience in the logistics industry, our{" "}
+                  <strong>Abu Dhabi cargo team</strong> understands the unique
+                  requirements of shipping to Pakistan. We offer personalized
+                  service to meet your specific cargo needs, whether you're
+                  sending personal effects or commercial goods from{" "}
+                  <strong>Al Reem Island, Khalifa City, or Mussafah</strong>.
                 </p>
-                
-                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Our Service Coverage in Abu Dhabi</h3>
-                
+
+                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                  Our Service Coverage in Abu Dhabi
+                </h3>
+
                 <p className="mb-4">
                   We serve all areas in <strong>Abu Dhabi</strong> including:
                 </p>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   {locations.map((location, index) => (
-                    <div key={index} className="bg-gray-50 p-3 rounded flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> <strong>{location}</strong>
+                    <div
+                      key={index}
+                      className="bg-gray-50 p-3 rounded flex items-center"
+                    >
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      <strong>{location}</strong>
                     </div>
                   ))}
                 </div>
-                
-                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Why Choose Our Abu Dhabi Cargo Services?</h3>
-                
+
+                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                  Why Choose Our Abu Dhabi Cargo Services?
+                </h3>
+
                 <ul className="list-disc pl-6 mb-6 space-y-2">
-                  <li><strong>Convenient pickup</strong> from any location in Abu Dhabi</li>
-                  <li><strong>Reliable delivery</strong> to all major cities in Pakistan</li>
+                  <li>
+                    <strong>Convenient pickup</strong> from any location in Abu
+                    Dhabi
+                  </li>
+                  <li>
+                    <strong>Reliable delivery</strong> to all major cities in
+                    Pakistan
+                  </li>
                   <li>Professional packaging and handling</li>
                   <li>Competitive rates with transparent pricing</li>
                   <li>Dedicated customer support</li>
                   <li>Regular shipping schedules</li>
                 </ul>
-                
-                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Pakistan Destinations We Serve from Abu Dhabi</h3>
-                
+
+                <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                  Pakistan Destinations We Serve from Abu Dhabi
+                </h3>
+
                 <p className="mb-4">
-                  From Abu Dhabi, we deliver to all major cities across Pakistan including:
+                  From Abu Dhabi, we deliver to all major cities across Pakistan
+                  including:
                 </p>
-                
+
                 <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> <Link to="/pakistan-cargo-to-karachi" className="text-cargo-blue hover:underline"><strong>Karachi</strong></Link>
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    <Link
+                      to="/pakistan-cargo-to-karachi"
+                      className="text-cargo-blue hover:underline"
+                    >
+                      <strong>Karachi</strong>
+                    </Link>
                   </div>
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> <Link to="/pakistan-cargo-to-lahore" className="text-cargo-blue hover:underline"><strong>Lahore</strong></Link>
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    <Link
+                      to="/pakistan-cargo-to-lahore"
+                      className="text-cargo-blue hover:underline"
+                    >
+                      <strong>Lahore</strong>
+                    </Link>
                   </div>
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> <Link to="/pakistan-cargo-to-islamabad" className="text-cargo-blue hover:underline"><strong>Islamabad</strong></Link>
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    <Link
+                      to="/pakistan-cargo-to-islamabad"
+                      className="text-cargo-blue hover:underline"
+                    >
+                      <strong>Islamabad</strong>
+                    </Link>
                   </div>
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> <Link to="/pakistan-cargo-to-peshawar" className="text-cargo-blue hover:underline"><strong>Peshawar</strong></Link>
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    <Link
+                      to="/pakistan-cargo-to-peshawar"
+                      className="text-cargo-blue hover:underline"
+                    >
+                      <strong>Peshawar</strong>
+                    </Link>
                   </div>
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> Multan
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    Multan
                   </div>
                   <div className="bg-gray-50 p-3 rounded flex items-center">
-                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" /> Faisalabad
+                    <ArrowRight className="h-4 w-4 text-cargo-blue mr-2" />{" "}
+                    Faisalabad
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:col-span-1">
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Contact Us in Abu Dhabi</h3>
-                
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  Contact Us in Abu Dhabi
+                </h3>
+
                 <div className="space-y-4 mb-6">
                   <div className="flex items-start">
                     <MapPin className="h-5 w-5 text-cargo-green mr-3 mt-1" />
                     <div>
                       <h4 className="font-medium">Our Abu Dhabi Service</h4>
                       <p className="text-gray-600 text-sm">
-                        Mussafah 40, Abu Dhabi<br />
+                        Mussafah 40, Abu Dhabi
+                        <br />
                         United Arab Emirates
                       </p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Phone className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
@@ -138,41 +207,83 @@ const AbuDhabiArea = () => {
                       <p className="text-gray-600">+971585847087</p>
                     </div>
                   </div>
-                  
+
                   <div className="flex items-center">
                     <Mail className="h-5 w-5 text-cargo-green mr-3" />
                     <div>
                       <h4 className="font-medium">Email Us</h4>
-                      <p className="text-gray-600">abudhabi@cargotopakistan.ae</p>
+                      <p className="text-gray-600">
+                        abudhabi@cargotopakistan.ae
+                      </p>
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="border-t border-gray-200 pt-6">
                   <h4 className="font-medium mb-4">Request a Pickup</h4>
-                  <form 
+                  <form
                     className="space-y-4"
                     method="POST"
                     data-netlify="true"
                     name="abudhabi-pickup"
                     action="/thank-you"
                   >
-                    <input type="hidden" name="form-name" value="abudhabi-pickup" />
+                    <input
+                      type="hidden"
+                      name="form-name"
+                      value="abudhabi-pickup"
+                    />
                     <input type="hidden" name="bot-field" />
                     <input type="hidden" name="pickup-area" value="Abu Dhabi" />
                     <div>
-                      <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
-                      <input type="text" id="name" name="name" className="w-full p-2 border border-gray-300 rounded" required />
+                      <label
+                        htmlFor="name"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
+                        Your Name
+                      </label>
+                      <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        className="w-full p-2 border border-gray-300 rounded"
+                        required
+                      />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">Phone</label>
-                      <input type="tel" id="phone" name="phone" className="w-full p-2 border border-gray-300 rounded" required />
+                      <label
+                        htmlFor="phone"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
+                        Phone
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        className="w-full p-2 border border-gray-300 rounded"
+                        required
+                      />
                     </div>
                     <div>
-                      <label htmlFor="location" className="block text-sm font-medium text-gray-700 mb-1">Pickup Location</label>
-                      <input type="text" id="location" name="location" className="w-full p-2 border border-gray-300 rounded" required />
+                      <label
+                        htmlFor="location"
+                        className="block text-sm font-medium text-gray-700 mb-1"
+                      >
+                        Pickup Location
+                      </label>
+                      <input
+                        type="text"
+                        id="location"
+                        name="location"
+                        className="w-full p-2 border border-gray-300 rounded"
+                        required
+                      />
                     </div>
-                    <Button className="w-full bg-cargo-blue hover:bg-blue-800" type="submit">
+                    <Button
+                      className="w-full bg-cargo-blue hover:bg-blue-800"
+                      type="submit"
+                    >
                       Schedule Pickup
                     </Button>
                   </form>
@@ -180,6 +291,13 @@ const AbuDhabiArea = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Door to Door Service Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <DoorToDoorService />
         </div>
       </section>
 

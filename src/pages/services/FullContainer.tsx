@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import DoorToDoorService from "@/components/DoorToDoorService";
 import { useSafeContact } from "@/hooks/useSafeContact";
 import {
   Breadcrumb,
@@ -405,6 +406,13 @@ const FullContainer = () => {
               </Link>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Door to Door Service Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <DoorToDoorService />
         </div>
       </section>
 

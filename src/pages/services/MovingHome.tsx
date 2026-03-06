@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Home, Clock, Package } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import DoorToDoorService from "@/components/DoorToDoorService";
 import MovingHomeHero from "@/components/services/moving-home/MovingHomeHero";
 import MovingHomeContent from "@/components/services/moving-home/MovingHomeContent";
 import MovingHomeSidebar from "@/components/services/moving-home/MovingHomeSidebar";
@@ -121,6 +122,13 @@ const MovingHome = () => {
                 </Link>
               </div>
             </div>
+          </div>
+        </section>
+
+        {/* Door to Door Service Section */}
+        <section className="py-16 bg-white">
+          <div className="container-custom">
+            <DoorToDoorService />
           </div>
         </section>
 

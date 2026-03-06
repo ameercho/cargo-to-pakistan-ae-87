@@ -15,6 +15,7 @@ import {
 } from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
+import DoorToDoorService from "@/components/DoorToDoorService";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -335,6 +336,11 @@ const SeaFreight = () => {
             </div>
           </div>
         </div>
+      </section>
+
+      {/* Door to Door Service Section */}
+      <section className="bg-gray-50 py-12">
+        <DoorToDoorService />
       </section>
 
       {/* Services Section */}

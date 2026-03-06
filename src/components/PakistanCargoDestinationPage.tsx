@@ -1,11 +1,11 @@
-
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import PakistanCargoHero from "@/components/pakistan-cargo/PakistanCargoHero";
 import PakistanCargoMainContent from "@/components/pakistan-cargo/PakistanCargoMainContent";
 import PakistanCargoSidebar from "@/components/pakistan-cargo/PakistanCargoSidebar";
 import PakistanCargoServices from "@/components/pakistan-cargo/PakistanCargoServices";
 import PakistanCargoTestimonials from "@/components/pakistan-cargo/PakistanCargoTestimonials";
 import CallToAction from "@/components/home/CallToAction";
+import DoorToDoorService from "@/components/DoorToDoorService";
 import { useSafeContact } from "@/hooks/useSafeContact";
 
 interface DestinationInfo {
@@ -19,7 +19,9 @@ interface PakistanCargoDestinationPageProps {
   destination: DestinationInfo;
 }
 
-const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> = ({ destination }) => {
+const PakistanCargoDestinationPage: React.FC<
+  PakistanCargoDestinationPageProps
+> = ({ destination }) => {
   // Scroll to top when component mounts
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -27,17 +29,20 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
 
   // Contact handlers
   const { makeCall, openWhatsApp } = useSafeContact();
-  
-  const handleCall = () => makeCall('pakistan_destination_page');
-  
+
+  const handleCall = () => makeCall("pakistan_destination_page");
+
   const handleWhatsApp = () => {
-    openWhatsApp(`Hello, I'm interested in your cargo services to ${destination.city}, Pakistan.`, 'pakistan_destination_page');
+    openWhatsApp(
+      `Hello, I'm interested in your cargo services to ${destination.city}, Pakistan.`,
+      "pakistan_destination_page",
+    );
   };
-  
+
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <PakistanCargoHero 
+      <PakistanCargoHero
         city={destination.city}
         heroImage={destination.heroImage}
         onCall={handleCall}
@@ -49,14 +54,14 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             <div className="lg:col-span-2">
-              <PakistanCargoMainContent 
+              <PakistanCargoMainContent
                 city={destination.city}
                 description={destination.description}
                 areas={destination.areas}
               />
             </div>
-            
-            <PakistanCargoSidebar 
+
+            <PakistanCargoSidebar
               city={destination.city}
               onCall={handleCall}
               onWhatsApp={handleWhatsApp}
@@ -70,6 +75,13 @@ const PakistanCargoDestinationPage: React.FC<PakistanCargoDestinationPageProps> 
 
       {/* Testimonials Section */}
       <PakistanCargoTestimonials city={destination.city} />
+
+      {/* Door to Door Service Section */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          <DoorToDoorService />
+        </div>
+      </section>
 
       {/* Call to Action */}
       <CallToAction />
