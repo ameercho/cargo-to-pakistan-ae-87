@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { ArrowRight, Home, Clock, Package } from "lucide-react";
@@ -15,13 +15,14 @@ const MovingHome = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const { makeCall, openWhatsApp } = useSafeContact();
-  
+
   const services = [
     {
       title: "Professional Packing",
-      description: "Expert packing and moving services for all household items.",
+      description:
+        "Expert packing and moving services for all household items.",
       icon: Package,
       iconColor: "text-cargo-orange",
     },
@@ -33,23 +34,27 @@ const MovingHome = () => {
     },
     {
       title: "Secure Transport",
-      description: "Enhanced safety measures and careful handling for valuables.",
+      description:
+        "Enhanced safety measures and careful handling for valuables.",
       icon: Clock,
       iconColor: "text-cargo-green",
     },
   ];
 
   const handleWhatsAppWithMessage = () => {
-    openWhatsApp("Hello, I'm interested in your home moving services to Pakistan.", 'moving_home_page');
+    openWhatsApp(
+      "Hello, I'm interested in your home moving services to Pakistan.",
+      "moving_home_page",
+    );
   };
 
   return (
     <>
       <ServicePageLayout
         heroSection={
-          <MovingHomeHero 
-            onCall={() => makeCall('moving_home_hero')} 
-            onWhatsApp={handleWhatsAppWithMessage} 
+          <MovingHomeHero
+            onCall={() => makeCall("moving_home_hero")}
+            onWhatsApp={handleWhatsAppWithMessage}
           />
         }
         breadcrumbTitle="Moving Home"
@@ -62,12 +67,12 @@ const MovingHome = () => {
               <div className="lg:col-span-2">
                 <MovingHomeContent />
               </div>
-              
+
               {/* Right Column: Sidebar Actions (1/3 width on desktop) */}
               <aside className="space-y-8">
-                <MovingHomeSidebar 
-                  onCall={() => makeCall('moving_home_sidebar')} 
-                  onWhatsApp={handleWhatsAppWithMessage} 
+                <MovingHomeSidebar
+                  onCall={() => makeCall("moving_home_sidebar")}
+                  onWhatsApp={handleWhatsAppWithMessage}
                 />
               </aside>
             </div>
@@ -78,13 +83,18 @@ const MovingHome = () => {
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
-              <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-              <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Home Moving Solutions</h2>
+              <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">
+                Our Services
+              </span>
+              <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">
+                Home Moving Solutions
+              </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                Explore our comprehensive home moving services designed for complete relocation.
+                Explore our comprehensive home moving services designed for
+                complete relocation.
               </p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service, index) => (
                 <ServiceCard
@@ -96,16 +106,16 @@ const MovingHome = () => {
                 />
               ))}
             </div>
-            
+
             <div className="text-center mt-12">
               <div className="flex flex-wrap justify-center gap-4">
                 <Link to="/services/packaging">
-                  <Button className="bg-cargo-blue hover:bg-blue-800 tap-target">
+                  <Button className="bg-cargo-green hover:bg-green-700 text-white shadow-sm tap-target">
                     Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>
                 <Link to="/services/cross-stuffing">
-                  <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
+                  <Button className="bg-cargo-green hover:bg-green-700 text-white shadow-sm tap-target">
                     Cross Stuffing <ArrowRight className="ml-2 h-4 w-4" />
                   </Button>
                 </Link>

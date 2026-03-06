@@ -1,11 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, Plane, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Zap } from "lucide-react";
+import {
+  ArrowRight,
+  Plane,
+  Clock,
+  Package,
+  MapPin,
+  FileCheck,
+  ShieldCheck,
+  Phone,
+  MessageCircle,
+  Zap,
+} from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { useSafeContact } from "@/hooks/useSafeContact";
-import { 
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -19,42 +30,68 @@ const AirFreightCargo = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const services = [
     {
       title: "Express Air Cargo",
-      description: "Fast air freight delivery for urgent and time-sensitive shipments.",
+      description:
+        "Fast air freight delivery for urgent and time-sensitive shipments.",
       icon: Zap,
       iconColor: "text-cargo-orange",
     },
     {
-      title: "Standard Air Freight", 
-      description: "Cost-effective air cargo services with reliable delivery times.",
+      title: "Standard Air Freight",
+      description:
+        "Cost-effective air cargo services with reliable delivery times.",
       icon: Plane,
       iconColor: "text-cargo-blue",
     },
     {
       title: "Heavy Cargo",
-      description: "Specialized air freight handling for oversized and heavy shipments.",
+      description:
+        "Specialized air freight handling for oversized and heavy shipments.",
       icon: Package,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Fast Delivery", description: "Quickest shipping option for urgent cargo", icon: Clock },
-    { title: "Global Network", description: "Extensive air freight network coverage", icon: Plane },
-    { title: "Time-Sensitive", description: "Perfect for urgent and perishable goods", icon: Zap },
-    { title: "Secure Transport", description: "Enhanced security protocols for air cargo", icon: ShieldCheck },
-    { title: "Track & Trace", description: "Real-time tracking throughout the journey", icon: FileCheck },
+    {
+      title: "Fast Delivery",
+      description: "Quickest shipping option for urgent cargo",
+      icon: Clock,
+    },
+    {
+      title: "Global Network",
+      description: "Extensive air freight network coverage",
+      icon: Plane,
+    },
+    {
+      title: "Time-Sensitive",
+      description: "Perfect for urgent and perishable goods",
+      icon: Zap,
+    },
+    {
+      title: "Secure Transport",
+      description: "Enhanced security protocols for air cargo",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Track & Trace",
+      description: "Real-time tracking throughout the journey",
+      icon: FileCheck,
+    },
   ];
-  
+
   const { makeCall, openWhatsApp } = useSafeContact();
-  
-  const handleCall = () => makeCall('air_freight_page');
-  
+
+  const handleCall = () => makeCall("air_freight_page");
+
   const handleWhatsApp = () => {
-    openWhatsApp("Hello, I'm interested in your air freight services to Pakistan.", 'air_freight_page');
+    openWhatsApp(
+      "Hello, I'm interested in your air freight services to Pakistan.",
+      "air_freight_page",
+    );
   };
 
   return (
@@ -69,21 +106,23 @@ const AirFreightCargo = () => {
                 Air Cargo Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Air Freight Services to <span className="text-cargo-orange">Pakistan</span>
+                Air Freight Services to{" "}
+                <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Fast and reliable air freight solutions for urgent cargo shipments from UAE to Pakistan with express delivery.
+                Fast and reliable air freight solutions for urgent cargo
+                shipments from UAE to Pakistan with express delivery.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button 
-                  className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
+                <Button
+                  className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target"
                   size="lg"
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us
                 </Button>
-                <Button 
+                <Button
                   className="bg-cargo-green hover:bg-cargo-green/90 text-white shadow-lg tap-target"
                   size="lg"
                   onClick={handleWhatsApp}
@@ -132,22 +171,32 @@ const AirFreightCargo = () => {
                   <Plane className="mr-2 h-6 w-6 text-cargo-green" />
                   Fast Air Freight Services from UAE to Pakistan
                 </h2>
-              
+
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our air freight services provide the fastest shipping solution for urgent cargo from the UAE to Pakistan. Perfect for time-sensitive shipments, perishable goods, and high-value items that require quick delivery and enhanced security.
+                    Our air freight services provide the fastest shipping
+                    solution for urgent cargo from the UAE to Pakistan. Perfect
+                    for time-sensitive shipments, perishable goods, and
+                    high-value items that require quick delivery and enhanced
+                    security.
                   </p>
-                  
+
                   <p className="mb-4">
-                    We handle air cargo from all major airports in the UAE including Dubai International Airport, Abu Dhabi International Airport, and Sharjah Airport, delivering to Pakistan's key airports in Karachi, Lahore, and Islamabad. Our comprehensive air freight services include express and standard options to suit different urgency levels and budgets.
+                    We handle air cargo from all major airports in the UAE
+                    including Dubai International Airport, Abu Dhabi
+                    International Airport, and Sharjah Airport, delivering to
+                    Pakistan's key airports in Karachi, Lahore, and Islamabad.
+                    Our comprehensive air freight services include express and
+                    standard options to suit different urgency levels and
+                    budgets.
                   </p>
-                  
+
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                       <Plane className="mr-2 h-5 w-5" />
                       Why Choose Our Air Freight Services?
                     </h3>
-                    
+
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
@@ -175,60 +224,81 @@ const AirFreightCargo = () => {
                       </li>
                     </ul>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Air Freight Destinations in Pakistan</h3>
-                  
+
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                    Air Freight Destinations in Pakistan
+                  </h3>
+
                   <p className="mb-4">
-                    Our air freight services connect to all major airports and cities in Pakistan including:
+                    Our air freight services connect to all major airports and
+                    cities in Pakistan including:
                   </p>
-                  
+
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3 mb-8">
-                    <Link to="/pakistan-cargo-to-karachi" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Karachi
+                    <Link
+                      to="/pakistan-cargo-to-karachi"
+                      className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all"
+                    >
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Karachi
                     </Link>
-                    <Link to="/pakistan-cargo-to-lahore" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Lahore
+                    <Link
+                      to="/pakistan-cargo-to-lahore"
+                      className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all"
+                    >
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Lahore
                     </Link>
-                    <Link to="/pakistan-cargo-to-islamabad" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Islamabad
+                    <Link
+                      to="/pakistan-cargo-to-islamabad"
+                      className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all"
+                    >
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Islamabad
                     </Link>
-                    <Link to="/pakistan-cargo-to-peshawar" className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Peshawar
+                    <Link
+                      to="/pakistan-cargo-to-peshawar"
+                      className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all"
+                    >
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Peshawar
                     </Link>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Faisalabad
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Faisalabad
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center hover:bg-gray-100 hover:shadow-md transition-all">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Multan
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Multan
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                   <Plane className="mr-2 h-5 w-5" />
                   Request a Quick Quote
                 </h3>
-                
+
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
                     Contact us now for a free quote for air freight services!
                   </p>
                 </div>
-                
-                <Button 
+
+                <Button
                   className="w-full bg-cargo-blue hover:bg-blue-800 text-white shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us
                 </Button>
-                
+
                 <div className="mt-4">
-                  <Button 
+                  <Button
                     className="w-full bg-cargo-green hover:bg-cargo-green/90 text-white"
                     onClick={handleWhatsApp}
                   >
@@ -237,19 +307,28 @@ const AirFreightCargo = () => {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Key Benefits</h3>
-                
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  Key Benefits
+                </h3>
+
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                      <div className={`rounded-full p-2 mr-4 bg-cargo-lightBlue`}>
+                    <div
+                      key={index}
+                      className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div
+                        className={`rounded-full p-2 mr-4 bg-cargo-lightBlue`}
+                      >
                         <benefit.icon className="h-5 w-5 text-cargo-blue" />
                       </div>
                       <div>
                         <h4 className="font-medium mb-1">{benefit.title}</h4>
-                        <p className="text-sm text-gray-600">{benefit.description}</p>
+                        <p className="text-sm text-gray-600">
+                          {benefit.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -264,13 +343,18 @@ const AirFreightCargo = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Air Freight Solutions</h2>
+            <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">
+              Our Services
+            </span>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">
+              Complete Air Freight Solutions
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Choose the air freight option that best suits your cargo requirements for fast delivery to Pakistan.
+              Choose the air freight option that best suits your cargo
+              requirements for fast delivery to Pakistan.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <ServiceCard
@@ -282,7 +366,7 @@ const AirFreightCargo = () => {
               />
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/services/courier-service">
@@ -291,7 +375,7 @@ const AirFreightCargo = () => {
                 </Button>
               </Link>
               <Link to="/services/packaging">
-                <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
+                <Button className="bg-cargo-green hover:bg-green-700 text-white shadow-sm tap-target">
                   Packaging Services <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>

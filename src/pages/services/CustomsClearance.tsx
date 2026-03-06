@@ -1,11 +1,22 @@
-import React, { useEffect } from 'react';
+import React, { useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight, FileText, Clock, Package, MapPin, FileCheck, ShieldCheck, Phone, MessageCircle, Clipboard } from "lucide-react";
+import {
+  ArrowRight,
+  FileText,
+  Clock,
+  Package,
+  MapPin,
+  FileCheck,
+  ShieldCheck,
+  Phone,
+  MessageCircle,
+  Clipboard,
+} from "lucide-react";
 import ServiceCard from "@/components/ServiceCard";
 import CallToAction from "@/components/home/CallToAction";
 import { useSafeContact } from "@/hooks/useSafeContact";
-import { 
+import {
   Breadcrumb,
   BreadcrumbItem,
   BreadcrumbLink,
@@ -19,11 +30,12 @@ const CustomsClearance = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   const services = [
     {
       title: "Documentation Support",
-      description: "Complete assistance with customs documentation and paperwork.",
+      description:
+        "Complete assistance with customs documentation and paperwork.",
       icon: Clipboard,
       iconColor: "text-cargo-orange",
     },
@@ -35,52 +47,76 @@ const CustomsClearance = () => {
     },
     {
       title: "Compliance Guidance",
-      description: "Expert guidance on import/export regulations and requirements.",
+      description:
+        "Expert guidance on import/export regulations and requirements.",
       icon: ShieldCheck,
       iconColor: "text-cargo-green",
     },
   ];
 
   const benefits = [
-    { title: "Expert Knowledge", description: "Deep understanding of customs regulations", icon: FileText },
-    { title: "Fast Processing", description: "Quick customs clearance procedures", icon: Clock },
-    { title: "Document Preparation", description: "Complete customs documentation support", icon: Clipboard },
-    { title: "Compliance Assurance", description: "Ensure full regulatory compliance", icon: ShieldCheck },
-    { title: "Cost Transparency", description: "Clear duty and tax calculations", icon: FileCheck },
+    {
+      title: "Expert Knowledge",
+      description: "Deep understanding of customs regulations",
+      icon: FileText,
+    },
+    {
+      title: "Fast Processing",
+      description: "Quick customs clearance procedures",
+      icon: Clock,
+    },
+    {
+      title: "Document Preparation",
+      description: "Complete customs documentation support",
+      icon: Clipboard,
+    },
+    {
+      title: "Compliance Assurance",
+      description: "Ensure full regulatory compliance",
+      icon: ShieldCheck,
+    },
+    {
+      title: "Cost Transparency",
+      description: "Clear duty and tax calculations",
+      icon: FileCheck,
+    },
   ];
 
   const { makeCall, openWhatsApp } = useSafeContact();
-  
-  const handleCall = () => makeCall('customs_clearance_page');
-  
+
+  const handleCall = () => makeCall("customs_clearance_page");
+
   const handleWhatsApp = () => {
-    openWhatsApp("Hello, I'm interested in your customs clearance services.", 'customs_clearance_page');
+    openWhatsApp(
+      "Hello, I'm interested in your customs clearance services.",
+      "customs_clearance_page",
+    );
   };
 
   // Breadcrumb Schema
   const breadcrumbSchema = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
-    "itemListElement": [
+    itemListElement: [
       {
         "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://cargotopakistan.ae/"
+        position: 1,
+        name: "Home",
+        item: "https://cargotopakistan.ae/",
       },
       {
         "@type": "ListItem",
-        "position": 2,
-        "name": "Services",
-        "item": "https://cargotopakistan.ae/services"
+        position: 2,
+        name: "Services",
+        item: "https://cargotopakistan.ae/services",
       },
       {
         "@type": "ListItem",
-        "position": 3,
-        "name": "Customs Clearance",
-        "item": "https://cargotopakistan.ae/services/customs-clearance"
-      }
-    ]
+        position: 3,
+        name: "Customs Clearance",
+        item: "https://cargotopakistan.ae/services/customs-clearance",
+      },
+    ],
   };
 
   return (
@@ -96,22 +132,24 @@ const CustomsClearance = () => {
                 Customs Services
               </span>
               <h1 className="text-3xl md:text-5xl font-bold mb-4 text-white leading-tight">
-                Customs Clearance for <span className="text-cargo-orange">Pakistan</span>
+                Customs Clearance for{" "}
+                <span className="text-cargo-orange">Pakistan</span>
               </h1>
               <p className="text-xl text-gray-100 mb-8 max-w-2xl">
-                Expert customs clearance services to ensure smooth and compliant import procedures for your cargo to Pakistan.
+                Expert customs clearance services to ensure smooth and compliant
+                import procedures for your cargo to Pakistan.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button 
-                  className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target" 
+                <Button
+                  className="bg-cargo-orange hover:bg-orange-600 text-white shadow-lg hover:shadow-xl transform transition-all hover:-translate-y-0.5 tap-target"
                   size="lg"
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-5 w-5" />
                   Call Us
                 </Button>
-                <Button 
-                  variant="outline" 
+                <Button
+                  variant="outline"
                   className="bg-white/10 border-white text-white hover:bg-white/20 backdrop-blur-sm shadow-lg tap-target"
                   size="lg"
                   onClick={handleWhatsApp}
@@ -160,22 +198,31 @@ const CustomsClearance = () => {
                   <FileText className="mr-2 h-6 w-6 text-cargo-green" />
                   Professional Customs Clearance Services
                 </h2>
-              
+
                 <div className="prose max-w-none">
                   <p className="mb-4 text-lg">
-                    Our customs clearance services ensure smooth and efficient processing of your cargo through Pakistan customs. We handle all documentation, duty calculations, and compliance requirements to minimize delays and avoid penalties during the import process.
+                    Our customs clearance services ensure smooth and efficient
+                    processing of your cargo through Pakistan customs. We handle
+                    all documentation, duty calculations, and compliance
+                    requirements to minimize delays and avoid penalties during
+                    the import process.
                   </p>
-                  
+
                   <p className="mb-4">
-                    Our experienced customs specialists are well-versed in Pakistan's import regulations and maintain strong relationships with customs authorities. We provide end-to-end support from documentation preparation to final customs release, ensuring your cargo reaches its destination without complications.
+                    Our experienced customs specialists are well-versed in
+                    Pakistan's import regulations and maintain strong
+                    relationships with customs authorities. We provide
+                    end-to-end support from documentation preparation to final
+                    customs release, ensuring your cargo reaches its destination
+                    without complications.
                   </p>
-                  
+
                   <div className="my-8 p-6 bg-cargo-lightBlue rounded-lg border-l-4 border-cargo-blue">
                     <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                       <FileText className="mr-2 h-5 w-5" />
                       Why Choose Our Customs Services?
                     </h3>
-                    
+
                     <ul className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-0">
                       <li className="flex items-center bg-white p-3 rounded-lg shadow-sm">
                         <div className="h-8 w-8 rounded-full bg-cargo-lightGreen flex items-center justify-center mr-3">
@@ -203,55 +250,62 @@ const CustomsClearance = () => {
                       </li>
                     </ul>
                   </div>
-                  
-                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">Our Customs Services</h3>
-                  
+
+                  <h3 className="text-xl font-semibold text-cargo-blue mt-8 mb-4">
+                    Our Customs Services
+                  </h3>
+
                   <p className="mb-4">
-                    We provide comprehensive customs clearance support including:
+                    We provide comprehensive customs clearance support
+                    including:
                   </p>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-3 mb-8">
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Import Documentation
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Import Documentation
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Duty Calculations
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Duty
+                      Calculations
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Compliance Verification
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Compliance Verification
                     </div>
                     <div className="bg-gray-50 p-3 rounded-lg shadow-sm flex items-center">
-                      <MapPin className="h-4 w-4 text-cargo-green mr-2" /> Customs Liaison
+                      <MapPin className="h-4 w-4 text-cargo-green mr-2" />{" "}
+                      Customs Liaison
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            
+
             <div className="lg:col-span-1 space-y-6">
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
                 <h3 className="text-xl font-semibold text-cargo-blue mb-4 flex items-center">
                   <FileText className="mr-2 h-5 w-5" />
                   Get Customs Support
                 </h3>
-                
+
                 <div className="p-4 bg-cargo-lightGreen rounded-lg mb-4">
                   <p className="text-sm text-cargo-green font-medium">
                     Contact us for customs clearance assistance!
                   </p>
                 </div>
-                
-                <Button 
+
+                <Button
                   className="w-full bg-cargo-blue hover:bg-blue-800 text-white shadow-md transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
                   onClick={handleCall}
                 >
                   <Phone className="mr-2 h-4 w-4" />
                   Call Us
                 </Button>
-                
+
                 <div className="mt-4">
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full border-cargo-blue text-white bg-cargo-blue hover:bg-blue-700"
                     onClick={handleWhatsApp}
                   >
@@ -260,19 +314,28 @@ const CustomsClearance = () => {
                   </Button>
                 </div>
               </div>
-              
+
               <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-                <h3 className="text-xl font-semibold text-cargo-blue mb-4">Key Benefits</h3>
-                
+                <h3 className="text-xl font-semibold text-cargo-blue mb-4">
+                  Key Benefits
+                </h3>
+
                 <div className="space-y-6">
                   {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
-                      <div className={`rounded-full p-2 mr-4 bg-cargo-lightBlue`}>
+                    <div
+                      key={index}
+                      className="flex items-start p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors"
+                    >
+                      <div
+                        className={`rounded-full p-2 mr-4 bg-cargo-lightBlue`}
+                      >
                         <benefit.icon className="h-5 w-5 text-cargo-blue" />
                       </div>
                       <div>
                         <h4 className="font-medium mb-1">{benefit.title}</h4>
-                        <p className="text-sm text-gray-600">{benefit.description}</p>
+                        <p className="text-sm text-gray-600">
+                          {benefit.description}
+                        </p>
                       </div>
                     </div>
                   ))}
@@ -287,13 +350,18 @@ const CustomsClearance = () => {
       <section className="py-16 bg-gray-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">Our Services</span>
-            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">Complete Customs Solutions</h2>
+            <span className="text-cargo-blue bg-cargo-lightBlue px-3 py-1 rounded-full text-sm font-medium">
+              Our Services
+            </span>
+            <h2 className="text-2xl font-bold text-cargo-blue mt-3 mb-3">
+              Complete Customs Solutions
+            </h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Expert customs clearance services to ensure smooth import procedures for your cargo.
+              Expert customs clearance services to ensure smooth import
+              procedures for your cargo.
             </p>
           </div>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <ServiceCard
@@ -305,7 +373,7 @@ const CustomsClearance = () => {
               />
             ))}
           </div>
-          
+
           <div className="text-center mt-12">
             <div className="flex flex-wrap justify-center gap-4">
               <Link to="/services/consulting">
@@ -314,7 +382,7 @@ const CustomsClearance = () => {
                 </Button>
               </Link>
               <Link to="/services/cross-stuffing">
-                <Button variant="outline" className="border-cargo-green text-cargo-green hover:bg-cargo-green hover:text-white tap-target">
+                <Button className="bg-cargo-green hover:bg-green-700 text-white shadow-sm tap-target">
                   Cross Stuffing <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </Link>
