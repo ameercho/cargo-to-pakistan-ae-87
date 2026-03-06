@@ -61,8 +61,7 @@ const QuoteForm = () => {
   const onSubmit = async (values: FormValues) => {
     setIsSubmitting(true);
     try {
-      // Helper to encode form data for Netlify
-      const formData = new URLSearchParams();
+      const formData = new FormData();
       formData.append("form-name", "quote");
       Object.entries(values).forEach(([key, value]) => {
         formData.append(key, value || "");
@@ -70,8 +69,7 @@ const QuoteForm = () => {
 
       await fetch("/", {
         method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: formData.toString(),
+        body: formData,
       });
 
       setSubmitted(true);
