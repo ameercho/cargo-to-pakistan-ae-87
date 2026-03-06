@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
@@ -47,23 +46,35 @@ const MovingHome = () => {
   return (
     <>
       <ServicePageLayout
-        heroSection={<MovingHomeHero onCall={() => makeCall('moving_home_hero')} onWhatsApp={handleWhatsAppWithMessage} />}
+        heroSection={
+          <MovingHomeHero 
+            onCall={() => makeCall('moving_home_hero')} 
+            onWhatsApp={handleWhatsAppWithMessage} 
+          />
+        }
         breadcrumbTitle="Moving Home"
       >
-        {/* Main Content */}
+        {/* Main Content Area */}
         <section className="py-16">
           <div className="container-custom">
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+              {/* Left Column: Main Narrative Content (2/3 width on desktop) */}
               <div className="lg:col-span-2">
                 <MovingHomeContent />
               </div>
               
-              <MovingHomeSidebar onCall={() => makeCall('moving_home_sidebar')} onWhatsApp={handleWhatsAppWithMessage} />
+              {/* Right Column: Sidebar Actions (1/3 width on desktop) */}
+              <aside className="space-y-8">
+                <MovingHomeSidebar 
+                  onCall={() => makeCall('moving_home_sidebar')} 
+                  onWhatsApp={handleWhatsAppWithMessage} 
+                />
+              </aside>
             </div>
           </div>
         </section>
 
-        {/* Services Section */}
+        {/* Feature/Benefits Section */}
         <section className="py-16 bg-gray-50">
           <div className="container-custom">
             <div className="text-center mb-12">
@@ -103,7 +114,7 @@ const MovingHome = () => {
           </div>
         </section>
 
-        {/* Call to Action */}
+        {/* Call to Action Footer */}
         <CallToAction />
       </ServicePageLayout>
     </>
