@@ -81,15 +81,15 @@ const GetAQuote = () => {
                         </tr>
                       </thead>
                       <tbody>
-                        <tr><td>General Items - clothes, shoes, toys, wood furniture, luggage</td><td>3</td></tr>
+                        <tr><td>General Items - clothes, shoes, toys, wood furniture, luggage</td><td>5</td></tr>
                         <tr><td>Electronics - small appliances (juicer, blender, small oven)</td><td>12</td></tr>
-                        <tr><td>Mattress</td><td>5</td></tr>
-                        <tr><td>Sofa</td><td>8</td></tr>
-                        <tr><td>Furniture (dismantle)</td><td>3</td></tr>
+                        <tr><td>Mattress</td><td>8</td></tr>
+                        <tr><td>Sofa</td><td>12</td></tr>
+                        <tr><td>Furniture (dismantle)</td><td>5</td></tr>
                         <tr><td>Bicycle kids</td><td>100</td></tr>
                         <tr><td>Bicycle adult</td><td>150</td></tr>
-                        <tr><td>Scooty battery operated</td><td>12</td></tr>
-                        <tr><td>Kids toy car battery operated</td><td>12</td></tr>
+                        <tr><td>Scooty battery operated</td><td>15</td></tr>
+                        <tr><td>Kids toy car battery operated</td><td>15</td></tr>
                       </tbody>
                     </table>
                   </div>
