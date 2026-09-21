@@ -1,7 +1,11 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
-import { COMPANY_INFO, telLink, whatsappLink } from '../lib/site';
+import { COMPANY_INFO, whatsappLink } from '../lib/site';
+
+// Additional lines alongside the primary number — all ring the same team.
+const ADDITIONAL_PHONE_NUMBERS = ['+971585847087', '+971585817087'];
+const ALL_PHONE_NUMBERS = [COMPANY_INFO.phone, ...ADDITIONAL_PHONE_NUMBERS];
 
 const schema = {
   '@context': 'https://schema.org',
@@ -10,6 +14,13 @@ const schema = {
   description: 'Get in touch with our expert team for professional cargo shipping services from UAE to Pakistan',
   mainEntity: {
     '@id': `${COMPANY_INFO.website}/#organization`,
+    contactPoint: ALL_PHONE_NUMBERS.map((phone) => ({
+      '@type': 'ContactPoint',
+      telephone: phone,
+      contactType: 'customer service',
+      areaServed: 'AE',
+      availableLanguage: ['en'],
+    })),
   },
 };
 ---
@@ -39,7 +50,11 @@ const schema = {
           <Icon name="lucide:phone" class="w-8 h-8 text-cargo-blue mb-3" />
           <h3 class="font-semibold text-lg mb-2">Call Us Now</h3>
           <p class="text-gray-600 text-sm mb-3">Speak directly with our Pakistan cargo experts.</p>
-          <a href={telLink()} class="text-cargo-blue font-semibold">{COMPANY_INFO.phone}</a>
+          <div class="flex flex-col gap-1">
+            {ALL_PHONE_NUMBERS.map((phone) => (
+              <a href={`tel:${phone}`} class="text-cargo-blue font-semibold">{phone}</a>
+            ))}
+          </div>
         </div>
         <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
           <Icon name="lucide:message-circle" class="w-8 h-8 text-cargo-green mb-3" />
@@ -52,6 +67,12 @@ const schema = {
           <h3 class="font-semibold text-lg mb-2">Email Support</h3>
           <p class="text-gray-600 text-sm mb-3">Send detailed inquiries about your cargo requirements.</p>
           <a href={`mailto:${COMPANY_INFO.email}`} class="text-cargo-blue font-semibold">{COMPANY_INFO.email}</a>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <Icon name="lucide:map-pin" class="w-8 h-8 text-cargo-blue mb-3" />
+          <h3 class="font-semibold text-lg mb-2">Warehouse Address</h3>
+          <p class="text-gray-600 text-sm mb-3">Pickup service is available in Dubai, Abu Dhabi, Sharjah, Ajman and across the UAE.</p>
+          <p class="text-cargo-blue font-semibold">{COMPANY_INFO.address}</p>
         </div>
       </div>
 

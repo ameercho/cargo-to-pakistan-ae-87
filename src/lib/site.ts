@@ -3,7 +3,7 @@ export const COMPANY_INFO = {
   phone: '+971504948135',
   email: 'info@cargotopakistan.ae',
   website: 'https://cargotopakistan.ae',
-  address: 'UAE',
+  address: 'Jafza North, Jebel Ali Free Zone, Dubai, UAE',
   description:
     'Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.',
 };
@@ -20,29 +20,40 @@ export const NAVIGATION_LINKS = {
   main: [
     { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
+    { name: 'Service Areas', href: '/service-areas' },
     { name: 'About', href: '/about' },
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ],
+  // Explicit business priority order. Air Freight stays last: we don't handle
+  // it ourselves, the page exists for SEO/informational purposes only.
   services: [
-    { name: 'Sea Freight', href: '/services/sea-freight' },
-    { name: 'Air Freight', href: '/services/air-freight' },
     { name: 'Full Container', href: '/services/full-container' },
+    { name: 'Sea Freight', href: '/services/sea-freight' },
     { name: 'Courier Service', href: '/services/courier-service' },
+    { name: 'Moving Home', href: '/services/moving-home' },
     { name: 'Packaging', href: '/services/packaging' },
+    { name: 'Door to Door', href: '/services/door-to-door' },
     { name: 'Warehousing', href: '/services/warehousing' },
     { name: 'Cross Stuffing', href: '/services/cross-stuffing' },
-    { name: 'Moving Home', href: '/services/moving-home' },
+    { name: 'Customs Clearance', href: '/services/customs-clearance' },
+    { name: 'Secure Handling', href: '/services/secure-handling' },
+    { name: 'Consulting', href: '/services/consulting' },
+    { name: 'Air Freight', href: '/services/air-freight' },
   ],
+  // Dubai/Abu Dhabi/Sharjah/Ajman are built as "{city}-to-pakistan" pages (pageType:
+  // 'origin'), NOT "/areas/{city}" — only Al Ain/Fujairah/RAK/Umm Al Quwain are built
+  // under /areas/ (pageType: 'area'). Mixing these up previously produced 4 live 404s
+  // on the /service-areas/ hub page.
   areas: [
-    { name: 'Dubai', href: '/areas/dubai' },
-    { name: 'Abu Dhabi', href: '/areas/abu-dhabi' },
-    { name: 'Sharjah', href: '/areas/sharjah' },
-    { name: 'Ajman', href: '/areas/ajman' },
+    { name: 'Dubai', href: '/dubai-to-pakistan' },
+    { name: 'Abu Dhabi', href: '/abu-dhabi-to-pakistan' },
+    { name: 'Sharjah', href: '/sharjah-to-pakistan' },
+    { name: 'Ajman', href: '/ajman-to-pakistan' },
+    { name: 'Al Ain', href: '/areas/al-ain' },
     { name: 'Ras Al Khaimah', href: '/areas/ras-al-khaimah' },
     { name: 'Fujairah', href: '/areas/fujairah' },
     { name: 'Umm Al Quwain', href: '/areas/umm-al-quwain' },
-    { name: 'Al Ain', href: '/areas/al-ain' },
   ],
   pakistanCities: [
     { name: 'Karachi', href: '/pakistan-cargo-to-karachi' },
@@ -53,6 +64,14 @@ export const NAVIGATION_LINKS = {
     { name: 'Faisalabad', href: '/pakistan-cargo-to-faisalabad' },
     { name: 'Multan', href: '/pakistan-cargo-to-multan' },
     { name: 'Rawalpindi', href: '/pakistan-cargo-to-rawalpindi' },
+    { name: 'Sialkot', href: '/pakistan-cargo-to-sialkot' },
+    { name: 'Sukkur', href: '/pakistan-cargo-to-sukkur' },
+    { name: 'Larkana', href: '/pakistan-cargo-to-larkana' },
+    { name: 'Sargodha', href: '/pakistan-cargo-to-sargodha' },
+    { name: 'Bahawalpur', href: '/pakistan-cargo-to-bahawalpur' },
+    { name: 'Hyderabad', href: '/pakistan-cargo-to-hyderabad' },
+    { name: 'Gujranwala', href: '/pakistan-cargo-to-gujranwala' },
+    { name: 'Sheikhupura', href: '/pakistan-cargo-to-sheikhupura' },
   ],
 };
 
@@ -64,4 +83,33 @@ export function whatsappLink(message: string) {
 
 export function telLink() {
   return `tel:${COMPANY_INFO.phone}`;
+}
+
+// Explicit business priority order for service listings (homepage, /services/
+// grid). Mirrors NAVIGATION_LINKS.services — kept as a separate slug-keyed list
+// here since content-collection entries are matched by data.slug, not name/href.
+// Air Freight stays last: we don't handle it ourselves, the page exists for
+// SEO/informational purposes only.
+const SERVICE_DISPLAY_ORDER = [
+  'full-container',
+  'sea-freight',
+  'courier-service',
+  'moving-home',
+  'packaging',
+  'door-to-door',
+  'warehousing',
+  'cross-stuffing',
+  'customs-clearance',
+  'secure-handling',
+  'consulting',
+  'air-freight',
+];
+
+export function sortServicesForDisplay<T extends { data: { slug: string } }>(services: T[]): T[] {
+  return [...services].sort((a, b) => {
+    const aIndex = SERVICE_DISPLAY_ORDER.indexOf(a.data.slug);
+    const bIndex = SERVICE_DISPLAY_ORDER.indexOf(b.data.slug);
+    return (aIndex === -1 ? SERVICE_DISPLAY_ORDER.length : aIndex) -
+      (bIndex === -1 ? SERVICE_DISPLAY_ORDER.length : bIndex);
+  });
 }

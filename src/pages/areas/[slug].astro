@@ -19,19 +19,20 @@ const { data } = entry;
 const { Content } = await render(entry);
 
 const organizationId = `${COMPANY_INFO.website}/#organization`;
-// TODO(business confirmation needed): this LocalBusiness "Branch" entity implies a physical
-// office in this emirate. Flagged in the SEO audit as a potential misrepresentation if no such
-// office exists — left as-is pending confirmation, not altered by this pricing/schema-@id pass.
-const branchSchema = {
+// Confirmed with the business: no physical branch offices exist in any emirate —
+// this is an online, service-area business. Modeled as a Service (pickup coverage
+// in this emirate) referencing the single canonical organization, not as a separate
+// LocalBusiness "Branch" entity, which would have implied a physical office here.
+const serviceSchema = {
   '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: `${COMPANY_INFO.name} - ${data.city} Branch`,
-  telephone: COMPANY_INFO.phone,
+  '@type': 'Service',
+  name: `Cargo Pickup in ${data.city}`,
   description: data.description,
+  provider: { '@id': organizationId },
   areaServed: { '@type': 'City', name: data.city },
 };
 const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
-const schema = [branchSchema, offerSchema];
+const schema = [serviceSchema, offerSchema];
 ---
 
 <Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>

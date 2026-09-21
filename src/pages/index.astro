@@ -3,10 +3,10 @@ import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import PricingTable from '../components/PricingTable.astro';
-import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../lib/site';
+import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS, sortServicesForDisplay } from '../lib/site';
 import { buildOfferCatalogSchema } from '../lib/pricing';
 
-const services = (await getCollection('services')).slice(0, 6);
+const services = sortServicesForDisplay(await getCollection('services')).slice(0, 6);
 
 const popularDestinations = [
   { name: 'Karachi', href: '/pakistan-cargo-to-karachi', desc: "Pakistan's largest port city and commercial hub" },
