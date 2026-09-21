@@ -3,7 +3,7 @@ export const COMPANY_INFO = {
   phone: '+971504948135',
   email: 'info@cargotopakistan.ae',
   website: 'https://cargotopakistan.ae',
-  address: 'Jebel Ali Free Zone, Dubai, UAE',
+  address: 'Jafza North, Jebel Ali Free Zone, Dubai, UAE',
   description:
     'Professional cargo shipping services from UAE to Pakistan with competitive rates and reliable delivery.',
 };
