@@ -2,7 +2,9 @@
 import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
+import PricingTable from '../components/PricingTable.astro';
 import { telLink, whatsappLink, COMPANY_INFO } from '../lib/site';
+import { buildOfferCatalogSchema } from '../lib/pricing';
 
 export async function getStaticPaths() {
   const origins = await getCollection('uaeLocations', ({ data }) => data.pageType === 'origin');
@@ -16,17 +18,20 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-const schema = {
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   name: `Cargo from ${data.city} to Pakistan`,
   description: data.description,
-  provider: { '@type': 'MovingCompany', name: COMPANY_INFO.name, telephone: COMPANY_INFO.phone },
+  provider: { '@id': organizationId },
   areaServed: [
     { '@type': 'City', name: data.city },
     { '@type': 'Country', name: 'Pakistan' },
   ],
 };
+const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
+const schema = [serviceSchema, offerSchema];
 ---
 
 <Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
@@ -46,6 +51,10 @@ const schema = {
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div class="lg:col-span-2 prose max-w-none">
           <Content />
+
+          <div class="mt-8 not-prose">
+            <PricingTable heading={`Cargo Rates from ${data.city} (AED)`} />
+          </div>
 
           <h2 class="text-2xl font-bold text-cargo-blue mt-8 mb-4">
             Pickup Locations in {data.city}

@@ -2,7 +2,9 @@
 import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
+import PricingTable from '../../components/PricingTable.astro';
 import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
+import { buildOfferCatalogSchema } from '../../lib/pricing';
 
 export async function getStaticPaths() {
   const areas = await getCollection('uaeLocations', ({ data }) => data.pageType === 'area');
@@ -16,7 +18,11 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-const schema = {
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+// TODO(business confirmation needed): this LocalBusiness "Branch" entity implies a physical
+// office in this emirate. Flagged in the SEO audit as a potential misrepresentation if no such
+// office exists — left as-is pending confirmation, not altered by this pricing/schema-@id pass.
+const branchSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: `${COMPANY_INFO.name} - ${data.city} Branch`,
@@ -24,6 +30,8 @@ const schema = {
   description: data.description,
   areaServed: { '@type': 'City', name: data.city },
 };
+const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
+const schema = [branchSchema, offerSchema];
 ---
 
 <Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
@@ -43,6 +51,10 @@ const schema = {
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <div class="lg:col-span-2 prose max-w-none">
           <Content />
+
+          <div class="mt-8 not-prose">
+            <PricingTable heading={`Cargo Rates from ${data.city} (AED)`} />
+          </div>
 
           <h2 class="text-2xl font-bold text-cargo-blue mt-8 mb-4">
             Popular Pickup Areas in {data.city}

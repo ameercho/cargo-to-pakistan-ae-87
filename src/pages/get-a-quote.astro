@@ -1,17 +1,14 @@
 ---
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
-import { telLink, whatsappLink } from '../lib/site';
+import { telLink, whatsappLink, COMPANY_INFO } from '../lib/site';
+import { PRICING, PRICING_NOTE, buildOfferCatalogSchema } from '../lib/pricing';
 
-const pricing = [
-  { item: 'General Items - clothes, shoes, toys, wood furniture, luggage', price: 5 },
-  { item: 'Electronics - small appliances (juicer, blender, small oven)', price: 12 },
-  { item: 'Mattress', price: 8 },
-  { item: 'Sofa', price: 12 },
-  { item: 'Furniture (dismantle)', price: 5 },
-  { item: 'Bicycle kids', price: 100 },
-  { item: 'Bicycle adult', price: 150 },
-];
+const pricing = PRICING;
+const schema = {
+  '@context': 'https://schema.org',
+  ...buildOfferCatalogSchema(`${COMPANY_INFO.website}/#organization`),
+};
 ---
 
 <Layout
@@ -20,6 +17,7 @@ const pricing = [
   keywords="pakistan cargo quote, cargo to pakistan rates, dubai to pakistan shipping quote"
   h1="Get a Free Quote for Cargo to Pakistan"
   hideChrome={true}
+  structuredData={schema}
 >
   <section class="py-8 md:py-16 hero-gradient">
     <div class="container-custom">
@@ -50,7 +48,7 @@ const pricing = [
               </table>
             </div>
             <p class="mt-3 text-sm text-orange-100">
-              Above are indicative prices. AED 30/- doc fee per invoice applies. Packing charges vary and are additional.
+              {PRICING_NOTE}
             </p>
           </div>
 

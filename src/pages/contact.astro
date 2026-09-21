@@ -9,10 +9,7 @@ const schema = {
   name: 'Contact Cargo to Pakistan',
   description: 'Get in touch with our expert team for professional cargo shipping services from UAE to Pakistan',
   mainEntity: {
-    '@type': 'Organization',
-    name: COMPANY_INFO.name,
-    telephone: COMPANY_INFO.phone,
-    address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: 'Dubai', addressLocality: 'Dubai' },
+    '@id': `${COMPANY_INFO.website}/#organization`,
   },
 };
 ---
