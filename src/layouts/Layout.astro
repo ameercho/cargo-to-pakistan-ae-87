@@ -38,11 +38,12 @@ const localBusinessSchema = {
   logo: `${COMPANY_INFO.website}/opengraph-image.png`,
   description: COMPANY_INFO.description,
   telephone: COMPANY_INFO.phone,
-  // Generic country-level address only, no specific office location: this is a
-  // service-area business with no physical branches or public-facing storefront
-  // in any single emirate — confirmed with the business.
+  // Registered address (free zone), not a branch/storefront claim — the business
+  // has no physical branches or public-facing storefront in any single emirate.
   address: {
     '@type': 'PostalAddress',
+    streetAddress: 'Jebel Ali Free Zone',
+    addressLocality: 'Dubai',
     addressCountry: 'AE',
   },
   areaServed: [

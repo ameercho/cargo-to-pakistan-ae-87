@@ -53,6 +53,12 @@ const schema = {
           <p class="text-gray-600 text-sm mb-3">Send detailed inquiries about your cargo requirements.</p>
           <a href={`mailto:${COMPANY_INFO.email}`} class="text-cargo-blue font-semibold">{COMPANY_INFO.email}</a>
         </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <Icon name="lucide:map-pin" class="w-8 h-8 text-cargo-blue mb-3" />
+          <h3 class="font-semibold text-lg mb-2">Registered Address</h3>
+          <p class="text-gray-600 text-sm mb-3">We operate as an online, service-area business across the UAE.</p>
+          <p class="text-cargo-blue font-semibold">{COMPANY_INFO.address}</p>
+        </div>
       </div>
 
       <div class="bg-white shadow-lg rounded-xl p-6 md:p-8">
