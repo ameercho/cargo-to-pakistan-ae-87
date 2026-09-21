@@ -1,6 +1,7 @@
 ---
-title: "Door to Door"
+name: "Door to Door"
 slug: "door-to-door"
+title: "Door-to-Door Cargo to Pakistan | Free Pickup from UAE"
 heroDescription: "Fast, secure, and affordable door to door cargo services from any UAE location to any address in Pakistan."
 description: "Door to door cargo shipping from UAE to Pakistan. Free pickup, professional packing, customs clearance and doorstep delivery to every city in Pakistan."
 keywords: "door to door cargo pakistan, door to door shipping UAE pakistan, home delivery cargo pakistan"

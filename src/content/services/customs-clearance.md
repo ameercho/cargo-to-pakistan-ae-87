@@ -1,6 +1,7 @@
 ---
-title: "Customs Clearance"
+name: "Customs Clearance"
 slug: "customs-clearance"
+title: "Pakistan Customs Clearance Services | UAE Cargo Experts"
 heroDescription: "Expert customs clearance services to ensure smooth and compliant import procedures for your cargo to Pakistan."
 description: "Professional customs clearance for cargo shipments to Pakistan. Documentation, duty calculation and compliance guidance from experienced customs specialists."
 keywords: "customs clearance pakistan, import documentation pakistan, customs duty calculation"

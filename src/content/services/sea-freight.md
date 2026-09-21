@@ -1,6 +1,7 @@
 ---
-title: "Sea Freight"
+name: "Sea Freight"
 slug: "sea-freight"
+title: "Sea Freight to Pakistan | Cost-Effective Cargo from Dubai"
 heroDescription: "Cost-effective ocean shipping solutions for larger cargo shipments from UAE to Pakistan with reliable delivery."
 description: "Cost-effective sea freight from UAE to Pakistan. Full Container Load and LCL options from Jebel Ali, Abu Dhabi & Sharjah to Karachi, Port Qasim and Gwadar."
 keywords: "sea freight to pakistan, sea cargo dubai to pakistan, FCL LCL pakistan, ocean shipping UAE pakistan"

@@ -1,6 +1,7 @@
 ---
-title: "Packaging"
+name: "Packaging"
 slug: "packaging"
+title: "Professional Cargo Packaging Services | UAE to Pakistan"
 heroDescription: "Expert packaging services to ensure your cargo arrives safely and securely in Pakistan."
 description: "Professional packing, custom crating and secure wrapping for cargo shipments from UAE to Pakistan. Protect your goods in transit with expert packaging."
 keywords: "cargo packaging UAE, packing services dubai, custom crating pakistan shipping"

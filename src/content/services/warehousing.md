@@ -1,6 +1,7 @@
 ---
-title: "Warehousing"
+name: "Warehousing"
 slug: "warehousing"
+title: "Warehousing & Storage Solutions | UAE to Pakistan Cargo"
 heroDescription: "Secure warehousing and storage solutions in UAE with 24/7 monitored facilities for your cargo shipments to Pakistan."
 description: "Secure, climate-controlled warehousing in Dubai, Abu Dhabi and Sharjah for cargo bound for Pakistan. 24/7 monitoring, inventory management and distribution services."
 keywords: "warehousing UAE, cargo storage dubai, warehouse pakistan shipping"

@@ -97,7 +97,7 @@ const schema = {
         {services.map((s) => (
           <a href={`/services/${s.data.slug}`} class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
             <Icon name="lucide:package" class="w-8 h-8 text-cargo-blue mb-3" />
-            <h3 class="text-xl font-semibold text-cargo-blue mb-2">{s.data.title}</h3>
+            <h3 class="text-xl font-semibold text-cargo-blue mb-2">{s.data.name}</h3>
             <p class="text-gray-600 text-sm mb-3">{s.data.heroDescription}</p>
             <span class="text-cargo-blue font-medium text-sm inline-flex items-center gap-1">
               Learn More <Icon name="lucide:arrow-right" class="w-4 h-4" />

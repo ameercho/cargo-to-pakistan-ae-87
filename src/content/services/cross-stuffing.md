@@ -1,6 +1,7 @@
 ---
-title: "Cross Stuffing"
+name: "Cross Stuffing"
 slug: "cross-stuffing"
+title: "Cross Stuffing Cargo Services | UAE to Pakistan"
 heroDescription: "Professional cross stuffing and cargo consolidation services for efficient container loading and cost-effective shipping to Pakistan."
 description: "Professional cross stuffing services for cargo consolidation and container loading. Optimize container space and reduce shipping costs on shipments to Pakistan."
 keywords: "cross stuffing UAE, cargo consolidation pakistan, container loading services"

@@ -13,7 +13,7 @@ const schema = {
     '@type': 'ListItem',
     position: i + 1,
     url: `https://cargotopakistan.ae/services/${s.data.slug}`,
-    name: s.data.title,
+    name: s.data.name,
   })),
 };
 ---
@@ -44,7 +44,7 @@ const schema = {
               <div class="bg-cargo-blue/10 p-3 rounded-lg mr-4">
                 <Icon name="lucide:package" class="w-6 h-6 text-cargo-blue" />
               </div>
-              <h2 class="text-xl font-semibold text-cargo-blue">{s.data.title}</h2>
+              <h2 class="text-xl font-semibold text-cargo-blue">{s.data.name}</h2>
             </div>
             <p class="text-gray-600 mb-4 text-sm">{s.data.heroDescription}</p>
             <a href={`/services/${s.data.slug}`} class="inline-flex items-center text-cargo-blue hover:text-cargo-green font-semibold">

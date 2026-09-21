@@ -1,6 +1,7 @@
 ---
-title: "Full Container"
+name: "Full Container"
 slug: "full-container"
+title: "Full Container Load (FCL) Shipping | UAE to Pakistan"
 heroDescription: "Dedicated container shipping solutions for large cargo volumes from UAE to Pakistan with complete container control."
 description: "Dedicated FCL container shipping from UAE to Pakistan. 20ft, 40ft and refrigerated container options with door-to-door delivery and customs clearance."
 keywords: "full container load pakistan, FCL shipping UAE pakistan, container shipping dubai to pakistan"

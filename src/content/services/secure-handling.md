@@ -1,6 +1,7 @@
 ---
-title: "Secure Handling"
+name: "Secure Handling"
 slug: "secure-handling"
+title: "Secure Cargo Handling Services | UAE to Pakistan"
 heroDescription: "Specialized secure handling services for valuable, fragile, and sensitive cargo shipments to Pakistan."
 description: "Specialized secure handling for high-value, fragile and sensitive cargo shipped from UAE to Pakistan. Enhanced security protocols and documented chain of custody."
 keywords: "secure cargo handling, high value cargo shipping pakistan, fragile cargo UAE pakistan"

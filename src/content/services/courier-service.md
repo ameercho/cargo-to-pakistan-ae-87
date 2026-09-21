@@ -1,6 +1,7 @@
 ---
-title: "Courier Service"
+name: "Courier Service"
 slug: "courier-service"
+title: "Courier & Parcel Delivery to Pakistan from UAE"
 heroDescription: "Fast and reliable courier services for urgent documents and packages from UAE to Pakistan."
 description: "Fast courier services from UAE to Pakistan for documents and packages. Express and standard options with real-time tracking to Karachi, Lahore and Islamabad."
 keywords: "courier to pakistan, express courier UAE pakistan, parcel delivery dubai to pakistan"

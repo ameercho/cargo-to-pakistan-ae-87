@@ -1,6 +1,7 @@
 ---
-title: "Air Freight"
+name: "Air Freight"
 slug: "air-freight"
+title: "Air Freight to Pakistan | Fast Express Cargo from Dubai & UAE"
 heroDescription: "Fast and reliable air freight solutions for urgent cargo shipments from UAE to Pakistan with express delivery."
 description: "Fast air freight from UAE to Pakistan. Express and standard air cargo options from Dubai, Abu Dhabi & Sharjah airports to Karachi, Lahore and Islamabad."
 keywords: "air freight to pakistan, air cargo dubai to pakistan, express air freight UAE pakistan, air cargo services"

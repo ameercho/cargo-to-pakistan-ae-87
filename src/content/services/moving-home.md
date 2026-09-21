@@ -1,6 +1,7 @@
 ---
-title: "Moving Home"
+name: "Moving Home"
 slug: "moving-home"
+title: "Home Moving & Relocation to Pakistan from UAE"
 heroDescription: "Professional home moving services for complete relocation from UAE to Pakistan with careful handling."
 description: "Complete home relocation services from UAE to Pakistan. Professional packing, door-to-door delivery and customs clearance for household belongings."
 keywords: "home moving UAE to pakistan, household relocation dubai pakistan, moving services pakistan"

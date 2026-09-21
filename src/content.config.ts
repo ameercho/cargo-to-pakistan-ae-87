@@ -39,7 +39,7 @@ const uaeLocations = defineCollection({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
   schema: seo.extend({
-    title: z.string(),
+    name: z.string(), // short display name, e.g. "Sea Freight" — distinct from the SEO `title`
     slug: z.string(),
     heroDescription: z.string(),
     servicesList: z.array(

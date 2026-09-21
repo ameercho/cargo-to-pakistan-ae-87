@@ -1,6 +1,7 @@
 ---
-title: "Consulting"
+name: "Consulting"
 slug: "consulting"
+title: "Logistics Consulting for Pakistan Cargo Shipments | UAE"
 heroDescription: "Expert logistics consulting to optimize your cargo operations and reduce costs for shipments to Pakistan."
 description: "Expert logistics consulting for UAE to Pakistan cargo shipping. Strategic planning, cost optimization and route planning from experienced consultants."
 keywords: "logistics consulting UAE, shipping consultancy pakistan, cargo cost optimization"
