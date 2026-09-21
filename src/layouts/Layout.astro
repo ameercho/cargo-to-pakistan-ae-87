@@ -38,16 +38,22 @@ const localBusinessSchema = {
   logo: `${COMPANY_INFO.website}/opengraph-image.png`,
   description: COMPANY_INFO.description,
   telephone: COMPANY_INFO.phone,
+  // Generic country-level address only, no specific office location: this is a
+  // service-area business with no physical branches or public-facing storefront
+  // in any single emirate — confirmed with the business.
   address: {
     '@type': 'PostalAddress',
     addressCountry: 'AE',
-    addressRegion: 'Dubai',
-    addressLocality: 'Dubai',
   },
   areaServed: [
     { '@type': 'City', name: 'Dubai' },
     { '@type': 'City', name: 'Abu Dhabi' },
     { '@type': 'City', name: 'Sharjah' },
+    { '@type': 'City', name: 'Ajman' },
+    { '@type': 'City', name: 'Al Ain' },
+    { '@type': 'City', name: 'Fujairah' },
+    { '@type': 'City', name: 'Ras Al Khaimah' },
+    { '@type': 'City', name: 'Umm Al Quwain' },
     { '@type': 'Country', name: 'Pakistan' },
   ],
 };

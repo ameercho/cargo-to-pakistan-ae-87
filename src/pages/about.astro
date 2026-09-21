@@ -3,17 +3,14 @@ import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
 import { COMPANY_INFO } from '../lib/site';
 
+// References the same canonical entity declared in Layout.astro rather than
+// re-declaring name/address/areaServed with different (and now conflicting)
+// values — foundingDate is the only fact this page adds that isn't already
+// on the sitewide node.
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
   '@id': `${COMPANY_INFO.website}/#organization`,
-  name: COMPANY_INFO.name,
-  description: 'Trusted UAE Pakistan shipping company providing professional cargo services since 2015',
-  url: COMPANY_INFO.website,
-  telephone: COMPANY_INFO.phone,
   foundingDate: '2015',
-  address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: 'Dubai', addressLocality: 'Dubai' },
-  areaServed: ['United Arab Emirates', 'Pakistan'],
 };
 
 const values = [
