@@ -1,0 +1,270 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
+import loadedDaylight from '../../assets/full-container/full-container-loaded-daylight.jpg';
+import warehouseLoading from '../../assets/full-container/full-container-warehouse-loading.jpeg';
+import teamOverseeingLoad from '../../assets/full-container/full-container-team-overseeing-load.jpg';
+import packedInterior from '../../assets/full-container/full-container-packed-interior.jpg';
+import professionalPacking from '../../assets/full-container/full-container-professional-packing.jpg';
+import loadingNight from '../../assets/full-container/full-container-loading-night.jpg';
+
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+
+const galleryPhotos = [
+  { src: loadedDaylight, alt: 'A fully loaded 40ft container packed and labeled, ready to ship from the UAE to Pakistan' },
+  { src: warehouseLoading, alt: 'Our team loading a shipping container at the warehouse' },
+  { src: teamOverseeingLoad, alt: 'A customer overseeing the packing of wrapped furniture and mattresses into a container' },
+  { src: packedInterior, alt: 'Inside a tightly packed container, cargo wrapped and stacked floor to ceiling' },
+  { src: professionalPacking, alt: 'A single item professionally wrapped and labeled before loading' },
+  { src: loadingNight, alt: 'A container being loaded with wrapped household cargo at night' },
+];
+
+const whoThisIsFor = [
+  {
+    title: 'Moving back home to Pakistan',
+    description: 'Send your personal effects and household goods back to Pakistan in one dedicated container.',
+    icon: 'home',
+  },
+  {
+    title: 'Relocating your entire household',
+    description: 'Years of belongings accumulated in the UAE — we pack, load, and ship it all as one shipment.',
+    icon: 'truck',
+  },
+  {
+    title: 'Sending goods while you stay in the UAE',
+    description: 'Ship household items to family in Pakistan without relocating yourself.',
+    icon: 'package',
+  },
+  {
+    title: 'Relocating quickly, for any reason',
+    description: "If you need to move fast — including after a job loss — we prioritize your booking and walk you through every step.",
+    icon: 'clock',
+  },
+];
+
+const originRoutes = [
+  {
+    city: 'Dubai',
+    description: 'Full container collection and loading from anywhere in Dubai, with door-to-door delivery in Pakistan.',
+  },
+  {
+    city: 'Abu Dhabi',
+    description: 'Full container collection and loading from anywhere in Abu Dhabi, with door-to-door delivery in Pakistan.',
+  },
+];
+
+const globalDestinations = ['United States', 'Canada', 'Australia', 'New Zealand', 'Saudi Arabia', 'Europe'];
+
+const faqs = [
+  {
+    question: 'Do you offer a fixed price for a full container?',
+    answer: "No — full container rates depend on container size, route, and cargo volume, and change with shipping conditions. Request a free quote via WhatsApp, phone, or our quote form and we'll confirm your rate.",
+  },
+  {
+    question: "What's included in the full container service?",
+    answer: 'Container booking, professional packing, customs clearance, and door-to-door delivery are all handled as part of the service.',
+  },
+  {
+    question: 'Can I ship personal effects and commercial goods in the same container?',
+    answer: "Yes, personal effects and commercial goods can generally be combined in one container. Let us know your cargo mix when requesting a quote so we can plan the load.",
+  },
+  {
+    question: 'What if I need to relocate quickly, for example after losing my job?',
+    answer: "We understand relocation is often urgent and stressful. Contact us and we'll prioritize your booking and guide you through packing, documentation, and shipping step by step.",
+  },
+  {
+    question: 'Do you help with relocation to countries other than Pakistan?',
+    answer: 'Yes. Alongside our main UAE-to-Pakistan container service, we also arrange full container relocation to the United States, Canada, Australia, New Zealand, Saudi Arabia, and Europe.',
+  },
+];
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Full Container Load (FCL) Relocation',
+  name: 'Full Container Load Relocation - Cargo to Pakistan',
+  description: 'Dedicated full container relocation for personal effects and household goods from the UAE to Pakistan, with additional routes to the United States, Canada, Australia, New Zealand, Saudi Arabia, and Europe.',
+  provider: { '@id': organizationId },
+  areaServed: [
+    { '@type': 'Country', name: 'Pakistan' },
+    { '@type': 'Country', name: 'United States' },
+    { '@type': 'Country', name: 'Canada' },
+    { '@type': 'Country', name: 'Australia' },
+    { '@type': 'Country', name: 'New Zealand' },
+    { '@type': 'Country', name: 'Saudi Arabia' },
+  ],
+};
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map((f) => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+};
+
+const schema = [serviceSchema, faqSchema];
+
+const quoteMessage = "Hi, I'd like a quote for a full container move to Pakistan.";
+---
+
+<Layout
+  title="Full Container Relocation to Pakistan | Move Your Household from UAE"
+  description="Moving your whole household back to Pakistan or starting fresh somewhere new? Full container relocation from Dubai and Abu Dhabi with door-to-door delivery, packing, and customs handled."
+  keywords="full container relocation pakistan, moving back to pakistan, household relocation uae, full container dubai to pakistan, full container abu dhabi to pakistan"
+  h1="Full Container Relocation Services from the UAE"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm mb-4">Our Most Popular Service</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Full Container Relocation Services from the UAE</h1>
+        <p class="text-lg text-gray-100 mb-4">
+          Moving your whole household back to Pakistan, or starting fresh somewhere new? Ship your full container
+          with door-to-door delivery, professional packing, and customs handled — with a dedicated space just for
+          your goods.
+        </p>
+        <p class="text-sm text-gray-200 mb-8">
+          Full container rates depend on size, route, and cargo volume — get a free quote in minutes, no obligation.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+          </a>
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+          <a href="/get-a-quote" class="btn-outline border-white text-white">Get a Quote</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Who This Service Is For</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {whoThisIsFor.map((item) => (
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 flex items-start gap-4">
+            <div class="bg-cargo-lightBlue rounded-full p-3 shrink-0">
+              <Icon name={`lucide:${item.icon}`} class="w-5 h-5 text-cargo-blue" />
+            </div>
+            <div>
+              <h3 class="font-semibold text-cargo-blue mb-1">{item.title}</h3>
+              <p class="text-sm text-gray-600">{item.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Real Shipments We've Loaded</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+        These are real photos from our own warehouse — actual containers we've packed and shipped to Pakistan.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {galleryPhotos.map((photo) => (
+          <div class="rounded-xl overflow-hidden border border-gray-100 shadow-sm aspect-square">
+            <Image src={photo.src} alt={photo.alt} width={400} height={400} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Container Options</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+        20ft and 40ft container options to match the size of your household or personal effects.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <Icon name="lucide:container" class="w-8 h-8 text-cargo-green mb-3" />
+          <h3 class="font-semibold text-lg mb-2">20ft Container</h3>
+          <p class="text-sm text-gray-600">Standard-sized container for a variety of cargo types.</p>
+        </div>
+        <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+          <Icon name="lucide:truck" class="w-8 h-8 text-cargo-green mb-3" />
+          <h3 class="font-semibold text-lg mb-2">40ft Container</h3>
+          <p class="text-sm text-gray-600">Larger container option for bigger shipments and full households.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Full Container to Pakistan, By Origin</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {originRoutes.map((route) => (
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
+            <h3 class="text-xl font-semibold text-cargo-blue mb-2">Full Container from {route.city} to Pakistan</h3>
+            <p class="text-gray-600 text-sm mb-4">{route.description}</p>
+            <a href={whatsappLink(`Hi, I'd like a quote for a full container move from ${route.city} to Pakistan.`)} target="_blank" rel="noopener noreferrer" class="text-cargo-blue font-semibold text-sm inline-flex items-center gap-1">
+              WhatsApp for {/^[aeiou]/i.test(route.city) ? 'an' : 'a'} {route.city} Quote <Icon name="lucide:arrow-right" class="w-4 h-4" />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-slate-900 text-white">
+    <div class="container-custom max-w-4xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold mb-4">Relocating Beyond Pakistan? We Can Help You Move Anywhere</h2>
+      <p class="text-gray-300 mb-8 max-w-2xl mx-auto">
+        Not moving to Pakistan? Alongside our main UAE-to-Pakistan route, we also arrange full container relocation
+        to other major destinations worldwide, including:
+      </p>
+      <div class="flex flex-wrap justify-center gap-3 mb-10">
+        {globalDestinations.map((country) => (
+          <span class="bg-white/10 border border-white/20 rounded-full px-5 py-2 text-sm font-medium">{country}</span>
+        ))}
+      </div>
+      <p class="text-gray-300 mb-6">Tell us your destination and we'll arrange a tailored quote.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink("Hi, I'd like a quote for a full container relocation. My destination is: ")} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp Us
+        </a>
+        <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group border border-gray-200 rounded-lg p-1">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-4 py-3">
+              <h3 class="font-medium text-cargo-blue m-0">{faq.question}</h3>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-lg bg-cargo-green text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">Ready to Move Your Household?</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto">Get a free, no-obligation quote for your full container relocation today.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+        </a>
+        <a href={telLink()} class="btn bg-white text-cargo-green hover:bg-gray-100"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

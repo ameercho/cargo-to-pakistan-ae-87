@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { DELIVERY_DISCLAIMER } from '../lib/pricing';
 
 const faqCategories = [
   {
@@ -7,12 +8,13 @@ const faqCategories = [
     faqs: [
       { question: 'How do I request a quote for shipping to Pakistan?', answer: "You can request a quote by filling out our online quote form, calling our customer service, or messaging us on WhatsApp. We'll need information about what you're shipping, the weight, dimensions, and destination in Pakistan to provide an accurate quote." },
       { question: 'What documents are required for shipping to Pakistan?', answer: "Required documents typically include a valid ID, a detailed inventory list, the receiver's contact information, and a completed shipping form. For commercial shipments, additional documentation like commercial invoices and certificates of origin may be required." },
+      { question: 'How long does delivery take to high-risk countries?', answer: DELIVERY_DISCLAIMER },
     ],
   },
   {
     title: 'Services & Pricing',
     faqs: [
-      { question: 'What shipping methods do you offer to Pakistan?', answer: 'We offer air freight, sea freight, and road transport services to Pakistan. Each option has different pricing and weight/size limitations to suit different shipping needs.' },
+      { question: 'What shipping methods do you offer to Pakistan?', answer: 'We offer full container service, sea freight, courier service, document courier, and packing services to Pakistan. Each option has different pricing and weight/size limitations to suit different shipping needs.' },
       { question: 'How is shipping cost calculated?', answer: 'Shipping costs are calculated based on the weight, dimensions (volumetric weight), destination in Pakistan, shipping method, and any additional services required. We provide transparent pricing with no hidden fees.' },
     ],
   },

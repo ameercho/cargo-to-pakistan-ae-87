@@ -1,0 +1,210 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
+import { DOCUMENT_COURIER_RATES, COURIER_PARTNERS, COURIER_TERMS, ACCEPTED_PAYMENTS } from '../../lib/courierRates';
+
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+
+const whatWeOffer = [
+  { title: 'Express Courier', description: 'Fast and reliable delivery for urgent documents and packages.', icon: 'zap' },
+  { title: 'Standard Courier', description: 'Cost-effective courier services with reliable delivery times.', icon: 'send' },
+  { title: 'International Shipping', description: 'Global courier solutions for packages and documents to Pakistan.', icon: 'package' },
+];
+
+const faqs = [
+  {
+    question: 'Are these rates for documents or parcels?',
+    answer: 'The rate table above is for document couriers only. Prices for packages and parcels are different and depend on weight and dimensions — contact us for a parcel quote.',
+  },
+  {
+    question: 'How is the price calculated for packages and parcels?',
+    answer: 'Price is based on the weight and dimensions you provide. Chargeable weight is either the actual weight or the volumetric weight, whichever is higher.',
+  },
+  {
+    question: 'Who pays customs duty or taxes on arrival?',
+    answer: 'Any customs duty or taxes at the destination are paid by the receiver, not included in the courier price.',
+  },
+  {
+    question: 'How do I pay for a courier booking?',
+    answer: 'Bookings are paid via an online card payment link. We accept Visa, Mastercard, Apple Pay, and Samsung Pay — cash is not accepted for courier bookings.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Courier Service',
+    name: 'Courier Service - Cargo to Pakistan',
+    description: 'Document and parcel courier service from the UAE to Pakistan via Aramex, FedEx, UPS, and DHL.',
+    provider: { '@id': organizationId },
+    areaServed: { '@type': 'Country', name: 'Pakistan' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+
+const quoteMessage = "Hi, I'd like a quote for a courier shipment to Pakistan.";
+---
+
+<Layout
+  title="Courier Service to Pakistan | Documents & Parcels via DHL, FedEx, UPS, Aramex"
+  description="Document and parcel courier service from the UAE to Pakistan via DHL, FedEx, UPS, and Aramex, with real rates and secure online card payment."
+  keywords="courier to pakistan, document courier dubai, parcel delivery uae pakistan, dhl fedex ups aramex pakistan"
+  h1="Courier Services to Pakistan"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm mb-4">Our Services</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Courier Services to Pakistan</h1>
+        <p class="text-lg text-gray-100 mb-8">
+          Documents and parcels to Pakistan via DHL, FedEx, UPS, and Aramex, with real rates and secure online
+          payment — no cash needed.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+          </a>
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        {COURIER_PARTNERS.map((partner) => (
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 flex items-center justify-center h-24">
+            <img src={partner.logo} alt={`${partner.name} logo`} class="max-h-10 max-w-full object-contain" loading="lazy" />
+          </div>
+        ))}
+      </div>
+      <p class="text-center text-gray-500 text-sm mt-6">
+        We leverage trusted global courier networks for reliable delivery to Pakistan.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Document Courier Rates to Pakistan</h2>
+      <p class="text-gray-600 text-center mb-8">
+        Rates below are for document couriers. Prices for packages and parcels are different and depend on weight
+        and dimensions — contact us for a parcel quote.
+      </p>
+      <div class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+        <table class="min-w-full text-sm">
+          <caption class="sr-only">Document courier rates and transit times by carrier</caption>
+          <thead>
+            <tr class="border-b border-gray-200 text-left bg-gray-50">
+              <th class="py-3 px-4" scope="col">Carrier</th>
+              <th class="py-3 px-4" scope="col">Price</th>
+              <th class="py-3 px-4" scope="col">Transit Time</th>
+            </tr>
+          </thead>
+          <tbody>
+            {DOCUMENT_COURIER_RATES.map((row) => (
+              <tr class="border-b border-gray-100 last:border-0">
+                <td class="py-3 px-4 flex items-center gap-2">
+                  <img src={row.logo} alt={`${row.carrier} logo`} class="h-5 w-auto object-contain" loading="lazy" />
+                  {row.carrier}
+                </td>
+                <td class="py-3 px-4 font-medium text-cargo-blue">{row.price}</td>
+                <td class="py-3 px-4 text-gray-600">
+                  {row.transit}
+                  {row.note && <span class="block text-xs text-orange-600 font-medium">{row.note}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-6 text-center">Terms & Conditions</h2>
+      <ul class="space-y-3">
+        {COURIER_TERMS.map((term) => (
+          <li class="flex items-start gap-3">
+            <Icon name="lucide:check" class="w-5 h-5 text-cargo-green shrink-0 mt-0.5" />
+            <span class="text-gray-600 text-sm">{term}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-3xl text-center">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4">Secure Online Payment</h2>
+      <p class="text-gray-600 mb-8">
+        Courier bookings are paid online via card — quick, secure, and no cash needed.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {ACCEPTED_PAYMENTS.map((method) => (
+          <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium text-gray-700 flex items-center gap-2">
+            <Icon name="lucide:credit-card" class="w-4 h-4 text-cargo-blue" /> {method}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">What We Offer</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {whatWeOffer.map((item) => (
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <Icon name={`lucide:${item.icon}`} class="w-8 h-8 text-cargo-green mb-3" />
+            <h3 class="font-semibold text-lg mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group border border-gray-200 rounded-lg p-1 bg-white">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-4 py-3">
+              <h3 class="font-medium text-cargo-blue m-0">{faq.question}</h3>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-lg bg-cargo-green text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">Ready to Send Your Courier?</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto">Get a free, no-obligation quote for your document or parcel today.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+        </a>
+        <a href={telLink()} class="btn bg-white text-cargo-green hover:bg-gray-100"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

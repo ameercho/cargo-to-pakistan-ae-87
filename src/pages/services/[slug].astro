@@ -7,7 +7,11 @@ import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../../lib
 import { buildOfferCatalogSchema } from '../../lib/pricing';
 
 export async function getStaticPaths() {
-  const services = await getCollection('services');
+  // full-container, packaging, courier-service, and moving-home each have
+  // their own dedicated page (with custom, real-rate content) so they're
+  // excluded here to avoid a duplicate-route conflict.
+  const excludedSlugs = ['full-container', 'packaging', 'courier-service', 'moving-home'];
+  const services = (await getCollection('services')).filter((entry) => !excludedSlugs.includes(entry.data.slug));
   return services.map((entry) => ({
     params: { slug: entry.data.slug },
     props: { entry },
@@ -18,10 +22,14 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-// Air Freight is not a service we actually handle — the page exists for SEO/
-// informational purposes only, so it gets no pricing table or Offer schema
-// (which would otherwise advertise rates for a service we don't provide).
-const weHandleThisService = data.slug !== 'air-freight';
+// Air Freight is not a service we actually handle (SEO/informational page
+// only). Customs Clearance, Consulting, Cross Stuffing, Warehousing, and
+// Secure Handling are all real services, but none of them price per kg the
+// way freight/pickup services do (professional staff time, per-container
+// rework, or storage pricing instead), so the shared per-kg pricing table
+// would be misleading on any of them.
+const NO_PER_KG_PRICING_SLUGS = ['air-freight', 'customs-clearance', 'consulting', 'cross-stuffing', 'warehousing', 'secure-handling'];
+const showPerKgPricing = !NO_PER_KG_PRICING_SLUGS.includes(data.slug);
 
 const organizationId = `${COMPANY_INFO.website}/#organization`;
 const serviceSchema = {
@@ -33,7 +41,7 @@ const serviceSchema = {
   provider: { '@id': organizationId },
   areaServed: { '@type': 'Country', name: 'Pakistan' },
 };
-const schema = weHandleThisService
+const schema = showPerKgPricing
   ? [serviceSchema, { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) }]
   : serviceSchema;
 
@@ -67,7 +75,7 @@ const relatedCityLinks = (data.relatedCities ?? [])
             <Content />
           </div>
 
-          {weHandleThisService && (
+          {showPerKgPricing && (
             <div class="mt-8 not-prose">
               <PricingTable heading={`${data.name} Rates (AED)`} />
             </div>
