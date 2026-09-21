@@ -1,0 +1,125 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../lib/site';
+
+const services = (await getCollection('services')).slice(0, 6);
+
+const popularDestinations = [
+  { name: 'Karachi', href: '/pakistan-cargo-to-karachi', desc: "Pakistan's largest port city and commercial hub" },
+  { name: 'Lahore', href: '/pakistan-cargo-to-lahore', desc: 'Cultural capital and second largest city' },
+  { name: 'Islamabad', href: '/pakistan-cargo-to-islamabad', desc: 'Capital city and political center' },
+  { name: 'Peshawar', href: '/pakistan-cargo-to-peshawar', desc: 'Historic northwestern gateway city' },
+];
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'MovingCompany',
+  name: COMPANY_INFO.name,
+  description: COMPANY_INFO.description,
+  url: COMPANY_INFO.website,
+  telephone: COMPANY_INFO.phone,
+  address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: 'Dubai', addressLocality: 'Dubai' },
+  areaServed: [
+    { '@type': 'City', name: 'Dubai' },
+    { '@type': 'City', name: 'Abu Dhabi' },
+    { '@type': 'City', name: 'Sharjah' },
+    { '@type': 'Country', name: 'Pakistan' },
+  ],
+};
+---
+
+<Layout
+  title="Cargo to Pakistan from UAE | Door-to-Door Shipping | Dubai, Abu Dhabi, Sharjah"
+  description="Professional door-to-door cargo shipping from Dubai, Abu Dhabi & Sharjah to Pakistan. Sea & air freight, free pickup, customs clearance. Get a free quote today."
+  keywords="cargo to pakistan, dubai to pakistan cargo, uae to pakistan shipping, door to door cargo pakistan"
+  h1="Reliable Cargo Shipping from UAE to Pakistan"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16 md:py-24">
+    <div class="container-custom">
+      <div class="max-w-2xl">
+        <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          Reliable Door-to-Door Cargo from UAE to Pakistan
+        </h1>
+        <p class="text-lg md:text-xl text-gray-100 mb-8">
+          Professional, secure, and affordable cargo shipping from Dubai, Abu Dhabi & Sharjah to every
+          corner of Pakistan. Free pickup, full customs clearance, and reliable delivery.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+          <a href={whatsappLink('Hi, I want to ship cargo to Pakistan. Can you help me with a quote?')} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-white">
+    <div class="container-custom max-w-4xl">
+      <div class="prose max-w-none text-lg text-gray-700 mb-12">
+        <p>
+          Welcome to Dubai's most trusted <strong>cargo service to Pakistan</strong>. We provide
+          professional, secure, and affordable <strong>cargo shipping from Dubai to Pakistan</strong>,
+          serving Business Bay, Deira, Bur Dubai, and all major Dubai areas. Our comprehensive Pakistan
+          cargo solutions ensure safe delivery to every corner of Pakistan.
+        </p>
+        <p>
+          Our <strong>Dubai cargo services</strong> include express air cargo to Pakistan for urgent
+          deliveries, cost-effective sea cargo from Dubai ports for bulk shipments, and full door-to-door
+          logistics.
+        </p>
+      </div>
+
+      <h2 class="text-3xl font-bold text-cargo-blue mb-8 text-center">
+        Popular Pakistan Destinations from UAE
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+        {popularDestinations.map((d) => (
+          <a href={d.href} class="bg-white border border-gray-200 rounded-lg p-6 card-hover hover:border-cargo-blue group">
+            <div class="flex items-center mb-3">
+              <Icon name="lucide:map-pin" class="w-5 h-5 text-cargo-green mr-2" />
+              <h3 class="text-lg font-semibold text-cargo-blue group-hover:text-cargo-orange">Cargo to {d.name}</h3>
+            </div>
+            <p class="text-gray-600 text-sm">{d.desc}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom">
+      <h2 class="text-3xl font-bold text-center text-cargo-blue mb-12">Our Professional Cargo Services</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((s) => (
+          <a href={`/services/${s.data.slug}`} class="bg-white rounded-xl shadow-sm border border-gray-100 p-6 card-hover">
+            <Icon name="lucide:package" class="w-8 h-8 text-cargo-blue mb-3" />
+            <h3 class="text-xl font-semibold text-cargo-blue mb-2">{s.data.name}</h3>
+            <p class="text-gray-600 text-sm mb-3">{s.data.heroDescription}</p>
+            <span class="text-cargo-blue font-medium text-sm inline-flex items-center gap-1">
+              Learn More <Icon name="lucide:arrow-right" class="w-4 h-4" />
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-lg bg-slate-900 text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Ready to Ship?</h2>
+      <p class="text-gray-300 mb-8 max-w-xl mx-auto">
+        Get a free, no-obligation quote for your cargo shipment to Pakistan today.
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink('Hi, I want to ship cargo to Pakistan. Can you help me with a quote?')} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp Estimate
+        </a>
+        <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Specialist</a>
+      </div>
+    </div>
+  </section>
+</Layout>

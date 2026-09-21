@@ -1,0 +1,80 @@
+---
+import { Icon } from 'astro-icon/components';
+import { NAVIGATION_LINKS, COMPANY_INFO, telLink } from '../lib/site';
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 bg-white border-b border-gray-100 shadow-sm">
+  <div class="container-custom flex items-center justify-between h-16 md:h-20">
+    <a href="/" class="flex items-center gap-2 font-bold text-xl text-cargo-blue">
+      <Icon name="lucide:ship" class="w-7 h-7 text-cargo-green" />
+      {COMPANY_INFO.name}
+    </a>
+
+    <nav class="hidden md:flex items-center gap-6">
+      {NAVIGATION_LINKS.main.map((link) => (
+        <a
+          href={link.href}
+          class:list={[
+            'font-medium transition-colors',
+            currentPath === link.href
+              ? 'text-cargo-blue'
+              : 'text-gray-600 hover:text-cargo-blue',
+          ]}
+        >
+          {link.name}
+        </a>
+      ))}
+    </nav>
+
+    <div class="hidden md:flex items-center gap-3">
+      <a href={telLink()} class="btn-outline text-cargo-blue border-cargo-blue">
+        <Icon name="lucide:phone" class="w-4 h-4" />
+        {COMPANY_INFO.phone}
+      </a>
+      <a href="/get-a-quote" class="btn-accent">
+        Get a Quote
+      </a>
+    </div>
+
+    <button
+      id="mobile-menu-button"
+      class="md:hidden p-2 text-gray-700"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <Icon name="lucide:menu" class="w-7 h-7" id="menu-icon" />
+      <Icon name="lucide:x" class="w-7 h-7 hidden" id="close-icon" />
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden md:hidden border-t border-gray-100 bg-white">
+    <div class="container-custom py-4 flex flex-col gap-1">
+      {NAVIGATION_LINKS.main.map((link) => (
+        <a href={link.href} class="py-3 font-medium text-gray-700 border-b border-gray-50">
+          {link.name}
+        </a>
+      ))}
+      <a href={telLink()} class="btn-outline text-cargo-blue border-cargo-blue mt-4">
+        <Icon name="lucide:phone" class="w-4 h-4" /> Call {COMPANY_INFO.phone}
+      </a>
+      <a href="/get-a-quote" class="btn-accent mt-2">Get a Quote</a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    menuIcon?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+    btn.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

@@ -1,18 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block access to system/admin areas (Current protection)
-Disallow: /admin/
-Disallow: /api/
-Disallow: /_netlify/
-Disallow: /dist/          # From my 1st suggestion: prevents indexing of raw build files
-Disallow: /node_modules/  # From my 1st suggestion: prevents indexing of library code
-
-# Crawl delay for polite crawling (Kept from your current file)
-Crawl-delay: 1
-
-# Preferred Host
-Host: https://cargotopakistan.ae
-
-# Sitemap location
-Sitemap: https://cargotopakistan.ae/sitemap.xml
+Sitemap: https://cargotopakistan.ae/sitemap-index.xml

@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+@theme {
+  --color-cargo-green: hsl(145 64% 32%);
+  --color-cargo-blue: hsl(218 100% 40%);
+  --color-cargo-orange: hsl(16 100% 60%);
+  --color-cargo-lightGreen: hsl(145 30% 93%);
+  --color-cargo-lightBlue: hsl(218 100% 95%);
+  --color-cargo-lightOrange: hsl(16 100% 93%);
+  --color-cargo-gray: hsl(210 14% 97%);
+  --radius-lg: 0.5rem;
+  --radius-md: calc(0.5rem - 2px);
+  --radius-sm: calc(0.5rem - 4px);
+}
+
+@layer base {
+  body {
+    @apply text-gray-800 antialiased bg-white;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .section-title {
+    @apply text-3xl font-bold text-gray-900 mb-4;
+  }
+
+  .section-description {
+    @apply text-lg text-gray-600 max-w-2xl mx-auto;
+  }
+
+  .tap-target {
+    @apply active:scale-95 transform transition-transform duration-75;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-md hover:-translate-y-1;
+  }
+
+  .page-section {
+    @apply py-12 md:py-16;
+  }
+
+  .page-section-lg {
+    @apply py-16 md:py-20;
+  }
+
+  .hero-gradient {
+    @apply bg-gradient-to-br from-cargo-blue to-cargo-green text-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold px-6 py-3 transition-all active:scale-95 transform duration-75 bg-cargo-blue text-white hover:bg-blue-800;
+  }
+
+  .btn-accent {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold px-6 py-3 transition-all active:scale-95 transform duration-75 bg-cargo-orange text-white hover:bg-orange-600;
+  }
+
+  .btn-whatsapp {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold px-6 py-3 transition-all active:scale-95 transform duration-75 bg-cargo-green text-white hover:opacity-90;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg font-semibold px-6 py-3 transition-all active:scale-95 transform duration-75 border border-current bg-transparent;
+  }
+}

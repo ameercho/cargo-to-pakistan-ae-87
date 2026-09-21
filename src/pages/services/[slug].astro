@@ -1,0 +1,121 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const services = await getCollection('services');
+  return services.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: data.name,
+  name: `${data.name} - Cargo to Pakistan`,
+  description: data.heroDescription,
+  provider: { '@type': 'MovingCompany', name: COMPANY_INFO.name, telephone: COMPANY_INFO.phone },
+  areaServed: { '@type': 'Country', name: 'Pakistan' },
+};
+
+const relatedCityLinks = (data.relatedCities ?? [])
+  .map((slug) => NAVIGATION_LINKS.pakistanCities.find((c) => c.href.endsWith(slug)))
+  .filter(Boolean);
+---
+
+<Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
+  <section class="hero-gradient py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm mb-4">Our Services</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">{data.h1}</h1>
+        <p class="text-lg text-gray-100 mb-8">{data.heroDescription}</p>
+        <div class="flex flex-wrap gap-4">
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+          <a href={whatsappLink(`Hello, I'm interested in your ${data.name.toLowerCase()} services to Pakistan.`)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2">
+          <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm prose max-w-none">
+            <Content />
+          </div>
+
+          {relatedCityLinks.length > 0 && (
+            <div class="mt-8">
+              <h3 class="text-xl font-semibold text-cargo-blue mb-4">Destinations Throughout Pakistan</h3>
+              <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                {relatedCityLinks.map((city) => city && (
+                  <a href={city.href} class="bg-gray-50 p-3 rounded-lg flex items-center gap-2 hover:bg-gray-100 transition-colors text-sm font-medium text-gray-700">
+                    <Icon name="lucide:map-pin" class="w-4 h-4 text-cargo-green shrink-0" /> {city.name}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        <aside class="space-y-6">
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 sticky top-24">
+            <h3 class="font-bold text-lg text-cargo-blue mb-4">Request a Quick Quote</h3>
+            <a href={whatsappLink(`Hello, I'm interested in your ${data.name.toLowerCase()} services to Pakistan.`)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full mb-3">
+              <Icon name="lucide:message-circle" class="w-4 h-4" /> WhatsApp
+            </a>
+            <a href={telLink()} class="btn-primary w-full">
+              <Icon name="lucide:phone" class="w-4 h-4" /> Call Us
+            </a>
+          </div>
+
+          {data.benefits.length > 0 && (
+            <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
+              <h3 class="font-bold text-lg text-cargo-blue mb-4">Key Benefits</h3>
+              <div class="space-y-4">
+                {data.benefits.map((b) => (
+                  <div class="flex items-start gap-3">
+                    <div class="bg-cargo-lightBlue rounded-full p-2 shrink-0">
+                      <Icon name={`lucide:${b.icon}`} class="w-4 h-4 text-cargo-blue" />
+                    </div>
+                    <div>
+                      <p class="font-medium text-sm">{b.title}</p>
+                      <p class="text-xs text-gray-500">{b.description}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </aside>
+      </div>
+
+      {data.servicesList.length > 0 && (
+        <div class="mt-16 text-center">
+          <h2 class="text-2xl font-bold text-cargo-blue mb-3">Complete {data.name} Solutions</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 text-left">
+            {data.servicesList.map((s) => (
+              <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+                <Icon name={`lucide:${s.icon}`} class="w-8 h-8 text-cargo-green mb-3" />
+                <h3 class="font-semibold text-lg mb-2">{s.title}</h3>
+                <p class="text-sm text-gray-600">{s.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+</Layout>
