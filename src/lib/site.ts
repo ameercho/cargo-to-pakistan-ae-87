@@ -25,18 +25,17 @@ export const NAVIGATION_LINKS = {
     { name: 'FAQ', href: '/faq' },
     { name: 'Contact', href: '/contact' },
   ],
-  // Air Freight deliberately listed last: we don't handle it ourselves, the
-  // page exists for SEO/informational purposes only, so it's deprioritized
-  // in every listing rather than shown alongside services we actually offer.
+  // Explicit business priority order. Air Freight stays last: we don't handle
+  // it ourselves, the page exists for SEO/informational purposes only.
   services: [
-    { name: 'Sea Freight', href: '/services/sea-freight' },
     { name: 'Full Container', href: '/services/full-container' },
     { name: 'Courier Service', href: '/services/courier-service' },
-    { name: 'Door to Door', href: '/services/door-to-door' },
-    { name: 'Packaging', href: '/services/packaging' },
-    { name: 'Warehousing', href: '/services/warehousing' },
-    { name: 'Cross Stuffing', href: '/services/cross-stuffing' },
     { name: 'Moving Home', href: '/services/moving-home' },
+    { name: 'Packaging', href: '/services/packaging' },
+    { name: 'Door to Door', href: '/services/door-to-door' },
+    { name: 'Warehousing', href: '/services/warehousing' },
+    { name: 'Sea Freight', href: '/services/sea-freight' },
+    { name: 'Cross Stuffing', href: '/services/cross-stuffing' },
     { name: 'Customs Clearance', href: '/services/customs-clearance' },
     { name: 'Secure Handling', href: '/services/secure-handling' },
     { name: 'Consulting', href: '/services/consulting' },
@@ -86,13 +85,31 @@ export function telLink() {
   return `tel:${COMPANY_INFO.phone}`;
 }
 
-// We don't actually handle air freight — that page exists for SEO purposes only,
-// so it's always sorted last wherever services are listed rather than shown
-// alongside services we actually offer.
+// Explicit business priority order for service listings (homepage, /services/
+// grid). Mirrors NAVIGATION_LINKS.services — kept as a separate slug-keyed list
+// here since content-collection entries are matched by data.slug, not name/href.
+// Air Freight stays last: we don't handle it ourselves, the page exists for
+// SEO/informational purposes only.
+const SERVICE_DISPLAY_ORDER = [
+  'full-container',
+  'courier-service',
+  'moving-home',
+  'packaging',
+  'door-to-door',
+  'warehousing',
+  'sea-freight',
+  'cross-stuffing',
+  'customs-clearance',
+  'secure-handling',
+  'consulting',
+  'air-freight',
+];
+
 export function sortServicesForDisplay<T extends { data: { slug: string } }>(services: T[]): T[] {
   return [...services].sort((a, b) => {
-    const aLast = a.data.slug === 'air-freight' ? 1 : 0;
-    const bLast = b.data.slug === 'air-freight' ? 1 : 0;
-    return aLast - bLast;
+    const aIndex = SERVICE_DISPLAY_ORDER.indexOf(a.data.slug);
+    const bIndex = SERVICE_DISPLAY_ORDER.indexOf(b.data.slug);
+    return (aIndex === -1 ? SERVICE_DISPLAY_ORDER.length : aIndex) -
+      (bIndex === -1 ? SERVICE_DISPLAY_ORDER.length : bIndex);
   });
 }
