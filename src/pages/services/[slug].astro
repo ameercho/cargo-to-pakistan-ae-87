@@ -2,7 +2,9 @@
 import { getCollection, render } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
+import PricingTable from '../../components/PricingTable.astro';
 import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../../lib/site';
+import { buildOfferCatalogSchema } from '../../lib/pricing';
 
 export async function getStaticPaths() {
   const services = await getCollection('services');
@@ -16,15 +18,18 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
-const schema = {
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
   serviceType: data.name,
   name: `${data.name} - Cargo to Pakistan`,
   description: data.heroDescription,
-  provider: { '@type': 'MovingCompany', name: COMPANY_INFO.name, telephone: COMPANY_INFO.phone },
+  provider: { '@id': organizationId },
   areaServed: { '@type': 'Country', name: 'Pakistan' },
 };
+const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
+const schema = [serviceSchema, offerSchema];
 
 const relatedCityLinks = (data.relatedCities ?? [])
   .map((slug) => NAVIGATION_LINKS.pakistanCities.find((c) => c.href.endsWith(slug)))
@@ -54,6 +59,10 @@ const relatedCityLinks = (data.relatedCities ?? [])
         <div class="lg:col-span-2">
           <div class="bg-white p-8 rounded-xl border border-gray-100 shadow-sm prose max-w-none">
             <Content />
+          </div>
+
+          <div class="mt-8 not-prose">
+            <PricingTable heading={`${data.name} Rates (AED)`} />
           </div>
 
           {relatedCityLinks.length > 0 && (

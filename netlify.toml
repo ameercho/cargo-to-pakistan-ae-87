@@ -8,22 +8,22 @@
 #    Search Console history built up on these exact paths on the old site)
 [[redirects]]
   from = "/karachi-cargo"
-  to = "/pakistan-cargo-to-karachi"
+  to = "/pakistan-cargo-to-karachi/"
   status = 301
 
 [[redirects]]
   from = "/lahore-cargo"
-  to = "/pakistan-cargo-to-lahore"
+  to = "/pakistan-cargo-to-lahore/"
   status = 301
 
 [[redirects]]
   from = "/islamabad-cargo"
-  to = "/pakistan-cargo-to-islamabad"
+  to = "/pakistan-cargo-to-islamabad/"
   status = 301
 
 [[redirects]]
   from = "/peshawar-cargo"
-  to = "/pakistan-cargo-to-peshawar"
+  to = "/pakistan-cargo-to-peshawar/"
   status = 301
 
 # Orphaned "-cargo" slugs that had real SEO metadata written for them in the
@@ -31,52 +31,52 @@
 # rather than dropping in case any were indexed/crawled via the sitemap.
 [[redirects]]
   from = "/faisalabad-cargo"
-  to = "/pakistan-cargo-to-faisalabad"
+  to = "/pakistan-cargo-to-faisalabad/"
   status = 301
 
 [[redirects]]
   from = "/gujranwala-cargo"
-  to = "/pakistan-cargo-to-gujranwala"
+  to = "/pakistan-cargo-to-gujranwala/"
   status = 301
 
 [[redirects]]
   from = "/hyderabad-cargo"
-  to = "/pakistan-cargo-to-hyderabad"
+  to = "/pakistan-cargo-to-hyderabad/"
   status = 301
 
 [[redirects]]
   from = "/larkana-cargo"
-  to = "/pakistan-cargo-to-larkana"
+  to = "/pakistan-cargo-to-larkana/"
   status = 301
 
 [[redirects]]
   from = "/multan-cargo"
-  to = "/pakistan-cargo-to-multan"
+  to = "/pakistan-cargo-to-multan/"
   status = 301
 
 [[redirects]]
   from = "/rawalpindi-cargo"
-  to = "/pakistan-cargo-to-rawalpindi"
+  to = "/pakistan-cargo-to-rawalpindi/"
   status = 301
 
 [[redirects]]
   from = "/sargodha-cargo"
-  to = "/pakistan-cargo-to-sargodha"
+  to = "/pakistan-cargo-to-sargodha/"
   status = 301
 
 [[redirects]]
   from = "/sialkot-cargo"
-  to = "/pakistan-cargo-to-sialkot"
+  to = "/pakistan-cargo-to-sialkot/"
   status = 301
 
 [[redirects]]
   from = "/areas"
-  to = "/service-areas"
+  to = "/service-areas/"
   status = 301
 
 [[redirects]]
   from = "/door-to-door-cargo"
-  to = "/services/door-to-door"
+  to = "/services/door-to-door/"
   status = 301
 
 # 2. GLOBAL HEADERS & FRESHNESS CONTROL

@@ -2,7 +2,9 @@
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../layouts/Layout.astro';
+import PricingTable from '../components/PricingTable.astro';
 import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS } from '../lib/site';
+import { buildOfferCatalogSchema } from '../lib/pricing';
 
 const services = (await getCollection('services')).slice(0, 6);
 
@@ -13,20 +15,10 @@ const popularDestinations = [
   { name: 'Peshawar', href: '/pakistan-cargo-to-peshawar', desc: 'Historic northwestern gateway city' },
 ];
 
+const organizationId = `${COMPANY_INFO.website}/#organization`;
 const schema = {
   '@context': 'https://schema.org',
-  '@type': 'MovingCompany',
-  name: COMPANY_INFO.name,
-  description: COMPANY_INFO.description,
-  url: COMPANY_INFO.website,
-  telephone: COMPANY_INFO.phone,
-  address: { '@type': 'PostalAddress', addressCountry: 'AE', addressRegion: 'Dubai', addressLocality: 'Dubai' },
-  areaServed: [
-    { '@type': 'City', name: 'Dubai' },
-    { '@type': 'City', name: 'Abu Dhabi' },
-    { '@type': 'City', name: 'Sharjah' },
-    { '@type': 'Country', name: 'Pakistan' },
-  ],
+  ...buildOfferCatalogSchema(organizationId),
 };
 ---
 
@@ -87,6 +79,12 @@ const schema = {
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-white">
+    <div class="container-custom max-w-4xl">
+      <PricingTable heading="Cargo Rates from UAE to Pakistan (AED)" />
     </div>
   </section>
 

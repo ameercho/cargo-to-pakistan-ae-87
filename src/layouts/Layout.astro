@@ -32,6 +32,7 @@ const absoluteOgImage = new URL(ogImage, Astro.site).toString();
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'MovingCompany',
+  '@id': `${COMPANY_INFO.website}/#organization`,
   name: COMPANY_INFO.name,
   url: COMPANY_INFO.website,
   logo: `${COMPANY_INFO.website}/opengraph-image.png`,
