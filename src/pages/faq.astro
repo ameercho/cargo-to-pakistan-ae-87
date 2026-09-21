@@ -7,13 +7,12 @@ const faqCategories = [
     faqs: [
       { question: 'How do I request a quote for shipping to Pakistan?', answer: "You can request a quote by filling out our online quote form, calling our customer service, or messaging us on WhatsApp. We'll need information about what you're shipping, the weight, dimensions, and destination in Pakistan to provide an accurate quote." },
       { question: 'What documents are required for shipping to Pakistan?', answer: "Required documents typically include a valid ID, a detailed inventory list, the receiver's contact information, and a completed shipping form. For commercial shipments, additional documentation like commercial invoices and certificates of origin may be required." },
-      { question: 'How long does shipping to Pakistan take?', answer: 'Shipping times vary based on the service you choose. Air freight typically takes 3-15 business days, while sea freight can take 40-100 days. Express services may deliver in as little as 3-5 days for urgent shipments.' },
     ],
   },
   {
     title: 'Services & Pricing',
     faqs: [
-      { question: 'What shipping methods do you offer to Pakistan?', answer: 'We offer air freight, sea freight, and road transport services to Pakistan. Each option has different pricing, transit times, and weight/size limitations to suit different shipping needs.' },
+      { question: 'What shipping methods do you offer to Pakistan?', answer: 'We offer air freight, sea freight, and road transport services to Pakistan. Each option has different pricing and weight/size limitations to suit different shipping needs.' },
       { question: 'How is shipping cost calculated?', answer: 'Shipping costs are calculated based on the weight, dimensions (volumetric weight), destination in Pakistan, shipping method, and any additional services required. We provide transparent pricing with no hidden fees.' },
     ],
   },
@@ -72,8 +71,8 @@ const faqSchema = {
           <div class="space-y-3">
             {category.faqs.map((faq) => (
               <details class="group border border-gray-200 rounded-lg p-1">
-                <summary class="cursor-pointer list-none flex items-center justify-between font-medium text-cargo-blue px-4 py-3">
-                  {faq.question}
+                <summary class="cursor-pointer list-none flex items-center justify-between px-4 py-3">
+                  <h3 class="font-medium text-cargo-blue m-0">{faq.question}</h3>
                   <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
                 </summary>
                 <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
