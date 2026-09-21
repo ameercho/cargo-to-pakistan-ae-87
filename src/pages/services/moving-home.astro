@@ -1,0 +1,219 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
+import { HOME_MOVING_RATES, MOVING_VEHICLES, MOVING_HOME_TERMS } from '../../lib/movingHomeRates';
+
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+
+const whatWeOffer = [
+  { title: 'Professional Packing', description: 'Expert packing and moving services for all household items.', icon: 'package' },
+  { title: 'Door to Door', description: 'Complete home relocation services from pickup to delivery.', icon: 'home' },
+  { title: 'Secure Transport', description: 'Enhanced safety measures and careful handling for valuables.', icon: 'shield-check' },
+];
+
+const faqs = [
+  {
+    question: 'Is home moving priced per kg?',
+    answer: "No. Home moving is priced by home size (studio, 1-bedroom, 2-bedroom, etc.), not per kilogram. The rates shown are an approximate guide — contact us for an exact price based on your home and belongings.",
+  },
+  {
+    question: 'Do you move homes within the UAE, or only to Pakistan?',
+    answer: "Both. We move households within the UAE (for example, relocating between Dubai, Abu Dhabi, and Sharjah), and we also handle full relocations to Pakistan — which we run as a full container move rather than a local pickup truck job.",
+  },
+  {
+    question: 'Am I responsible for anything on moving day?',
+    answer: 'Yes — parking at both pickup and drop-off locations is the customer’s responsibility, and for jobs lasting a full day or more, food for the moving staff is also the customer’s responsibility. Waiting time beyond the agreed schedule is charged additionally.',
+  },
+  {
+    question: 'What vehicles do you use for home moves?',
+    answer: 'We use 1 ton, 1.5 ton, and 3 ton pickups, sized to match the volume of your home.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Home Moving',
+    name: 'Home Moving Services - Cargo to Pakistan',
+    description: 'Home relocation within the UAE, and full household moves from the UAE to Pakistan.',
+    provider: { '@id': organizationId },
+    areaServed: [
+      { '@type': 'Country', name: 'Pakistan' },
+      { '@type': 'City', name: 'Dubai' },
+      { '@type': 'City', name: 'Abu Dhabi' },
+      { '@type': 'City', name: 'Sharjah' },
+    ],
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+
+const quoteMessage = "Hi, I'd like a quote for a home move.";
+---
+
+<Layout
+  title="Home Moving Services | Within the UAE or Relocating to Pakistan"
+  description="Professional home moving within the UAE, or a full household relocation to Pakistan. Real pricing by home size, and the vehicles we use — get a free quote today."
+  keywords="home moving uae, house movers dubai, home relocation to pakistan, movers and packers uae"
+  h1="Home Moving Services"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm mb-4">Our Services</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Home Moving Services</h1>
+        <p class="text-lg text-gray-100 mb-8">
+          Moving house within the UAE, or relocating your whole home to Pakistan? We handle both — with real,
+          size-based pricing so you know roughly what to expect before you call.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+          </a>
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Two Ways We Can Help</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
+          <Icon name="lucide:home" class="w-8 h-8 text-cargo-green mb-3" />
+          <h3 class="text-xl font-semibold text-cargo-blue mb-2">Moving Within the UAE</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            A local home move between Dubai, Abu Dhabi, Sharjah, or anywhere else in the UAE — priced by home size,
+            using our own pickup trucks.
+          </p>
+          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="text-cargo-blue font-semibold text-sm inline-flex items-center gap-1">
+            WhatsApp for a Quote <Icon name="lucide:arrow-right" class="w-4 h-4" />
+          </a>
+        </div>
+        <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6">
+          <Icon name="lucide:ship" class="w-8 h-8 text-cargo-green mb-3" />
+          <h3 class="text-xl font-semibold text-cargo-blue mb-2">Relocating to Pakistan</h3>
+          <p class="text-gray-600 text-sm mb-4">
+            Moving your entire household back to Pakistan is run as a full container shipment, not a local moving
+            job — see our dedicated Full Container Relocation page for details.
+          </p>
+          <a href="/services/full-container" class="text-cargo-blue font-semibold text-sm inline-flex items-center gap-1">
+            Full Container Relocation <Icon name="lucide:arrow-right" class="w-4 h-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Home Moving Rates (Within the UAE)</h2>
+      <p class="text-gray-600 text-center mb-8">
+        These are approximate rates to give you an idea — the exact price depends on your belongings.
+        Contact us for a firm quote.
+      </p>
+      <div class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+        <table class="min-w-full text-sm">
+          <caption class="sr-only">Approximate home moving rates by home size</caption>
+          <thead>
+            <tr class="border-b border-gray-200 text-left bg-gray-50">
+              <th class="py-3 px-4" scope="col">Home Size</th>
+              <th class="py-3 px-4" scope="col">Approximate Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {HOME_MOVING_RATES.map((row) => (
+              <tr class="border-b border-gray-100 last:border-0">
+                <td class="py-3 px-4">{row.home}</td>
+                <td class="py-3 px-4 font-medium text-cargo-blue">{row.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Our Moving Vehicles</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {MOVING_VEHICLES.map((vehicle) => (
+          <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium text-gray-700 flex items-center gap-2">
+            <Icon name="lucide:truck" class="w-4 h-4 text-cargo-blue" /> {vehicle}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-6 text-center">Terms & Conditions</h2>
+      <ul class="space-y-3">
+        {MOVING_HOME_TERMS.map((term) => (
+          <li class="flex items-start gap-3">
+            <Icon name="lucide:check" class="w-5 h-5 text-cargo-green shrink-0 mt-0.5" />
+            <span class="text-gray-600 text-sm">{term}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">What We Offer</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {whatWeOffer.map((item) => (
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <Icon name={`lucide:${item.icon}`} class="w-8 h-8 text-cargo-green mb-3" />
+            <h3 class="font-semibold text-lg mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group border border-gray-200 rounded-lg p-1 bg-white">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-4 py-3">
+              <h3 class="font-medium text-cargo-blue m-0">{faq.question}</h3>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-lg bg-cargo-green text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">Ready to Move?</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto">Get a free, no-obligation quote for your home move today.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+        </a>
+        <a href={telLink()} class="btn bg-white text-cargo-green hover:bg-gray-100"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

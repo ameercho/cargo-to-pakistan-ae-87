@@ -11,6 +11,9 @@ export const PRICING = [
 export const PRICING_NOTE =
   'Above are indicative prices. AED 30/- doc fee per invoice applies. Packing charges vary and are additional.';
 
+export const DELIVERY_DISCLAIMER =
+  'Delivery to high-risk countries takes 40 to 150 working days from the invoice date. Delays may occur due to strikes, wars, port congestions, global problems, or political issues.';
+
 export function buildOfferCatalogSchema(organizationId: string) {
   return {
     '@type': 'OfferCatalog',

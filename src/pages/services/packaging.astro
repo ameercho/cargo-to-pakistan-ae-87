@@ -1,0 +1,205 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO } from '../../lib/site';
+import { PACKING_RATES, PACKING_MATERIALS } from '../../lib/packingRates';
+import materialsStock from '../../assets/packaging/packaging-materials-stock.jpg';
+import wrappingInProgress from '../../assets/packaging/packaging-wrapping-in-progress.jpg';
+import bedWrapped from '../../assets/packaging/packaging-bed-wrapped.jpg';
+import sofaWrapped from '../../assets/packaging/packaging-sofa-wrapped.jpg';
+import wardrobeWrapped from '../../assets/packaging/packaging-wardrobe-wrapped.jpg';
+import warehouseItem from '../../assets/packaging/packaging-warehouse-item.jpg';
+
+const organizationId = `${COMPANY_INFO.website}/#organization`;
+
+const galleryPhotos = [
+  { src: materialsStock, alt: 'Stacks of corrugated boxes and packing materials in our warehouse' },
+  { src: wrappingInProgress, alt: 'Our team wrapping an item with stretch film during packing' },
+  { src: bedWrapped, alt: 'A bed professionally wrapped and labeled for shipment' },
+  { src: sofaWrapped, alt: 'A sofa fully wrapped and secured before loading' },
+  { src: wardrobeWrapped, alt: 'A wardrobe shrink-wrapped and strapped for transport' },
+  { src: warehouseItem, alt: 'A large item professionally wrapped in our warehouse' },
+];
+
+const whatWeOffer = [
+  { title: 'Professional Packing', description: 'Expert packing for all household items.', icon: 'package' },
+  { title: 'Custom Crating', description: 'Custom-built wooden crates for fragile and valuable items.', icon: 'box' },
+  { title: 'Secure Wrapping', description: 'Protective wrapping and cushioning for safe transport.', icon: 'shield' },
+];
+
+const faqs = [
+  {
+    question: 'Do your packing rates vary by item?',
+    answer: 'Yes — packing is priced per item based on its size and fragility, not a flat rate. See the rate table above for typical ranges, or contact us for an exact quote on your items.',
+  },
+  {
+    question: 'What packing materials do you use?',
+    answer: `We use ${PACKING_MATERIALS.join(', ')} to protect your items, matched to what each item needs.`,
+  },
+  {
+    question: 'Can I book packing without shipping?',
+    answer: "Yes, packing can be booked as a standalone service if you're arranging your own transport, or bundled with any of our shipping services.",
+  },
+  {
+    question: 'Do you pack fragile or valuable items?',
+    answer: 'Yes, fragile and valuable items can be custom crated in wooden crates for extra protection, in addition to standard wrapping.',
+  },
+];
+
+const schema = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    serviceType: 'Packaging',
+    name: 'Packaging Services - Cargo to Pakistan',
+    description: 'Professional item packing, custom crating, and secure wrapping for household and personal effects shipped from the UAE to Pakistan.',
+    provider: { '@id': organizationId },
+    areaServed: { '@type': 'Country', name: 'Pakistan' },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    })),
+  },
+];
+
+const quoteMessage = "Hi, I'd like a quote for packing my items.";
+---
+
+<Layout
+  title="Professional Packing Services | Item-Based Rates | UAE to Pakistan"
+  description="Professional packing for beds, sofas, wardrobes, appliances and more, with real per-item rates. Custom crating and secure wrapping for cargo shipped from UAE to Pakistan."
+  keywords="cargo packaging uae, packing rates dubai, custom crating pakistan shipping, furniture packing service"
+  h1="Professional Packing Services for Cargo to Pakistan"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/20 px-4 py-1 rounded-full text-sm mb-4">Our Services</span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">Professional Packing Services for Cargo to Pakistan</h1>
+        <p class="text-lg text-gray-100 mb-8">
+          Expert packing for beds, sofas, wardrobes, appliances, and more — with real, per-item rates so you know
+          what to expect before you book.
+        </p>
+        <div class="flex flex-wrap gap-4">
+          <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+            <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+          </a>
+          <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Real Packing, Real Care</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+        These are real photos from our own warehouse — items we've actually packed and wrapped.
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {galleryPhotos.map((photo) => (
+          <div class="rounded-xl overflow-hidden border border-gray-100 shadow-sm aspect-square">
+            <Image src={photo.src} alt={photo.alt} width={400} height={400} class="w-full h-full object-cover" loading="lazy" />
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-3xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Packing Rates by Item</h2>
+      <p class="text-gray-600 text-center mb-8">
+        Indicative rates — the exact price depends on the item's size and condition.
+      </p>
+      <div class="bg-white border border-gray-100 rounded-xl shadow-sm overflow-hidden">
+        <table class="min-w-full text-sm">
+          <caption class="sr-only">Packing rates in AED by item type</caption>
+          <thead>
+            <tr class="border-b border-gray-200 text-left bg-gray-50">
+              <th class="py-3 px-4" scope="col">Item</th>
+              <th class="py-3 px-4" scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            {PACKING_RATES.map((row) => (
+              <tr class="border-b border-gray-100 last:border-0">
+                <td class="py-3 px-4">{row.item}</td>
+                <td class="py-3 px-4 font-medium text-cargo-blue">{row.price}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p class="text-sm text-gray-500 mt-4 text-center">
+        Have a different item in mind? WhatsApp us and we'll confirm the rate.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-5xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">What We Offer</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {whatWeOffer.map((item) => (
+          <div class="bg-white p-6 rounded-xl border border-gray-100 shadow-sm">
+            <Icon name={`lucide:${item.icon}`} class="w-8 h-8 text-cargo-green mb-3" />
+            <h3 class="font-semibold text-lg mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-4 text-center">Packing Materials We Use</h2>
+      <p class="text-gray-600 text-center max-w-2xl mx-auto mb-8">
+        We use the right materials to secure each item, matched to its size and fragility.
+      </p>
+      <div class="flex flex-wrap justify-center gap-3">
+        {PACKING_MATERIALS.map((material) => (
+          <span class="bg-white border border-gray-200 rounded-full px-5 py-2 text-sm font-medium text-gray-700">{material}</span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-bold text-cargo-blue mb-8 text-center">Frequently Asked Questions</h2>
+      <div class="space-y-3">
+        {faqs.map((faq) => (
+          <details class="group border border-gray-200 rounded-lg p-1">
+            <summary class="cursor-pointer list-none flex items-center justify-between px-4 py-3">
+              <h3 class="font-medium text-cargo-blue m-0">{faq.question}</h3>
+              <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+            </summary>
+            <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section-lg bg-cargo-green text-white text-center">
+    <div class="container-custom">
+      <h2 class="text-2xl md:text-4xl font-bold mb-4">Need Your Items Packed?</h2>
+      <p class="text-lg mb-8 max-w-xl mx-auto">Get a free, no-obligation quote for packing your items today.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={whatsappLink(quoteMessage)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp for a Quote
+        </a>
+        <a href={telLink()} class="btn bg-white text-cargo-green hover:bg-gray-100"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

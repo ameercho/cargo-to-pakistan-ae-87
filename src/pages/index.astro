@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import PricingTable from '../components/PricingTable.astro';
 import { telLink, whatsappLink, COMPANY_INFO, NAVIGATION_LINKS, sortServicesForDisplay } from '../lib/site';
 import { buildOfferCatalogSchema } from '../lib/pricing';
+import { COURIER_PARTNERS } from '../lib/courierRates';
 
 const services = sortServicesForDisplay(await getCollection('services')).slice(0, 6);
 
@@ -101,6 +102,21 @@ const schema = {
               Learn More <Icon name="lucide:arrow-right" class="w-4 h-4" />
             </span>
           </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-white">
+    <div class="container-custom">
+      <p class="text-center text-sm font-medium text-gray-500 uppercase tracking-wide mb-6">
+        Courier Partners for Document &amp; Parcel Delivery
+      </p>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+        {COURIER_PARTNERS.map((partner) => (
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 flex items-center justify-center h-24">
+            <img src={partner.logo} alt={`${partner.name} logo`} class="max-h-10 max-w-full object-contain" loading="lazy" />
+          </div>
         ))}
       </div>
     </div>
