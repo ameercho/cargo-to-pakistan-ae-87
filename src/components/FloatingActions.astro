@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+import { telLink, whatsappLink, CONTACT_INFO } from '../lib/site';
+---
+
+<div class="fixed bottom-6 right-6 z-40 flex flex-col gap-3 print:hidden">
+  <a
+    href={whatsappLink(CONTACT_INFO.defaultMessage)}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat on WhatsApp"
+    class="bg-cargo-green text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform"
+  >
+    <Icon name="lucide:message-circle" class="w-6 h-6" />
+  </a>
+  <a
+    href={telLink()}
+    aria-label="Call us"
+    class="bg-cargo-blue text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform"
+  >
+    <Icon name="lucide:phone" class="w-6 h-6" />
+  </a>
+</div>

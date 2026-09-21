@@ -1,0 +1,137 @@
+---
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import { telLink, whatsappLink } from '../lib/site';
+
+const pricing = [
+  { item: 'General Items - clothes, shoes, toys, wood furniture, luggage', price: 5 },
+  { item: 'Electronics - small appliances (juicer, blender, small oven)', price: 12 },
+  { item: 'Mattress', price: 8 },
+  { item: 'Sofa', price: 12 },
+  { item: 'Furniture (dismantle)', price: 5 },
+  { item: 'Bicycle kids', price: 100 },
+  { item: 'Bicycle adult', price: 150 },
+];
+---
+
+<Layout
+  title="Get Free Quote | Pakistan Cargo from Dubai, Abu Dhabi, Sharjah & Ajman"
+  description="Get an instant quote for cargo shipping to Pakistan from UAE. No hidden fees, door-to-door service. Professional cargo services with competitive rates."
+  keywords="pakistan cargo quote, cargo to pakistan rates, dubai to pakistan shipping quote"
+  h1="Get a Free Quote for Cargo to Pakistan"
+  hideChrome={true}
+>
+  <section class="py-8 md:py-16 hero-gradient">
+    <div class="container-custom">
+      <div class="grid md:grid-cols-2 gap-8 md:gap-12 items-start">
+        <div class="space-y-6">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+            Get a Free Quote for Cargo to Pakistan from Dubai, Abu Dhabi, Sharjah & Ajman
+          </h1>
+          <p class="text-lg text-gray-100">
+            Fill out the form to get a personalized, all-inclusive quote with no hidden fees.
+          </p>
+
+          <div class="bg-white/10 rounded-lg p-4 md:p-6">
+            <h2 class="text-xl font-semibold mb-3">Pricing (AED per kg or item)</h2>
+            <div class="overflow-x-auto">
+              <table class="min-w-full text-sm">
+                <thead>
+                  <tr class="border-b border-white/20 text-left">
+                    <th class="py-1 pr-4">Item Type</th>
+                    <th class="py-1">Price (AED)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pricing.map((row) => (
+                    <tr><td class="py-1 pr-4">{row.item}</td><td class="py-1">{row.price}</td></tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p class="mt-3 text-sm text-orange-100">
+              Above are indicative prices. AED 30/- doc fee per invoice applies. Packing charges vary and are additional.
+            </p>
+          </div>
+
+          <div class="flex flex-wrap gap-4">
+            <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+            <a href={whatsappLink('Hi, I want to ship cargo to Pakistan. Can you help me with a quote?')} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+              <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-xl shadow-xl">
+          <form name="cargo-quote" method="POST" data-netlify="true" action="/thank-you" class="space-y-4">
+            <input type="hidden" name="form-name" value="cargo-quote" />
+            <p class="hidden"><label>Don't fill this out: <input name="bot-field" /></label></p>
+
+            <div class="text-center mb-6">
+              <h2 class="text-2xl font-bold text-gray-900 mb-1">Get Your Free Quote</h2>
+              <p class="text-gray-600 text-sm">Professional cargo services to Pakistan</p>
+            </div>
+
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="fullName">Full Name *</label>
+              <input id="fullName" name="fullName" type="text" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5" placeholder="Enter your full name" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="phone">Phone Number *</label>
+              <input id="phone" name="phone" type="tel" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5" placeholder="+971 50 123 4567" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="email">Email Address *</label>
+              <input id="email" name="email" type="email" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5" placeholder="your.email@example.com" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="originCity">Origin City *</label>
+              <select id="originCity" name="originCity" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5">
+                <option value="">Select pickup city</option>
+                <option value="dubai">Dubai</option>
+                <option value="abu-dhabi">Abu Dhabi</option>
+                <option value="sharjah">Sharjah</option>
+                <option value="ajman">Ajman</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="destinationCity">Destination City in Pakistan *</label>
+              <input id="destinationCity" name="destinationCity" type="text" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5" placeholder="e.g. Karachi, Lahore, Islamabad" />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="cargoType">Cargo Type *</label>
+              <select id="cargoType" name="cargoType" required class="w-full rounded-lg border border-gray-300 px-4 py-2.5">
+                <option value="">Select cargo type</option>
+                <option value="personal">Personal</option>
+                <option value="commercial">Commercial</option>
+                <option value="household">Household Goods</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1" for="message">Message / Details</label>
+              <textarea id="message" name="message" rows="3" class="w-full rounded-lg border border-gray-300 px-4 py-2.5" placeholder="Tell us about your cargo (weight, dimensions, special requirements)"></textarea>
+            </div>
+
+            <button type="submit" class="btn-accent w-full text-lg py-3">Get My Free Quote</button>
+            <p class="text-xs text-gray-500 text-center">We'll respond within 2 hours with your personalized quote</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section bg-gray-50">
+    <div class="container-custom text-center max-w-2xl mx-auto">
+      <h2 class="text-3xl font-bold text-cargo-blue mb-4">Ready to Ship Your Cargo to Pakistan?</h2>
+      <p class="text-gray-600 mb-8">Get your free quote above or contact us directly for immediate assistance.</p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href={telLink()} class="btn-accent"><Icon name="lucide:phone" class="w-5 h-5" /> Call Us</a>
+        <a href={whatsappLink('Hi, I want to ship cargo to Pakistan. Can you help me with a quote?')} target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
+          <Icon name="lucide:message-circle" class="w-5 h-5" /> WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>

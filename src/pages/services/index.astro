@@ -1,0 +1,58 @@
+---
+import { getCollection } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Layout from '../../layouts/Layout.astro';
+
+const services = await getCollection('services');
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'Cargo Services to Pakistan',
+  itemListElement: services.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    url: `https://cargotopakistan.ae/services/${s.data.slug}`,
+    name: s.data.title,
+  })),
+};
+---
+
+<Layout
+  title="Our Cargo Services | Dubai & UAE to Pakistan"
+  description="Explore our full range of cargo services from Dubai and UAE to Pakistan, including air freight, sea freight, door-to-door delivery, and household moving."
+  keywords="cargo services dubai, shipping services uae to pakistan, air freight dubai pakistan"
+  h1="Comprehensive Cargo Services from UAE to Pakistan"
+  structuredData={schema}
+>
+  <section class="hero-gradient py-16">
+    <div class="container-custom">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Comprehensive Cargo Services from UAE to Pakistan</h1>
+      <p class="text-lg text-gray-100 max-w-2xl">
+        Professional shipping solutions including sea freight, air freight, courier services, and complete
+        logistics support for all your cargo needs from UAE to Pakistan.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((s) => (
+          <div class="bg-white rounded-xl shadow-md border border-gray-100 p-6 card-hover">
+            <div class="flex items-center mb-4">
+              <div class="bg-cargo-blue/10 p-3 rounded-lg mr-4">
+                <Icon name="lucide:package" class="w-6 h-6 text-cargo-blue" />
+              </div>
+              <h2 class="text-xl font-semibold text-cargo-blue">{s.data.title}</h2>
+            </div>
+            <p class="text-gray-600 mb-4 text-sm">{s.data.heroDescription}</p>
+            <a href={`/services/${s.data.slug}`} class="inline-flex items-center text-cargo-blue hover:text-cargo-green font-semibold">
+              Learn More <Icon name="lucide:arrow-right" class="w-4 h-4 ml-2" />
+            </a>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

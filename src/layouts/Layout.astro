@@ -1,0 +1,177 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import { COMPANY_INFO, GTM_ID } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string;
+  h1?: string;
+  ogImage?: string;
+  hideChrome?: boolean;
+  structuredData?: Record<string, unknown> | Record<string, unknown>[];
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description,
+  keywords,
+  ogImage = '/opengraph-image.png',
+  hideChrome = false,
+  structuredData,
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const absoluteOgImage = new URL(ogImage, Astro.site).toString();
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MovingCompany',
+  name: COMPANY_INFO.name,
+  url: COMPANY_INFO.website,
+  logo: `${COMPANY_INFO.website}/opengraph-image.png`,
+  description: COMPANY_INFO.description,
+  telephone: COMPANY_INFO.phone,
+  address: {
+    '@type': 'PostalAddress',
+    addressCountry: 'AE',
+    addressRegion: 'Dubai',
+    addressLocality: 'Dubai',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Dubai' },
+    { '@type': 'City', name: 'Abu Dhabi' },
+    { '@type': 'City', name: 'Sharjah' },
+    { '@type': 'Country', name: 'Pakistan' },
+  ],
+};
+
+const schemas = [localBusinessSchema, ...(structuredData ? [structuredData].flat() : [])];
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#37b05d" />
+
+    {schemas.map((schema) => (
+      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    ))}
+
+    {GTM_ID && (
+      <script is:inline define:vars={{ GTM_ID }}>
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', GTM_ID);
+      </script>
+    )}
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <script is:inline>
+      // The old site registered a service worker. Returning visitors' browsers
+      // keep it running on this origin even though this site never registers
+      // one — actively unregister it so no one gets served stale cached HTML
+      // from before the migration.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then((regs) => {
+          regs.forEach((reg) => reg.unregister());
+        });
+      }
+    </script>
+    {GTM_ID && (
+      <noscript>
+        <iframe
+          src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+          height="0"
+          width="0"
+          style="display:none;visibility:hidden"
+        />
+      </noscript>
+    )}
+
+    {!hideChrome && <Header />}
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {!hideChrome && <Footer />}
+    {!hideChrome && <FloatingActions />}
+
+    <!--
+      Hidden Netlify Forms registration.
+      Netlify detects forms by scanning built HTML for `data-netlify`/`netlify`
+      attributes. Every form name used anywhere on the site (visible forms AND
+      any referenced-but-not-yet-built ones) must have a static instance
+      somewhere so Netlify registers it at deploy time. Ported as-is from the
+      old site's index.html.
+    -->
+    <form name="contact" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="subject" />
+      <select name="inquiry"><option>quote</option></select>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="cargo-quote" netlify hidden>
+      <input type="text" name="fullName" />
+      <input type="tel" name="phone" />
+      <input type="email" name="email" />
+      <select name="originCity"><option>dubai</option></select>
+      <input type="text" name="destinationCity" />
+      <select name="cargoType"><option>personal</option></select>
+      <textarea name="message"></textarea>
+    </form>
+    <form name="quote" netlify hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="phone" />
+      <input type="text" name="fromLocation" />
+      <input type="text" name="toLocation" />
+      <input type="text" name="serviceType" />
+      <input type="text" name="weight" />
+      <textarea name="description"></textarea>
+    </form>
+    {['abudhabi', 'ajman', 'alain', 'dubai', 'fujairah', 'rasalkhaimah', 'sharjah', 'ummalquwain'].map((area) => (
+      <form name={`${area}-pickup`} netlify hidden>
+        <input type="text" name="name" />
+        <input type="text" name="phone" />
+        <input type="text" name="location" />
+      </form>
+    ))}
+  </body>
+</html>

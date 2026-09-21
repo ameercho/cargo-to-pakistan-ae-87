@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const faqCategories = [
+  {
+    title: 'Shipping Process',
+    faqs: [
+      { question: 'How do I request a quote for shipping to Pakistan?', answer: "You can request a quote by filling out our online quote form, calling our customer service, or messaging us on WhatsApp. We'll need information about what you're shipping, the weight, dimensions, and destination in Pakistan to provide an accurate quote." },
+      { question: 'What documents are required for shipping to Pakistan?', answer: "Required documents typically include a valid ID, a detailed inventory list, the receiver's contact information, and a completed shipping form. For commercial shipments, additional documentation like commercial invoices and certificates of origin may be required." },
+      { question: 'How long does shipping to Pakistan take?', answer: 'Shipping times vary based on the service you choose. Air freight typically takes 3-15 business days, while sea freight can take 40-100 days. Express services may deliver in as little as 3-5 days for urgent shipments.' },
+    ],
+  },
+  {
+    title: 'Services & Pricing',
+    faqs: [
+      { question: 'What shipping methods do you offer to Pakistan?', answer: 'We offer air freight, sea freight, and road transport services to Pakistan. Each option has different pricing, transit times, and weight/size limitations to suit different shipping needs.' },
+      { question: 'How is shipping cost calculated?', answer: 'Shipping costs are calculated based on the weight, dimensions (volumetric weight), destination in Pakistan, shipping method, and any additional services required. We provide transparent pricing with no hidden fees.' },
+    ],
+  },
+  {
+    title: 'Tracking & Delivery',
+    faqs: [
+      { question: 'How can I track my shipment?', answer: "You can track your shipment using the tracking number provided in your confirmation email. Contact our support team any time for a real-time update on your cargo's location and status." },
+      { question: 'What happens if no one is available to receive the shipment?', answer: 'If the recipient is not available at the time of delivery, our delivery team will leave a notification and attempt delivery again. After multiple failed attempts, the package will be held at a local facility for pickup.' },
+      { question: 'Do you offer door-to-door delivery in Pakistan?', answer: 'Yes, we offer door-to-door delivery services to most areas in Pakistan. For remote locations, we may work with local partners to ensure your cargo reaches its final destination safely.' },
+    ],
+  },
+  {
+    title: 'Customs & Regulations',
+    faqs: [
+      { question: 'How do customs clearance procedures work?', answer: 'Our team handles the customs clearance process, preparing and submitting all necessary documentation. Customs in Pakistan will inspect the shipment and may apply duties or taxes which are typically the responsibility of the recipient.' },
+      { question: 'Are there any prohibited items I cannot ship to Pakistan?', answer: 'Yes, prohibited items include weapons, illegal drugs, pornography, alcohol, pork products, and certain electronic devices. There are also restrictions on shipping currency, jewelry, and certain medications.' },
+      { question: 'Will I have to pay customs duties and taxes?', answer: 'Yes, most shipments to Pakistan are subject to customs duties and taxes, which are typically paid by the recipient upon delivery. The amount depends on the type and value of goods being shipped.' },
+    ],
+  },
+];
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqCategories.flatMap((c) =>
+    c.faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.question,
+      acceptedAnswer: { '@type': 'Answer', text: f.answer },
+    }))
+  ),
+};
+---
+
+<Layout
+  title="FAQ | Cargo to Pakistan Shipping Questions Answered"
+  description="Find answers to common questions about cargo shipping from UAE to Pakistan — process, pricing, tracking, customs, and delivery."
+  keywords="pakistan cargo faq, uae to pakistan shipping questions, cargo customs pakistan"
+  h1="Frequently Asked Questions"
+  structuredData={faqSchema}
+>
+  <section class="hero-gradient py-16">
+    <div class="container-custom">
+      <h1 class="text-3xl md:text-5xl font-bold mb-4">Frequently Asked Questions</h1>
+      <p class="text-lg text-gray-100 max-w-2xl">
+        Find answers to common questions about our cargo services to Pakistan.
+      </p>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom max-w-4xl">
+      {faqCategories.map((category) => (
+        <div class="mb-12">
+          <h2 class="text-2xl font-bold text-cargo-blue mb-6">{category.title}</h2>
+          <div class="space-y-3">
+            {category.faqs.map((faq) => (
+              <details class="group border border-gray-200 rounded-lg p-1">
+                <summary class="cursor-pointer list-none flex items-center justify-between font-medium text-cargo-blue px-4 py-3">
+                  {faq.question}
+                  <span class="text-gray-400 group-open:rotate-180 transition-transform">▾</span>
+                </summary>
+                <p class="px-4 pb-4 text-gray-600">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <div class="bg-gray-50 p-8 rounded-xl text-center">
+        <h3 class="text-xl font-bold text-cargo-blue mb-3">Can't find what you're looking for?</h3>
+        <p class="text-gray-600 mb-6">Please don't hesitate to contact us directly.</p>
+        <a href="/contact" class="btn-primary">Contact Us</a>
+      </div>
+    </div>
+  </section>
+</Layout>

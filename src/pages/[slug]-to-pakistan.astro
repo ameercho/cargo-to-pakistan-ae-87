@@ -1,0 +1,76 @@
+---
+import { getCollection, render } from 'astro:content';
+import { Icon } from 'astro-icon/components';
+import Layout from '../layouts/Layout.astro';
+import { telLink, whatsappLink, COMPANY_INFO } from '../lib/site';
+
+export async function getStaticPaths() {
+  const origins = await getCollection('uaeLocations', ({ data }) => data.pageType === 'origin');
+  return origins.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `Cargo from ${data.city} to Pakistan`,
+  description: data.description,
+  provider: { '@type': 'MovingCompany', name: COMPANY_INFO.name, telephone: COMPANY_INFO.phone },
+  areaServed: [
+    { '@type': 'City', name: data.city },
+    { '@type': 'Country', name: 'Pakistan' },
+  ],
+};
+---
+
+<Layout title={data.title} description={data.description} keywords={data.keywords} ogImage={data.ogImage} structuredData={schema}>
+  <section class="bg-slate-900 text-white py-16 md:py-20">
+    <div class="container-custom">
+      <div class="max-w-3xl">
+        <span class="inline-block bg-white/10 border border-white/20 px-4 py-1 rounded-full text-sm mb-4">
+          UAE Logistics Hub: {data.city}
+        </span>
+        <h1 class="text-3xl md:text-5xl font-bold mb-4 leading-tight">{data.h1}</h1>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-10">
+        <div class="lg:col-span-2 prose max-w-none">
+          <Content />
+
+          <h2 class="text-2xl font-bold text-cargo-blue mt-8 mb-4">
+            Pickup Locations in {data.city}
+          </h2>
+          <div class="flex flex-wrap gap-3 not-prose">
+            {data.locations.map((loc) => (
+              <span class="bg-gray-50 border border-gray-100 rounded-full px-4 py-2 text-sm font-medium text-gray-700">
+                {loc}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <aside class="space-y-4">
+          <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 sticky top-24">
+            <h3 class="font-bold text-lg text-cargo-blue mb-4">Request a Quote</h3>
+            <a href={whatsappLink(`Hi, I want to ship cargo from ${data.city} to Pakistan.`)} target="_blank" rel="noopener noreferrer" class="btn-whatsapp w-full mb-3">
+              <Icon name="lucide:message-circle" class="w-4 h-4" /> WhatsApp Quote
+            </a>
+            <a href={telLink()} class="btn-primary w-full">
+              <Icon name="lucide:phone" class="w-4 h-4" /> Call Us
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </section>
+</Layout>
