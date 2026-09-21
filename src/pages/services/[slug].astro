@@ -18,6 +18,11 @@ const { entry } = Astro.props;
 const { data } = entry;
 const { Content } = await render(entry);
 
+// Air Freight is not a service we actually handle — the page exists for SEO/
+// informational purposes only, so it gets no pricing table or Offer schema
+// (which would otherwise advertise rates for a service we don't provide).
+const weHandleThisService = data.slug !== 'air-freight';
+
 const organizationId = `${COMPANY_INFO.website}/#organization`;
 const serviceSchema = {
   '@context': 'https://schema.org',
@@ -28,8 +33,9 @@ const serviceSchema = {
   provider: { '@id': organizationId },
   areaServed: { '@type': 'Country', name: 'Pakistan' },
 };
-const offerSchema = { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) };
-const schema = [serviceSchema, offerSchema];
+const schema = weHandleThisService
+  ? [serviceSchema, { '@context': 'https://schema.org', ...buildOfferCatalogSchema(organizationId) }]
+  : serviceSchema;
 
 const relatedCityLinks = (data.relatedCities ?? [])
   .map((slug) => NAVIGATION_LINKS.pakistanCities.find((c) => c.href.endsWith(slug)))
@@ -61,9 +67,11 @@ const relatedCityLinks = (data.relatedCities ?? [])
             <Content />
           </div>
 
-          <div class="mt-8 not-prose">
-            <PricingTable heading={`${data.name} Rates (AED)`} />
-          </div>
+          {weHandleThisService && (
+            <div class="mt-8 not-prose">
+              <PricingTable heading={`${data.name} Rates (AED)`} />
+            </div>
+          )}
 
           {relatedCityLinks.length > 0 && (
             <div class="mt-8">

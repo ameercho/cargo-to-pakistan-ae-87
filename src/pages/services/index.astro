@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import { Icon } from 'astro-icon/components';
 import Layout from '../../layouts/Layout.astro';
+import { sortServicesForDisplay } from '../../lib/site';
 
-const services = await getCollection('services');
+const services = sortServicesForDisplay(await getCollection('services'));
 
 const schema = {
   '@context': 'https://schema.org',
