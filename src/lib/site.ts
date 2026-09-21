@@ -29,12 +29,12 @@ export const NAVIGATION_LINKS = {
   // it ourselves, the page exists for SEO/informational purposes only.
   services: [
     { name: 'Full Container', href: '/services/full-container' },
+    { name: 'Sea Freight', href: '/services/sea-freight' },
     { name: 'Courier Service', href: '/services/courier-service' },
     { name: 'Moving Home', href: '/services/moving-home' },
     { name: 'Packaging', href: '/services/packaging' },
     { name: 'Door to Door', href: '/services/door-to-door' },
     { name: 'Warehousing', href: '/services/warehousing' },
-    { name: 'Sea Freight', href: '/services/sea-freight' },
     { name: 'Cross Stuffing', href: '/services/cross-stuffing' },
     { name: 'Customs Clearance', href: '/services/customs-clearance' },
     { name: 'Secure Handling', href: '/services/secure-handling' },
@@ -92,12 +92,12 @@ export function telLink() {
 // SEO/informational purposes only.
 const SERVICE_DISPLAY_ORDER = [
   'full-container',
+  'sea-freight',
   'courier-service',
   'moving-home',
   'packaging',
   'door-to-door',
   'warehousing',
-  'sea-freight',
   'cross-stuffing',
   'customs-clearance',
   'secure-handling',
