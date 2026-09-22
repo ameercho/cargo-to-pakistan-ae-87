@@ -1,69 +1,86 @@
-# Welcome to your Lovable project
+# Cargo to Pakistan (cargotopakistan.ae)
 
-## Project info
+Static marketing site for a UAE-based cargo and relocation business shipping household
+goods, personal effects, and commercial cargo from the UAE to Pakistan (full container,
+sea freight, courier, packing, and home moving services).
 
-**URL**: https://lovable.dev/projects/76e261ed-2b68-4ea6-bb4b-42b9110ee4b3
+**Live site:** https://cargotopakistan.ae
 
-## How can I edit this code?
+## Stack
 
-There are several ways of editing your application.
+- **[Astro](https://astro.build) 7** — static site generation (`output: 'static'`), no
+  server runtime, no database
+- **Tailwind CSS 4** — CSS-native config via `@theme` in `src/styles/global.css`
+- **Astro Content Collections** — all destination/service/location content lives as
+  Markdown in `src/content/`, typed and validated via `src/content.config.ts`
+- **[Netlify](https://netlify.com)** — hosting, forms (native Netlify Forms, no custom
+  backend), and redirects (`netlify.toml`)
 
-**Use Lovable**
+There is no CMS and no database by design — all content is git-based Markdown, editable
+directly in this repo.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/76e261ed-2b68-4ea6-bb4b-42b9110ee4b3) and start prompting.
+## Project structure
 
-Changes made via Lovable will be committed automatically to this repo.
-
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+```
+src/
+  content/
+    destinations/     16 Pakistan-city pages   (/pakistan-cargo-to-{city}/)
+    uaeLocations/      8 UAE origin/area pages  (/{city}-to-pakistan/, /areas/{area}/)
+    services/         12 service entries used by the shared services/[slug].astro
+                       template and by listings (homepage, /services/)
+  pages/
+    services/
+      [slug].astro           shared template for most services
+      full-container.astro   dedicated page (real photos, relocation-focused rates)
+      packaging.astro        dedicated page (real per-item packing rates)
+      courier-service.astro  dedicated page (real carrier rates, DHL/FedEx/UPS/Aramex)
+      moving-home.astro      dedicated page (UAE-local moving rates + vehicle fleet)
+    pakistan-cargo-to-[slug].astro   destination page template
+    [slug]-to-pakistan.astro        UAE origin page template
+    areas/[slug].astro             UAE area page template
+    index.astro, about.astro, contact.astro, faq.astro, get-a-quote.astro, ... static pages
+  layouts/Layout.astro    shared <head>, canonical/OG/Twitter tags, sitewide JSON-LD,
+                          GTM, and the hidden Netlify Forms registrations
+  components/             shared UI (Header, Footer, PricingTable, FloatingActions, ...)
+  lib/                    site config, pricing/rate data, small typed helpers
+  assets/                 real photos, processed through Astro's image pipeline
+                          (astro:assets) — resized/optimized/converted to WebP at build
+public/                  files served as-is (favicon, manifest, courier partner SVG logos)
+_legacy/                 the pre-migration Vite + React + Supabase source, kept for
+                          reference only — not built, not deployed
 ```
 
-**Edit a file directly in GitHub**
+Four services (Full Container, Packaging, Courier Service, Moving Home) have their own
+dedicated page instead of the shared `[slug].astro` template, because each needed a
+genuinely different content shape (real per-item or per-carrier rates, real photos,
+service-specific FAQs) rather than the generic per-kg pricing table used elsewhere.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+## Getting started
 
-**Use GitHub Codespaces**
+```sh
+npm install
+npm run dev       # http://localhost:4321, hot-reloading
+npm run build     # outputs to dist/
+npm run preview   # serve the production build locally
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Content & pricing
 
-## What technologies are used for this project?
+- Per-kg pricing data lives in `src/lib/pricing.ts`.
+- Service-specific rate tables (packing, courier, moving) live alongside the pages that
+  use them in `src/lib/*Rates.ts`.
+- To add or edit a destination/service/location page, edit or add a Markdown file under
+  `src/content/` — schemas are enforced in `src/content.config.ts`.
 
-This project is built with .
+## Deployment
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Netlify builds from `main` via `npm run build` (see `netlify.toml` for redirects,
+security headers, and cache rules). Auto-publish is currently **disabled** — deploys are
+triggered manually from the Netlify dashboard after a merge to `main`.
 
-## How can I deploy this project?
+## History
 
-Simply open [Lovable](https://lovable.dev/projects/76e261ed-2b68-4ea6-bb4b-42b9110ee4b3) and click on Share -> Publish.
-
-## I want to use a custom domain - is that possible?
-
-We don't support custom domains (yet). If you want to deploy your project under your own domain then we recommend using Netlify. Visit our docs for more details: [Custom domains](https://docs.lovable.dev/tips-tricks/custom-domain/)
+This site was rebuilt from a Vite + React + Supabase SPA (preserved in `_legacy/`) to
+static Astro in 2026, after the previous stack's client-side prerendering silently
+served empty content to search crawlers, blocking organic indexing entirely. The rebuild
+prioritizes genuinely static, crawlable HTML with no server-side rendering step to fail.
