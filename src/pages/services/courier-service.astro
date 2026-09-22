@@ -86,7 +86,7 @@ const quoteMessage = "Hi, I'd like a quote for a courier shipment to Pakistan.";
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
         {COURIER_PARTNERS.map((partner) => (
           <div class="bg-white border border-gray-100 rounded-xl shadow-sm p-6 flex items-center justify-center h-24">
-            <img src={partner.logo} alt={`${partner.name} logo`} class="max-h-10 max-w-full object-contain" loading="lazy" />
+            <img src={partner.logo} alt={`${partner.name} logo`} width="120" height="40" class="max-h-10 max-w-full object-contain" loading="lazy" />
           </div>
         ))}
       </div>
@@ -117,7 +117,7 @@ const quoteMessage = "Hi, I'd like a quote for a courier shipment to Pakistan.";
             {DOCUMENT_COURIER_RATES.map((row) => (
               <tr class="border-b border-gray-100 last:border-0">
                 <td class="py-3 px-4 flex items-center gap-2">
-                  <img src={row.logo} alt={`${row.carrier} logo`} class="h-5 w-auto object-contain" loading="lazy" />
+                  <img src={row.logo} alt={`${row.carrier} logo`} width="60" height="20" class="h-5 w-auto object-contain" loading="lazy" />
                   {row.carrier}
                 </td>
                 <td class="py-3 px-4 font-medium text-cargo-blue">{row.price}</td>
